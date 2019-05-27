@@ -1,0 +1,159 @@
+<html>
+<head>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/flot/jquery.flot.demo.js"></script>
+	<script type="text/javascript" src="js/flot/jquery.flot.time.js"></script>
+	<script type="text/javascript" src="js/simulator.js"></script>
+	<script type="text/javascript" src="js/simulator.pairs.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=latin,cyrillic-ext,cyrillic" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="css/animate.css" />
+	<link rel="stylesheet" type="text/css" href="css/simulator.css" />
+	<link rel="stylesheet" type="text/css" href="css/simulator.pairs.css" />
+	<style>
+	</style>
+	
+	<script>
+	$(function(){
+		simulatorPairs.init(); 
+	}); 	
+	</script>
+</head>
+<body>
+	<div id="content">
+		<div id="demo-wrapper" class="simulator pairs">
+			<div id="demo-content">
+				<div id="profit-popup" class="">
+					<h3>Congratulations. <br/>Well done!</h3>
+					<p>You could have just profited <strong><span id="profit"></span> US!</strong></p>
+					<a href="" class="btn open-acc"><span>Open real trading<br/>account now</span></a>
+				</div>
+				<form>
+					<div class="tips">
+						<div class="tip assets">
+							<div class="hint">
+								<h2>Select the asset</h2>
+								<p>You can choose from a<br/> variety of assets by<br/> clicking on the asset's<br/> drop-down menu</p>
+							</div>							
+						</div>
+						<div class="tip expiry">
+							<div class="hint">
+								<h2>Choose your</h2>
+								<p>expiry date and time</p>
+							</div>						
+						</div>						
+						<div class="tip amount">
+							<div class="hint">
+								<h2>Enter the amount</h2>
+								<p>you would like to trade</p>
+							</div>						
+						</div>						
+						<div class="tip direction">
+							<div class="hint">
+								<h2>Choose better performer</h2>
+								<p>Click on the asset you believe will<br/> rise higher in price by percentage<br/> points by the expiry</p>
+							</div>							
+						</div>
+					</div>
+					<div class="d-head">
+						<ul>
+							<li class="act open assets">
+								<label>Assets</label>
+								<select>
+                                     <option selected value="Gold vs Silver" data-icon="GOLD|SILVER">
+                                         GOLD vs SILVER
+                                     </option>
+                                     <option value="BMW vs. DAIMLER" data-icon="BMW|DAIMLER">
+                                         BMW vs. DAIMLER
+                                     </option>
+                                     <option value="SIEMENS vs. E-ON" data-icon="SIEMENS|E-ON">
+                                         SIEMENS vs. E-ON
+                                     </option>
+								</select>
+							</li>
+							<li class="act expiry">
+								<label>Expiry</label>
+								<select>
+									<option value="">Select Expiry</option>
+								</select>							
+							</li>
+							<li class="act amount">
+								<label>Amount $</label>
+								<input type="text" value="25"/>
+							</li>
+						</ul>
+					</div>
+					<div class="d-body">
+						<div class="d-body-el symbol-value">
+							<p>WHICH WILL PERFORM BETTER?</p>
+							<ul>
+								<li><i id="left-flag" class="flag left EUR-USD"></i><span id="left-flag-text">EUR</li>
+								<li class="devision"> <span>OR</span> </li>
+								<li><i id="right-flag" class="flag left EUR-USD"></i><span id="right-flag-text">USD</span></li>
+							</ul>
+						</div>					
+						<div class="d-body-el chart">
+							<div class="inner1">
+								<div class="inner2">
+									<ul class="periods">
+										<li>30m</li>
+										<li class="active">1h</li>
+										<li>2h</li>
+										<li>4h</li>
+										<li>8h</li>
+										<li>12h</li>
+									</ul>
+									<div class="chart-wrapper">
+										<div id="chart"></div>
+										<div class="trader-choice">
+											<div class="progress-bar">
+												<div class="bar left"></div>
+												<div class="bar right"></div>
+											</div>
+											<div class="info">
+												<table>
+													<tr>
+														<td class="l">46%</td>
+														<td class="c">Trader Choice</td>
+														<td class="r">54%</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="d-body-el act direction">
+							<ul>
+								<li class="direct above"><a href="#above"></a></li>
+								<li class="price-value">1.43<span>534</span></li>
+								<li class="direct below"><a href="#below"></a></li>
+							</ul>
+						</div>
+						<div class="d-body-el info">
+							<table>
+								<tr>
+									<td class="potencial">
+										<label>Potential Payout</label>
+										<span id="potencial">$ 0</span>
+									</td>
+									<td class="payout" rowspan="2">
+										Payout
+										<span>82%</span>
+									</td>									
+								</tr>	
+								<tr>
+									<td class="protected">
+										<label>Protected<br/> Amount</label>
+										<span id="protected">$ 0</span>
+									</td>										
+								</tr>														
+							</table>
+						</div>
+					</div>
+				</form> 
+			</div>
+		</div>
+	</div>
+</body>
+</html>

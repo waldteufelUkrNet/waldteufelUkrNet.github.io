@@ -1,0 +1,102 @@
+// ↓↓↓ BEM-blocks: form_registration (start) ↓↓↓
+
+//- style
+//-   include form_registration.css
+
+.regform-wrapper
+  form.regform(action='#', method='post', name='registration-form')
+
+    .regform__column
+
+      label.regform__label(for='input-firstName') Name:
+      .regform__input-wrapper
+        input#input-firstName.regform__input(type='text', name='input-firstName', autocomplete='off', pattern='^[A-Za-zА-Яа-яЁёs]+$', maxlength='30' placeholder='Enter your name here')
+      .regform__info.regform__info_error Enter your name!
+
+      label.regform__label(for='input-lastName') Surname:
+      .regform__input-wrapper
+        input#input-lastName.regform__input(type='text', name='input-lastName', autocomplete='off', pattern='^[A-Za-zА-Яа-яЁёs]+$', maxlength='20' placeholder='Enter your last name here.')
+      .regform__info.regform__info_error Enter last name!
+
+      label.regform__label(for='input-phone') Phone:
+      .regform__input-wrapper
+        .regform__flag-wrapper
+          .regform__flag-wrapper-cover-for-click
+          .regform__img-flag-wrapper
+            img.regform__flag-img(src="assets/img/european_union.png", alt="country-flag")
+          i.fas.fa-caret-down
+        .regform__countries-wrapper
+
+          //- .regform__country
+          //-   .regform__img-flag-wrapper
+          //-     img.regform__flag-img(src="assets/img/european_union.png", alt="country-flag")
+          //-   .regform__country-name euro union
+
+        input#input-country-code.regform__input.regform__input_ccode(type='text', name='input-phone' value='+000' readonly)
+        input#input-phone.regform__input.regform__input_phone(type='text', name='input-phone' readonly)
+      .regform__info.regform__info_error Enter a valid phone number!
+
+      label.regform__label(for='input-email') E-mail:
+      .regform__input-wrapper
+        input#input-email.regform__input(type='text', name='input-email', autocomplete='off' placeholder='Enter your email here')
+      .regform__info.regform__info_error Enter a valid email address!
+
+    .regform__column
+
+      label.regform__label(for='input-password') Password:
+      .regform__input-wrapper
+        input#input-password.regform__input.regform__input.regform__input_pass(type='password', name='input-password' placeholder='Enter password')
+        span.regform__show-hide-pass
+          //- i.fas.fa-eye
+          i.fas.fa-eye-slash
+      .regform__info.regform__info_error Minimum 8 characters (numbers and letters)
+
+      label.regform__label(for='input-confirm-pass') Repeat password:
+      .regform__input-wrapper
+        input#input-confirm-pass.regform__input.regform__input_pass(type='password', name='input-confirm-pass' placeholder='Confirm password')
+        span.regform__show-hide-pass
+          //- i.fas.fa-eye
+          i.fas.fa-eye-slash
+      .regform__info.regform__info_error Passwords do not match!
+
+      .regform__agree-wrapper
+        label.regform__agree-label(style='cursor:pointer')
+          span.regform__agree-checkbox-span
+            input(type='checkbox', name='input-checkbox', required='')
+            span.regform__check-mark: i.fas.fa-check
+          span.regform__agree-text I am over 18 years old. I have read and accept the data
+          |
+          |
+        a.regform__link(href='terms_and_conditions_en.html') Terms and Conditions,
+        |
+        |
+        a.regform__link(href='privacy_policy_en.html') Privacy Policy,
+        |
+        |
+        a.regform__link(href='notification_of_risks_en.html') Risk notification.
+
+      .regform__info.regform__info_error Confirm the terms and conditions and that you are over 18 years old
+      .regform__info.regform__info_error The user with this E-mail is already registered in the system.
+
+      //- input.DateTimeId(name='DateTime', type='hidden')
+
+      button.regform__btn#btnsubmit(type='button') REGISTER
+      .regform__footer
+        span Already a member?
+        |
+        |
+        a.regform__link(href='authorization_en.html') Login here
+
+
+      //-   label.regform__checkbox-label
+      //-     span.regform__checkbox-span
+      //-       input(type='checkbox', name='yes', value='yes', checked='')
+      //-       span.regform__check-mark
+      //-         i.fas.fa-check
+      //-     span Remember me for 30 days
+
+
+//- script
+//-   include ../minjs/form_registration/form_registration.js
+
+// ↑↑↑ BEM-blocks: form_registration (end) ↑↑↑

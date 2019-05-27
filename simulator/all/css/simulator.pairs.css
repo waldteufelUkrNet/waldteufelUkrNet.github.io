@@ -1,0 +1,193 @@
+#demo-wrapper.simulator.pairs{
+	width:787px; height:415px; background:url(../images/pairs/bg.png) no-repeat; float:left; 
+}
+.simulator.pairs #demo-content{
+	margin: 2px 14px -38px 7px;
+    position: relative;
+    height: 375px;
+    position: relative;
+}
+
+.simulator.pairs .d-body .d-body-el.chart{
+	top:16px; 
+}
+
+#demo-wrapper.simulator.pairs #demo-content .tips .tip.assets{ 
+	background:url(../images/pairs/tip1.png);
+}
+
+#demo-wrapper.simulator.pairs .d-body .d-body-el.direction {
+    right: 26px;
+    top: auto;
+    height: 58px;
+    width: 277px;
+        bottom: 176px;
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.direction ul{
+	overflow:hidden; 
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.direction ul li {
+    list-style: none;
+    height: 58px;
+    width: 33.3%;
+    line-height: 65px;
+    text-align: center;
+    color: #FFF;
+    background-color: #172d3b;
+    float:left; 
+    display:block; 
+} 
+
+#demo-wrapper.simulator.pairs .d-body .d-body-el.direction ul li.price-value {
+    background-color: #76cb84;
+}
+
+#demo-wrapper.simulator.pairs .d-body .d-body-el.direction ul li a {
+    display: block;
+    padding-left: 0px;
+    text-decoration: none;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 15px;
+	width: 65px;
+	height: 50px;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+#demo-wrapper.simulator.pairs .d-body .d-body-el.direction ul li.above a {
+    background-position: 0px 0px;
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.direction ul li.below a {
+    background-position: 0px -89px;
+}
+
+
+
+#demo-wrapper.simulator.pairs .d-body .d-body-el.info {
+    right: 0px;
+    right: 27px;
+    width: 276px;
+    height: 84px;
+    color: #FFF;
+    bottom: 72px;
+}
+
+#demo-wrapper.simulator.pairs .d-body .d-body-el.info table td {
+    height: auto;
+    padding: 0px;
+    color: #FFF;
+    font-size: 12px;
+    padding:5px;
+    height:50%; 
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.info table td.payout{
+	width: 80px;
+}
+
+#demo-wrapper.simulator.pairs .d-body-el.info table td span {
+    display: initial;
+}
+
+#demo-wrapper.simulator.pairs .d-body-el.info table td span#protected,
+#demo-wrapper.simulator.pairs .d-body-el.info table td span#potencial{
+	display:block; float:right; font-size: 18px; 
+}
+
+#demo-wrapper.simulator.pairs .d-body-el.info table td label{
+	float:left; 
+}
+
+
+
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value {
+    height: 82px;
+    right: 25px;
+    line-height: 50px;
+    padding-left: inherit;
+    text-transform: uppercase;
+    color: #FFF;
+    font-size: 13px;
+    width: 277px;
+    left: inherit;
+    top: 22px;
+    line-height: normal;
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value p{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value span{
+	font-weight: 100; font-family: "open sans",arial,sans-serif;
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value span {
+    font-size: 21px;
+}
+
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value ul{
+	list-style:none; margin:0px; padding:0px;   height:50px;
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value ul li{
+	float:left; width:80px; text-align:center; 
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value ul li.devision{
+	width:110px; 
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value ul li.devision span{
+	font-weight:500; display:block;padding-top:42px;
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value ul li i{
+	margin:0 0px;
+}
+
+
+.d-body .d-body-el.symbol-value .flag.GOLD{
+	background-position: -102px -249px;
+}
+.d-body .d-body-el.symbol-value .flag.SILVER{
+	background-position: -188px -247px;
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value .flag.BMW{
+	background-position: -24px -185px;
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value .flag.DAIMLER{
+    background-position: -384px -120px;
+}
+
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value .flag.SIEMENS{
+    background-position: -385px -183px;
+}
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value .flag.E-ON{
+    background-position: -499px -120px;
+}
+
+
+#demo-wrapper.simulator.pairs #demo-content .tips .tip.direction{ 
+	background:url(../images/pairs/tip4.png);
+}
+
+
+#demo-wrapper.simulator.pairs .d-body .d-body-el.symbol-value .flag {
+    width: 80px;
+}
+
+
+#demo-wrapper #profit-popup {
+    height: 294px;
+}
+
+
+
+
+#demo-wrapper.simulator.pairs #demo-content .tips .tip.assets .hint{
+    left: 25px;
+    top: 165px;
+}
+#demo-wrapper.simulator.pairs #demo-content .tips .tip.direction .hint{
+    right: 33px;
+    top: 20px;
+    left: auto;
+    width:320px;
+}
+

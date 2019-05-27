@@ -1,0 +1,209 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description' content="Торгуй по-своему: валютные пары, акции, индексы, товары и криптовалюта.")
+    meta(name="interkassa-verification" content="f56c94922f5f903ec018f25fa574e009")
+
+    title Главная страница
+    link(rel='icon', href='assets/img/logo.png')
+
+    // css-libs
+    //- link(rel='stylesheet', type='text/css', href='assets/libs-css/reset.css')
+
+    // own stylesheet
+    link(rel='stylesheet', type='text/css', href='assets/css/index.css')
+
+    // jQuery
+    script(src='assets/libs-js/jquery.js')
+  body
+    // HEADER
+    include assets/BEM-blocks/header/header.pug
+    // ↓↓↓ HEADER-SECTION 1 (form) ↓↓↓
+    section.header-section1
+      h1.header-section1__header JOIN THE ULTIMATE
+        br
+        |
+        |BINARY PLATFORM
+      .header-section1__form
+        include assets/BEM-blocks/form-registration/form-registration.pug
+    // ↑↑↑ /HEADER-SECTION 1 (form) ↑↑↑
+
+    // ↓↓↓ HEADER-SECTION 2 (timer + ticker quotes) ↓↓↓
+    section.header-section2
+      .header-section2__timer
+        include assets/BEM-blocks/timer/timer.pug
+      img.header-section2__reuters(src="assets/img/reuters.png", alt="reuters logo")
+      .header-section2__widget-wrapper
+        include assets/BEM-blocks/ticker-quotes/ticker-quotes.pug
+    // ↑↑↑ /HEADER-SECTION 2 (timer + ticker quotes) ↑↑↑
+    // /HEADER
+
+    // MAIN SECTION
+    main.main
+      .section-flex-wrapper
+
+        .section-flex-wrapper-left-column
+          // ↓↓↓ SECTION 1 (simulator) ↓↓↓
+          section.section1
+            h4.section1__name Trading
+            img.section1__img(src="assets/img/square-flag.jpg", alt="square-flag.jpg")
+            iframe.section1__iframe(src="simulator/all/60seconds.html")
+          // ↑↑↑ /SECTION 1 (simulator) ↑↑↑
+
+          // ↓↓↓ SECTION 2 (account types) ↓↓↓
+          section.section2
+            .account
+              h4.account__name Starter
+              p.account__description Basic trading account for binary-trading
+            .account
+              h4.account__name Experienced
+              p.account__description Expanded account with additional features
+            .account
+              h4.account__name Pro
+              p.account__description Full account with all available features
+          // ↑↑↑ /SECTION 2 (account types) ↑↑↑
+
+          // ↓↓↓ SECTION 3 (add: try it now) ↓↓↓
+          section.section3
+            h4.section3__name The Ultimate binary-trading tool ever made
+            p.section3__description TRY NOW!
+          // ↑↑↑ /SECTION 3 (add: try it now) ↑↑↑
+
+          // ↓↓↓ SECTION 4 (simple steps) ↓↓↓
+          section.section4
+            h4.section4__name Start trading in 3 simple steps!
+            img.section4__img(src="assets/img/cars-on-arrows.jpg", alt="cars-on-arrows.jpg")
+            .section4__steps-wrapper
+              p.section4__step Choose an asset
+              p.section4__step Choose a direction
+              p.section4__step Enter investment
+          // ↑↑↑ /SECTION 4 (simple steps) ↑↑↑
+
+        aside.section-flex-wrapper-right-column
+
+          // ↓↓↓ SECTION 5 (trends) ↓↓↓
+          section.section5
+            h4.section5__name Trends
+            img.section5__img(src="assets/img/trends.png", alt="trends.png")
+            .trend-element
+              .trend-element__left-column
+                .trend-element__price Option price
+                .trend-element__price-value 12345.67890
+                .trend-element__payout Payout
+                .trend-element__payout-value 85%
+              .trend-element__right-column
+                .trend-element__currency-pair EUR/USD
+                .trend-element__percents-wrapper
+                  .trend-element__percent 51%
+                  .trend-element__percent 49%
+                .trend-element__line-wrapper
+                  .trend-element__red-line
+                  .trend-element__divider
+                  .trend-element__green-line
+
+            .trend-element
+              .trend-element__left-column
+                .trend-element__price Option price
+                .trend-element__price-value 12345.67890
+                .trend-element__payout Payout
+                .trend-element__payout-value 85%
+              .trend-element__right-column
+                .trend-element__currency-pair EUR/USD
+                .trend-element__percents-wrapper
+                  .trend-element__percent 51%
+                  .trend-element__percent 49%
+                .trend-element__line-wrapper
+                  .trend-element__red-line
+                  .trend-element__divider
+                  .trend-element__green-line
+
+            .trend-element
+              .trend-element__left-column
+                .trend-element__price Option price
+                .trend-element__price-value 12345.67890
+                .trend-element__payout Payout
+                .trend-element__payout-value 85%
+              .trend-element__right-column
+                .trend-element__currency-pair EUR/USD
+                .trend-element__percents-wrapper
+                  .trend-element__percent 51%
+                  .trend-element__percent 49%
+                .trend-element__line-wrapper
+                  .trend-element__red-line
+                  .trend-element__divider
+                  .trend-element__green-line
+          // ↑↑↑ /SECTION 5 (trends) ↑↑↑
+
+          // ↓↓↓ SECTION 6 (trade fast) ↓↓↓
+          section.section6
+            h4.section6__name Trade fast trade smart
+            img.section6__img(src="assets/img/car-banner.jpg", alt="car-banner.jpg")
+          // ↑↑↑ /SECTION 6 (trade fast) ↑↑↑
+
+          // ↓↓↓ SECTION 7 (news) ↓↓↓
+          section.section7
+            h4.section7__name News
+            img.section7__img(src="assets/img/news-letter.png", alt="news-letter.png")
+            p.section7__news Exclusive: Goldman group set to buy message system as alternative to Bloomberg - sources
+            p.section7__news Stocks at lowest level since May, here's what to expect next week
+            p.section7__news Bill Gross sees just one ‘safe haven’ in this market
+            p.section7__news 'iBillionaire' ETF looks to bring Buffett, Icahn to the masses
+            p.section7__news Fed hawks shake stock markets on interest rates
+          // ↑↑↑ /SECTION 7 (news) ↑↑↑
+
+          // ↓↓↓ SECTION 8 (button) ↓↓↓
+          section.section8
+            a.section8__btn(href="#")
+              img.section8__img(src="assets/img/flagman.jpg", alt="flagman.jpg")
+              h4.section8__name Flagman Account
+              p.section8__description Try 4 Free !
+          // ↑↑↑ /SECTION 8 (button) ↑↑↑
+
+      // ↓↓↓ SECTION 9 (follow the program) ↓↓↓
+      section.section9
+        .section9__left-column
+          img.section9__left-column-img(src="assets/img/millars-car.jpg", alt="millars-car.jpg")
+          .section9__header Follow the Pro program
+          .section9__description Make money with professional traders!
+          .section9__description The lowest risk level in the industry!
+          a.section9__link(href="#") View Mark’s statistics
+          a.section9__link(href="#") Join the programm
+          img.section9__arrow-img(src="assets/img/green-arrow1.png", alt="green-arrow1.png")
+        .section9__right-column
+          img.section9__right-column-img(src="assets/img/millar.jpg", alt="millar.jpg")
+          .section9__name Mark Millar
+          ul.section9__preferences
+            li.section9__preferences-item - 10 years of pro trading
+            li.section9__preferences-item - Over 300 sussessful
+            li.section9__preferences-item - Trades per month
+            li.section9__preferences-item - 93% success rate
+      // ↑↑↑ /SECTION 9 (follow the program) ↑↑↑
+
+      // ↓↓↓ SECTION 10 (doughnuts) ↓↓↓
+      section.section10
+        img(src="assets/img/nasdaq.jpg", alt="nasdaq.jpg")
+        img(src="assets/img/dowjones.jpg", alt="dowjones.jpg")
+        img(src="assets/img/reuters.jpg", alt="reuters.jpg")
+        img(src="assets/img/mastercard.jpg", alt="mastercard.jpg")
+        img(src="assets/img/visa.jpg", alt="visa.jpg")
+        img(src="assets/img/deutsche-bg.jpg", alt="deutsche-bg.jpg")
+        img(src="assets/img/london-se.jpg", alt="london-se.jpg")
+        img(src="assets/img/18+.jpg", alt="18+.jpg")
+        img(src="assets/img/ssl.jpg", alt="ssl.jpg")
+      // ↑↑↑ /SECTION 10 (doughnuts) ↑↑↑
+
+    // /MAIN SECTION
+
+    // FOOTER
+    include assets/BEM-blocks/footer/footer.pug
+    // /FOOTER
+
+    // scripts
+    script(src='assets/libs-js/fontawesome-all.min.js')
+    script(src='assets/libs-js/countries.js')
+
+    // own js
+    script(src='assets/js/index.js')
+    script(src='assets/js/form-registration.js')

@@ -1,0 +1,28 @@
+.navigation {
+  background-color: #6a9a1f;
+  height: 40px;
+  padding: 0 140px;
+  border-bottom: 3px solid black;
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    li {
+      flex-grow: 1;
+      a {
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        font-family: mpc;
+        font-size: 18px;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color .5s;
+        &:hover {
+          background-color: black;
+        }
+      }
+    }
+  }
+}

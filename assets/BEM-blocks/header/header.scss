@@ -1,0 +1,30 @@
+.header {
+  max-width         : 1280px;
+  height            : 105px;
+  margin            : 0 auto;
+  &__1-block {
+    width           : 100%;
+    height          : 65px;
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    background-image:  url('../img/bg-header.jpg');
+    padding         : 0 140px;
+  }
+  &__logo-block {
+    flex-grow       : 1;
+    height          : 100%;
+  }
+  &__logo-link {
+    display         : inline-block;
+    height          : 100%;
+    overflow        : hidden;
+  }
+  &__logo-link-img {
+    height          : 100%;
+    width           : auto;
+  }
+  &__login-block {}
+  &__lang-block {}
+  &__nav-block {}
+}

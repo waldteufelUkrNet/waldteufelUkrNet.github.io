@@ -1,0 +1,264 @@
+.regform {
+  background-color: rgba(0,0,0,.5);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 10px;
+  position: relative;
+
+  &__header {
+    font: 38px mpbc;
+    color: #9dd840;
+  }
+
+  &__input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 0 6px;
+    line-height: 28px;
+    color: grey;
+  }
+
+  &__names-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    input {
+      width: calc(50% - 5px);
+    }
+  }
+  &__phone-wrapper {
+    margin: 10px 0;
+    display: flex;
+    position: relative;
+    border: 1px solid;
+    border-radius: 4px;
+  }
+  &__flag-wrapper {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border: 1px solid white;
+    border-radius: 4px 0 0 4px / 4px 0 0 4px;
+    height: 30px;
+    width: 55px;
+  }
+  &__flag-wrapper-cover-for-click {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  &__img-flag-wrapper {
+    height: 30px;
+    width: 45px;
+    position: relative;
+    overflow: hidden;
+  }
+  &__flag-img {
+    height: 40px;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  &__countries-wrapper {
+    display: none;
+    max-width: 318px;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    background-color: white;
+  }
+  &__country {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__country-name {
+    font: 14px mpc;
+  }
+  &__input_ccode {
+    border: 1px solid #9dd840;
+    border-radius: 0px;
+    background-color: #9dd840;
+    width: 55px;
+    user-select: none;
+    color: white;
+    font: 16px mpbc;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  &__input_phone {
+    width: calc(100% - 110px);
+    border-radius: 0 4px 4px 0 / 0 4px 4px 0;
+  }
+  &__passwords-wrapper {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__input-wrapper {
+    display: flex;
+    width: calc(50% - 5px);
+    input {
+      width: calc( 100% - 30px );
+      border-radius: 4px 0 0 4px / 4px 0 0 4px;
+    }
+    span {
+      width: 30px;
+      border: 1px solid #9dd840;
+      border-radius: 0 4px 4px 0 / 0 4px 4px 0;
+      line-height: 28px;
+      text-align: center;
+      background-color: #9dd840;
+      color: white;
+      cursor: pointer;
+    }
+  }
+  &__agree-wrapper {
+    position             : relative;
+    padding-left         : 20px;
+    margin-bottom        : 10px;
+    text-align           : justify;
+    span.regform__agree-checkbox-span {
+      position           : absolute;
+      top                : 0px;
+      left               : 0px;
+      width              : 18px;
+      height             : 18px;
+      border             : 1px solid white;
+      border-radius      : 4px;
+      overflow           : hidden;
+      user-select        : none;
+    }
+    input {
+      position           : absolute;
+      top                : -100%;
+      &:checked + span {
+        display          : block;
+      }
+    }
+    span.regform__agree-text {
+      font-family        : mpc;
+      font-size          : 18px;
+      color              : white;
+      user-select        : none;
+    }
+  }
+
+  &__link {
+    color                : #1ba101;
+    text-decoration      : underline;
+    font-family          : mpci;
+    font-size            : 18px;
+    &:hover {
+      color              : #1ba101;
+      text-decoration    : none;
+    }
+  }
+  &__checkbox-label {
+    display              : inline-block;
+    width                : 300px;
+    height               : 20px;
+    user-select          : none;
+    cursor               : pointer;
+    display              : flex;
+    justify-content      : flex-start;
+    align-items          : center;
+    font-family          : fptb;
+    font-size            : 14px;
+    color                : #525459;
+  }
+  &__checkbox-span {
+    display              : inline-block;
+    width                : 20px;
+    height               : 20px;
+    border               : 1px solid lightgrey;
+    position             : relative;
+    overflow             : hidden;
+    margin-right         : 6px;
+    input[type="checkbox"]:checked + span {
+      display            : block;
+    }
+  }
+  &__checkbox-label {
+    input[type="checkbox"] {
+      position           : absolute;
+      top                : -100%;
+    }
+  }
+  &__check-mark {
+    svg {
+      color              : #23cd45;
+      font-size          : 18px;
+      position           : relative;
+      top                : -2px;
+    }
+    display              : none;
+  }
+  &__btn {
+    width: 100%;
+    height: 50px;
+    border: 1px solid grey;
+    border-bottom: 2px solid #016032;
+    border-radius: 6px;
+    padding: 0 10px;
+    text-align: center;
+    font: 18px mpr;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow: 0 2px 2px grey;
+    text-transform: uppercase;
+    background-image: linear-gradient(#5a9020, #8fb934);
+    cursor: pointer;
+  }
+  &__error {
+    min-height: 30px;
+    min-width: 250px;
+    max-width: 318px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font: 16px mpbc;
+    text-align: justify;
+    background-color: white;
+    padding: 6px;
+    border: 1px solid #23cd45;
+    border-radius: 4px;
+  }
+  .error-triangle {
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    border: {
+      bottom: 10px solid #23cd45;
+      left: 10px solid transparent;
+      right: 10px solid transparent;
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      left: -8px;
+      top: 2px;
+      border: {
+        bottom: 8px solid white;
+        left: 8px solid transparent;
+        right: 8px solid transparent;
+      }
+    }
+  }
+}
