@@ -262,7 +262,7 @@ var simulator = module({}, function() {
 				res.push([startTime, this.plotData[i]])
 				startTime+=60000;  
 			}
-			this.setPriceValue(priceValue); console.log(res); 
+			this.setPriceValue(priceValue);
 			return (this.plotDataFull = res);		
 		},
 		

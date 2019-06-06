@@ -25,43 +25,43 @@ $(function(){
 		<div id="demo-wrapper" class="simulator second">
 			<div id="demo-content">
 				<div id="profit-popup" class="">
-					<h3>Congratulations. <br/>Well done!</h3>
-					<p>You could have just profited <strong><span id="profit"></span> US!</strong></p>
-					<a href="" class="btn open-acc"><span>Open real trading<br/>account now</span></a>
+					<h3>Поздравляем. <br/>Отлично сработано!</h3>
+					<p>Вы бы смогли сейчас выиграть <strong><span id="profit"></span> US!</strong></p>
+					<a href="" class="btn open-acc"><span>Откройте реальный<br/>торговый счет</span></a>
 				</div>
 				<form>
 					<div class="tips">
 						<div class="tip assets">
 							<div class="hint">
-								<h2>Select the asset</h2>
-								<p>Choose from variety of<br/> currencies, commodities,<br/> indices and stocs</p>
+								<h2>Выберите актив</h2>
+								<p>Выберите из множества <br/> валют, товаров, <br/> индексов и акций</p>
 							</div>
 						</div>
 						<div class="tip expiry">
 							<div class="hint">
-								<h2>Choose your</h2>
-								<p>desired expiry time</p>
+								<h2>Выберите свое</h2>
+								<p>желаемое время окончания</p>
 							</div>						
 						</div>
 						<div class="tip amount">
 							<div class="hint">
-								<h2>Enter the amount</h2>
-								<p>you would like to trade</p>
+								<h2>Введите желаемую сумму</h2>
+								<p>для торговли</p>
 							</div>						
 						</div>
 						<div class="tip direction">
 							<div class="hint">
-								<h2>Choose direction</h2>
-								<p>Click CALL if you think<br/> the price will rise by<br/> expiry, or click PUT if<br/> you believe the price<br/> will fall by expiry</p>
-							</div>						
+								<h2>Выберите направление</h2>
+								<p> Нажмите кнопку ВВЕРХ, если вы думаете, что цена вырастет, или нажмите кнопку ВНИЗ, если вы считаете, что цена  упадет </p>
+							</div>
 						</div>
 					</div>
 					<div class="d-head">
 						<ul>
 							<li class="act open assets">
-								<label>Assets</label>
+								<label>Активы</label>
 								<select>
-	                                 <optgroup label="Currencies">
+	                                 <optgroup label="Валюты">
 	                                     <option selected value="EUR/USD" data-icon="EUR-USD">
 	                                         EUR/USD
 	                                     </option>
@@ -78,7 +78,7 @@ $(function(){
 	                                         EUR/JPY
 	                                     </option>
 	                                 </optgroup>
-	                                 <optgroup label="Commodities">
+	                                 <optgroup label="Товары">
 	                                     <option value="GOLD" data-icon="GOLD">
 	                                         GOLD
 	                                     </option>
@@ -86,13 +86,13 @@ $(function(){
 	                                         SILVER
 	                                     </option>
 	                                 </optgroup>
-	                                 <optgroup label="Indices">
+	                                 <optgroup label="Индексы">
 	                                     <option value="MICEX" data-icon="MICEX">
 	                                         MICEX
 	                                     </option>
 	                                     <option value="IBEX FUTURE" data-icon="IBEX-FUTURE">IBEX FUTURE</option>
 	                                 </optgroup>
-	                                 <optgroup label="Stocks">
+	                                 <optgroup label="Акции">
 	                                     <option value="BMW" data-icon="BMW">BMW</option>
 	                                     <option value="GAZPROM" data-icon="GAZPROM">
 	                                         GAZPROM
@@ -101,7 +101,7 @@ $(function(){
 								</select>
 							</li>
 							<li class="act expiry">
-								<label>Expiry</label>
+								<label>Время</label>
 								<ul>
 									<li class="active">60</li>
 									<li>90</li>
@@ -111,25 +111,25 @@ $(function(){
 								</ul>						
 							</li>
 							<li class="act amount">
-								<label>Amount $</label>
+								<label>Сумма $</label>
 								<input type="text" value="25"/>
 							</li>
 						</ul>
 					</div>
 					<div class="d-body">
 						<div class="d-body-el symbol-value">
-							<i class="flag EUR-USD"></i> will <span id="symbol"></span> go up or down?
+							<i class="flag EUR-USD"></i> <span id="symbol"></span> пойдет вверх или вниз?
 						</div>
 						<div class="d-body-el chart">
 							<div class="inner1">
 								<div class="inner2">
 									<ul class="periods">
-										<li>30m</li>
+										<li>30м</li>
 										<li class="active">1h</li>
-										<li>2h</li>
-										<li>4h</li>
-										<li>8h</li>
-										<li>12h</li>
+										<li>2ч</li>
+										<li>4ч</li>
+										<li>8ч</li>
+										<li>12ч</li>
 									</ul>
 									<div class="chart-wrapper">
 										<div id="chart"></div>
@@ -142,7 +142,7 @@ $(function(){
 												<table>
 													<tr>
 														<td class="l">46%</td>
-														<td class="c">Trader Choice</td>
+														<td class="c">Выбор трейдеров</td>
 														<td class="r">54%</td>
 													</tr>
 												</table>
@@ -154,28 +154,28 @@ $(function(){
 						</div>
 						<div class="d-body-el act direction">
 							<ul>
-								<li class="direct above"><a href="#above">Call</a></li>
+								<li class="direct above"><a href="#above">Вверх</a></li>
 								<li class="price-value">1.43<span>534</span></li>
-								<li class="direct below"><a href="#below">Put</a></li>
+								<li class="direct below"><a href="#below">Вниз</a></li>
 							</ul>
 						</div>
 						<div class="d-body-el info">
 							<table>
 								<tr>
 									<td class="potencial">
-										Potential Payout
+										Потенциальная прибыль
 										<span id="potencial">$ 0</span>
 									</td>
 								</tr>
 								<tr>
 									<td class="payout">
-										Payout
+										прибыль
 										<span>82%</span>
 									</td>
 								</tr>	
 								<tr>
 									<td class="protected">
-										Protected Amount
+										Защищенная сумма
 										<span id="protected">$ 0</span>
 									</td>
 								</tr>							
