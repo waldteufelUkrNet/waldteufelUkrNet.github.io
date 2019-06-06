@@ -1,0 +1,50 @@
+.contacts {
+  margin                    : 0 0 20px 20px;
+  display                   : grid;
+  grid-template-columns     : auto 1fr;
+  grid-gap                  : 6px;
+  font                      : 18px mpc;
+  &__info {
+    background-color        : #eeeeee;
+    padding                 : 12px;
+    &:nth-of-type(odd) {
+      font-size             : 50px;
+      color                 : #6a9a1f;
+      display               : flex;
+      justify-content       : center;
+      align-items           : center;
+    }
+    &:nth-of-type(2) {
+      display               : flex;
+      align-items           : center;
+    }
+    &:nth-of-type(4) {
+      display               : grid;
+      grid-template-columns : auto 1fr;
+      grid-column-gap       : 12px;
+      a {
+        color               : dodgerblue;
+        letter-spacing      : 1px;
+        text-decoration     : none;
+      }
+    }
+    &:nth-of-type(6) {
+      display               : flex;
+      align-items           : center;
+      a {
+        color               : dodgerblue;
+        letter-spacing      : 1px;
+        text-decoration     : none;
+      }
+    }
+  }
+}
+iframe {
+  display                   : block;
+  width                     : 680px;
+  height                    : 400px;
+  margin                    : 0 0 20px 20px;
+}
+
+// //BEM-blocks
+@import "../BEM-blocks/form-contact/form-contact.scss";

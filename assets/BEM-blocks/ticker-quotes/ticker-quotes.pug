@@ -1,0 +1,61 @@
+// ↓↓↓ BEM-blocks: ticker-quotes (start) ↓↓↓
+.widget-holder(style='position: absolute; top: 50%; transform: translate(0,-50%); width: 110%')
+  // TradingView Widget BEGIN
+  .tradingview-widget-container
+    .tradingview-widget-container__widget
+    //- .tradingview-widget-copyright
+    //-   a(href='https://ru.tradingview.com', rel='noopener', target='_blank')
+    //-     span.blue-text Финансовые рынки
+    //-   |  от TradingView
+    script(type='text/javascript', src='https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js', async='').
+      {
+      "symbols": [
+      {
+      "title": "S&P 500",
+      "proName": "INDEX:SPX"
+      },
+      {
+      "title": "Shanghai Composite",
+      "proName": "INDEX:XLY0"
+      },
+      {
+      "title": "EUR/USD",
+      "proName": "FX_IDC:EURUSD"
+      },
+      {
+      "title": "USDCHF",
+      "proName": "FX_IDC:USDCHF"
+      },
+      {
+      "title": "USDCAD",
+      "proName": "FX_IDC:USDCAD"
+      },
+      {
+      "title": "GBP/USD",
+      "proName": "FX_IDC:GBPUSD"
+      },
+      {
+      "title": "NZD/USD",
+      "proName": "FX_IDC:NZDUSD"
+      },
+      {
+      "title": "AUD/USD",
+      "proName": "FX_IDC:AUDUSD"
+      },
+      {
+      "title": "BTC/USD",
+      "proName": "BITFINEX:BTCUSD"
+      },
+      {
+      "title": "ETH/USD",
+      "proName": "BITFINEX:ETHUSD"
+      }
+      ],
+      "theme": "dark",
+      "isTransparent": false,
+      "displayMode": "regular",
+      "locale": "ru"
+      }
+  // TradingView Widget END
+
+// ↑↑↑ BEM-blocks: ticker-quotes (end) ↑↑↑
