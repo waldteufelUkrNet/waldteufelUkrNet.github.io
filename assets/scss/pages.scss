@@ -13,11 +13,12 @@ body {
   min-height         : 38px;
   background-color   : black;
   display            : flex;
+  flex-wrap          : wrap;
   justify-content    : flex-start;
   align-items        : center;
-  padding-left       : 160px;
+  padding-left       : 15px;
   &__reuters {
-    margin           : 0 25px;
+    margin           : 0 5px;
   }
   &__widget-wrapper {
     border           : 1px solid transparent;
@@ -28,11 +29,18 @@ body {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .header-section2 {
+    padding-left       : 160px;
+  }
+}
+
 .main {
   max-width          : 1280px;
   margin             : 0 auto;
   position           : relative;
   background         : url('../img/bg-main.jpg') left top no-repeat;
+  background-size    : 100% 100%;
   min-height         : calc(100vh - 105px - 38px);
 }
 .content-wrapper {
@@ -45,18 +53,27 @@ body {
   justify-content    : space-between;
   align-items        : flex-start;
   .section-flex-wrapper-left-column {
-    width            : 700px;
+    width            : 100%;
+    padding-right    : 15px;
+    @media screen and (min-width: 992px) {
+      width          : 700px;
+      padding-right  : 0;
+    }
   }
   .aside-nav-wrapper {
     width            : 270px;
     padding          : 10px 20px 0;
+    display          : none;
+    @media screen and (min-width: 992px) {
+      display        : block;
+    }
   }
 }
 
 .section1 {
   position           : relative;
   &__header {
-    font             : 53px mpb;
+    font             : 24px mpb;
     position         : absolute;
     top              : 20px;
     left             : 30px;
@@ -71,10 +88,32 @@ body {
     color            : #6a9a1f;
     padding          : 0 0 10px 20px;
   }
+  &__textheader {
+    font             : 24px mpbc;
+    padding          : 20px 0 10px 20px;
+    text-transform   : uppercase;
+  }
   &__text {
     padding-left     : 20px;
     font             : 16px mpr;
     padding-bottom   : 10px;
+    text-align       : left;
+    @media screen and (min-width: 400px) {
+      text-align     : justify;
+    }
+  }
+  &__boldtext {
+    padding-left     : 20px;
+    font             : 16px mpb;
+    padding-bottom   : 10px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .section1 {
+    &__header {
+      font             : 53px mpb;
+    }
   }
 }
 

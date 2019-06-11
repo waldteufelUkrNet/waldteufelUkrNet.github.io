@@ -1,5 +1,5 @@
 .timer {
-  font: 18px mpr;
+  font: 14px mpr;
   color: white;
   letter-spacing: 1px;
   display: flex;
@@ -10,12 +10,23 @@
   &__minutes,
   &__seconds {
     text-align: center;
-    width: 25px;
+    width: 20px;
   }
   &__divider {
     text-align: center;
   }
   &__time-sone {
     text-transform: uppercase;
+  }
+}
+
+
+@media screen and (min-width: 1200px) {
+  .timer {
+    &__hours,
+    &__minutes,
+    &__seconds {
+      width: 25px;
+    }
   }
 }

@@ -1,1 +1,1 @@
-"use strict";
+"use strict";$(document).ready(function(){var i=!1,n=!1;$(".navigation__btn").click(function(){i?(i=!1,$(".navigation__list").css("display","none")):(i=!0,$(".navigation__list").css("display","block"))}),$(".navigation__sublist-btn").click(function(){n?(n=!1,$(".navigation__sublist").css("display","none")):(n=!0,$(".navigation__sublist").css("display","block"))})});

@@ -12,13 +12,14 @@
   padding               : 20px 33px;
   &__column-wrapper {
     display               : grid;
-    grid-template-columns : repeat(4, 1fr);
+    grid-template-columns : 1fr;
     grid-gap              : 12px;
   }
   &__subheader {
     font                : 18px mpb;
     color               : white;
     padding-bottom      : 14px;
+    text-align          : center;
   }
   &__link {
     font                : 14px mpr;
@@ -26,17 +27,42 @@
     text-decoration     : none;
     display             : block;
     padding-bottom      : 14px;
+    text-align          : center;
     &:hover {
       color             : lightgrey;
     }
   }
   &__info {
-    font                : 14px mpr;
+    font                : 12px mpr;
     color               : white;
     padding-bottom      : 14px;
     text-align          : justify;
+    border-top          : 2px solid white;
+    padding-top         : 10px;
     p {
       padding-bottom    : 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .footer {
+    &__column-wrapper {
+      grid-template-columns : repeat(2, 1fr);
+    }
+    &__subheader {
+      text-align          : left;
+    }
+    &__link {
+      text-align          : left;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    &__column-wrapper {
+      grid-template-columns : repeat(4, 1fr);
     }
   }
 }

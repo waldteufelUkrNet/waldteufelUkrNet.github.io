@@ -4,13 +4,13 @@
   align-items        : center;
   input {
     display          : inline-block;
-    width            : 200px;
+    width            : 106px;
     height           : 32px;
     border           : 1px solid #cccccc;
     border-radius    : 4px;
     padding          : 0 6px;
     color            : grey;
-    margin-right     : 10px;
+    margin-right     : 4px;
   }
   button {
     height           : 30px;
@@ -36,5 +36,14 @@
     padding-right    : 10px;
     font             : 18px mpc;
     color            : grey;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .login-form {
+    input {
+      width            : 200px;
+      margin-right     : 10px;
+    }
   }
 }
