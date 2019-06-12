@@ -1,106 +1,55 @@
-// ↓↓↓ BEM-blocks: header (start) ↓↓↓
+// ↓↓↓ BEM-blocks: footer (start) ↓↓↓
 
 //- style
-//-   include header.css
+//-   include footer.css
+.footer-wrapper
+  footer.footer
+    .footer__column-wrapper
+      .footer__column
+        h4.footer__subheader GlobalTradeInvesting
+        a(href="about_company_en.html").footer__link About the company
+        a(href="account_types_en.html").footer__link Account Types
+        a(href="contacts_en.html").footer__link Contacts
+        a(href="verification_en.html").footer__link Verification
 
-.header-wrapper
-  header.header
+      .footer__column
+        h4.footer__subheader Documentation
+        a(href="terms_and_conditions_en.html").footer__link Customer agreement
+        a(href="privacy_policy_en.html").footer__link Privacy policy
+        a(href="notification_of_risks_en.html").footer__link Notification of risks
+        a(href="denial_of_responsibility_en.html").footer__link Denial of responsibility
+        a(href="refund_policy_en.html").footer__link Return policy
+        a(href="aml_and_kyc_policies_en.html").footer__link AML and KYC Policy
 
-    .header__part2-wrapper
-      .header__part2
-        a.header__part2-logo-wrapper(href="index_en.html")
-          img(src="assets/img/logo.png", alt="logo.png")
-          span Astra Investing
-        button.header__nav-btn
-          i.fas.fa-bars
-        nav.header__part2-navigation
-          ul.header__part2-navigation-list
-            li.header__part2-navigation-sublist: a.header__menu-link(href='index_en.html') Home
-            li
-              ul.header__part2-navigation-sublist Management
-                |
-                |
-                i.fas.fa-caret-down
-                li
-                  ul.header__part2-navigation-sublist-items
-                    li: a.header__menu-link(href='management_en.html') Management
-                    li: a.header__menu-link(href='authorization_en.html') Login
-                    li: a.header__menu-link(href='registration_en.html') Registration
-                    li: a.header__menu-link(href='verification_en.html') Verification
-            li
-              ul.header__part2-navigation-sublist About company
-                |
-                |
-                i.fas.fa-caret-down
-                li
-                  ul.header__part2-navigation-sublist-items
-                    li: a.header__menu-link(href='about_company_en.html') About company
-                    li: a.header__menu-link(href='contacts_en.html') Contacts
-                    li: a.header__menu-link(href='terms_and_conditions_en.html') Terms and conditions
-                    li: a.header__menu-link(href='notification_of_risks_en.html') Notification of risks
-                    li: a.header__menu-link(href='privacy_policy_en.html') Privacy policy
-                    li: a.header__menu-link(href='aml_and_kyc_policies_en.html') AML and KYC policies
-                    li: a.header__menu-link(href='refund_policy_en.html') Refun policy
-                    li: a.header__menu-link(href='denial_of_responsibility_en.html') Denial of responsibility
-        .header__part2-btns-wrapper
-          a.header__enter-btn(href='authorization_en.html') Login
-          a.header__reg-btn(href='registration_en.html') Registration
-        //- include ../language_switcher/language_switcher.pug
+      .footer__column
+        h4.footer__subheader Account
+        a(href="registration_en.html").footer__link Open an account
+        a(href="password_recovery_en.html").footer__link Restore password
+        a(href="contacts_en.html").footer__link Feedback
 
-    <!--for phones-->
-    .header__part3-wrapper
-      .header__part3
-        button.header__nav-btn-close
-          i.fas.fa-times
-        nav.header__part3-navigation
-          ul.header__part3-navigation-list
-            li.header__part3-navigation-sublist: a.header__menu-link(href='index_en.html' style='font-family: rb; line-height: 35px; margin-left: 0px; display: block') Home
-            li
-              ul.header__part3-navigation-sublist(style='padding-left: 10px') Management
-                |
-                |
-                i.fas.fa-caret-down
-                li
-                  ul.header__part3-navigation-sublist-items
-                    li: a.header__menu-link(href='management_en.html') Management
-                    li: a.header__menu-link(href='authorization_en.html') Login
-                    li: a.header__menu-link(href='registration_en.html') Registration
-                    li: a.header__menu-link(href='verification_en.html') Verification
-            li
-              ul.header__part3-navigation-sublist(style='padding-left: 10px') About company
-                |
-                |
-                i.fas.fa-caret-down
-                li
-                  ul.header__part3-navigation-sublist-items
-                    li: a.header__menu-link(href='about_company_en.html') About company
-                    li: a.header__menu-link(href='contacts_en.html') Contacts
-                    li: a.header__menu-link(href='terms_and_conditions_en.html') Terms and conditions
-                    li: a.header__menu-link(href='notification_of_risks_en.html') Notification of risks
-                    li: a.header__menu-link(href='privacy_policy_en.html') Privacy policy
-                    li: a.header__menu-link(href='aml_and_kyc_policies_en.html') AML and KYC policies
-                    li: a.header__menu-link(href='refund_policy_en.html') Refun policy
-                    li: a.header__menu-link(href='denial_of_responsibility_en.html') Denial of responsibility
-        .header__part3-btns-wrapper
-          a.header__part3-enter-btn(href='authorization_en.html') Login
-          a.header__part3-reg-btn(href='registration_en.html') Registration
+      .footer__column
+        h4.footer__subheader Our partners
+        a(href="https://www.tradingview.com").footer__link TradingView
+        a(href="https://www.investing.com").footer__link Investing
+        a(href="https://www.blockchain.com").footer__link Blockchain
+        a(href="https://www.cbr.ru").footer__link Центробанк РФ
 
-        .header__part3-contacts
-          a.header__part3-phone(href="tel:+37166103210")
-            i.fa.fa-phone
-            span +37166103210
-          a.header__part3-phone(href="tel:+442038077440")
-            i.fa.fa-phone
-            span +442038077440
-          a.header__part3-phone(href="tel:+74993713318")
-            i.fa.fa-phone
-            span +74993713318
-          a.header__part3-email(href="mailto:support@etokenstrade.com")
-            i.far.fa-envelope
-            span support@etokenstrade.com
-          a.header__part3-link(href="index_en.html"): i.fas.fa-globe
+    .footer__info
+      p
+        strong Risk Warning:
+        |
+        | The operations offered by this site may be carried out exclusively by adults (aged 18 years), who have reached full capacity. Transactions with financial instruments offered on this site may be considered as transactions with a high level of risk. Possible partial or complete loss of funds during such operations. Accordingly, it is strongly recommended not to invest and not to trade funds, the loss of which in the event of adverse results of such trades you can not afford.
+
+      p The site https://globaltradeinvesting.com and the brand GlobalTradeInvesting is a trademark and property of an international business company in the Financial Services Authority CORPINVEST LTD. Suite 305, Griffith Corporate Centre, P.O. Box 1510, Beachmont, Kingstown, St. Vincent and The Grenadines
+
+      p We recommend that you carefully read our Legal Documentation: Customer Agreement, Privacy Policy, Risk Disclaimer, Disclaimer, Refund Policy, AML Policy and KYC, before proceeding to perform operations on this site.
+
+      p The company and the website https: // globaltradeinvesting.com do not provide any services to citizens and residents of the United States, Canada, Australia, Israel, Syria, Sudan, Iran, North Korea, Japan and other countries, and jurisdictions where these services cannot be provided in connection with current legislation or certain restrictions.
+      p © 2019 CORPINVEST LTD. All rights are registered. 18+
+
+
 
 script
-  include ../minjs/header/header.js
+  include ../minjs/footer/footer.js
 
-// ↑↑↑ BEM-blocks: header (end) ↑↑↑
+// ↑↑↑ BEM-blocks: footer (end) ↑↑↑

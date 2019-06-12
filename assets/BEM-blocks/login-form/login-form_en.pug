@@ -1,106 +1,15 @@
-// ↓↓↓ BEM-blocks: header (start) ↓↓↓
+// ↓↓↓ BEM-blocks: login-form (start) ↓↓↓
 
 //- style
-//-   include header.css
+//-   include login-form.css
 
-.header-wrapper
-  header.header
-
-    .header__part2-wrapper
-      .header__part2
-        a.header__part2-logo-wrapper(href="index_en.html")
-          img(src="assets/img/logo.png", alt="logo.png")
-          span Astra Investing
-        button.header__nav-btn
-          i.fas.fa-bars
-        nav.header__part2-navigation
-          ul.header__part2-navigation-list
-            li.header__part2-navigation-sublist: a.header__menu-link(href='index_en.html') Home
-            li
-              ul.header__part2-navigation-sublist Management
-                |
-                |
-                i.fas.fa-caret-down
-                li
-                  ul.header__part2-navigation-sublist-items
-                    li: a.header__menu-link(href='management_en.html') Management
-                    li: a.header__menu-link(href='authorization_en.html') Login
-                    li: a.header__menu-link(href='registration_en.html') Registration
-                    li: a.header__menu-link(href='verification_en.html') Verification
-            li
-              ul.header__part2-navigation-sublist About company
-                |
-                |
-                i.fas.fa-caret-down
-                li
-                  ul.header__part2-navigation-sublist-items
-                    li: a.header__menu-link(href='about_company_en.html') About company
-                    li: a.header__menu-link(href='contacts_en.html') Contacts
-                    li: a.header__menu-link(href='terms_and_conditions_en.html') Terms and conditions
-                    li: a.header__menu-link(href='notification_of_risks_en.html') Notification of risks
-                    li: a.header__menu-link(href='privacy_policy_en.html') Privacy policy
-                    li: a.header__menu-link(href='aml_and_kyc_policies_en.html') AML and KYC policies
-                    li: a.header__menu-link(href='refund_policy_en.html') Refun policy
-                    li: a.header__menu-link(href='denial_of_responsibility_en.html') Denial of responsibility
-        .header__part2-btns-wrapper
-          a.header__enter-btn(href='authorization_en.html') Login
-          a.header__reg-btn(href='registration_en.html') Registration
-        //- include ../language_switcher/language_switcher.pug
-
-    <!--for phones-->
-    .header__part3-wrapper
-      .header__part3
-        button.header__nav-btn-close
-          i.fas.fa-times
-        nav.header__part3-navigation
-          ul.header__part3-navigation-list
-            li.header__part3-navigation-sublist: a.header__menu-link(href='index_en.html' style='font-family: rb; line-height: 35px; margin-left: 0px; display: block') Home
-            li
-              ul.header__part3-navigation-sublist(style='padding-left: 10px') Management
-                |
-                |
-                i.fas.fa-caret-down
-                li
-                  ul.header__part3-navigation-sublist-items
-                    li: a.header__menu-link(href='management_en.html') Management
-                    li: a.header__menu-link(href='authorization_en.html') Login
-                    li: a.header__menu-link(href='registration_en.html') Registration
-                    li: a.header__menu-link(href='verification_en.html') Verification
-            li
-              ul.header__part3-navigation-sublist(style='padding-left: 10px') About company
-                |
-                |
-                i.fas.fa-caret-down
-                li
-                  ul.header__part3-navigation-sublist-items
-                    li: a.header__menu-link(href='about_company_en.html') About company
-                    li: a.header__menu-link(href='contacts_en.html') Contacts
-                    li: a.header__menu-link(href='terms_and_conditions_en.html') Terms and conditions
-                    li: a.header__menu-link(href='notification_of_risks_en.html') Notification of risks
-                    li: a.header__menu-link(href='privacy_policy_en.html') Privacy policy
-                    li: a.header__menu-link(href='aml_and_kyc_policies_en.html') AML and KYC policies
-                    li: a.header__menu-link(href='refund_policy_en.html') Refun policy
-                    li: a.header__menu-link(href='denial_of_responsibility_en.html') Denial of responsibility
-        .header__part3-btns-wrapper
-          a.header__part3-enter-btn(href='authorization_en.html') Login
-          a.header__part3-reg-btn(href='registration_en.html') Registration
-
-        .header__part3-contacts
-          a.header__part3-phone(href="tel:+37166103210")
-            i.fa.fa-phone
-            span +37166103210
-          a.header__part3-phone(href="tel:+442038077440")
-            i.fa.fa-phone
-            span +442038077440
-          a.header__part3-phone(href="tel:+74993713318")
-            i.fa.fa-phone
-            span +74993713318
-          a.header__part3-email(href="mailto:support@etokenstrade.com")
-            i.far.fa-envelope
-            span support@etokenstrade.com
-          a.header__part3-link(href="index_en.html"): i.fas.fa-globe
+form.login-form
+  input#login-form-login(type="text" placeholder="name")
+  input#login-form-password(type="password" placeholder="password")
+  span.greeting
+  button#login-form-button(type="button") login
 
 script
-  include ../minjs/header/header.js
+  include ../minjs/login-form/login-form.js
 
-// ↑↑↑ BEM-blocks: header (end) ↑↑↑
+// ↑↑↑ BEM-blocks: login-form (end) ↑↑↑
