@@ -1,0 +1,244 @@
+/*-----------------------------------------------------------*/
+/*-----Contacts Styles----*/
+/*-----------------------------------------------------------*/
+.section-contacts {
+  padding: 85px 0;
+  text-align: center;
+}
+.section-contacts .inner {
+  border-bottom: 1px solid #cfcfcf;
+}
+.section-contacts p {
+  font-size: 18px;
+  font-weight: 300;
+  color: #5d5d5d;
+  line-height: 1.4;
+  width:50%;
+  margin:0 auto;
+}
+.section-contacts .form {
+  width: 950px;
+  margin: 30px auto 80px;
+}
+.section-contacts .form .left {
+  float: left;
+  width: 360px;
+}
+.section-contacts .form .right {
+  float: right;
+  width: 560px;
+}
+.section-contacts textarea {
+  height: 212px;
+}
+.section-contacts .btn {
+    padding:6px 94px;
+}
+.section-contacts .center {
+  margin-top: 20px;
+}
+
+.block-call-us .inner {
+  border-bottom: 1px solid #cfcfcf;
+}
+.block-call-us .block-title {
+  margin-bottom: 55px;
+}
+.block-call-us ul {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 60px;
+}
+.block-call-us ul li {
+  float: left;
+  margin-bottom: 7px;
+  width: 33%;
+  font-size: 13px;
+  font-weight: 300;
+  color: #5d5d5d;
+  padding: 0 45px 0 80px;
+  line-height: 20px;
+}
+.block-call-us ul li span {
+  float: right;
+  font-weight: normal;
+}
+.block-call-us ul li.Bahrain {
+  background: url("../img/flags/Bahrain.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Peru {
+  background: url("../img/flags/Peru.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Malaysia {
+  background: url("../img/flags/Malaysia.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Colombia {
+  background: url("../img/flags/Colombia.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Russia {
+  background: url("../img/flags/Russia.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.NewZealand {
+  background: url("../img/flags/NewZealand.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Finland {
+  background: url("../img/flags/Finland.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Sweden {
+  background: url("../img/flags/Sweden.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Panama {
+  background: url("../img/flags/Panama.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Italy {
+  background: url("../img/flags/Italy.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Chile {
+  background: url("../img/flags/Chile.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Poland {
+  background: url("../img/flags/Poland.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Mexico {
+  background: url("../img/flags/Mexico.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Denmark {
+  background: url("../img/flags/Denmark.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Spain {
+  background: url("../img/flags/Spain.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Norway {
+  background: url("../img/flags/Norway.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Germany {
+  background: url("../img/flags/Germany.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.UK {
+  background: url("../img/flags/UK.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Austria {
+  background: url("../img/flags/Austria.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Australia {
+  background: url("../img/flags/Australia.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Canada {
+  background: url("../img/flags/Canada.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Switzerland {
+  background: url("../img/flags/Switzerland.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.Argentina {
+  background: url("../img/flags/Argentina.png") 45px 50% no-repeat;
+}
+.block-call-us ul li.El_Salvador {
+  background: url("../img/flags/El_Salvador.png") 45px 50% no-repeat;
+}
+
+.block-phones {
+  text-align: center;
+  color: #5d5d5d;
+  font-size: 15px;
+  font-weight: 300;
+}
+.block-phones .inner {
+  padding: 30px 0;
+  border-bottom: 1px solid #cfcfcf;
+}
+.block-phones p {
+  margin-bottom: 10px;
+}
+.block-phones a {
+  font-size: 24px;
+}
+.block-phones .coll {
+  display: inline-block;
+  margin: 0 50px;
+}
+
+.block-emails {
+  text-align: center;
+  padding: 30px 2% 90px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #5d5d5d;
+}
+.block-emails a {
+  border-bottom: 1px solid #fad11d;
+}
+.block-emails a:hover {
+  border-color: transparent;
+}
+
+/*-----------------------------------------------------------*/
+/*-----Media Styles screen and (max-width: 1180px)----*/
+/*-----------------------------------------------------------*/
+@media screen and (max-width: 1180px) {
+.section-contacts .form {
+    max-width: 950px;
+    width: 100%;
+  }
+  .section-contacts .form .left {
+    width: 35%;
+  }
+  .section-contacts .form .right {
+    width: 63%;
+    float: right;
+  }
+}
+
+/*-----------------------------------------------------------*/
+/*-----Media Styles screen and (max-width: 960px)----*/
+/*-----------------------------------------------------------*/
+@media screen and (max-width: 960px) {
+.block-call-us ul li {
+    width: 50%;
+  }
+}
+
+/*-----------------------------------------------------------*/
+/*-----Media Styles screen and (max-width: 768px)----*/
+/*-----------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+.section-contacts {
+    padding: 30px 0;
+  }
+  .section-contacts p {
+    font-size: 15px;
+    width:100%;
+  }
+  .section-contacts p br {
+      display:none;
+  }
+  .section-contacts .form {
+    margin-bottom: 30px;
+  }
+  .section-contacts .form .left {
+    width: 100%;
+  }
+  .section-contacts .form .right {
+    width: 100%;
+  }
+  .section-contacts textarea {
+    max-width: 100%;
+    width: 360px;
+  }
+  .block-call-us .block-title,.block-call-us ul {
+    margin-bottom: 30px;
+  }
+}
+
+/*-----------------------------------------------------------*/
+/*-----Media Styles screen and (max-width: 640px)----*/
+/*-----------------------------------------------------------*/
+@media screen and (max-width: 640px) {   
+  .block-call-us ul li {
+    width: 100%;
+  }
+  .block-phones .coll {
+    width: 100%;
+    margin: 10px 0;
+  }
+}

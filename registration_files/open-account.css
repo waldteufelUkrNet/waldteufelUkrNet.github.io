@@ -1,0 +1,78 @@
+/*-----------------------------------------------------------*/
+/*-----Open Account Styles----*/
+/*-----------------------------------------------------------*/
+.promo-legal {
+  background: url("../../../img/promo_open-ac.jpg") 50% 0 no-repeat;
+}
+.privilege-block {
+  padding: 60px 0 0;
+  margin-top:60px;
+  border-top:1px solid #cfcfcf;
+}
+.privilege-block .left,.privilege-block .right {
+  float: left;
+  width: 50%;
+}
+.privilege-block .left {
+  padding: 30px 25px;
+  background: #f3f3f3;
+  border: 1px solid #cccccc;
+}
+.privilege-block .left .title {
+  font-weight: 700;
+  color: #001d35;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.privilege-block .left ul {
+  width: 50%;
+  float: left;
+  line-height: 1.5;
+  padding-right:10px;
+}
+.privilege-block .left ul li {
+  padding-left: 20px;
+  background: url("../../../img/ls.png") 0 5px no-repeat;
+  font-size: 12px;
+  color: #5d5d5d;
+}
+.privilege-block .right .coll {
+  width: 50%;
+  float: left;
+  padding: 35px 0 0 25px;
+}
+.privilege-block .right p {
+  color: #5d5d5d;
+  font-size: 12px;
+  line-height: 1.3;
+}
+.privilege-block .right .title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #5d5d5d;
+}
+
+/*-----------------------------------------------------------*/
+/*-----Media Styles screen and (max-width: 768px)----*/
+/*-----------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+.privilege-block .left, .privilege-block .right {
+    width: 100%;
+  }
+  .privilege-block {
+    padding: 30px 0;
+  }
+}
+
+/*-----------------------------------------------------------*/
+/*-----Media Styles screen and (max-width: 640px)----*/
+/*-----------------------------------------------------------*/
+@media screen and (max-width: 640px) {
+    .privilege-block .left ul,.privilege-block .right .coll {
+    width: 100%;
+  }
+  .privilege-block .right .coll {
+    padding: 15px;
+  }
+}

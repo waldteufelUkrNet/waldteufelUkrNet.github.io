@@ -1,0 +1,178 @@
+/***********************************************************************************************************************
+                                Glossary
+***********************************************************************************************************************/
+/*responsive*/
+/*responsive*/
+.letter-list-block {
+  padding-top: 25px; }
+
+.letter-list-wrap {
+  width: 100%;
+  border-bottom: 1px solid #eeeeee;
+  position: relative;
+  text-align: center; }
+
+.letter-list ul {
+  position: relative;
+  float: left; }
+.letter-list li {
+  float: left;
+  min-height: 53px;
+  position: relative;
+  background: none;
+  padding: 0;
+  margin: 0; }
+  .letter-list li:before {
+    display: none; }
+  .letter-list li a {
+    color: #1c2e3d;
+    text-transform: uppercase;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    width: 30px;
+    margin: 0 auto;
+    line-height: 30px;
+    text-decoration: none; }
+  .letter-list li:hover:after {
+    bottom: -1px;
+    position: absolute;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 1px; }
+  .letter-list li:hover a {
+    color: #1c2e3d;
+    text-decoration: none; }
+.letter-list li.active:after {
+  bottom: -1px;
+  background: #1c2e3d;
+  position: absolute;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 1px; }
+.letter-list li.active a {
+  border-radius: 100%;
+  color: #ffffff;
+  background: #1c2e3d;
+  font-size: 19px; }
+.letter-list li.disabled a {
+  color: #999999;
+  pointer-events: none;
+  font-weight: 300; }
+.letter-list .input-group {
+  float: right;
+  clear: none;
+  width: 240px;
+  margin-top: -5px; }
+  .letter-list .input-group input {
+    width: 230px;
+    height: auto;
+    border: none;
+    color: #E0B831;
+    background: #ececec url(../img/search.png) 17px 50% no-repeat;
+    -webkit-transition: box-shadow ease-in-out .15s;
+    transition: box-shadow ease-in-out .15s;
+    margin: 12px 0 0;
+    padding: 10px 0 10px 45px;
+    border-radius: 45px; }
+  .letter-list .input-group input[type=text]:-ms-input-placeholder {
+    color: #1c2e3d;
+    font-style: italic; }
+  .letter-list .input-group input[type=text]:-moz-placeholder {
+    color: #1c2e3d;
+    font-style: italic; }
+  .letter-list .input-group input[type=text]::-moz-placeholder {
+    color: #1c2e3d;
+    font-style: italic; }
+  .letter-list .input-group input[type=text]::-webkit-input-placeholder {
+    color: #1c2e3d;
+    font-style: italic; }
+
+.glossary-content {
+  display: table;
+  margin: 0 auto;
+  width: 940px; }
+  .glossary-content .glossary-table {
+    overflow: hidden;
+    padding: 3.39vw 0;
+    border-bottom: 1px solid #EEEEEE; }
+    .glossary-content .glossary-table:last-of-type .glossary-column {
+      border-bottom: 0; }
+  .glossary-content .glossary-letter {
+    float: left;
+    width: 170px;
+    font-size: 60px;
+    font-weight: 100;
+    color: #cccccc;
+    font-family: "SFBold", sans-serif;
+    text-transform: uppercase; }
+  .glossary-content .glossary-table.active .glossary-letter {
+    font-weight: 700;
+    color: #1c2e3d; }
+  .glossary-content .glossary-column {
+    float: left;
+    width: calc(100% - 170px); }
+    .glossary-content .glossary-column .faq-item {
+      margin-bottom: 5px; }
+    .glossary-content .glossary-column .question {
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 400;
+      color: #4b5354;
+      cursor: pointer; }
+      .glossary-content .glossary-column .question:hover {
+        color: #1c2e3d; }
+    .glossary-content .glossary-column .toggle-content {
+      font-size: 14px;
+      line-height: 23px;
+      color: #06050d;
+      margin: 12px 0 22px;
+      width: 100%;
+      font-weight: 400;
+      display: none;
+      background: #f6f6f6;
+      padding: 15px 20px; }
+
+@media screen and (max-width: 1180px) {
+  .letter-list-block {
+    margin-top: -20px; }
+
+  .letter-list li.active {
+    border-bottom: 0; }
+    .letter-list li.active:after {
+      display: none; }
+  .letter-list li {
+    min-height: 30px;
+    float: none;
+    display: inline-block; }
+    .letter-list li:hover {
+      border-bottom: 0; }
+      .letter-list li:hover:after {
+        display: none; }
+  .letter-list ul {
+    float: none;
+    display: table;
+    margin: 0 auto;
+    text-align: center; }
+  .letter-list .input-group {
+    float: none;
+    margin: 10px auto 20px; }
+
+  .glossary-content {
+    width: 100%; }
+    .glossary-content .glossary-letter {
+      width: 20%; }
+    .glossary-content .glossary-column {
+      width: 80%; } }
+@media screen and (max-width: 960px) {
+  .glossary-content .glossary-table .glossary-letter {
+    font-size: 45px; }
+  .glossary-content .glossary-column .question {
+    font-size: 14px; }
+  .glossary-content .glossary-column .toggle-content {
+    font-size: 13px;
+    line-height: 1.2; } }
+
+/*# sourceMappingURL=glossary.css.map */

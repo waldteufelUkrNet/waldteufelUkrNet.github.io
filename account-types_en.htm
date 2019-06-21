@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Black Mark -->
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- Google Tag Manager -->
+    <script async="" src="account-types_en_files/gtm.js"></script>
+    <meta name="msapplication-TileColor" content="#1c2e3d">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="mailru-verification" content="ff95e40d0d301dc2">
+    <link rel="alternate" hreflang="en" href="account-types_en_files/a.htm">
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com/">
+    <link rel="dns-prefetch" href="https://s.w.org/">
+    <link rel="stylesheet" id="ts-da5d490d44e70901b3baf13d224d7918-css" href="account-types_en_files/style.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ts-27f49add4700f93469794df0c6fa6bfd-css" href="account-types_en_files/mini-asset-index.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ts-622c1a00d43ffd1572c729353368de86-css" href="account-types_en_files/assetsRow.css" type="text/css" media="all">
+    <link rel="stylesheet" id="wpml-menu-item-0-css" href="account-types_en_files/style_002.css" type="text/css" media="all">
+    <script type="text/javascript" src="account-types_en_files/jquery_004.js"></script>
+    <script type="text/javascript" src="account-types_en_files/vue.js"></script>
+    <script type="text/javascript" src="account-types_en_files/assetsrss.js"></script>
+    <script type="text/javascript" src="account-types_en_files/TSAsset.js"></script>
+    <script type="text/javascript" src="account-types_en_files/TSMarket.js"></script>
+    <script type="text/javascript" src="account-types_en_files/TSCollection.js"></script>
+    <script type="text/javascript" src="account-types_en_files/TSAssetCollection.js"></script>
+    <script type="text/javascript" src="account-types_en_files/TSMarketCollection.js"></script>
+    <script type="text/javascript" src="account-types_en_files/TSAssetSubscription.js"></script>
+    <script type="text/javascript" src="account-types_en_files/TSPublisher.js"></script>
+    <script type="text/javascript" src="account-types_en_files/TSSortedAssetCollection.js"></script>
+    <script type="text/javascript" src="account-types_en_files/TSIOWSConnection.js"></script>
+    <meta name="generator" content="WordPress 4.9.10">
+    <meta name="generator" content="WPML ver:3.9.4 stt:5,1,46;">
+    <script src="account-types_en_files/socket.js"></script>
+    <script src="account-types_en_files/popuper.js"></script>
+    <script src="account-types_en_files/a" async=""></script>
+    <title> Paladiumtrade </title>
+    <link rel="icon" href="1/logo-small.png">
+</head>
+
+<body class="page-template page-template-page-type page-template-page-type-php page page-id-7361 wp-custom-logo">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QPMGKP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <style>
+        .preloader {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            display: flex;
+        }
+        .preloader .side {
+            border-right: 2px solid #222946;
+            background: #ffffff  no-repeat;
+            width: 51%;
+            transform: translateX(-110%);
+            transition: .3s;
+            z-index: 999;
+            margin-right: -2px;
+        }
+        .preloader .side img {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            right: -50px;
+            border-radius: 50%;
+            border: 3px solid #222946;
+            background: #fff;
+        }
+        .preloader .right {
+            border-left: 2px solid #222946;
+            transform: translateX(100%);
+            z-index: 98;
+        }
+        .preloader .position-null {
+            transform: translateX(0%);
+        }
+        body{
+            margin: 0 !important;
+        }
+    </style>
+    <div id="preloader" class="preloader" style="display: none;">
+        <div class="side">
+            <img src="account-types_en_files/loader.svg" alt="">
+        </div>
+        <div class="right side"></div>
+    </div>
+    <!------------------------------>
+    <!-- ↓↓↓ HEADER-EN (start) ↓↓↓-->
+    <!------------------------------>
+    <header>
+        <div class="top">
+            <div class="inner">
+            </div>
+        </div>
+        <div class="main-nav">
+            <div class="inner ">
+                <!----------------------------------->
+                <!-- ↓↓↓ LOGIN-POPUP-EN (start) ↓↓↓-->
+                <!----------------------------------->
+                <div class="login-block" id="login">
+                    <div class="log-in active">
+                        <a href="authorization_en.htm" class="ts-btn ts-btn-auth">Log In</a></div>
+                    <div class="register">
+                        <a class="ts-btn ts-btn-open-acc" href="registration_en.htm">Open Account</a></div>
+                    <div id="log-in" class="modal" role="dialog" style="display: none">
+                        <div class="box-modal" id="window-login">
+                            <div class="arcticmodal-close" data-dismiss="modal" aria-hidden="true"></div>
+                            <div class="left">
+                                <h6>Log in to your account</h6>
+                                <div id="auth_error_msg" style="color: red; font-size: 12px; padding-bottom: 5px;"></div>
+                                <div id="auth_success_msg" style="color: #d8a406; font-size: 12px; padding-bottom: 5px;"></div>
+                                <div class="form">
+                                    <form id="ts-hello-auth-form" action="#" method="post">
+                                        <div class="form-pre-loader" style="display:none;"><span class="spin-loader"></span></div><input type="hidden" name="tradersoft_submit" value="trader_login">
+                                        <div class="form-row field-auth_email">
+                                            <input type="text" id="auth_email" class="form-input form-free form-input email" name="email" placeholder="Email address">
+                                            <small class="error error-text-js"></small>
+                                        </div>
+                                        <div class="form-row field-trader_login-password">
+                                            <input type="password" id="trader_login-password" class="form-input form-free form-input password" name="password" placeholder="Password">
+                                            <small class="error error-text-js"></small>
+                                        </div> <input type="submit" id="auth_submit" value="Log In" class="btn btn-default btn-large">
+                                    </form>
+                                    <a href="password_recovery_en.htm" id="forgot_pass" class="">Forgot password</a>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>Don’t have an account?</p>
+                                <a href="registration_en.htm" class="front-register">Sign up now</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--------------------------------->
+                <!-- ↑↑↑ LOGIN-POPUP-EN (end) ↑↑↑-->
+                <!--------------------------------->
+                <div class="logo">
+                    <a href="index_en.htm"><img src="1/logo-big.png" style="height:50px; width: auto"></a>
+                    <div class="language__wrapper_inner">
+                        <button class="language_current">
+                            <img src="1/en.png" alt="en">
+                        </button>
+                        <ul class="language__list">
+                            <!----------------------------------------->
+                            <!-- ↓↓↓ LANGUAGE REDIRECTION (START) ↓↓↓-->
+                            <!----------------------------------------->
+                            <li class="language__item"><a class="language__itemLink" href="account-types.htm"><img src="1/ru.png" alt="ru">Русский</a></li>
+                            <!--------------------------------------->
+                            <!-- ↑↑↑ LANGUAGE REDIRECTION (end) ↑↑↑-->
+                            <!--------------------------------------->
+                        </ul>
+                    </div>
+                </div>
+                <!----------------------------------------->
+                <!-- ↓↓↓ HEADER NAVIGATION EN (START) ↓↓↓-->
+                <!----------------------------------------->
+                <nav id="navigation">
+                    <a href="#" id="pull">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                    <ul id="f-menu" class="f-menu-wrapper">
+                        <li id="menu-item-7370" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7370 tabs__item"><a href="account-types_en.htm">Account types</a></li>
+                        <li id="menu-item-642" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-642 tabs__item"><a href="account-types_en.htm">Getting started</a>
+                            <ul class="sub-menu">
+                                <li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28 tabs__item"><a href="cfd_en.htm">CFDs</a></li>
+                                <li id="menu-item-667" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-667 tabs__item"><a href="simplifiedFX_en.htm">Simplified FX</a></li>
+                            </ul>
+                        </li>
+                        <li id="menu-item-686" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-686 tabs__item"><a href="#">Platforms</a>
+                            <ul class="sub-menu">
+                                <li id="menu-item-710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-710 tabs__item"><a href="mobile_en.htm">Mobile</a></li>
+                            </ul>
+                        </li>
+                        <li id="menu-item-640" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-640 tabs__item"><a href="#">Trader Info</a>
+                            <ul class="sub-menu">
+                                <li id="menu-item-7366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7366 tabs__item"><a href="account-types_en.htm">Account Types</a></li>
+                                <li id="menu-item-545" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-545 tabs__item"><a href="glossary_en.htm">Glossary</a></li>
+                                <li id="menu-item-546" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-546 tabs__item"><a href="faq_en.htm">Faq</a></li>
+                            </ul>
+                        </li>
+                        <li id="menu-item-641" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-641 tabs__item"><a href="#">About Us</a>
+                            <ul class="sub-menu">
+                                <li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30 tabs__item"><a href="contacts_en.htm">Contact Us</a></li>
+                                <li id="menu-item-604" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-604 tabs__item"><a href="docs_en.htm">Legal</a></li>
+                                <li id="menu-item-547" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-547 tabs__item"><a href="company_en.htm">Our Company</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!----------------------------------------->
+                <!-- ↑↑↑ HEADER NAVIGATION EN (START) ↑↑↑-->
+                <!----------------------------------------->
+            </div>
+        </div>
+    </header>
+    <!---------------------------->
+    <!-- ↑↑↑ HEADER-EN (end) ↑↑↑-->
+    <!---------------------------->
+    <style>
+        .wrapper-column {
+            display: flex;
+            align-items: stretch;
+            text-align: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            margin: 30px 0px 40px;
+        }
+
+        .flex-container {
+            display: flex;
+            margin-top: 45px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn.btn-yellow {
+            margin-bottom: 0;
+            border-radius: 5px;
+            background-color: rgb(255, 208, 139);
+            color: #1c2e3d;
+            font-size: 12px;
+            padding: 11px 15px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .column-lg-icon {
+            margin-bottom: 10px;
+        }
+
+        .column-lg-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1c2e3d;
+            margin-bottom: 25px;
+        }
+
+        .column-lg-head {
+            border-bottom: 2px solid #ededed;
+            padding: 30px 0px 30px;
+        }
+
+        .column-lg-footer {
+            border-top: 2px solid #ededed;
+            padding: 30px 0px 30px;
+        }
+
+        .column-lg {
+            width: 200px !important;
+            box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+        }
+
+        .column-lg-row {
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .column-lg-body {
+            padding: 25px 10px;
+            flex: 1 1 auto;
+            min-height: 445px;
+        }
+
+        .wrapper-column p {
+            margin: 0;
+            display: none !important;
+        }
+
+        .wrapper-column svg {
+            min-height: 70px;
+        }
+
+        .wrapper-column .st0 {
+            fill: #1C2E3D;
+        }
+
+        .slick-slide {
+            padding: 10px;
+        }
+
+        .slick-prev,
+        .slick-next {
+            background-color: #e8e8e8 !important;
+            width: 45px !important;
+            height: 33px !important;
+            top: 170px !important;
+            opacity: 1 !important;
+            background-position: center !important
+        }
+
+        .slick-next {
+            background-image: url(/wp-content/themes/bormancorp/img/next.png) !important;
+        }
+
+        .slick-prev {
+            background-image: url(/wp-content/themes/bormancorp/img/prev.png) !important;
+        }
+
+        .slick-next {
+            border-radius: 0px 5px 5px 0px;
+        }
+
+        .slick-prev {
+            border-radius: 5px 0px 0px 5px;
+        }
+
+        .page-title {
+            font-size: 60px;
+        }
+
+        @media(max-width:1320px) {
+
+            .wrapper-column .slick-prev,
+            .wrapper-column .slick-next {
+                display: block !important;
+            }
+        }
+
+        @media(max-width: 998px) {
+            .slick-prev {
+                left: 50% !important;
+                transform: translateX(-145px);
+            }
+
+            .slick-next {
+                right: 50% !important;
+                transform: translateX(145px);
+            }
+        }
+    </style>
+    <section id="main" class="section-glossary">
+        <div class="">
+            <div id="primary" class="content-area">
+                <div class="content-head d-flex" style="background-image: none;">
+                    <div class="container">
+                        <div class="row flex-container mt-4">
+                            <div class="col-lg-6">
+                                <h1 class="page-title">Account types</h1>
+                            </div>
+                            <div class="col-lg-6"><img class="mw-100" src="account-types_en_files/bull.png" alt="bull"></div>
+                        </div>
+                    </div>
+                </div>
+                <section class="section-container mt-4">
+                    <div class="container mt-4 p-0">
+                        <div class="row">
+                            <div class="col-lg-12 ">
+                                <div class="wrapper-column slick-initialized slick-slider">
+                                    <div class="slick-list draggable">
+                                        <div class="slick-track" style="opacity: 1; width: 1140px; transform: translate3d(0px, 0px, 0px);">
+                                            <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 228px;">
+                                                <div>
+                                                    <div class="column-lg" style="width: 100%; display: inline-block;">
+                                                        <div class="column-lg-head">
+                                                            <div class="column-lg-icon"><svg x="0px" y="0px" width="65px" viewBox="0 0 516.7 260.5" style="enable-background:new 0 0 516.7 260.5;" xml:space="preserve">
+                                                                    <g>
+                                                                        <g>
+                                                                            <path class="st0" d="M498.3,2.1H19.5c-9.1,0-16.6,7.4-16.6,16.6v223.2c0,9.1,7.4,16.6,16.6,16.6h478.9c9.1,0,16.6-7.4,16.6-16.6V18.7C514.9,9.5,507.5,2.1,498.3,2.1z M498.9,241c0,0.3-0.2,0.5-0.5,0.5H19.5c-0.3,0-0.5-0.2-0.5-0.5V18.7c0-0.3,0.2-0.5,0.5-0.5h478.9c0.3,0,0.5,0.2,0.5,0.5V241L498.9,241z"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                    <g>
+                                                                        <g>
+                                                                            <path class="st0" d="M472.7,70.5c-14.4,0-26.2-11.7-26.2-26.2c0-4.4-3.6-8-8-8h-94.1c-4.4,0-8,3.6-8,8s3.6,8,8,8h86.8c3.3,16.9,16.6,30.2,33.4,33.4v88.1c-16.9,3.3-30.2,16.6-33.4,33.4h-86.8c-4.4,0-8,3.6-8,8s3.6,8,8,8h94.1c4.4,0,8-3.6,8-8c0-14.4,11.7-26.2,26.2-26.2c4.4,0,8-3.6,8-8V78.5C480.7,74.1,477.1,70.5,472.7,70.5z"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                    <g>
+                                                                        <g>
+                                                                            <path class="st0" d="M173.4,207.3H86.6c-3.3-16.9-16.6-30.2-33.4-33.4V85.8C70,82.5,83.3,69.2,86.6,52.3h86.8c4.4,0,8-3.6,8-8s-3.6-8-8-8H79.3c-4.4,0-8,3.6-8,8c0,14.4-11.7,26.2-26.2,26.2c-4.4,0-8,3.6-8,8v102.6c0,4.4,3.6,8,8,8c14.4,0,26.2,11.7,26.2,26.2c0,4.4,3.6,8,8,8h94.1c4.4,0,8-3.6,8-8S177.8,207.3,173.4,207.3z"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                    <g>
+                                                                        <g>
+                                                                            <path class="st0" d="M258.9,36.3c-51.6,0-93.5,42-93.5,93.5s42,93.5,93.5,93.5s93.5-42,93.5-93.5S310.5,36.3,258.9,36.3zM258.9,207.3c-42.7,0-77.5-34.8-77.5-77.5s34.8-77.5,77.5-77.5s77.5,34.8,77.5,77.5S301.6,207.3,258.9,207.3z"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                    <g>
+                                                                        <g>
+                                                                            <path class="st0" d="M266.9,123.7v-28c11.4,1.8,18.2,7,18.2,10.1c0,4.4,3.6,8,8,8s8-3.6,8-8c0-13.5-14.2-24-34.2-26.3v-1c0-4.4-3.6-8-8-8s-8,3.6-8,8v1c-20,2.2-34.2,12.8-34.2,26.3c0,18.8,18.8,25.9,34.2,30.2v28c-11.4-1.8-18.2-7-18.2-10.1c0-4.4-3.6-8-8-8s-8,3.6-8,8c0,13.5,14.2,24,34.2,26.3v1c0,4.4,3.6,8,8,8s8-3.6,8-8v-1c20-2.2,34.2-12.8,34.2-26.3C301.1,135.1,282.3,128,266.9,123.7z M250.9,119.2c-13.4-4.2-18.2-8-18.2-13.4c0-3.1,6.7-8.3,18.2-10.1V119.2z M266.9,164v-23.5c13.4,4.2,18.2,8,18.2,13.4C285.1,157,278.4,162.2,266.9,164z"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                </svg></div>
+                                                            <div class="column-lg-title">Basic</div>
+                                                            <div><a class="btn btn-yellow btn-register" href="registration_en.htm" tabindex="0">OPEN ACCOUNT</a></div>
+                                                        </div>
+                                                        <div class="column-lg-body">
+                                                            <div class="column-lg-row">Platform introduction</div>
+                                                            <div class="column-lg-row">Dedicated Account Manager</div>
+                                                            <div class="column-lg-row">Educational webinars</div>
+                                                            <div class="column-lg-row">Financial market introduction</div>
+                                                        </div>
+                                                        <div class="column-lg-footer"><a class="btn btn-yellow btn-register" href="registration_en.htm" tabindex="0">OPEN ACCOUNT</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 228px;">
+                                                <div>
+                                                    <div class="column-lg" style="width: 100%; display: inline-block;">
+                                                        <div class="column-lg-head">
+                                                            <div class="column-lg-icon"><svg x="0px" y="0px" width="65px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                                                    <g>
+                                                                        <g>
+                                                                            <path class="st0" d="M495.4,77H16.6C7.4,77,0,84.4,0,93.5v324.9c0,9.1,7.4,16.6,16.6,16.6h478.9c9.1,0,16.6-7.4,16.6-16.6V93.5C512,84.4,504.6,77,495.4,77z M496,350.6h-26.2c-4.4,0-8,3.6-8,8s3.6,8,8,8H496v18.2H367.2c-4.4,0-8,3.6-8,8c0,4.4,3.6,8,8,8H496v17.6c0,0.3-0.2,0.5-0.5,0.5H16.6c-0.3,0-0.5-0.2-0.5-0.5v-17.6H333c4.4,0,8-3.6,8-8c0-4.4-3.6-8-8-8H16v-18.2h419.5c4.4,0,8-3.6,8-8s-3.6-8-8-8H16v-18.2c0.2,0,0.4,0,0.5,0h478.9c0.2,0,0.4,0,0.5,0L496,350.6L496,350.6z M496,315.9c0,0.3-0.2,0.5-0.5,0.5H16.6c-0.3,0-0.5-0.2-0.5-0.5V93.5c0-0.3,0.2-0.5,0.5-0.5h478.9c0.3,0,0.5,0.2,0.5,0.5L496,315.9L496,315.9z"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                    <g>
+                                                                        <g>
+                                                                            <path class="st0" d="M469.8,145.4c-14.4,0-26.2-11.7-26.2-26.2c0-4.4-3.6-8-8-8h-94.1c-4.4,0-8,3.6-8,8s3.6,8,8,8h86.8c3.3,16.9,16.6,30.2,33.4,33.4v88.1c-16.9,3.3-30.2,16.6-33.4,33.4h-86.8c-4.4,0-8,3.6-8,8s3.6,8,8,8h94.1c4.4,0,8-3.6,8-8c0-14.4,11.7-26.2,26.2-26.2c4.4,0,8-3.6,8-8V153.4C477.8,149,474.2,145.4,469.8,145.4z"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                    <g>
+                                                                        <g>
+                                                                            <path class="st0" d="M170.5,282.2H83.7c-3.3-16.9-16.6-30.2-33.4-33.4v-88.1c16.9-3.3,30.2-16.6,33.4-33.4h86.8c4.4,0,8-3.6,8-8s-3.6-8-8-8H76.4c-4.4,0-8,3.6-8,8c0,14.4-11.7,26.2-26.2,26.2c-4.4,0-8,3.6-8,8V256c0,4.4,3.6,8,8,8c14.4,0,26.2,11.7,26.2,26.2c0,4.4,3.6,8,8,8h94.1c4.4,0,8-3.6,8-8S174.9,282.2,170.5,282.2z"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                    <g>
+                                                                        <g>
+                                                                            <path class="st0" d="M256,111.2c-51.6,0-93.5,42-93.5,93.5s42,93.5,93.5,93.5s93.5-42,93.5-93.5S307.6,111.2,256,111.2z M256,282.2c-42.7,0-77.5-34.8-77.5-77.5s34.8-77.5,77.5-77.5s77.5,34.8,77.5,77.5S298.7,282.2,256,282.2z"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                    <g>
+                                                                        <g>
+                                                                            <path class="st0" d="M264,198.5v-28c11.4,1.8,18.2,7,18.2,10.1c0,4.4,3.6,8,8,8s8-3.6,8-8c0-13.5-14.2-24-34.2-26.3v-1c0-4.4-3.6-8-8-8s-8,3.6-8,8v1c-20,2.2-34.2,12.8-34.2,26.3c0,18.8,18.8,25.9,34.2,30.2v28c-11.4-1.8-18.2-7-18.2-10.1c0-4.4-3.6-8-8-8s-8,3.6-8,8c0,13.5,14.2,24,34.2,26.3v1c0,4.4,3.6,8,8,8c4.4,0,8-3.6,8-8v-1c20-2.2,34.2-12.8,34.2-26.3C298.2,209.9,279.4,202.8,264,198.5z M248,194.1c-13.4-4.2-18.2-8-18.2-13.4c0-3.1,6.7-8.3,18.2-10.1V194.1z M264,238.8v-23.5c13.4,4.2,18.2,8,18.2,13.4C282.2,231.8,275.4,237.1,264,238.8z"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                </svg></div>
+                                                            <div class="column-lg-title">Silver</div>
+                                                            <div><a class="btn btn-yellow btn-register" href="registration_en.htm" tabindex="0">OPEN ACCOUNT</a></div>
+                                                        </div>
+                                                        <div class="column-lg-body">
+                                                            <div class="column-lg-row">All Basic account benefits</div>
+                                                            <div class="column-lg-row">Sentimental Analysis</div>
+                                                            <div class="column-lg-row">Fundamental analysis</div>
+                                                            <div class="column-lg-row">Technical analysis</div>
+                                                            <div class="column-lg-row">One on one tutorial</div>
+                                                            <div class="column-lg-row">Long and short term strategies</div>
+                                                            <div class="column-lg-row">Risk management</div>
+                                                            <div class="column-lg-row">Bonus</div>
+                                                        </div>
+                                                        <div class="column-lg-footer"><a class="btn btn-yellow btn-register" href="registration_en.htm" tabindex="0">OPEN ACCOUNT</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 228px;">
+                                                <div>
+                                                    <div class="column-lg" style="width: 100%; display: inline-block;">
+                                                        <div class="column-lg-head">
+                                                            <div class="column-lg-icon"><svg x="0px" y="0px" width="65px" viewBox="0 0 523 244" style="enable-background:new 0 0 523 244;" xml:space="preserve">
+                                                                    <g>
+                                                                        <path class="st0" d="M162.8,145h26.5c4.5,0,8.1-3.6,8.1-8.1s-3.6-8.1-8.1-8.1H31.6c-3.9,0-7.3,2.8-8,6.6L6.1,227.9c-0.4,2.4,0.2,4.8,1.7,6.7s3.8,2.9,6.3,2.9h156.3c4.5,0,8.2-3.6,8.2-8.1c0-0.7-0.1-1.4-0.3-2.1L162.8,145z M24,221.3L38.4,145h107.9l14.4,76.3H24z"></path>
+                                                                        <path class="st0" d="M500.4,135.4c-0.7-3.8-4.1-6.6-8-6.6H221.9c-3.9,0-7.3,2.8-8,6.6l-0.3,1.5l-17.2,91c-0.1,0.5-0.1,1-0.1,1.5c0,1.9,0.6,3.7,1.9,5.2c1.5,1.9,3.8,2.9,6.3,2.9h305.4c2.4,0,4.7-1.1,6.3-2.9s2.2-4.3,1.7-6.7L500.4,135.4z M336.5,145l14.4,76.3H214.3l14.4-76.3H336.5z M367.5,221.3L353.1,145h132.5l14.4,76.3H367.5z"></path>
+                                                                        <path class="st0" d="M466,161.3h-40.5c-4.5,0-8.1,3.6-8.1,8.1s3.6,8.1,8.1,8.1H466c4.5,0,8.1-3.6,8.1-8.1C474.1,165,470.5,161.3,466,161.3z"></path>
+                                                                        <path class="st0" d="M392.9,161.3H382c-4.5,0-8.1,3.6-8.1,8.1s3.6,8.1,8.1,8.1h10.9c4.5,0,8.1-3.6,8.1-8.1C401,165,397.4,161.3,392.9,161.3z"></path>
+                                                                        <path class="st0" d="M370.8,36.2h-83.9c-4.5,0-8.1,3.6-8.1,8.1s3.6,8.1,8.1,8.1h83.9c4.5,0,8.1-3.6,8.1-8.1S375.3,36.2,370.8,36.2z"></path>
+                                                                        <path class="st0" d="M109.3,112.4h305.4c2.4,0,4.7-1.1,6.3-2.9c1.5-1.9,2.2-4.3,1.7-6.7l-17.5-92.6c-0.7-3.8-4.1-6.6-8-6.6H248.1H126.8c-3.9,0-7.3,2.8-8,6.6l-17.5,92.6c-0.4,2.4,0.2,4.8,1.7,6.7C104.6,111.3,106.9,112.4,109.3,112.4z M272.3,96.1L258,19.9h132.5l14.4,76.3H272.3V96.1z M241.4,19.9l14.4,76.3H119.1l14.4-76.3C133.5,19.9,241.4,19.9,241.4,19.9z"></path>
+                                                                    </g>
+                                                                </svg></div>
+                                                            <div class="column-lg-title">Gold</div>
+                                                            <div><a class="btn btn-yellow btn-register" href="registration_en.htm" tabindex="0">OPEN ACCOUNT</a></div>
+                                                        </div>
+                                                        <div class="column-lg-body">
+                                                            <div class="column-lg-row">All Basic and Silver account benefits</div>
+                                                            <div class="column-lg-row">Advanced Trading Strategies</div>
+                                                            <div class="column-lg-row">Better spreads</div>
+                                                            <div class="column-lg-row">Trading signals</div>
+                                                            <div class="column-lg-row">Senior account manager</div>
+                                                        </div>
+                                                        <div class="column-lg-footer"><a class="btn btn-yellow btn-register" href="registration_en.htm" tabindex="0">OPEN ACCOUNT</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 228px;">
+                                                <div>
+                                                    <div class="column-lg" style="width: 100%; display: inline-block;">
+                                                        <div class="column-lg-head">
+                                                            <div class="column-lg-icon"><svg x="0px" y="0px" width="65px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                                                    <g>
+                                                                        <path class="st0" d="M156.8,343h26.5c4.5,0,8.1-3.6,8.1-8.1c0-4.5-3.6-8.1-8.1-8.1H25.6c-3.9,0-7.3,2.8-8,6.6L0.1,425.9c-0.4,2.4,0.2,4.8,1.7,6.7c1.5,1.9,3.8,2.9,6.3,2.9h156.3c4.5,0,8.2-3.6,8.2-8.1c0-0.7-0.1-1.4-0.3-2.1L156.8,343z M18,419.3L32.4,343h107.9l14.4,76.3H18z"></path>
+                                                                        <path class="st0" d="M494.4,333.4c-0.7-3.8-4.1-6.6-8-6.6H215.9c-3.9,0-7.3,2.8-8,6.6l-0.3,1.5l-17.2,91c-0.1,0.5-0.1,1-0.1,1.5c0,1.9,0.6,3.7,1.9,5.2c1.5,1.9,3.8,2.9,6.3,2.9h305.4c2.4,0,4.7-1.1,6.3-2.9c1.5-1.9,2.2-4.3,1.7-6.7L494.4,333.4z M330.5,343l14.4,76.3H208.3l14.4-76.3H330.5z M361.5,419.3L347.1,343h132.5l14.4,76.3H361.5z"></path>
+                                                                        <path class="st0" d="M460,359.3h-40.5c-4.5,0-8.1,3.6-8.1,8.1c0,4.5,3.6,8.1,8.1,8.1H460c4.5,0,8.1-3.6,8.1-8.1C468.1,363,464.5,359.3,460,359.3z"></path>
+                                                                        <path class="st0" d="M386.9,359.3H376c-4.5,0-8.1,3.6-8.1,8.1c0,4.5,3.6,8.1,8.1,8.1h10.9c4.5,0,8.1-3.6,8.1-8.1C395,363,391.4,359.3,386.9,359.3z"></path>
+                                                                        <path class="st0" d="M8.1,310.4h156.3c4.5,0,8.2-3.6,8.2-8.1c0-0.7-0.1-1.4-0.3-2.1l-15.5-82.3h26.5c4.5,0,8.1-3.6,8.1-8.1c0-4.5-3.6-8.2-8.1-8.2H25.6c-3.9,0-7.3,2.8-8,6.6L0.1,300.8c-0.4,2.4,0.2,4.8,1.7,6.7C3.4,309.3,5.7,310.4,8.1,310.4z M140.2,217.9l14.4,76.3H18l14.4-76.3L140.2,217.9L140.2,217.9z"></path>
+                                                                        <path class="st0" d="M375.6,250.5H460c4.5,0,8.1-3.6,8.1-8.1c0-4.5-3.6-8.1-8.1-8.1h-84.4c-4.5,0-8.1,3.6-8.1,8.1C367.4,246.8,371.1,250.5,375.6,250.5z"></path>
+                                                                        <path class="st0" d="M190.3,302.3c0,1.9,0.6,3.7,1.9,5.2c1.5,1.9,3.8,2.9,6.3,2.9h305.4c2.4,0,4.7-1.1,6.3-2.9c1.5-1.9,2.2-4.3,1.7-6.7l-17.5-92.6c-0.7-3.8-4.1-6.6-8-6.6H215.9c-3.9,0-7.3,2.8-8,6.6l-0.3,1.5l-17.2,91C190.3,301.3,190.3,301.8,190.3,302.3z M330.5,217.9l4.5,23.6c0.8,4.4,5.1,7.3,9.5,6.5c4.4-0.8,7.3-5.1,6.5-9.5l-3.9-20.6h132.5l14.4,76.3H361.5l-4.5-23.6c-0.8-4.4-5.1-7.3-9.5-6.5c-4.4,0.8-7.3,5.1-6.5,9.5l3.9,20.6H208.3l14.4-76.3L330.5,217.9L330.5,217.9z"></path>
+                                                                        <path class="st0" d="M364.8,109h-83.9c-4.5,0-8.1,3.6-8.1,8.1s3.6,8.1,8.1,8.1h83.9c4.5,0,8.1-3.6,8.1-8.1S369.3,109,364.8,109z"></path>
+                                                                        <path class="st0" d="M103.3,185.3h305.4c2.4,0,4.7-1.1,6.3-2.9c1.5-1.9,2.2-4.3,1.7-6.7l-17.5-92.6c-0.7-3.8-4.1-6.6-8-6.6H242.1H120.8c-3.9,0-7.3,2.8-8,6.6l-17.5,92.6c-0.4,2.4,0.2,4.8,1.7,6.7C98.6,184.2,100.9,185.3,103.3,185.3z M266.3,169L252,92.7h132.5l14.4,76.3H266.3z M235.4,92.7l14.4,76.3H113.1l14.4-76.3H235.4z"></path>
+                                                                    </g>
+                                                                </svg></div>
+                                                            <div class="column-lg-title">Platinum</div>
+                                                            <div><a class="btn btn-yellow btn-register" href="registration_en.htm" tabindex="0">OPEN ACCOUNT</a></div>
+                                                        </div>
+                                                        <div class="column-lg-body">
+                                                            <div class="column-lg-row">All Basic, Silver, Gold account benefits</div>
+                                                            <div class="column-lg-row">Daily Market Brief</div>
+                                                            <div class="column-lg-row">VIP webinars</div>
+                                                            <div class="column-lg-row">Private webinar with ad expert</div>
+                                                            <div class="column-lg-row">Live trading with an expert</div>
+                                                        </div>
+                                                        <div class="column-lg-footer"><a class="btn btn-yellow btn-register" href="registration_en.htm" tabindex="0">OPEN ACCOUNT</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false" style="width: 228px;">
+                                                <div>
+                                                    <div class="column-lg" style="width: 100%; display: inline-block;">
+                                                        <div class="column-lg-head">
+                                                            <div class="column-lg-icon"><svg x="0px" y="0px" width="65px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                                                    <g>
+                                                                        <g>
+                                                                            <g>
+                                                                                <path class="st0" d="M144.2,108l-35.4,35.4c-3.5,3.5-3.5,8.9,0,12.4c1.8,1.8,4.4,2.7,6.2,2.7c1.8,0,4.4-0.9,6.2-2.7l35.4-35.4c3.5-3.5,3.5-8.9,0-12.4C153,104.5,147.7,104.5,144.2,108z"></path>
+                                                                                <path class="st0" d="M398.5,158.5c1.8,0,4.4-0.9,6.2-2.7c3.5-3.5,3.5-8.9,0-12.4L369.2,108c-3.5-3.5-8.9-3.5-12.4,0c-3.5,3.5-3.5,8.9,0,12.4l35.4,35.4C394,157.7,396.7,158.5,398.5,158.5z"></path>
+                                                                                <path class="st0" d="M256.7,282.6c-5.3,0-8.9,3.5-8.9,8.9v35.4c0,5.3,3.5,8.9,8.9,8.9c5.3,0,8.9-3.5,8.9-8.9v-35.4C265.6,286.1,262,282.6,256.7,282.6z"></path>
+                                                                                <path class="st0" d="M511,178.9L404.7,72.6c-1.8-1.8-3.5-2.7-6.2-2.7H115c-2.7,0-4.4,0.9-6.2,2.7L2.4,178.9c-0.9,0.9-1.8,1.8-1.8,2.7c-0.9,1.8-0.9,4.4,0,7.1c0.9,0.9,0.9,1.8,1.8,2.7l248.1,248.1c0.9,0.9,0.9,0.9,1.8,1.8h0.9c0.9,0,1.8,0.9,2.7,0.9c0.9,0,1.8,0,2.7-0.9h0.9c0.9,0,1.8-0.9,1.8-1.8l248.1-248.1c0.9-0.9,1.8-1.8,1.8-2.7c0.9-1.8,0.9-4.4,0-7.1C512.7,180.7,511.9,179.8,511,178.9z M256.7,411l-93-217.1h128.5c5.3,0,8.9-3.5,8.9-8.9c0-5.3-3.5-8.9-8.9-8.9H171.7l55.8-55.8c3.5-3.5,3.5-8.9,0-12.4c-3.5-3.5-8.9-3.5-12.4,0l-70.9,70.9c-0.9,0.9-0.9,1.8-1.8,2.7v0.9c0,0.9,0,1.8-0.9,2.7c0,0,0,0,0,0.9c0,0.9,0,1.8,0.9,2.7L231,394.2L29.9,194H115c5.3,0,8.9-3.5,8.9-8.9c0-5.3-3.5-8.9-8.9-8.9H29.9l88.6-88.6h134.7l88.6,88.6h-14.2c-5.3,0-8.9,3.5-8.9,8.9c0,5.3,3.5,8.9,8.9,8.9h22.1L256.7,411z M398.5,194h85.1L283.3,394.2l88.6-205.5c0-0.9,0.9-1.8,0.9-2.7c0,0,0,0,0-0.9c0-0.9,0-1.8-0.9-2.7v-0.9c0-0.9-0.9-1.8-1.8-2.7L278,87.7h116.9l88.6,88.6h-85.1c-5.3,0-8.9,3.5-8.9,8.9C389.6,190.4,393.1,194,398.5,194z"></path>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </svg></div>
+                                                            <div class="column-lg-title">Diamond</div>
+                                                            <div><a class="btn btn-yellow btn-register" href="registration_en.htm" tabindex="0">OPEN ACCOUNT</a></div>
+                                                        </div>
+                                                        <div class="column-lg-body">
+                                                            <div class="column-lg-row">Ask your Account manager</div>
+                                                        </div>
+                                                        <div class="column-lg-footer"><a class="btn btn-yellow btn-register" href="registration_en.htm" tabindex="0">OPEN ACCOUNT</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+    <!------------------------------>
+    <!-- ↓↓↓ FOOTER-EN (start) ↓↓↓-->
+    <!------------------------------>
+    <footer>
+        <div class="inner">
+            <div class="navigation">
+                <div class="logo coll">
+                    <a href="index_en.htm" class="custom-logo-link" rel="home" itemprop="url"><img src="1/logo-big.png" class="custom-logo" itemprop="logo" style="height:70px; width: auto"></a>
+                </div>
+                <div class="coll">
+                    <p class="title">Getting Started</p>
+                    <ul>
+                        <li id="menu-item-68" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68 tabs__item"><a href="cfd_en.htm">CFDs</a></li>
+                        <li id="menu-item-716" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-716 tabs__item"><a href="simplifiedFX_en.htm">Simplified FX</a></li>
+                    </ul>
+                </div>
+                <div class="coll">
+                    <p class="title">Platforms</p>
+                    <ul>
+                        <li id="menu-item-711" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-711 tabs__item"><a href="mobile_en.htm">Mobile</a></li>
+                    </ul>
+                </div>
+                <div class="coll">
+                    <p class="title">Trader Tools</p>
+                    <ul>
+                        <li id="menu-item-7369" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7369 tabs__item"><a href="account-types_en.htm">Account Types</a></li>
+                        <li id="menu-item-531" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-531 tabs__item"><a href="faq_en.htm">Faq</a></li>
+                        <li id="menu-item-532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-532 tabs__item"><a href="glossary_en.htm">Glossary</a></li>
+                    </ul>
+                </div>
+                <div class="coll">
+                    <p class="title">About Us</p>
+                    <ul>
+                        <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410 tabs__item"><a href="contacts_en.htm">Contact Us</a></li>
+                        <li id="menu-item-616" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-616 tabs__item"><a href="company_en.htm">Our Company</a></li>
+                        <li id="menu-item-411" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-411 tabs__item"><a href="docs_en.htm">Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="pay">
+            <div id="logoline" class="logoline-line">
+                <div class="logoline-right" style="word-wrap: normal; overflow-wrap: normal; white-space: nowrap; overflow: hidden;">
+                    <div class="simplemarquee-wrapper" style="display: inline-block; animation-duration: 45.28s; animation-timing-function: linear; animation-delay: initial; animation-iteration-count: infinite; animation-direction: initial; animation-fill-mode: initial; animation-name: simplemarquee-cb4246b7dh;">
+                        <ul>
+                            <li><img src="1/comodo.png" alt="comodo"></li>
+                            <li><img src="1/visa.png" alt="visa"></li>
+                            <li><img src="1/wire.png" alt="wire"></li>
+                            <li><img src="1/paysafecard.png" alt="title"></li>
+                            <li><img src="1/neteller.png" alt="title"></li>
+                            <li><img src="1/skrill.png" alt="title"></li>
+                            <li><img src="1/webmoney.png" alt="title"></li>
+                            <li><img src="1/qiwi.png" alt="title"></li>
+                            <li><img src="1/yandexmoney.png" alt="title"></li>
+                            <li><img src="1/astropay.png" alt="title"></li>
+                            <li><img src="1/PayPal.png" alt="title"></li>
+                            <li><img src="1/vload.png" alt="title"></li>
+                        </ul>
+                    </div>
+                    <div class="simplemarquee-wrapper" style="display: inline-block; margin-left: 40px; animation-duration: 45.28s; animation-timing-function: linear; animation-delay: initial; animation-iteration-count: infinite; animation-direction: initial; animation-fill-mode: initial; animation-name: simplemarquee-cb4246b7dh;">
+                        <ul>
+                            <li><img src="1/comodo.png" alt="comodo"></li>
+                            <li><img src="1/visa.png" alt="visa"></li>
+                            <li><img src="1/wire.png" alt="wire"></li>
+                            <li><img src="1/paysafecard.png" alt="title"></li>
+                            <li><img src="1/neteller.png" alt="title"></li>
+                            <li><img src="1/skrill.png" alt="title"></li>
+                            <li><img src="1/webmoney.png" alt="title"></li>
+                            <li><img src="1/qiwi.png" alt="title"></li>
+                            <li><img src="1/yandexmoney.png" alt="title"></li>
+                            <li><img src="1/astropay.png" alt="title"></li>
+                            <li><img src="1/PayPal.png" alt="title"></li>
+                            <li><img src="1/vload.png" alt="title"></li>
+                        </ul>
+                    </div>
+                    <style>
+                    @-webkit-keyframes simplemarquee-cb4246b7dh {
+                        0% {
+                            -webkit-transform: translate(0, 0);
+                        }
+
+                        100% {
+                            -webkit-transform: translate(-2082px, 0);
+                        }
+                    }
+
+                    @-moz-keyframes simplemarquee-cb4246b7dh {
+                        0% {
+                            -moz-transform: translate(0, 0);
+                        }
+
+                        100% {
+                            -moz-transform: translate(-2082px, 0);
+                        }
+                    }
+
+                    @-o-keyframes simplemarquee-cb4246b7dh {
+                        0% {
+                            -o-transform: translate(0, 0);
+                        }
+
+                        100% {
+                            -o-transform: translate(-2082px, 0);
+                        }
+                    }
+
+                    @keyframes simplemarquee-cb4246b7dh {
+                        0% {
+                            transform: translate(0, 0);
+                        }
+
+                        100% {
+                            transform: translate(-2082px, 0);
+                        }
+                    }
+                    </style>
+                </div>
+            </div>
+            <div class="privacy">
+                <div class="inner">
+                    <div class="social">
+                        <div class="apps">
+                        </div>
+                    </div>
+                    <div class="disclaimer">
+                        <p class="footer-text">© 2019 Hill Royal Ltd. All rights are registered. 18+ <br><br>
+                            The operations offered by this site may be carried out exclusively by adults (aged 18 years), who have reached full capacity. Transactions with financial instruments offered on this site may be considered as transactions with a high level of risk. Possible partial or complete loss of funds during such operations. Accordingly, it is strongly recommended not to invest and not to trade funds, the loss of which in the event of adverse results of such trades you can not afford.<br><br>
+                            The site https://paladiumtrade.com and the brand Paladiumtrade is a trademark and property of an international business company in the Financial Services Authority Hill Royal Ltd. Granby St. 8R, P.O. Box VC0162, Lodge Village, Kingstown, St. Vincent & The Grenadines<br><br>
+                            We recommend that you carefully read our Legal Documentation: Client Agreement, Privacy Policy, Refund Policy, Refund Policy, Anti-Money Laundering, before proceeding to perform operations on this site.<br><br>
+                            The company and the website https://paladiumtrade.com do not provide any services to citizens and residents of the United States, Canada, Australia, Israel, Syria, Sudan, Iran, North Korea, Japan and other countries, and jurisdictions where these services cannot be provided in connection with current legislation or certain restrictions.
+                            <br><br>
+                            Support is available via email <a href="support@paladiumtrade.com">support@paladiumtrade.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!---------------------------->
+    <!-- ↑↑↑ FOOTER-EN (end) ↑↑↑-->
+    <!---------------------------->
+    <script>
+        var langArr = ['ru','ar'];
+    function checkLanguage(arr){
+        if(!window.localStorage.getItem('DefaultLanguage')){
+            var langNavigator = navigator.language, langCurrent = '', urlOrigin = window.location.origin, urlPathname = window.location.pathname, urlLang = urlPathname.split('/');
+            window.localStorage.setItem('DefaultLanguage',langNavigator);
+            arr.forEach(function(el,i){
+                if(langNavigator.includes(el)){
+                    langCurrent = el;
+                }
+            })
+            if(!langArr.includes(urlLang[1])){
+                if(!urlPathname.includes(langCurrent)){
+                    window.location.href = urlOrigin +'/'+ langCurrent + urlPathname;
+                }
+            }else{
+                urlLang[1] = langCurrent;
+                urlLang = urlLang.join('/');
+                window.location.href =  urlOrigin + urlLang;
+            }
+        }
+    }
+    checkLanguage(langArr)
+</script>
+    <script>
+        var GLOBAL = GLOBAL || {};
+GLOBAL.language = 'en';
+GLOBAL.platformURL = '//trade.bormancorp.com/';
+document.domain = 'bormancorp.com';</script>
+    <link rel="stylesheet" id="ts-6edc9b21d63375930b0cf543481ff7c3-css" href="account-types_en_files/form.css" type="text/css" media="all">
+    <link rel="stylesheet" id="roboto-css" href="account-types_en_files/css.css" type="text/css" media="all">
+    <link rel="stylesheet" id="slick-css" href="account-types_en_files/slick.css" type="text/css" media="all">
+    <link rel="stylesheet" id="news-style-css" href="account-types_en_files/news-style.css" type="text/css" media="all">
+    <link rel="stylesheet" id="slick-theme-css" href="account-types_en_files/slick-theme.css" type="text/css" media="all">
+    <link rel="stylesheet" id="animate-css-css" href="account-types_en_files/animate.css" type="text/css" media="all">
+    <link rel="stylesheet" id="bootstrap-min-css-css" href="account-types_en_files/bootstrap.css" type="text/css" media="all">
+    <link rel="stylesheet" id="main-css-css" href="account-types_en_files/style_003.css" type="text/css" media="all">
+    <link rel="stylesheet" id="flatpickr-css" href="account-types_en_files/flatpickr.css" type="text/css" media="all">
+    <link rel="stylesheet" id="contact-form-7-css" href="account-types_en_files/styles.css" type="text/css" media="all">
+    <script type="text/javascript" src="account-types_en_files/main_002.js"></script>
+    <script type="text/javascript" src="account-types_en_files/callBackForm.js"></script>
+    <script type="text/javascript" src="account-types_en_files/popups.js"></script>
+    <script type="text/javascript" src="account-types_en_files/welcome.js"></script>
+    <script type="text/javascript" src="account-types_en_files/crmlib.js"></script>
+    <script type="text/javascript" src="account-types_en_files/updateBalance.js"></script>
+    <script type="text/javascript" src="account-types_en_files/call_back.js"></script>
+    <script type="text/javascript" src="account-types_en_files/jquery.js"></script>
+    <script type="text/javascript" src="account-types_en_files/assetsRow.js"></script>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var wpcf7 = { "apiSettings": { "root": "https:\/\/www.bormancorp.com\/wp-json\/contact-form-7\/v1", "namespace": "contact-form-7\/v1" }, "recaptcha": { "messages": { "empty": "Please verify that you are not a robot." } } };
+    /* ]]> */
+    </script>
+    <script type="text/javascript" src="account-types_en_files/scripts.js"></script>
+    <script type="text/javascript" src="account-types_en_files/wp-embed.js"></script>
+    <script type="text/javascript" src="account-types_en_files/validation.js"></script>
+    <script type="text/javascript" src="account-types_en_files/activeForm.js"></script>
+    <script type="text/javascript" src="account-types_en_files/bootstrap.js"></script>
+    <script type="text/javascript" src="account-types_en_files/traderpixels.js"></script>
+    <script type="text/javascript" src="account-types_en_files/flatpickr.js"></script>
+    <script type="text/javascript" src="account-types_en_files/marquee3k.js"></script>
+    <script>
+    (function($) {
+        document.addEventListener('DOMContentLoaded', function() {
+            listen_assetsrates = function(c) {
+                for (var k in c) {
+                    // RSS Feed
+                    var class_name;
+
+                    if (c[k].direction == 1) {
+                        class_name = 'up';
+                    } else {
+                        class_name = 'down';
+                    }
+
+                    $('#asset_id_is_' + c[k].id).html(c[k].sell_rate);
+                    $('#asset_id_is_' + c[k].id).next('span').attr('class', class_name);
+                    $('#asset_id_is_' + c[k].id).next('span').html(c[k].percent + '%');
+
+                    // Asset Index
+                    $('#ass_' + c[k].id + '_sell').html(c[k].sell_rate);
+                    $('#ass_' + c[k].id + '_buy').html(c[k].buy_rate);
+                    $('#ass_' + c[k].id + '_change').html(c[k].percent + '%');
+                }
+            };
+            WLConnections('assetsRates', [13, 14, 15, 19, 41, 52, 110, 112, 17, 18, 33, 2, 42, 24, 6, 29, 7, 8, 5, 37, 3552, 103, 3348, 62, 53, 121, 125, 1074, 3, 44, 54, 105, 109], listen_assetsrates);
+        });
+    })(window.jQuery);
+    </script>
+    <script>
+    var GLOBAL = GLOBAL || {};
+    GLOBAL.currencyPrecision = 0;
+    </script>
+    <script>
+    jQuery(document).ready(function() { jQuery('#ts-hello-auth-form').activeForm([{ "id": "#auth_email", "container": ".field-auth_email", "name": "email", "error": ".error.error-text-js", "validate": function(attribute, value, messages) { validation.required(value, messages, { "message": "Email address cannot be blank" });
+                validation.stripTags(attribute, value, messages, []);
+                validation.minLength(value, messages, { "skipOnEmpty": 0, "min": 6, "message": "Email address minimum length must be 6" });
+                validation.email(value, messages, { "skipOnEmpty": true, "pattern": /^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/, "message": "Email address is not a valid email address" }); }, "events": [], "additionalData": [] }, { "id": "#trader_login-password", "container": ".field-trader_login-password", "name": "password", "error": ".error.error-text-js", "validate": function(attribute, value, messages) { validation.required(value, messages, { "message": "Password cannot be blank" });
+                validation.minLength(value, messages, { "skipOnEmpty": 0, "min": 5, "message": "Password minimum length must be 5" }); }, "events": [], "additionalData": [] }], { "preLoaderEnable": true, "preLoaderClass": "form-pre-loader", "ajaxEnable": true, "ajaxUrl": "/trader/login", "ajaxCallback": "callBackLogin" }); });
+    </script>
+    <script type="text/javascript" src="account-types_en_files/slick.js"></script>
+    <script type="text/javascript" src="account-types_en_files/jquery_003.js"></script>
+    <script type="text/javascript" src="account-types_en_files/jquery_002.js"></script>
+    <script type="text/javascript" src="account-types_en_files/tooltip.js"></script>
+    <script type="text/javascript" src="account-types_en_files/particles.js"></script>
+    <script type="text/javascript" src="account-types_en_files/wow.js"></script>
+    <script type="text/javascript" src="account-types_en_files/textSearch.js"></script>
+    <script type="text/javascript" src="account-types_en_files/main.js"></script>
+</body>
+
+</html>

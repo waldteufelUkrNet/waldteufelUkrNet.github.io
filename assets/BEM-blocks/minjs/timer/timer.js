@@ -1,1 +1,0 @@
-"use strict";setInterval(function(){var e=new Date,t=e.getUTCHours();t<10&&(t="0"+t);var n=e.getUTCMinutes();n<10&&(n="0"+n);var s=e.getUTCSeconds();s<10&&(s="0"+s),document.getElementsByClassName("timer__hours")[0].innerHTML=t,document.getElementsByClassName("timer__minutes")[0].innerHTML=n,document.getElementsByClassName("timer__seconds")[0].innerHTML=s},1e3);
