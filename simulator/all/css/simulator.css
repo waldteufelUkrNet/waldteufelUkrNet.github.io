@@ -1,0 +1,422 @@
+html, body{
+	font-family:arial;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+#content{
+	padding: 0px;
+  /* transform:  scale(0.9, 0.88); */
+  position: absolute;
+  /* top: -50px; */
+  /* left: -70px; */
+}
+
+
+#profit-popup{
+	position:absolute; width:435px; height:315px; z-index:6; background:rgba(12, 67,95,0.9); display:none; 
+	left: 19px;
+    top: 75px;
+	border:solid 1px #466776; 
+	text-align:center; 
+}
+#profit-popup, #profit-popup h3{
+	font-weight: 100; font-family: "open sans",arial,sans-serif;
+}
+#profit-popup h3{
+	font-size: 35px; color:#92e1ff; margin:10px 0 5px;
+}
+#profit-popup p{
+	color:#ffffff; font-size:25px; margin:0px; margin-bottom:20px;
+}
+#profit-popup p strong{
+	display:block; font-weight:400;
+}
+#profit-popup a{
+	display:inline-block; *display:inline; zoom:1; background:url(../images/binary_options/sprite.png) no-repeat;
+    width: 251px;
+    height: 75px;
+    background: url(../images/binary_options/sprite.png) no-repeat;
+    background-position: -102px -10px;
+    color:#FFF;
+    font-size: 20px;
+    text-decoration:none; 
+    text-transform: uppercase;
+	-webkit-box-shadow: 3px 3px 11px 0px rgba(0, 0, 0, 0.45);
+	-moz-box-shadow:    3px 3px 11px 0px rgba(0, 0, 0, 0.45);
+	box-shadow:         3px 3px 11px 0px rgba(0, 0, 0, 0.45);    
+}
+#profit-popup a span{
+    padding-top: 12px;
+    display: block;
+}
+
+
+#demo-wrapper{
+	width:810px; height:455px; background:url(../images/binary_options/bg.png) no-repeat; float:left; 
+}
+#demo-content{
+	margin: 2px 27px 2px 17px; position:relative; height:414px; 
+}
+#demo-content .tips .tip.assets{
+	background:url(../images/binary_options/tip1.png);  opacity:1; 
+}
+#demo-content .tips .tip.expiry{ 
+	background:url(../images/binary_options/tip2.png);
+}
+#demo-content .tips .tip.amount{ 
+	background:url(../images/binary_options/tip3.png);
+}
+#demo-content .tips .tip.direction{ 
+	background:url(../images/binary_options/tip4.png);
+}
+
+#demo-content .tips .tip.assets .hint{
+    left: 25px;
+    top: 166px;
+}
+#demo-content .tips .tip.expiry .hint{
+    left: 290px;
+    top: 166px;
+}
+#demo-content .tips .tip.amount .hint{
+	top: 166px;
+    right: 21px;
+    left:auto;
+}
+#demo-content .tips .tip.direction .hint{
+	left: 112px;
+    top: 136px;
+}
+
+
+
+#demo-content .tips .tip .hint{
+    position: absolute;
+    width: 256px;
+    font-family: "open sans",arial,sans-serif;
+    text-align: center;
+}
+#demo-content .tips .tip .hint h2{
+	font-size:19px; color:#FFF; margin:0px; margin-top:10px; margin-bottom:8px; font-weight:400; 
+}
+#demo-content .tips .tip .hint p{
+	color:#c6e1ed; margin:0px; padding:0px;
+	font-size:17px;
+}
+
+#demo-content .overlay{
+	position:absolute; height:100%; width:100%; background:rgba(0,0,0,0.5); 
+	display:block; z-index:2; 
+}
+
+#demo-content .tips .tip{
+	position:absolute; left:0px; top:0px; width:100%; height:100%; z-index:3; opacity:0; 
+}
+
+
+#demo-content .d-head{
+	height:70px; color:#FFF; 
+}
+#demo-content .d-head label{
+	padding:0 8px;
+}
+#demo-content .d-head input, 
+#demo-content .d-head select{
+	height:30px; position:relative; 
+}
+#demo-content .d-head > ul{
+	display:block; list-style:none; margin:0px; padding:0px; margin:0 20px; padding-top:22px;
+}
+#demo-content .d-head > ul > li{
+	display:block;float:left; height:48px; line-height:48px; position:relative; 
+}
+#demo-content .d-head > ul > li.assets{
+	width:235px; 
+}
+#demo-content .d-head > ul > li.assets select{
+	width:150px; position:relative; 
+}
+#demo-content .d-head > ul > li.assets.open select{
+	z-index:3;
+}
+/*
+#demo-content .d-head ul li.assets .tip{
+	position:absolute; width:300px; height:300px; background:red; top:-10px; left:0px; z-index:2;  
+}
+#demo-content .tip{
+	display:none; 
+}
+#demo-content .act.open .tip{
+	display:block; 
+}
+*/ 
+
+
+
+
+#demo-content .d-head ul li.expiry{
+	margin-left: 45px; width: 206px;
+}
+#demo-content .d-head ul li.expiry select{
+	width:120px; position:relative; 
+}
+#demo-content .d-head ul li.expiry.open select{
+	z-index:3; 
+}
+
+
+
+
+#demo-content .d-head ul li.amount{
+	margin-left: 40px; width: 199px;
+}
+#demo-content .d-head ul li.amount input{
+	width:80px;
+}
+#demo-content .d-head ul li.amount.open input{
+	z-index:3; 
+}
+
+
+
+#demo-content .d-head ul:after{
+	content:'';
+	display:block;
+	clear:left; 
+}
+
+
+
+.d-body{
+	height: 344px; position:relative; 
+}
+.d-body .d-body-el{
+	position:absolute; *background:red;
+}
+.d-body .d-body-el.symbol-value{
+	
+}
+.d-body .d-body-el.info{
+	right:0px; 
+	right: 20px;
+    width: 149px;
+    height: 294px;
+    color:#FFF; 
+}
+.d-body .d-body-el.info table{
+	height:100%; width:100%; table-layout: fixed; 
+}
+.d-body .d-body-el.info table td{
+	height:33%; padding-left:10px; color:#FFF; font-size:14px;
+}
+.d-body .d-body-el.info table td span{
+	display:block; 
+}
+.d-body .d-body-el.info table td.payout span{
+	font-size:42px;
+}
+.d-body .d-body-el.info table td.potencial span{
+	font-size:22px;
+}
+.d-body .d-body-el.info table td.protected span{
+	font-size:22px;
+}
+
+
+.d-body .d-body-el.direction{
+	right: 188px;
+    top: 59px;
+    height: 195px;
+    width: 117px;
+}
+.d-body .d-body-el.direction ul{
+	list-style:none; margin:0px; padding:0px;
+}
+.d-body .d-body-el.direction ul li{
+	list-style:none; height: 65px; width:100%; line-height:65px; text-align:center; color:#FFF; 
+	background-color:#172d3b; 
+}
+.d-body .d-body-el.direction ul li.price-value{
+	background-color:#ed7163
+}
+.d-body .d-body-el.direction ul li.price-value span{
+	font-size:28px;
+}
+.d-body .d-body-el.direction ul li a{
+	display:block; position:relative; background:url(../images/binary_options/sprite.png) no-repeat; text-align:left; padding-left:15px;
+	text-decoration:none; color:#FFF; text-transform: uppercase; font-size: 20px;
+}
+.d-body .d-body-el.direction ul li.above a{
+	background-position:53px 0px; 
+}
+.d-body .d-body-el.direction ul li.below a{
+	background-position:53px -83px;  
+}
+.d-body .d-body-el.direction.act.open a{
+	z-index:3; 
+}
+
+.d-body .d-body-el.symbol-value{
+    height: 50px;
+    left: 20px;
+    line-height: 50px;
+    padding-left: 10px;
+    text-transform: uppercase;
+    color: #FFF;
+    font-size: 13px;
+}
+.d-body .d-body-el.symbol-value span{
+	font-size:21px;
+}
+
+.d-body .d-body-el.symbol-value .flag{
+	display:block; width: 60px;
+    height: 43px; float:left; margin-right:10px;
+	background: url(../images/binary_options/sprite.png) no-repeat;
+} 
+/* Currencies */
+.d-body .d-body-el.symbol-value .flag.EUR-USD{
+	background-position: -108px -122px;
+}
+.d-body .d-body-el.symbol-value .flag.GBP-USD{
+	background-position: -196px -122px;
+}
+.d-body .d-body-el.symbol-value .flag.USD-JPY{
+	background-position: -290px -122px;
+}
+.d-body .d-body-el.symbol-value .flag.EUR-GBP{
+	background-position: -111px -184px;
+}
+.d-body .d-body-el.symbol-value .flag.EUR-JPY{
+	background-position: -197px -185px;
+}
+/* Commodities */
+.d-body .d-body-el.symbol-value .flag.GOLD{
+	background-position: -112px -249px;
+}
+.d-body .d-body-el.symbol-value .flag.SILVER{
+	background-position: -198px -247px;
+}
+/* Indices */
+.d-body .d-body-el.symbol-value .flag.MICEX{
+	background-position: -288px -180px;
+}
+.d-body .d-body-el.symbol-value .flag.IBEX-FUTURE{
+	background-position: -290px -245px;
+    width: 80px;
+}
+/* Stocks */ 
+.d-body .d-body-el.symbol-value .flag.BMW{
+	background-position: -34px -185px;
+}
+.d-body .d-body-el.symbol-value .flag.GAZPROM{
+    background-position: -20px -265px;
+    width: 70px;
+}
+
+
+.d-body .d-body-el.symbol-value .flag.DAIMLER{
+    background-position: -384px -120px;
+    width: 70px;
+}
+
+
+
+.d-body .d-body-el.chart,
+.d-body .d-body-el.chart .inner1,
+.d-body .d-body-el.chart .inner2{
+	width: 445px;
+    height: 245px; 
+}
+
+.d-body .d-body-el.chart{
+	top:56px; left:25px; 
+	-webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+    -ms-transform: perspective(1000px);
+    -moz-transform: perspective(1000px);
+    transform: perspective(1000px); 
+}
+
+.d-body .d-body-el.chart .inner1{
+-webkit-transition: 1.5s;
+    -webkit-transform-style: preserve-3d;
+    -ms-transition: 1.5s;
+    -moz-transition: 1.5s;
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transition: 1.5s;
+    transform-style: preserve-3d;
+} 
+.d-body .d-body-el.chart .inner2{
+    transform: rotateY( 18deg ); 
+    -moz-transform: rotateY( 18deg );
+    -ms-transform: rotateY( 18deg );
+    -o-transform: rotateY( 18deg );
+	-webkit-transform: rotateY( 18deg ); 
+	z-index: 2;  
+	position:relative; 
+	
+    -ms-transform-origin: 50% 40%;
+    -ms-transform: perspective(1000px) rotateY(18deg);	
+}
+
+.d-body .d-body-el.chart ul.periods{
+	list-style:none; overflow:hidden; margin:0px; padding:0px;
+}
+.d-body .d-body-el.chart ul.periods li{
+	display:block; float:left; width:72px; height:20px; background:#79bbd9; margin-right:2px; line-height:20px;
+	text-align:center; color:#FFF;
+}
+.d-body .d-body-el.chart ul.periods li.active{
+	background:#172d3b;
+}
+
+
+
+
+
+.d-body .d-body-el.chart .chart-wrapper{
+	background:rgba(0,0,0,0.2); position:absolute; width:442px; top:24px; bottom:0px;
+}
+.d-body .d-body-el.chart .trader-choice{
+	margin:0 10px; 
+}
+.d-body .d-body-el.chart .trader-choice .progress-bar{
+	height:15px; background:red; overflow:hidden; 
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+}
+.d-body .d-body-el.chart .trader-choice .progress-bar .bar{
+	height:15px; float:left;
+}
+.d-body .d-body-el.chart .trader-choice .progress-bar .bar.left{
+	background-color:#ed7163; width:46%;  
+}
+.d-body .d-body-el.chart .trader-choice .progress-bar .bar.right{
+	background-color:#94ed82; width:54%; 
+}
+.d-body .d-body-el.chart .trader-choice table{
+	table-layout: fixed; width:100%; 
+}
+.d-body .d-body-el.chart .trader-choice table td{
+	margin:0px; padding:0px; width:33.3%; font-size:12px; color:#FFF; 
+}
+.d-body .d-body-el.chart .trader-choice table td.l{
+	text-align:left; 
+}
+.d-body .d-body-el.chart .trader-choice table td.c{
+	text-align: center;
+}
+.d-body .d-body-el.chart .trader-choice table td.r{
+	text-align: right; 
+}
+
+.d-body .d-body-el.chart .chart-wrapper #chart{
+	width:440px; height:170px; margin-bottom:10px;
+}

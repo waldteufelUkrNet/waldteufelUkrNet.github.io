@@ -1,7 +1,0 @@
-(function() {var olgsHost = (("https:" == document.location.protocol) ? "https://" : "http://"),
-    script = document.createElement("script");
-script.src = (olgsHost + "stat.bormancorp.com/banners/svact/?ref=IVAR1I&pref=IVAR2I")
-    .replace(/IVAR1I/, encodeURIComponent("https://www.bormancorp.com/about-us/legal/terms-and-conditions/"))
-    .replace(/IVAR2I/, encodeURIComponent(""));
-script.async = true;
-document.getElementsByTagName("head")[0].appendChild(script);})();

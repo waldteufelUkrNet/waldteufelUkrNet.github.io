@@ -1,0 +1,36 @@
+#demo-wrapper.binary-options{
+	width:810px; height:455px; background:url(../images/binary_options/bg.png) no-repeat; float:left; 
+}
+.binary-options #demo-content{
+	margin: 2px 27px 2px 17px; position:relative; height:414px; position:relativel 
+}
+#demo-content .tips .tip.assets{
+	background:url(../images/binary_options/tip1.png);  opacity:1; 
+}
+#demo-content .tips .tip.expiry{ 
+	background:url(../images/binary_options/tip2.png);
+}
+#demo-content .tips .tip.amount{ 
+	background:url(../images/binary_options/tip3.png);
+}
+#demo-content .tips .tip.direction{ 
+	background:url(../images/binary_options/tip4.png);
+}
+
+#demo-wrapper.binary-options #demo-content .tips .tip.assets .hint{
+    left: 25px;
+    top: 166px;
+}
+#demo-wrapper.binary-options #demo-content .tips .tip.expiry .hint{
+    left: 290px;
+    top: 166px;
+}
+#demo-wrapper.binary-options #demo-content .tips .tip.amount .hint{
+	top: 166px;
+    right: 21px;
+    left:auto;
+}
+#demo-wrapper.binary-options #demo-content .tips .tip.direction .hint{
+	left: 112px;
+    top: 136px;
+}

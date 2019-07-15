@@ -1,0 +1,25 @@
+#demo-wrapper.simulator.second #demo-content .d-head ul li.expiry label{
+	float:left; 
+}
+
+
+#demo-wrapper.simulator.second #demo-content .d-head ul li.expiry ul{
+	margin:0px; padding:0px; float:left; display:block; height:30px; margin-top:8px;
+	background-color: #1a6588;
+    box-shadow: inset 1px 1.7px 6px #06364c;
+}
+
+#demo-wrapper.simulator.second #demo-content .d-head ul li.expiry ul li{
+	display:block; float:left; padding:0 5px; font-size:12px;height:30px; line-height:30px; color:#FFF;
+	cursor:pointer; 
+}
+#demo-wrapper.simulator.second #demo-content .d-head ul li.expiry ul li.active{
+	color: #000;
+    background-color: #2982ab;
+    background-image: -webkit-linear-gradient(bottom, #98c7dd 0%, #dbedf4 100%);
+    background-image: linear-gradient(to top, #98c7dd 0%, #dbedf4 100%);
+    box-shadow: 1.4px 1.4px 3px rgba(1,1,1,0.42), inset 0 1px 0 #fff;	
+}
+#demo-wrapper.simulator.second #demo-content .d-head ul li.expiry.open ul li{
+	position:relative;z-index:3;
+}
