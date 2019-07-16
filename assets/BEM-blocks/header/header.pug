@@ -1,0 +1,23 @@
+// ↓↓↓ BEM-blocks: header (start) ↓↓↓
+
+//- style
+//-   include header.css
+
+header.header
+  .header__1-block-wrapper
+    img.header__1-block-wrapper-img(src="assets/img/bg-header.jpg", alt="bg-header.jpg")
+    .header__1-block
+      .header__logo-block
+        a.header__logo-link(href="index.html")
+          img.header__logo-link-img(src="assets/img/logo.png", alt="logo")
+      .header__login-block
+        //- include ../login-form/login-form.pug
+      .header__lang-block
+        include ../language-switcher/language-switcher.pug
+  .header__nav-block
+    include ../navigation/navigation.pug
+
+script
+  include ../minjs/header/header.js
+
+// ↑↑↑ BEM-blocks: header (end) ↑↑↑

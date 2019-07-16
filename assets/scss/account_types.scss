@@ -1,0 +1,128 @@
+.section1 {
+  margin: 0 auto;
+  max-width: 700px;
+  &__account-types {
+    display: none;
+  }
+  &__table {
+    margin-left           : 10px;
+    display               : grid;
+    grid-template-columns : 1fr;
+    grid-gap              : 2px
+  }
+  &__column {
+    background-color      : #f2f2f2;
+    border-bottom         : 2px solid grey;
+    margin-bottom         : 20px;
+    padding-bottom        : 10px;
+    &>div.section1__column-cell:nth-of-type(2) {
+      font                : 18px mpb;
+      position            : relative;
+      &::after {
+        content           : 'USD/EUR/GBP';
+        font              : 14px mpr;
+        position          : absolute;
+        top               : 30px;
+        left              : 50%;
+        transform         : translate(-50%,0);
+      }
+    }
+  }
+  &__column-header {
+    background-color      : rgba(106, 153, 31, .7);
+    // font                  : 30px mpbc;
+    // color                 : white;
+    // min-height            : 50px;
+    // text-align            : center;
+    // padding-top           : 6px;
+    img {
+      width: 120px;
+      height: auto;
+      margin: 10px auto;
+      display: block;
+    }
+  }
+  &__column-cell {
+    font                  : 14px mpr;
+    padding               : 6px 0 6px 6px;
+    min-height            : 40px;
+    text-align            : center;
+    &_empty {
+      display: none;
+    }
+  }
+  &__learn-more,
+  &__open-account {
+    font                  : 16px mpb;
+    color                 : white;
+    text-decoration       : none;
+    text-align            : center;
+    line-height           : 38px;
+    display               : block;
+    width                 : 113px;
+    height                : 38px;
+    margin                : 0 auto;
+  }
+  &__learn-more {
+    background-color      : #d49d07;
+  }
+  &__open-account {
+    background-color      : #6c9b21;
+  }
+  &__description {
+    font                  : 14px mpr;
+    padding               : 20px 12px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .section1 {
+    &__table {
+      grid-template-columns : repeat(5, 1fr);
+    }
+    &__column-cell {
+      min-height            : 50px;
+      text-align: left;
+      &_empty {
+        display           : block;
+      }
+    }
+    &__column {
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+      &>div
+
+      .section1__column-cell {
+        border: 1px dotted red;
+      }:nth-of-type(2) {
+        &::after {
+          left              : 12px;
+          transform         : translate(0,0);
+        }
+      }
+      &>div.section1__column-cell:nth-of-type(3),
+      &>div.section1__column-cell:nth-of-type(6),
+      &>div.section1__column-cell:nth-of-type(10),
+      &>div.section1__column-cell:nth-of-type(14),
+      &>div.section1__column-cell:nth-of-type(15) {
+        min-height: 32px;
+      }
+      &>div.section1__column-cell:nth-of-type(7),
+      &>div.section1__column-cell:nth-of-type(8),
+      &>div.section1__column-cell:nth-of-type(12),
+      &>div.section1__column-cell:nth-of-type(13),
+      &>div.section1__column-cell:nth-of-type(14) {
+        min-height: 65px;
+      }
+    }
+    &__account-types {
+      display             : block;
+      margin-left         : 10px;
+    }
+    // &__column-header {
+    //   margin-top: 2px;
+    //   min-height            : 120px;
+    //   padding-top           : 40px;
+    // }
+  }
+}

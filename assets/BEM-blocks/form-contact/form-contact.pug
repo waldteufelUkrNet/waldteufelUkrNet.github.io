@@ -1,0 +1,30 @@
+// ↓↓↓ BEM-blocks: form-contact (start) ↓↓↓
+
+//- style
+//-   include form-contact.css
+
+form.contactform(action='#', method='post', name='form-contact')
+
+  input#input-firstName.contactform__input(type='text', name='input-firstName', autocomplete='off', pattern='^[A-Za-zА-Яа-яЁёs]+$', maxlength='30' placeholder='имя / Id клиента')
+
+  input#input-email.contactform__input(type='text', name='input-email', autocomplete='off' placeholder='e-mail')
+
+  .contactform__phone-wrapper
+    .contactform__flag-wrapper
+      .contactform__flag-wrapper-cover-for-click
+      .contactform__img-flag-wrapper
+        img.contactform__flag-img(src="assets/img/european_union.png", alt="country-flag")
+      i.fas.fa-caret-down
+    .contactform__countries-wrapper
+
+    input#input-country-code.contactform__input.contactform__input_ccode(type='text', name='input-phone' value='+000' readonly)
+    input#input-phone.contactform__input.contactform__input_phone(type='text', name='input-phone' readonly)
+
+  textarea.contactform__textarea#textarea
+
+  button.contactform__btn#btnsubmit(type='button') ОТПРАВИТЬ СООБЩЕНИЕ
+
+//- script
+//-   include ../minjs/form-contact/form-contact.js
+
+// ↑↑↑ BEM-blocks: form-registration (end) ↑↑↑

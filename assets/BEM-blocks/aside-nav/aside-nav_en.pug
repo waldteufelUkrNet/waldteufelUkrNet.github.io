@@ -1,0 +1,42 @@
+// ↓↓↓ BEM-blocks: aside-nav (start) ↓↓↓
+
+//- style
+//-   include aside-nav.css
+
+.aside-nav
+
+  ul.accordion
+    li
+      a.toggle(href="#") GlobalTradeInvesting
+      .inner
+        a.accordion__item(href="about_company_en.html" data-name='about') About the company
+        a.accordion__item(href="account_types_en.html" data-name='accs') Account Types
+        a.accordion__item(href="contacts_en.html" data-name='contacts') Contacts
+        a.accordion__item(href="verification_en.html" data-name='verification') Verification
+    li
+      a.toggle(href="#") Documentation
+      .inner
+        a.accordion__item(href="terms_and_conditions_en.html" data-name='terms') Customer agreement
+        a.accordion__item(href="privacy_policy_en.html" data-name='privacy') Privacy policy
+        a.accordion__item(href="notification_of_risks_en.html" data-name='risks') Notification of risks
+        a.accordion__item(href="denial_of_responsibility_en.html" data-name='denial') Denial of responsibility
+        a.accordion__item(href="refund_policy_en.html" data-name='refund') Return policy
+        a.accordion__item(href="aml_and_kyc_policies_en.html" data-name='aml') AML and KYC Policy
+    li
+      a.toggle(href="#") Account
+      .inner
+        a.accordion__item(href="registration_en.html" data-name='registration') Open an account
+        a.accordion__item(href="password_recovery_en.html" data-name='recovery') Restore password
+        a.accordion__item(href="contacts_en.html" data-name='contacts') Feedback
+    li
+      a.toggle(href="#") Our partners
+      .inner
+        a.accordion__item(href="https://www.tradingview.com") TradingView
+        a.accordion__item(href="https://www.investing.com") Investing
+        a.accordion__item(href="https://www.blockchain.com") Blockchain
+        a.accordion__item(href="https://www.cbr.ru") Центробанк РФ
+
+script
+  include ../minjs/aside-nav/aside-nav.js
+
+// ↑↑↑ BEM-blocks: aside-nav (end) ↑↑↑

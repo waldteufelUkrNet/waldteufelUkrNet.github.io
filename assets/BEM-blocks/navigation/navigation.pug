@@ -1,0 +1,28 @@
+// ↓↓↓ BEM-blocks: navigation (start) ↓↓↓
+
+//- style
+//-   include navigation.css
+
+nav.navigation
+  button.navigation__btn
+    img(src="assets/img/menu.png", alt="menu.png")
+  ul.navigation__list
+    li: a(href='https://platform.globaltradeinvesting.com') Торговая платформа
+    li(data-name='accs'): a(href='account_types.html') Типы аккаунтов
+    li(data-name='documentation')
+      a.navigation__sublist-btn(href='#') Документация
+      ul.navigation__sublist
+        li: a(href="terms_and_conditions.html") Клиентское соглашение
+        li: a(href='privacy_policy.html') Политика конфиденциальности
+        li: a(href='notification_of_risks.html') Уведомление о рисках
+        li: a(href='denial_of_responsibility.html') Отказ от ответственности
+        li: a(href='refund_policy.html') Политика возврата
+        li: a(href='aml_and_kyc_policies.html') Политика AML и KYC
+    li(data-name='registration'): a(href='registration.html') Регистрация
+    li(data-name='recovery'): a(href='password_recovery.html') Восстановить пароль
+    li(data-name='contacts'): a(href='contacts.html') Контакты
+
+script
+  include ../minjs/navigation/navigation.js
+
+// ↑↑↑ BEM-blocks: navigation (end) ↑↑↑

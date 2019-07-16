@@ -1,0 +1,62 @@
+// ↓↓↓ BEM-blocks: form-registration (start) ↓↓↓
+
+//- style
+//-   include form-registration.css
+
+form.regform(action='#', method='post', name='form-registration')
+
+  h5.regform__header Зарегистрироваться
+
+  .regform__names-wrapper
+    input#input-firstName.regform__input(type='text', name='input-firstName', autocomplete='off', pattern='^[A-Za-zА-Яа-яЁёs]+$', maxlength='30' placeholder='имя')
+
+    input#input-lastName.regform__input(type='text', name='input-lastName', autocomplete='off', pattern='^[A-Za-zА-Яа-яЁёs]+$', maxlength='20' placeholder='фамилия')
+
+  input#input-email.regform__input(type='text', name='input-email', autocomplete='off' placeholder='e-mail')
+
+  .regform__phone-wrapper
+    .regform__flag-wrapper
+      .regform__flag-wrapper-cover-for-click
+      .regform__img-flag-wrapper
+        img.regform__flag-img(src="assets/img/european_union.png", alt="country-flag")
+      i.fas.fa-caret-down
+    .regform__countries-wrapper
+
+    input#input-country-code.regform__input.regform__input_ccode(type='text', name='input-phone' value='+000' readonly)
+    input#input-phone.regform__input.regform__input_phone(type='text', name='input-phone' readonly)
+
+  .regform__passwords-wrapper
+    .regform__input-wrapper
+      input#input-password.regform__input.regform__input.regform__input_pass(type='password', name='input-password' placeholder=' пароль')
+      span.regform__show-hide-pass
+        //- i.fas.fa-eye
+        i.fas.fa-eye-slash
+
+    .regform__input-wrapper
+      input#input-confirm-pass.regform__input.regform__input_pass(type='password', name='input-confirm-pass' placeholder='подтверждение')
+      span.regform__show-hide-pass
+        //- i.fas.fa-eye
+        i.fas.fa-eye-slash
+
+  .regform__agree-wrapper
+    label.regform__agree-label(style='cursor:pointer')
+      span.regform__agree-checkbox-span
+        input(type='checkbox', name='input-checkbox', required='')
+        span.regform__check-mark: i.fas.fa-check
+      span.regform__agree-text Мне больше 18 лет. Я прочитал(а) и принимаю данные
+      |
+      |
+    a.regform__link(href='terms_and_conditions.html') Клиентское соглашение,
+    |
+    |
+    a.regform__link(href='privacy_policy.html') Политику Конфиденциальности,
+    |
+    |
+    a.regform__link(href='notification_of_risks.html') Уведомление о рисках.
+
+  button.regform__btn#btnsubmit(type='button') ЗАРЕГИСТРИРОВАТЬСЯ
+
+//- script
+//-   include ../minjs/form-registration/form-registration.js
+
+// ↑↑↑ BEM-blocks: form-registration (end) ↑↑↑
