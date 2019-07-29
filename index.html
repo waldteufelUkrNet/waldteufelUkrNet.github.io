@@ -3,10 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>TEST</title>
-  <link rel="stylesheet" href="css/css.css">
+  <script>
+    document.write('\
+      <script src="js/version-controll.js?version=' + Date.now() + '"><\/script>\
+    ');
+  </script>
+  <script>
+    document.write('\
+      <link rel="stylesheet" href="css/css.css?version=' + v.css + '">\
+      <script src="js/js.js?version=' + v.js + '"><\/script>\
+    ');
+  </script>
 </head>
 <body>
-  <script src='js/js.js' type='module'></script>
-  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<p class="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur modi nesciunt eaque aspernatur deserunt, eveniet sed aperiam voluptatum impedit debitis.</p>
+
+<p class="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur modi nesciunt eaque aspernatur deserunt, eveniet sed aperiam voluptatum impedit debitis.</p>
+
+<p class="p1">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Великий вопроса обеспечивает живет но моей? Оксмокс взобравшись текстов гор.</p>
+
+<p class="p2">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Великий вопроса обеспечивает живет но моей? Оксмокс взобравшись текстов гор.</p>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- <script src='js/js.js'></script> -->
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
 </html>
