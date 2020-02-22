@@ -1,0 +1,29 @@
+doctype html
+html(lang='de')
+  head
+    title
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name="author" content="")
+    meta(name="book-name" content="")
+    meta(name="book-id" content="")
+    link(rel="stylesheet", href="../../css/books.css")
+    link(rel="stylesheet", href="../../css/modules.css")
+    script(defer src="../../js/dbase.js")
+    script(defer src="../../js/books.js")
+    script(defer src="../../js/modules.js")
+
+  body
+    main.main
+
+      include ../modules/top-book-panel/top-book-panel.pug
+
+      #book
+        block first-screen
+        block name
+        block content
+        block text
+        block marginalias
+        block about
+
+      include ../modules/bottom-book-panel/bottom-book-panel.pug

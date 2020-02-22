@@ -1,0 +1,141 @@
+@import "reset";
+@import "fonts";
+
+* {
+  box-sizing      : border-box;
+}
+
+html {
+  font-family     : small;
+  font-size       : 20px;
+  text-align      : justify;
+}
+
+.main {
+  height          : 100vh;
+  max-width       : 1200px;
+  margin          : 0 auto;
+  padding         : 15px;
+  position        : relative;
+  display         : flex;
+  flex-direction  : column;
+}
+
+.header-wrapper {
+  position        : relative;
+}
+
+h1 {
+  font-family     : bold;
+  font-weight     :900;
+  font-size       : 20px;
+  text-align      : center;
+  padding         : 5px;
+  letter-spacing  : 1px;
+}
+
+.books-panel {
+  height: 40px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+  &__search-field {
+    height: 35px;
+    width: 0px;
+    max-width: 300px;
+    display: block;
+    font: 20px small;
+    padding: 0;
+    border: 1px solid transparent;
+  }
+  &__btn {
+    width: 35px;
+    height: 35px;
+    margin-left: 3px;
+    padding: 0;
+    display: flex;
+    border: 1px solid transparent;
+    background-color: lightgrey;
+    cursor: pointer;
+    svg {
+      margin: auto;
+      height: 30px;
+      width : 30px;
+      padding: 0;
+      fill: grey;
+    }
+    &_active {
+      border: 1px solid grey;
+      svg {
+        fill: black;
+      }
+    }
+  }
+}
+
+#booksAmount {
+  position: absolute;
+  right: 0;
+  padding: 0;
+  font: 16px bold;
+}
+
+.markered-text {
+  background-color: yellow;
+}
+
+.books-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.book {
+  border          : 1px solid lightgrey;
+  display         : flex;
+  align-items     : center;
+  margin-bottom   : 10px;
+  text-decoration : none;
+  position        : relative;
+  // @media screen and (min-width: 768px) {}
+  &__img-wrapper {
+    height        : 70px;
+    width         : 70px;
+    border        : 1px solid maroon;
+    display       : flex;
+    padding       : 5px;
+    margin        : 5px 15px 5px 5px;
+  }
+  &__img {
+    max-height    : 100%;
+    max-width     : 100%;
+    margin        : auto;
+  }
+  &__name-wrapper {
+    flex-shrink   : 1000;
+    padding       : 5px;
+  }
+  &__author {
+    text-align    : left;
+    font-weight   : 900;
+  }
+  &__name {
+    text-align    : left;
+    border-bottom: 1px solid black;
+    padding-bottom: 6px;
+    margin-bottom: 2px;
+  }
+  &__genre {
+    font: 16px semibold_small;
+  }
+  &__id {
+    position: absolute;
+    bottom: 30px;
+    left: 53px;
+    transform: rotate(-90deg);
+    font-size: 14px;
+    font-family: monotype;
+    letter-spacing: 3px;
+  }
+}

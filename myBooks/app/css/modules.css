@@ -1,0 +1,514 @@
+@charset "UTF-8";
+
+/* ↓↓↓ book-panel module ↓↓↓ */
+
+.bottom-book-panel {
+  width: 100%;
+  height: 60px;
+  padding: 5px 15px;
+  background-color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.bottom-book-panel__btns-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.bottom-book-panel__btn {
+  border: 2px solid lightgrey;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  width: 50px;
+  height: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+.bottom-book-panel__btn svg {
+  height: 30px;
+  fill: lightgrey;
+  margin: auto;
+}
+
+.bottom-book-panel__btn_active {
+  border-color: orange;
+}
+
+.bottom-book-panel__btn_active svg {
+  fill: orange;
+}
+
+.bottom-book-panel__options-area {
+  display: none;
+  height: auto;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 60px;
+  padding: 2px 0px;
+  background-color: white;
+}
+
+.bottom-book-panel__options-area_active {
+  display: block;
+}
+
+.bottom-book-panel__options-area-header {
+  background-color: steelblue;
+  padding: 6px 15px;
+  color: white;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.bottom-book-panel__options-area-header svg {
+  height: 15px;
+  fill: white;
+  margin-right: 10px;
+}
+
+.bottom-book-panel__options-area-subheader {
+  padding: 2px 15px;
+  font-weight: 900;
+}
+
+.bottom-book-panel__options-area-block {
+  padding: 2px 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.bottom-book-panel__options-area-options-name {
+  margin-right: 10px;
+  width: 50px;
+}
+
+.bottom-book-panel__options-area-options-param {
+  margin-right: 10px;
+  width: calc( (100% - 50px - 20px) / 2);
+}
+
+.bottom-book-panel__options-area-options-param select {
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  font: 20px gostAU;
+}
+
+.bottom-book-panel__options-area-options-param select option {
+  height: 30px;
+  font: 20px gostAU;
+}
+
+.bottom-book-panel__options-area-options-param input {
+  width: 100%;
+  height: 30px;
+}
+
+.bottom-book-panel__options-area-options-result {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.bottom-book-panel__options-area-options-param-btn {
+  font-size: 22px;
+  font-weight: 900;
+  cursor: pointer;
+  width: calc( (100% - 10px) / 2);
+  height: 30px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border: 1px solid #aaa;
+  background-color: #eee;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.bottom-book-panel__options-area-options-param-btn:first-of-type {
+  margin-right: 10px;
+}
+
+.bottom-book-panel__options-area-options-param-btn span {
+  margin: auto;
+}
+
+.bottom-book-panel__options-area-options-param-btn_color {
+  font: 20px gostAU;
+  width: 100%;
+}
+
+.bottom-book-panel__options-area-block_display {
+  border: 1px solid black;
+  padding: 6px;
+  margin: 5px 15px;
+  text-align: center;
+}
+
+.bottom-book-panel__color-field {
+  height: 108px;
+  width: 100%;
+  padding: 2px 15px;
+  display: grid;
+  grid-template-columns: repeat(6, 50px);
+  grid-gap: 4px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.bottom-book-panel__color-field_active {
+  display: grid;
+}
+
+.bookmark-in-text {
+  position: absolute;
+  left: 10px;
+  width: 55px;
+  height: 74px;
+  cursor: pointer;
+}
+
+.bookmark-in-text svg:first-of-type {
+  fill: red;
+  width: 30px;
+  height: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.bookmark-in-text svg:last-of-type {
+  fill: orange;
+  width: 40px;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.bookmark-in-first-screen {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 180px;
+  border: 1px solid grey;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.bookmark-in-first-screen svg {
+  fill: orange;
+  width: auto;
+  height: 75px;
+}
+
+.bookmark-in-first-screen__btns-wrapper {
+  height: 76px;
+  margin-left: 2px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.bookmark-in-first-screen__btn {
+  height: 37px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0;
+  padding: 3px 5px;
+  cursor: pointer;
+}
+
+.bookmark-in-first-screen__btn svg {
+  height: 25px;
+  width: auto;
+  margin-right: 7px;
+}
+
+.bookmark-in-first-screen__btn span {
+  font: 20px small;
+}
+
+.bookmark-in-first-screen__btn:first-of-type svg {
+  fill: red;
+}
+
+.bookmark-in-first-screen__btn:last-of-type svg {
+  fill: Lime;
+}
+
+.selected {
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.selected_red {
+  background-color: red;
+  color: black;
+}
+
+.selected_tomato {
+  background-color: tomato;
+  color: black;
+}
+
+.selected_yellow {
+  background-color: yellow;
+  color: black;
+}
+
+.selected_springgreen {
+  background-color: springgreen;
+  color: black;
+}
+
+.selected_yellowgreen {
+  background-color: yellowgreen;
+  color: black;
+}
+
+.selected_turquoise {
+  background-color: turquoise;
+  color: black;
+}
+
+.selected_steelblue {
+  background-color: steelblue;
+  color: white;
+}
+
+.selected_rebeccapurple {
+  background-color: rebeccapurple;
+  color: lightgrey;
+}
+
+.selected_white {
+  background-color: white;
+  color: black;
+}
+
+.selected_white-corrector {
+  background-color: white;
+  color: white;
+}
+
+.selected_black {
+  background-color: black;
+  color: lightgrey;
+}
+
+.selected_black-corrector {
+  background-color: black;
+  color: black;
+}
+
+/* ↑↑↑ book-panel module ↑↑↑ */
+@charset "UTF-8";
+
+/* ↓↓↓ top-book-panel module ↓↓↓ */
+
+.top-book-panel {
+  background-color: black;
+  padding: 6px 10px 0;
+  height: 66px;
+  overflow: hidden;
+}
+
+.top-book-panel__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.top-book-panel__info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  background-color: black;
+  color: lightgrey;
+}
+
+.top-book-panel__tags {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 1000;
+  -ms-flex-negative: 1000;
+  flex-shrink: 1000;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.top-book-panel__author {
+  overflow: hidden;
+  font-family: bold;
+  font-weight: 900;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.top-book-panel__book-name {
+  overflow: hidden;
+  font-family: small;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.top-book-panel__btn {
+  height: 35px;
+  width: 35px;
+  background-color: transparent;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.top-book-panel__btn svg {
+  height: 25px;
+  width: 25px;
+  fill: white;
+  margin: auto;
+}
+
+.top-book-panel__btn svg:last-of-type {
+  display: none;
+}
+
+.top-book-panel__btn_active svg:first-of-type {
+  display: none;
+}
+
+.top-book-panel__btn_active svg:last-of-type {
+  display: block;
+}
+
+.top-book-panel__pages {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  font: 14px monotype;
+  background-color: black;
+  color: lightgrey;
+}
+
+.top-book-panel__read,
+.top-book-panel__not-read,
+.top-book-panel__symbol {
+  font: 14px semibold_small;
+  padding: 0 3px;
+}
+
+.top-book-panel__read-line-wrapper {
+  height: 2px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: white;
+  border-bottom: 1px solid black;
+}
+
+.top-book-panel__read-line {
+  width: 0px;
+  background-color: #4df552;
+  -webkit-transition: width .3s;
+  -o-transition: width .3s;
+  transition: width .3s;
+}
+
+/* ↑↑↑ top-book-panel module ↑↑↑ */

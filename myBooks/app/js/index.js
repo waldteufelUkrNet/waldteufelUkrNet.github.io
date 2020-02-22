@@ -1,0 +1,218 @@
+"use strict"; // dbase.js
+////////////////////////////////////////////////////////////////////////////////
+
+/* ↓↓↓ VARIABLES DECLARATION ↓↓↓ */
+
+var keyForCompare = 'author';
+var sortedArr = books.sort(compare);
+var bookList = document.querySelector('.books-list');
+var ls = localStorage;
+var isSerchFieldOpen = false;
+var bookListType;
+/* ↑↑↑ /VARIABLES DECLARATION ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////
+
+/* ↓↓↓ WORK WITH LOCALSTORAGE ↓↓↓ */
+
+var myBooks = JSON.parse(ls.getItem('myBooks')) || {};
+
+if (!('generalSettings' in myBooks)) {
+  myBooks.generalSettings = {
+    bookListType: 'big'
+  };
+} else {
+  if (!('bookListType' in myBooks.generalSettings)) {
+    myBooks.generalSettings.bookListType = 'big';
+  }
+}
+
+bookListType = myBooks.generalSettings.bookListType;
+/* ↑↑↑ /WORK WITH LOCALSTORAGE ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////
+
+/* ↓↓↓ MAIN LOGIC ↓↓↓ */
+// побудова списку
+
+buildBooksList(); // відображення кількості книжок в базі
+
+document.getElementById('booksAmount').innerHTML = sortedArr.length + ' кн.';
+/* ↑↑↑ /MAIN LOGIC ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////
+
+/* ↓↓↓ ASSIGNMENT OF HANDLERS ↓↓↓ */
+// навішування обробників на кнопки вигляду списку
+
+document.getElementById('bigList').onclick = function () {
+  bookListType = 'big';
+  myBooks.generalSettings.bookListType = 'big';
+  ls.setItem('myBooks', JSON.stringify(myBooks));
+  buildBooksList();
+};
+
+document.getElementById('smallList').onclick = function () {
+  bookListType = 'small';
+  myBooks.generalSettings.bookListType = 'small';
+  ls.setItem('myBooks', JSON.stringify(myBooks));
+  buildBooksList();
+}; // клік на кнопку пошуку
+
+
+document.querySelector('.books-panel__search-btn').onclick = toggleSearchField; // закриття поля пошуку, якщо клік повз кнопки пошуку або поля пошуку
+
+document.addEventListener('click', function () {
+  if (event.target.closest('.books-panel__search-field')) return;
+
+  if (!event.target.closest('.books-panel__search-btn') && isSerchFieldOpen) {
+    toggleSearchField();
+  }
+}); // пошук книги
+
+document.querySelector('.books-panel__search-field').oninput = searchBook;
+/* ↑↑↑ /ASSIGNMENT OF HANDLERS ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////
+
+/* ↓↓↓ FUNCTIONS DECLARATION ↓↓↓ */
+
+function toggleSearchField() {
+  if (isSerchFieldOpen) {
+    closeSearchField();
+  } else {
+    openSearchField();
+  }
+}
+
+function openSearchField() {
+  var button = document.querySelector('.books-panel__search-btn');
+  var searchField = document.querySelector('.books-panel__search-field'); // знімаємо обробник з кнопки для нормальної анімації поля
+
+  document.querySelector('.books-panel__search-btn').onclick = '';
+  searchField.style.width = '100%';
+  var tempWidth = searchField.offsetWidth + 'px';
+  searchField.style.width = '0px';
+  button.classList.add('books-panel__btn_active');
+  setTimeout(function () {
+    searchField.style.transition = 'width .3s, border-color .3s';
+    searchField.style.padding = '6px';
+    searchField.style.borderColor = 'grey';
+    searchField.style.width = tempWidth;
+    searchField.focus();
+  }, 100); // після анімації поновлюємо обробник
+
+  setTimeout(function () {
+    document.querySelector('.books-panel__search-btn').onclick = toggleSearchField;
+    isSerchFieldOpen = true;
+  }, 301);
+}
+
+function closeSearchField() {
+  var button = document.querySelector('.books-panel__search-btn');
+  var searchField = document.querySelector('.books-panel__search-field');
+  buildBooksList(); // знімаємо обробник з кнопки для нормальної анімації поля
+
+  button.onclick = '';
+  searchField.style.width = '0px';
+  searchField.style.transition = 'width .3s, border-color .3s';
+  searchField.style.padding = '0px';
+  searchField.style.borderColor = 'transparent';
+  searchField.value = '';
+  button.classList.remove('books-panel__btn_active'); // після анімації поновлюємо обробник
+
+  setTimeout(function () {
+    searchField.style.transition = '';
+    document.querySelector('.books-panel__search-btn').onclick = toggleSearchField;
+    isSerchFieldOpen = false;
+  }, 301);
+}
+
+function buildBooksList() {
+  // підсвітка активної кнопки
+  if (bookListType == 'big') {
+    document.getElementById('bigList').classList.add('books-panel__btn_active');
+    document.getElementById('smallList').classList.remove('books-panel__btn_active');
+  } else if (bookListType == 'small') {
+    document.getElementById('smallList').classList.add('books-panel__btn_active');
+    document.getElementById('bigList').classList.remove('books-panel__btn_active');
+  } // побудова списку
+
+
+  bookList.innerHTML = '';
+
+  if (bookListType == 'big') {
+    sortedArr.forEach(function (item) {
+      var book = '\
+                    <a class="book" href="books/' + item.id + '/index.html">\
+                      <div class="book__img-wrapper">\
+                        <img class="book__img" src="books/' + item.id + '/img/title.jpg" alt="book title">\
+                      </div>\
+                      <div class="book__name-wrapper">\
+                        <div class="book__author">' + item.author + '</div>\
+                        <div class="book__name">' + item.name + '</div>\
+                        <div class="book__genre">' + item.genre + '</div>\
+                        <div class="book__id">' + item.id + '</div>\
+                      </div>\
+                    </a>\
+                   ';
+      bookList.insertAdjacentHTML('beforeEnd', book);
+    });
+  } else if (bookListType == 'small') {
+    sortedArr.forEach(function (item) {
+      var book = '\
+                    <a  class="book-sm" style="display: block;\
+                              text-align: left;\
+                              color: #1c2e3d;\
+                              text-decoration: none;\
+                              padding-bottom: 5px;\
+                              margin-bottom: 5px;\
+                              border-bottom: 1px dotted lightgrey"\
+                        href="books/' + item.id + '/index.html">\
+                      <span style="font-weight: 900">' + item.author + ' - </span>\
+                      <span>' + item.name + '</span>\
+                    </a>\
+                   ';
+      bookList.insertAdjacentHTML('beforeEnd', book);
+    });
+  }
+}
+
+function searchBook() {
+  //побудова списку потрібна, бо зміна в інпуті може бути відємна (напр: 'author' -> 'auth')
+  buildBooksList();
+  var value = this.value.toLowerCase();
+  var searchArr = document.querySelector('.books-list').children;
+
+  if (searchArr[0].classList.contains('book')) {
+    Array.from(searchArr).forEach(function (item) {
+      var bookName = item.querySelector('.book__name').innerHTML.toLowerCase();
+      var author = item.querySelector('.book__author').innerHTML.toLowerCase();
+      if (!bookName.includes(value) && !author.includes(value)) item.remove();
+    });
+  } else if (searchArr[0].classList.contains('book-sm')) {
+    Array.from(searchArr).forEach(function (item) {
+      var bookName = item.querySelectorAll('span')[1].innerHTML.toLowerCase();
+      var author = item.querySelectorAll('span')[0].innerHTML.toLowerCase();
+      if (!bookName.includes(value) && !author.includes(value)) item.remove();
+    });
+  }
+}
+/**
+ * здійснює лексикографічне сортування масиву об'єктів phoneBook за ключем,
+ * записаним в змінній keyForCompare
+ * @param  {object} a об'єкт, елемент масиву
+ * @param  {object} b об'єкт, елемент масиву
+ * @return {[number]} результат порівняння
+ */
+
+
+function compare(a, b) {
+  if (a[keyForCompare].toLowerCase() < b[keyForCompare].toLowerCase()) {
+    return -1;
+  }
+
+  if (a[keyForCompare].toLowerCase() > b[keyForCompare].toLowerCase()) {
+    return 1;
+  }
+
+  return 0;
+}
+/* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////

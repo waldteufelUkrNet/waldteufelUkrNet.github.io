@@ -1,0 +1,276 @@
+////////////////////////////////////////////////////////////////////////////////
+/* ↓↓↓ book-panel module ↓↓↓ */
+.bottom-book-panel {
+  // position                : fixed;
+  // bottom                  : 0;
+  // left                    : 0;
+  width                   : 100%;
+  height                  : 60px;
+  padding                 : 5px 15px;
+  background-color        : black;
+  user-select             : none;
+  &__btns-wrapper {
+    display               : flex;
+    justify-content       : space-between;
+    align-items           : center;
+    height                : 100%;
+    max-width             : 400px;
+    margin                : 0 auto;
+  }
+  &__btn {
+    border                : 2px solid lightgrey;
+    border-radius         : 4px;
+    width                 : 50px;
+    height                : 50px;
+    display               : flex;
+    cursor                : pointer;
+    svg {
+      height              : 30px;
+      fill                : lightgrey;
+      margin              : auto;
+    }
+    &_active {
+      border-color        : orange;
+      svg {
+        fill              : orange;
+      }
+    }
+  }
+  &__options-area {
+    display               : none;
+    height                : auto;
+    width                 : 100%;
+    position              : absolute;
+    left                  : 0;
+    bottom                : 60px;
+    padding               : 2px 0px;
+    background-color      : white;
+    &_active {
+      display             : block;
+    }
+  }
+  &__options-area-header {
+    background-color      : steelblue;
+    padding               : 6px 15px;
+    color                 : white;
+    font-weight           : 900;
+    letter-spacing        : 2px;
+    svg {
+      height              : 15px;
+      fill                : white;
+      margin-right        : 10px;
+    }
+  }
+  &__options-area-subheader {
+    padding: 2px 15px;
+    font-weight: 900;
+  }
+  &__options-area-block {
+    padding: 2px 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__options-area-options-name {
+    margin-right: 10px;
+    width: 50px;
+  }
+  &__options-area-options-param {
+    margin-right: 10px;
+    width: calc( (100% - 50px - 20px) / 2 );
+    select {
+      width: 100%;
+      height: 30px;
+      cursor: pointer;
+      font: 20px gostAU;
+      option {
+        height: 30px;
+        font: 20px gostAU;
+      }
+    }
+    input {
+      width: 100%;
+      height: 30px;
+    }
+  }
+  &__options-area-options-result {
+    flex-grow : 1;
+  }
+  &__options-area-options-param-btn {
+    font-size: 22px;
+    font-weight: 900;
+    cursor: pointer;
+    width: calc( (100% - 10px) / 2 );
+    height: 30px;
+    display: inline-flex;
+    border: 1px solid #aaa;
+    background-color: #eee;
+    border-radius: 4px;
+    &:first-of-type {
+      margin-right: 10px;
+    }
+    span {
+      margin: auto;
+    }
+    &_color {
+      font: 20px gostAU;
+      width: 100%;
+    }
+  }
+  &__options-area-block_display {
+    border: 1px solid black;
+    padding: 6px;
+    margin: 5px 15px;
+    text-align: center;
+  }
+  &__color-field {
+    height                : 108px;
+    width                 : 100%;
+    padding               : 2px 15px;
+    display               : grid; //none;
+    grid-template-columns : repeat(6, 50px);
+    grid-gap              : 4px;
+    justify-content       : center;
+    align-items           : center;
+    &_active {
+      display             : grid;
+    }
+  }
+}
+
+.bookmark-in-text {
+  position: absolute;
+  left: 10px;
+  width: 55px;
+  height: 74px;
+  cursor: pointer;
+  svg:first-of-type {
+    fill: red;
+    width: 30px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+  }
+  svg:last-of-type {
+    fill: orange;
+    width: 40px;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+.bookmark-in-first-screen {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 180px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  background-color: rgba(255,255,255,.7);
+  svg {
+    fill: orange;
+    width: auto;
+    height: 75px;
+  }
+  &__btns-wrapper {
+    height: 76px;
+    margin-left: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  &__btn {
+    height: 37px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 3px 5px;
+    cursor: pointer;
+    svg {
+      height: 25px;
+      width: auto;
+      margin-right: 7px;
+    }
+    span {
+      font: 20px small;
+    }
+    &:first-of-type {
+      svg {
+        fill: red;
+      }
+    }
+    &:last-of-type {
+      svg {
+        fill: Lime;
+      }
+    }
+  }
+}
+
+.selected {
+  height                  : 50px;
+  width                   : 50px;
+  border                  : 1px solid black;
+  border-radius           : 4px;
+  text-align              : center;
+  font-size               : 20px;
+  line-height             : 50px;
+  user-select             : none;
+  &_red {
+    background-color      : red;
+    color                 : black;
+  }
+  &_tomato {
+    background-color      : tomato;
+    color                 : black;
+  }
+  &_yellow {
+    background-color      : yellow;
+    color                 : black;
+  }
+  &_springgreen {
+    background-color      : springgreen;
+    color                 : black;
+  }
+  &_yellowgreen {
+    background-color      : yellowgreen;
+    color                 : black;
+  }
+  &_turquoise {
+    background-color      : turquoise;
+    color                 : black;
+  }
+  &_steelblue {
+    background-color      : steelblue;
+    color                 : white;
+  }
+  &_rebeccapurple {
+    background-color      : rebeccapurple;
+    color                 : lightgrey;
+  }
+  &_white {
+    background-color      : white;
+    color                 : black;
+  }
+  &_white-corrector {
+    background-color      : white;
+    color                 : white;
+  }&_black {
+    background-color      : black;
+    color                 : lightgrey;
+  }
+  &_black-corrector {
+    background-color      : black;
+    color                 : black;
+  }
+}
+/* ↑↑↑ book-panel module ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////
