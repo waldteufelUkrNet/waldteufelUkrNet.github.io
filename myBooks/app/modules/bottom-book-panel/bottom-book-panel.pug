@@ -1,99 +1,102 @@
-// ↓↓↓ modules: bottom-book-panel (start) ↓↓↓
+// ↓↓↓ modules: bbp (start) ↓↓↓
 
 //- style
-//-   include bottom-book-panel.css
+//-   include bbp.css
 
-.bottom-book-panel
-  .bottom-book-panel__btns-wrapper
-    .bottom-book-panel__btn#bookmark
+.bbp
+  .bbp__btns-wrapper
+    .bbp__btn#bookmark
       svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512")
         path(d="M336 0H48C21.49 0 0 21.49 0 48v464l192-112 192 112V48c0-26.51-21.49-48-48-48zm0 428.43l-144-84-144 84V54a6 6 0 0 1 6-6h276c3.314 0 6 2.683 6 5.996V428.43z")
 
-    .bottom-book-panel__btn#selectText
+    .bbp__btn#selectText
       svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
         path(d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z")
 
-    .bottom-book-panel__btn#options
+    .bbp__btn#options
       svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512")
         path(d="M512.1 191l-8.2 14.3c-3 5.3-9.4 7.5-15.1 5.4-11.8-4.4-22.6-10.7-32.1-18.6-4.6-3.8-5.8-10.5-2.8-15.7l8.2-14.3c-6.9-8-12.3-17.3-15.9-27.4h-16.5c-6 0-11.2-4.3-12.2-10.3-2-12-2.1-24.6 0-37.1 1-6 6.2-10.4 12.2-10.4h16.5c3.6-10.1 9-19.4 15.9-27.4l-8.2-14.3c-3-5.2-1.9-11.9 2.8-15.7 9.5-7.9 20.4-14.2 32.1-18.6 5.7-2.1 12.1.1 15.1 5.4l8.2 14.3c10.5-1.9 21.2-1.9 31.7 0L552 6.3c3-5.3 9.4-7.5 15.1-5.4 11.8 4.4 22.6 10.7 32.1 18.6 4.6 3.8 5.8 10.5 2.8 15.7l-8.2 14.3c6.9 8 12.3 17.3 15.9 27.4h16.5c6 0 11.2 4.3 12.2 10.3 2 12 2.1 24.6 0 37.1-1 6-6.2 10.4-12.2 10.4h-16.5c-3.6 10.1-9 19.4-15.9 27.4l8.2 14.3c3 5.2 1.9 11.9-2.8 15.7-9.5 7.9-20.4 14.2-32.1 18.6-5.7 2.1-12.1-.1-15.1-5.4l-8.2-14.3c-10.4 1.9-21.2 1.9-31.7 0zm-10.5-58.8c38.5 29.6 82.4-14.3 52.8-52.8-38.5-29.7-82.4 14.3-52.8 52.8zM386.3 286.1l33.7 16.8c10.1 5.8 14.5 18.1 10.5 29.1-8.9 24.2-26.4 46.4-42.6 65.8-7.4 8.9-20.2 11.1-30.3 5.3l-29.1-16.8c-16 13.7-34.6 24.6-54.9 31.7v33.6c0 11.6-8.3 21.6-19.7 23.6-24.6 4.2-50.4 4.4-75.9 0-11.5-2-20-11.9-20-23.6V418c-20.3-7.2-38.9-18-54.9-31.7L74 403c-10 5.8-22.9 3.6-30.3-5.3-16.2-19.4-33.3-41.6-42.2-65.7-4-10.9.4-23.2 10.5-29.1l33.3-16.8c-3.9-20.9-3.9-42.4 0-63.4L12 205.8c-10.1-5.8-14.6-18.1-10.5-29 8.9-24.2 26-46.4 42.2-65.8 7.4-8.9 20.2-11.1 30.3-5.3l29.1 16.8c16-13.7 34.6-24.6 54.9-31.7V57.1c0-11.5 8.2-21.5 19.6-23.5 24.6-4.2 50.5-4.4 76-.1 11.5 2 20 11.9 20 23.6v33.6c20.3 7.2 38.9 18 54.9 31.7l29.1-16.8c10-5.8 22.9-3.6 30.3 5.3 16.2 19.4 33.2 41.6 42.1 65.8 4 10.9.1 23.2-10 29.1l-33.7 16.8c3.9 21 3.9 42.5 0 63.5zm-117.6 21.1c59.2-77-28.7-164.9-105.7-105.7-59.2 77 28.7 164.9 105.7 105.7zm243.4 182.7l-8.2 14.3c-3 5.3-9.4 7.5-15.1 5.4-11.8-4.4-22.6-10.7-32.1-18.6-4.6-3.8-5.8-10.5-2.8-15.7l8.2-14.3c-6.9-8-12.3-17.3-15.9-27.4h-16.5c-6 0-11.2-4.3-12.2-10.3-2-12-2.1-24.6 0-37.1 1-6 6.2-10.4 12.2-10.4h16.5c3.6-10.1 9-19.4 15.9-27.4l-8.2-14.3c-3-5.2-1.9-11.9 2.8-15.7 9.5-7.9 20.4-14.2 32.1-18.6 5.7-2.1 12.1.1 15.1 5.4l8.2 14.3c10.5-1.9 21.2-1.9 31.7 0l8.2-14.3c3-5.3 9.4-7.5 15.1-5.4 11.8 4.4 22.6 10.7 32.1 18.6 4.6 3.8 5.8 10.5 2.8 15.7l-8.2 14.3c6.9 8 12.3 17.3 15.9 27.4h16.5c6 0 11.2 4.3 12.2 10.3 2 12 2.1 24.6 0 37.1-1 6-6.2 10.4-12.2 10.4h-16.5c-3.6 10.1-9 19.4-15.9 27.4l8.2 14.3c3 5.2 1.9 11.9-2.8 15.7-9.5 7.9-20.4 14.2-32.1 18.6-5.7 2.1-12.1-.1-15.1-5.4l-8.2-14.3c-10.4 1.9-21.2 1.9-31.7 0zM501.6 431c38.5 29.6 82.4-14.3 52.8-52.8-38.5-29.6-82.4 14.3-52.8 52.8z")
 
-    .bottom-book-panel__btn#goHome
+    .bbp__btn#goHome
       svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512")
         path(d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z")
 
-    .bottom-book-panel__btn#scrollUp
+    .bbp__btn#scrollUp
       svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512")
         path(d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z")
 
-    .bottom-book-panel__btn#scrollDown
+    .bbp__btn#scrollDown
       svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512")
         path(d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z")
 
-    .bottom-book-panel__btn#scrollTop
+    .bbp__btn#scrollTop
       svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512")
         path(d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z")
 
-  .bottom-book-panel__options-area.bottom-book-panel__options-area_colors
-    .bottom-book-panel__options-area-header
+  .bbp__oa.bbp__oa_colors
+    .bbp__oa-header
       svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
         path(d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z")
       span Вибір кольору
-    .bottom-book-panel__options-area-body
-      .bottom-book-panel__color-field
-        .bottom-book-panel__color.selected.selected_red(data-color='red') Абв
-        .bottom-book-panel__color.selected.selected_tomato(data-color='tomato') Абв
-        .bottom-book-panel__color.selected.selected_springgreen(data-color='springgreen') Абв
-        .bottom-book-panel__color.selected.selected_yellowgreen(data-color='yellowgreen') Абв
-        .bottom-book-panel__color.selected.selected_black(data-color='black') Абв
-        .bottom-book-panel__color.selected.selected_black-corrector(data-color='black-corrector') Абв
-        .bottom-book-panel__color.selected.selected_yellow(data-color='yellow') Абв
-        .bottom-book-panel__color.selected.selected_turquoise(data-color='turquoise') Абв
-        .bottom-book-panel__color.selected.selected_steelblue(data-color='steelblue') Абв
-        .bottom-book-panel__color.selected.selected_rebeccapurple(data-color='rebeccapurple') Абв
-        .bottom-book-panel__color.selected.selected_white(data-color='white') Абв
-        .bottom-book-panel__color.selected.selected_white-corrector(data-color='white-corrector') Абв
+    .bbp__oa-body
+      .bbp__color-field
+        .bbp__color.selected.selected_red(data-color='red') Абв
+        .bbp__color.selected.selected_tomato(data-color='tomato') Абв
+        .bbp__color.selected.selected_springgreen(data-color='springgreen') Абв
+        .bbp__color.selected.selected_yellowgreen(data-color='yellowgreen') Абв
+        .bbp__color.selected.selected_black(data-color='black') Абв
+        .bbp__color.selected.selected_black-corrector(data-color='black-corrector') Абв
+        .bbp__color.selected.selected_yellow(data-color='yellow') Абв
+        .bbp__color.selected.selected_turquoise(data-color='turquoise') Абв
+        .bbp__color.selected.selected_steelblue(data-color='steelblue') Абв
+        .bbp__color.selected.selected_rebeccapurple(data-color='rebeccapurple') Абв
+        .bbp__color.selected.selected_white(data-color='white') Абв
+        .bbp__color.selected.selected_white-corrector(data-color='white-corrector') Абв
 
-  .bottom-book-panel__options-area.bottom-book-panel__options-area_options
-    .bottom-book-panel__options-area-header
+  .bbp__oa.bbp__oa_options
+    .bbp__oa-header
       svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512")
         path(d="M512.1 191l-8.2 14.3c-3 5.3-9.4 7.5-15.1 5.4-11.8-4.4-22.6-10.7-32.1-18.6-4.6-3.8-5.8-10.5-2.8-15.7l8.2-14.3c-6.9-8-12.3-17.3-15.9-27.4h-16.5c-6 0-11.2-4.3-12.2-10.3-2-12-2.1-24.6 0-37.1 1-6 6.2-10.4 12.2-10.4h16.5c3.6-10.1 9-19.4 15.9-27.4l-8.2-14.3c-3-5.2-1.9-11.9 2.8-15.7 9.5-7.9 20.4-14.2 32.1-18.6 5.7-2.1 12.1.1 15.1 5.4l8.2 14.3c10.5-1.9 21.2-1.9 31.7 0L552 6.3c3-5.3 9.4-7.5 15.1-5.4 11.8 4.4 22.6 10.7 32.1 18.6 4.6 3.8 5.8 10.5 2.8 15.7l-8.2 14.3c6.9 8 12.3 17.3 15.9 27.4h16.5c6 0 11.2 4.3 12.2 10.3 2 12 2.1 24.6 0 37.1-1 6-6.2 10.4-12.2 10.4h-16.5c-3.6 10.1-9 19.4-15.9 27.4l8.2 14.3c3 5.2 1.9 11.9-2.8 15.7-9.5 7.9-20.4 14.2-32.1 18.6-5.7 2.1-12.1-.1-15.1-5.4l-8.2-14.3c-10.4 1.9-21.2 1.9-31.7 0zm-10.5-58.8c38.5 29.6 82.4-14.3 52.8-52.8-38.5-29.7-82.4 14.3-52.8 52.8zM386.3 286.1l33.7 16.8c10.1 5.8 14.5 18.1 10.5 29.1-8.9 24.2-26.4 46.4-42.6 65.8-7.4 8.9-20.2 11.1-30.3 5.3l-29.1-16.8c-16 13.7-34.6 24.6-54.9 31.7v33.6c0 11.6-8.3 21.6-19.7 23.6-24.6 4.2-50.4 4.4-75.9 0-11.5-2-20-11.9-20-23.6V418c-20.3-7.2-38.9-18-54.9-31.7L74 403c-10 5.8-22.9 3.6-30.3-5.3-16.2-19.4-33.3-41.6-42.2-65.7-4-10.9.4-23.2 10.5-29.1l33.3-16.8c-3.9-20.9-3.9-42.4 0-63.4L12 205.8c-10.1-5.8-14.6-18.1-10.5-29 8.9-24.2 26-46.4 42.2-65.8 7.4-8.9 20.2-11.1 30.3-5.3l29.1 16.8c16-13.7 34.6-24.6 54.9-31.7V57.1c0-11.5 8.2-21.5 19.6-23.5 24.6-4.2 50.5-4.4 76-.1 11.5 2 20 11.9 20 23.6v33.6c20.3 7.2 38.9 18 54.9 31.7l29.1-16.8c10-5.8 22.9-3.6 30.3 5.3 16.2 19.4 33.2 41.6 42.1 65.8 4 10.9.1 23.2-10 29.1l-33.7 16.8c3.9 21 3.9 42.5 0 63.5zm-117.6 21.1c59.2-77-28.7-164.9-105.7-105.7-59.2 77 28.7 164.9 105.7 105.7zm243.4 182.7l-8.2 14.3c-3 5.3-9.4 7.5-15.1 5.4-11.8-4.4-22.6-10.7-32.1-18.6-4.6-3.8-5.8-10.5-2.8-15.7l8.2-14.3c-6.9-8-12.3-17.3-15.9-27.4h-16.5c-6 0-11.2-4.3-12.2-10.3-2-12-2.1-24.6 0-37.1 1-6 6.2-10.4 12.2-10.4h16.5c3.6-10.1 9-19.4 15.9-27.4l-8.2-14.3c-3-5.2-1.9-11.9 2.8-15.7 9.5-7.9 20.4-14.2 32.1-18.6 5.7-2.1 12.1.1 15.1 5.4l8.2 14.3c10.5-1.9 21.2-1.9 31.7 0l8.2-14.3c3-5.3 9.4-7.5 15.1-5.4 11.8 4.4 22.6 10.7 32.1 18.6 4.6 3.8 5.8 10.5 2.8 15.7l-8.2 14.3c6.9 8 12.3 17.3 15.9 27.4h16.5c6 0 11.2 4.3 12.2 10.3 2 12 2.1 24.6 0 37.1-1 6-6.2 10.4-12.2 10.4h-16.5c-3.6 10.1-9 19.4-15.9 27.4l8.2 14.3c3 5.2 1.9 11.9-2.8 15.7-9.5 7.9-20.4 14.2-32.1 18.6-5.7 2.1-12.1-.1-15.1-5.4l-8.2-14.3c-10.4 1.9-21.2 1.9-31.7 0zM501.6 431c38.5 29.6 82.4-14.3 52.8-52.8-38.5-29.6-82.4 14.3-52.8 52.8z")
       span Налаштування
-    .bottom-book-panel__options-area-body
-      .bottom-book-panel__options-area-subheader Шрифт
+    .bbp__oa-body
+      .bbp__oa-subheader Шрифт
 
-      .bottom-book-panel__options-area-block
-        .bottom-book-panel__options-area-options-name розмір:
-        .bottom-book-panel__options-area-options-param
-          button(type='button').bottom-book-panel__options-area-options-param-btn: span +
-          button(type='button').bottom-book-panel__options-area-options-param-btn: span -
-        .bottom-book-panel__options-area-options-result 20
-      .bottom-book-panel__options-area-block
+      .bbp__oa-block
+        .bbp__oa-options-name розмір:
+        .bbp__oa-options-param
+          .bbp__oa-btns-wrapper
+          button(type='button' data-behavior='+').bbp__oa-param-btn.fontSize
+            span +
+          button(type='button' data-behavior='-').bbp__oa-param-btn.fontSize
+            span -
+        .bbp__oa-options-result.fontSizeIndicator 20
 
-        .bottom-book-panel__options-area-options-name тип:
-        .bottom-book-panel__options-area-options-param
+      .bbp__oa-block
+        .bbp__oa-options-name тип:
+        .bbp__oa-options-param
           select(name='font')
             option GOST type AU
             option Consola
             option Arial
-        .bottom-book-panel__options-area-options-result GOST type AU
+        .bbp__oa-options-result GOST type AU
 
-      .bottom-book-panel__options-area-block
-        .bottom-book-panel__options-area-options-name колір:
-        .bottom-book-panel__options-area-options-param
-          button(type='button').bottom-book-panel__options-area-options-param-btn.bottom-book-panel__options-area-options-param-btn_color: span вибрати колір
-        .bottom-book-panel__options-area-options-result #123456
+      .bbp__oa-block
+        .bbp__oa-options-name колір:
+        .bbp__oa-options-param
+          button(type='button').bbp__oa-param-btn.bbp__oa-param-btn_color: span вибрати колір
+        .bbp__oa-options-result #123456
 
-      .bottom-book-panel__options-area-subheader Тло
+      .bbp__oa-subheader Тло
 
-      .bottom-book-panel__options-area-block
-        .bottom-book-panel__options-area-options-name колір:
-        .bottom-book-panel__options-area-options-param
-          button(type='button').bottom-book-panel__options-area-options-param-btn.bottom-book-panel__options-area-options-param-btn_color: span вибрати колір
-        .bottom-book-panel__options-area-options-result #123456
+      .bbp__oa-block
+        .bbp__oa-options-name колір:
+        .bbp__oa-options-param
+          button(type='button').bbp__oa-param-btn.bbp__oa-param-btn_color: span вибрати колір
+        .bbp__oa-options-result #123456
 
-      .bottom-book-panel__options-area-block_display А ба ба га ла ма га
+      .bbp__oa-block_display А ба ба га ла ма га
 
 //- script
-//-   include bottom-book-panel.min.js
+//-   include bbp.min.js
 
-// ↑↑↑ modules: bottom-book-panel (end) ↑↑↑
+// ↑↑↑ modules: bbp (end) ↑↑↑

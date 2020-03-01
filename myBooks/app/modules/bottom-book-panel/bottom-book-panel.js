@@ -1,5 +1,5 @@
 "use strict";
-// bottom-book-panel module
+// bbp module
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ визначення ідентифікатору книги, робота з localStorage ↓↓↓ */
   let href     = location.href;
@@ -25,16 +25,16 @@
 /* ↑↑↑ /визначення ідентифікатору книги, робота з localStorage ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ навішування обробників на кнопки головного меню ↓↓↓ */
-  let bottomBookPanelBtns = document.getElementsByClassName('bottom-book-panel__btn');
+  let bottomBookPanelBtns = document.getElementsByClassName('bbp__btn');
   for ( let i = 0; i < bottomBookPanelBtns.length; i++ ) {
     (function(n){
       bottomBookPanelBtns[n].onclick = function(event) {
 
         // підсвітка натисненої кнопки
-        event.currentTarget.classList.add('bottom-book-panel__btn_active');
+        event.currentTarget.classList.add('bbp__btn_active');
         (function(i){
           setTimeout( function(){
-          i.classList.remove('bottom-book-panel__btn_active');
+          i.classList.remove('bbp__btn_active');
         },100);
         })(event.currentTarget);
 
@@ -71,10 +71,10 @@
 
             break;
           case 'selectText':
-            // trololo;
+            toggleOptionsPanel('selectText');
             break;
           case 'options':
-            // trololo;
+            toggleOptionsPanel('options');
             break;
           case 'goHome':
             let href = location.href;
@@ -97,10 +97,15 @@
     }(i));
   }
 
+  let fontSizeBtns = document.getElementsByClassName('fontSize');
+  addEventListenerToObject('click', fontSizeBtns, resizeFont);
 /* ↑↑↑ /навішування обробників на кнопки головного меню ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ FUNCTIONS DECLARATION ↓↓↓ */
 
+  /**
+   * [showBookmarksBtns створенн кнопок закладки]
+   */
   function showBookmarksBtns() {
     let book = document.getElementById('book');
     let bookmarkInFirstScreen = '\
@@ -144,6 +149,9 @@
     markeredTag.insertAdjacentHTML('beforeBegin', bookmarkInText);
   }
 
+  /**
+   * [removeBookmarksBtns прибирання закладки]
+   */
   function removeBookmarksBtns() {
     //видалити обитві кнопки та почистити локальне сховище
     document.querySelector('.bookmark-in-first-screen').remove();
@@ -153,12 +161,41 @@
     ls.setItem( 'myBooks', JSON.stringify(myBooks) );
   }
 
+  /**
+   * [goToBookmark відкриття книги в місці закладки]
+   */
   function goToBookmark() {
     let tag         = myBooks.books[bookId].bookmark[0];
     let number      = myBooks.books[bookId].bookmark[1];
     let arrOfTags   = document.querySelectorAll('#book ' + tag);
     let markeredTag = arrOfTags[number];
     markeredTag.scrollIntoView({behavior:'smooth'});
+  }
+
+  /**
+   * [toggleOptionsPanel закриття/відкриття панелей налаштувань]
+   * @param {[String]} panel [id панелі]
+   */
+  function toggleOptionsPanel(panel) {
+    if (panel == 'options') {
+      if ( document.querySelector('.bbp__oa_options').classList.contains('bbp__oa_active') ) {
+        document.querySelector('.bbp__oa_active').classList.remove('bbp__oa_active');
+      } else {
+        if ( document.querySelector('.bbp__oa_active') ) {
+          document.querySelector('.bbp__oa_active').classList.remove('bbp__oa_active');
+        }
+        document.querySelector('.bbp__oa_options').classList.add('bbp__oa_active');
+      }
+    } else if (panel == 'selectText') {
+      if ( document.querySelector('.bbp__oa_colors').classList.contains('bbp__oa_active') ) {
+        document.querySelector('.bbp__oa_active').classList.remove('bbp__oa_active');
+      } else {
+        if ( document.querySelector('.bbp__oa_active') ) {
+          document.querySelector('.bbp__oa_active').classList.remove('bbp__oa_active');
+        }
+        document.querySelector('.bbp__oa_colors').classList.add('bbp__oa_active');
+      }
+    }
   }
 
   /**
@@ -183,6 +220,27 @@
     }
 
     book.scroll({top: topPoint, behavior: 'smooth'});
+  }
+
+  function resizeFont() {
+    let buttonBehavior   = event.currentTarget.dataset.behavior;
+    let indicator        = document.querySelector('.fontSizeIndicator');
+    let exampleIndicator = document.querySelector('.bbp__oa-block_display');
+    let htmlTag          = document.documentElement;
+    let fontSize         = +getComputedStyle(htmlTag).fontSize.slice(0,2);
+    let newFontSize;
+
+    if (buttonBehavior == '+') {
+      newFontSize = fontSize + 1;
+      if (newFontSize > 99) newFontSize = 99;
+    } else if (buttonBehavior == '-') {
+      newFontSize = fontSize - 1;
+      if (newFontSize < 10) newFontSize = 10;
+    }
+
+    htmlTag.style.fontSize = newFontSize + 'px';
+    exampleIndicator.style.fontSize = newFontSize + 'px';
+    indicator.innerHTML = newFontSize;
   }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
@@ -213,14 +271,14 @@
 
   // let selectedText, selectedNode;
   // document.getElementById('selectText').onclick = function(){
-  //   document.querySelector('.bottom-book-panel__color-field').classList.toggle('bottom-book-panel__color-field_active');
+  //   document.querySelector('.bbp__color-field').classList.toggle('bbp__color-field_active');
 
   //   selectedText = window.getSelection();
   //   console.log("selectedText:", selectedText, selectedText.toString());
   //   selectedNode = selectedText.anchorNode.parentNode;
   // };
 
-  // let colorBtns = document.getElementsByClassName('bottom-book-panel__color');
+  // let colorBtns = document.getElementsByClassName('bbp__color');
   // for ( let i = 0; i < colorBtns.length; i++ ) {
   //   (function(n){
   //     colorBtns[n].onclick = function(event) {
@@ -230,7 +288,7 @@
   //       selectedNode.innerHTML = selectedNode.innerHTML.replace(selectedText, newText);
 
   //       // ховаємо панель
-  //       document.querySelector('.bottom-book-panel__color-field').classList.toggle('bottom-book-panel__color-field_active');
+  //       document.querySelector('.bbp__color-field').classList.toggle('bbp__color-field_active');
 
   //       // зберігаємо зміни в ls
   //       let bookInnerHTML = document.getElementById('book').innerHTML;
