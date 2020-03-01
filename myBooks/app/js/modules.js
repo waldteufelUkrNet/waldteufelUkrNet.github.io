@@ -252,30 +252,17 @@ function scrollingWindow(how) {
 
 function resizeFont() {
   var exampleIndicator = document.querySelector('.bbp__oa-block_display');
-  exampleIndicator.insertAdjacentHTML('beforeEnd', '<p>exampleIndicator:' + exampleIndicator + '</p>');
   var buttonBehavior = event.currentTarget.dataset.behavior;
-  exampleIndicator.insertAdjacentHTML('beforeEnd', '<p>buttonBehavior:' + buttonBehavior + '</p>');
   var indicator = document.querySelector('.fontSizeIndicator');
-  exampleIndicator.insertAdjacentHTML('beforeEnd', '<p>indicator:' + indicator + '</p>');
   var book = document.getElementById('book');
-  exampleIndicator.insertAdjacentHTML('beforeEnd', '<p>book:' + book + '</p>');
   var fontSize = +getComputedStyle(book).fontSize.slice(0, 2);
-  exampleIndicator.insertAdjacentHTML('beforeEnd', '<p>fontSize:' + fontSize + '</p>');
-  var newFontSize; //     exampleIndicator.innerHTML = `
-  // buttonBehavior   : ${buttonBehavior},
-  // indicator        : ${indicator},
-  // exampleIndicator : ${exampleIndicator},
-  // book             : ${book},
-  // fontSize         : ${fontSize}
-  // `;
+  var newFontSize;
 
   if (buttonBehavior == '+') {
     newFontSize = fontSize + 1;
-    exampleIndicator.insertAdjacentHTML('beforeEnd', '<p>newFontSize:' + newFontSize + '</p>');
     if (newFontSize > 99) newFontSize = 99;
   } else if (buttonBehavior == '-') {
     newFontSize = fontSize - 1;
-    exampleIndicator.insertAdjacentHTML('beforeEnd', '<p>newFontSize:' + newFontSize + '</p>');
     if (newFontSize < 10) newFontSize = 10;
   }
 

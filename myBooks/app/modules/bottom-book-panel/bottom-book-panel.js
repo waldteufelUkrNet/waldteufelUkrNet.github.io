@@ -224,30 +224,16 @@
 
   function resizeFont() {
     let exampleIndicator = document.querySelector('.bbp__oa-block_display');
-exampleIndicator.insertAdjacentHTML('beforeEnd','<p>exampleIndicator:' + exampleIndicator + '</p>');
     let buttonBehavior   = event.currentTarget.dataset.behavior;
-exampleIndicator.insertAdjacentHTML('beforeEnd','<p>buttonBehavior:' + buttonBehavior + '</p>');
     let indicator        = document.querySelector('.fontSizeIndicator');
-exampleIndicator.insertAdjacentHTML('beforeEnd','<p>indicator:' + indicator + '</p>');
     let book             = document.getElementById('book');
-exampleIndicator.insertAdjacentHTML('beforeEnd','<p>book:' + book + '</p>');
     let fontSize         = +getComputedStyle(book).fontSize.slice(0,2);
-exampleIndicator.insertAdjacentHTML('beforeEnd','<p>fontSize:' + fontSize + '</p>');
     let newFontSize;
-//     exampleIndicator.innerHTML = `
-// buttonBehavior   : ${buttonBehavior},
-// indicator        : ${indicator},
-// exampleIndicator : ${exampleIndicator},
-// book             : ${book},
-// fontSize         : ${fontSize}
-// `;
     if (buttonBehavior == '+') {
       newFontSize = fontSize + 1;
-exampleIndicator.insertAdjacentHTML('beforeEnd','<p>newFontSize:' + newFontSize + '</p>');
       if (newFontSize > 99) newFontSize = 99;
     } else if (buttonBehavior == '-') {
       newFontSize = fontSize - 1;
-exampleIndicator.insertAdjacentHTML('beforeEnd','<p>newFontSize:' + newFontSize + '</p>');
       if (newFontSize < 10) newFontSize = 10;
     }
 
