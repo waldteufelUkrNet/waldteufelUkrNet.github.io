@@ -9,7 +9,7 @@ var href = location.href;
 var position = href.indexOf('books');
 var bookId = href.slice(position + 6, position + 11);
 var ls = localStorage;
-var myBooks = JSON.parse(ls.getItem('myBooks')) || {}; // console.log("myBooks", JSON.stringify(myBooks) );
+var myBooks = JSON.parse(ls.getItem('myBooks')) || {}; // alert("myBooks", JSON.stringify(myBooks) );
 // alert( JSON.stringify(myBooks) );
 
 if (!('books' in myBooks)) {
@@ -254,19 +254,22 @@ function resizeFont() {
   var buttonBehavior = event.currentTarget.dataset.behavior;
   var indicator = document.querySelector('.fontSizeIndicator');
   var exampleIndicator = document.querySelector('.bbp__oa-block_display');
-  var htmlTag = document.documentElement;
-  var fontSize = +getComputedStyle(htmlTag).fontSize.slice(0, 2);
+  var book = document.getElementById('book');
+  var fontSize = +getComputedStyle(book).fontSize.slice(0, 2);
   var newFontSize;
+  alert("\nbuttonBehavior   : ".concat(buttonBehavior, ",\nindicator        : ").concat(indicator, ",\nexampleIndicator : ").concat(exampleIndicator, ",\nbook             : ").concat(book, ",\nfontSize         : ").concat(fontSize, "\n"));
 
   if (buttonBehavior == '+') {
     newFontSize = fontSize + 1;
+    alert('newFontSize:' + newFontSize);
     if (newFontSize > 99) newFontSize = 99;
   } else if (buttonBehavior == '-') {
     newFontSize = fontSize - 1;
+    alert('newFontSize:' + newFontSize);
     if (newFontSize < 10) newFontSize = 10;
   }
 
-  htmlTag.style.fontSize = newFontSize + 'px';
+  book.style.fontSize = newFontSize + 'px';
   exampleIndicator.style.fontSize = newFontSize + 'px';
   indicator.innerHTML = newFontSize;
 }
@@ -285,7 +288,7 @@ function resizeFont() {
 // document.getElementById('selectText').onclick = function(){
 //   document.querySelector('.bbp__color-field').classList.toggle('bbp__color-field_active');
 //   selectedText = window.getSelection();
-//   console.log("selectedText:", selectedText, selectedText.toString());
+//   alert("selectedText:", selectedText, selectedText.toString());
 //   selectedNode = selectedText.anchorNode.parentNode;
 // };
 // let colorBtns = document.getElementsByClassName('bbp__color');

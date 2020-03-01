@@ -7,7 +7,7 @@
   let bookId   = href.slice(position+6, position+11);
   let ls       = localStorage;
   let myBooks  = JSON.parse( ls.getItem('myBooks') ) || {};
-  // console.log("myBooks", JSON.stringify(myBooks) );
+  // alert("myBooks", JSON.stringify(myBooks) );
   // alert( JSON.stringify(myBooks) );
 
   if ( !('books' in myBooks) ) {
@@ -226,19 +226,27 @@
     let buttonBehavior   = event.currentTarget.dataset.behavior;
     let indicator        = document.querySelector('.fontSizeIndicator');
     let exampleIndicator = document.querySelector('.bbp__oa-block_display');
-    let htmlTag          = document.documentElement;
-    let fontSize         = +getComputedStyle(htmlTag).fontSize.slice(0,2);
+    let book             = document.getElementById('book');
+    let fontSize         = +getComputedStyle(book).fontSize.slice(0,2);
     let newFontSize;
-
+    alert(`
+buttonBehavior   : ${buttonBehavior},
+indicator        : ${indicator},
+exampleIndicator : ${exampleIndicator},
+book             : ${book},
+fontSize         : ${fontSize}
+`);
     if (buttonBehavior == '+') {
       newFontSize = fontSize + 1;
+      alert('newFontSize:' + newFontSize);
       if (newFontSize > 99) newFontSize = 99;
     } else if (buttonBehavior == '-') {
       newFontSize = fontSize - 1;
+      alert('newFontSize:' + newFontSize);
       if (newFontSize < 10) newFontSize = 10;
     }
 
-    htmlTag.style.fontSize = newFontSize + 'px';
+    book.style.fontSize = newFontSize + 'px';
     exampleIndicator.style.fontSize = newFontSize + 'px';
     indicator.innerHTML = newFontSize;
   }
@@ -274,7 +282,7 @@
   //   document.querySelector('.bbp__color-field').classList.toggle('bbp__color-field_active');
 
   //   selectedText = window.getSelection();
-  //   console.log("selectedText:", selectedText, selectedText.toString());
+  //   alert("selectedText:", selectedText, selectedText.toString());
   //   selectedNode = selectedText.anchorNode.parentNode;
   // };
 
