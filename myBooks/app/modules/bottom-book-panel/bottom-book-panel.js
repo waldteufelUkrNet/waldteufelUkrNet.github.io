@@ -18,27 +18,34 @@
     myBooks.generalSettings.booksFontSettings = {};
 
     let bookTag = document.getElementById('book');
-    myBooks.generalSettings.booksFontSettings.name = getComputedStyle(bookTag).fontFamily;
+    myBooks.generalSettings.booksFontSettings.fontName = getComputedStyle(bookTag).fontFamily;
     myBooks.generalSettings.booksFontSettings.size = getComputedStyle(bookTag).fontSize;
     myBooks.generalSettings.booksFontSettings.color = getComputedStyle(bookTag).color;
+    myBooks.generalSettings.booksFontSettings.bgColor = '#ffffff';
     ls.setItem( 'myBooks', JSON.stringify(myBooks) );
   } else {
     let bookTag = document.getElementById('book');
-    // зі шрифтами подумати додатково, бо вони різні у різих класів
-    // bookTag.style.fontName  = myBooks.generalSettings.booksFontSettings.name;
     bookTag.style.fontSize  = myBooks.generalSettings.booksFontSettings.size;
     bookTag.style.color = myBooks.generalSettings.booksFontSettings.color;
+    bookTag.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
+
+    let font      = myBooks.generalSettings.booksFontSettings.fontName;
+    document.querySelector('.bbp__oa-options-font-current-name').innerHTML = font;
+    setFont(font);
   }
 
-  document.querySelector('.fontNameIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.name;
+  document.querySelector('.textColorInput').value = myBooks.generalSettings.booksFontSettings.color;
+  document.querySelector('.pageColorInput').value = myBooks.generalSettings.booksFontSettings.bgColor;
+
+  document.querySelector('.fontNameIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.fontName;
   document.querySelector('.fontSizeIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.size;
   document.querySelector('.fontColorIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.color;
+  document.querySelector('.pageColorIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.bgColor;
 
   let exampleIndicator = document.querySelector('.bbp__oa-block_display');
-  exampleIndicator.style.fontFamily = myBooks.generalSettings.booksFontSettings.name;
   exampleIndicator.style.fontSize = myBooks.generalSettings.booksFontSettings.size;
   exampleIndicator.style.color = myBooks.generalSettings.booksFontSettings.color;
-
+  exampleIndicator.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
 
   // робота із закладкою (якщо вона є)
   if ( !('books' in myBooks) ) {
@@ -128,12 +135,32 @@
 
   let fontSizeBtns = document.getElementsByClassName('fontSize');
   addEventListenerToObject('click', fontSizeBtns, resizeFont);
+
+  document.querySelector('.bbp__oa-options-font-current-name').onclick = function() {
+    document.querySelector('.bbp__oa-options-font-list').classList.toggle('bbp__oa-options-font-list_active');
+  }
+  document.addEventListener('click', function() {
+    if ( event.target.closest('.bbp__oa-options-font-current-name') ) return;
+    if ( document.querySelector('.bbp__oa-options-font-list_active') ) {
+      document.querySelector('.bbp__oa-options-font-list_active').classList.remove('bbp__oa-options-font-list_active');
+    }
+  });
+
+  document.querySelector('.textColorInput').oninput = setFontColor;
+  document.querySelector('.pageColorInput').oninput = setPageColor;
+
+  let selectedBtns = document.getElementsByClassName('selected');
+  addEventListenerToObject('click', selectedBtns, markText);
+
+  // вибір шрифта
+  let fontItem = document.getElementsByClassName('bbp__oa-options-font-item');
+  addEventListenerToObject('click', fontItem, handleFont);
 /* ↑↑↑ /навішування обробників на кнопки головного меню ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ FUNCTIONS DECLARATION ↓↓↓ */
 
   /**
-   * [showBookmarksBtns створенн кнопок закладки]
+   * [showBookmarksBtns створення кнопок закладки]
    */
   function showBookmarksBtns() {
     let book = document.getElementById('book');
@@ -251,7 +278,6 @@
     book.scroll({top: topPoint, behavior: 'smooth'});
   }
 
-
   /**
    * [resizeFont змінює розмір шрифту книги]
    */
@@ -277,62 +303,238 @@
     myBooks.generalSettings.booksFontSettings.size = newFontSize + 'px';
     ls.setItem( 'myBooks', JSON.stringify(myBooks) );
   }
+
+  function setFontColor() {
+    let textColor        = event.currentTarget.value;
+    let exampleIndicator = document.querySelector('.bbp__oa-block_display');
+    let indicator        = document.querySelector('.fontColorIndicator');
+    let book             = document.getElementById('book');
+
+    exampleIndicator.style.color = textColor;
+    book.style.color = textColor;
+    indicator.innerHTML = textColor;
+
+    myBooks.generalSettings.booksFontSettings.color = textColor;
+    ls.setItem( 'myBooks', JSON.stringify(myBooks) );
+  }
+
+  function setPageColor() {
+    let pageColor        = event.currentTarget.value;
+    let exampleIndicator = document.querySelector('.bbp__oa-block_display');
+    let indicator        = document.querySelector('.pageColorIndicator');
+    let book             = document.getElementById('book');
+
+    exampleIndicator.style.backgroundColor = pageColor;
+    book.style.backgroundColor = pageColor;
+    indicator.innerHTML = pageColor;
+
+    myBooks.generalSettings.booksFontSettings.bgColor = pageColor;
+    ls.setItem( 'myBooks', JSON.stringify(myBooks) );
+  }
+
+  function markText() {
+    let selectedText = window.getSelection();
+    if (!selectedText.anchorNode) return;
+
+    let markedClass  = 'selected_' + this.dataset.select;
+
+    let {anchorNode, anchorOffset, focusNode, focusOffset} = selectedText;
+
+    // знаходимо спільного предка для усіх тегів виділення
+    // через Range не підходить, бо focus може бути перед anchor
+    let parentNode = anchorNode.parentNode;
+    while ( !parentNode.contains(focusNode) ) {
+      parentNode = parentNode.parentNode;
+    }
+
+    // усі вузли виділення огортаємо в окремий не стандартний тег
+    let nodes = selectedText.getRangeAt(0).cloneContents();
+    // console.log(nodes);
+    for (let node of nodes.childNodes) {
+      let html;
+      if (node.innerHTML) {
+        html = node.innerHTML;
+        node.innerHTML = '<mspan class="' + markedClass + '">' + html + '</mspan>';
+      } else {
+        console.log('data');
+        html = node.data
+      }
+    }
+    // console.log(nodes);
+
+    // замінюємо у предку старе виділення на перероблене
+    parentNode.innerHTML = parentNode.innerHTML.replace(selectedText, nodes.toString());
+
+    // 4 зробити запис в ls: anchorNode, anchorOffset, focusNode, focusOffset + клас
+
+    // перехресні виділення?
+
+
+
+
+
+
+
+
+
+    // console.log( selectedText.toString() );
+    // console.log( selectedText.getRangeAt(0).cloneContents() );
+  }
+
+  function handleFont() {
+    let font = this.innerHTML;
+    document.querySelector('.fontNameIndicator').innerHTML = font;
+    document.querySelector('.bbp__oa-options-font-current-name').innerHTML = font;
+
+    myBooks.generalSettings.booksFontSettings.fontName = font;
+    ls.setItem( 'myBooks', JSON.stringify(myBooks) );
+
+    setFont(font);
+  }
+
+  function setFont(font) {
+    let lightningConductor = document.getElementById('lightning-conductor');
+    let book               = document.getElementById('book') || lightningConductor;
+    let content            = document.querySelector('.content-section__name') || lightningConductor;
+    let boldLinks          = document.getElementsByClassName('content__main-link') || lightningConductor;
+    let subLinks           = document.getElementsByClassName('content__sub-link') || lightningConductor;
+    let sub2Links          = document.getElementsByClassName('content__sub2-link') || lightningConductor;
+    let sub3Links          = document.getElementsByClassName('content__sub3-link') || lightningConductor;
+    let h1                 = document.getElementsByTagName('h1') || lightningConductor;
+    let h2                 = document.getElementsByTagName('h2') || lightningConductor;
+    let h3                 = document.getElementsByTagName('h3') || lightningConductor;
+    let h4                 = document.getElementsByTagName('h4') || lightningConductor;
+    let h5                 = document.getElementsByTagName('h5') || lightningConductor;
+    let h6                 = document.getElementsByTagName('h6') || lightningConductor;
+    let b                  = document.getElementsByTagName('b') || lightningConductor;
+    let i                  = document.getElementsByTagName('i') || lightningConductor;
+    let i2                 = document.getElementsByClassName('f-coni') || lightningConductor;
+    let btext              = document.getElementsByClassName('btext') || lightningConductor;
+    let display            = document.querySelector('.bbp__oa-block_display') || lightningConductor;
+    let curName            = document.querySelector('.bbp__oa-options-font-current-name') || lightningConductor;
+
+    switch(font) {
+      case 'arial':
+        book.style.fontFamily = 'ar';
+        content.style.fontFamily = 'ab';
+        for (let link of boldLinks) link.style.fontFamily = 'ab';
+        for (let link of subLinks) link.style.fontFamily = 'ar';
+        for (let link of sub2Links) link.style.fontFamily = 'ar';
+        for (let link of sub3Links) link.style.fontFamily = 'ar';
+        for (let h of h1) h.style.fontFamily = 'ab';
+        for (let h of h2) h.style.fontFamily = 'ab';
+        for (let h of h3) h.style.fontFamily = 'ab';
+        for (let h of h4) h.style.fontFamily = 'ab';
+        for (let h of h5) h.style.fontFamily = 'ab';
+        for (let h of h6) h.style.fontFamily = 'ab';
+        for (let i of b) i.style.fontFamily = 'ab';
+        for (let a of i) a.style.fontFamily = 'ai';
+        for (let a of i2) a.style.fontFamily = 'ai';
+        for (let a of btext) a.style.fontFamily = 'ar';
+        display.style.fontFamily = 'ar';
+        curName.style.fontFamily = 'ar';
+        break
+      case 'consola':
+        book.style.fontFamily = 'cr';
+        content.style.fontFamily = 'cb';
+        for (let link of boldLinks) link.style.fontFamily = 'cb';
+        for (let link of subLinks) link.style.fontFamily = 'cr';
+        for (let link of sub2Links) link.style.fontFamily = 'cr';
+        for (let link of sub3Links) link.style.fontFamily = 'cr';
+        for (let h of h1) h.style.fontFamily = 'cb';
+        for (let h of h2) h.style.fontFamily = 'cb';
+        for (let h of h3) h.style.fontFamily = 'cb';
+        for (let h of h4) h.style.fontFamily = 'cb';
+        for (let h of h5) h.style.fontFamily = 'cb';
+        for (let h of h6) h.style.fontFamily = 'cb';
+        for (let i of b) i.style.fontFamily = 'cb';
+        for (let a of i) a.style.fontFamily = 'ci';
+        for (let a of i2) a.style.fontFamily = 'ci';
+        for (let a of btext) a.style.fontFamily = 'cr';
+        display.style.fontFamily = 'cr';
+        curName.style.fontFamily = 'cr';
+        break
+      case 'gost':
+        book.style.fontFamily = 'gost';
+        content.style.fontFamily = 'bold';
+        for (let link of boldLinks) link.style.fontFamily = 'bold';
+        for (let link of subLinks) link.style.fontFamily = 'gost';
+        for (let link of sub2Links) link.style.fontFamily = 'gost';
+        for (let link of sub3Links) link.style.fontFamily = 'gost';
+        for (let h of h1) h.style.fontFamily = 'bold';
+        for (let h of h2) h.style.fontFamily = 'bold';
+        for (let h of h3) h.style.fontFamily = 'bold';
+        for (let h of h4) h.style.fontFamily = 'bold';
+        for (let h of h5) h.style.fontFamily = 'bold';
+        for (let h of h6) h.style.fontFamily = 'bold';
+        for (let i of b) i.style.fontFamily = 'bold';
+        for (let a of i) a.style.fontFamily = 'condensed_italic';
+        for (let a of i2) a.style.fontFamily = 'condensed_italic';
+        for (let a of btext) a.style.fontFamily = 'gost';
+        display.style.fontFamily = 'gost';
+        curName.style.fontFamily = 'gost';
+        break
+      case 'roboto':
+        book.style.fontFamily = 'rr';
+        content.style.fontFamily = 'rb';
+        for (let link of boldLinks) link.style.fontFamily = 'rb';
+        for (let link of subLinks) link.style.fontFamily = 'rr';
+        for (let link of sub2Links) link.style.fontFamily = 'rr';
+        for (let link of sub3Links) link.style.fontFamily = 'rr';
+        for (let h of h1) h.style.fontFamily = 'rb';
+        for (let h of h2) h.style.fontFamily = 'rb';
+        for (let h of h3) h.style.fontFamily = 'rb';
+        for (let h of h4) h.style.fontFamily = 'rb';
+        for (let h of h5) h.style.fontFamily = 'rb';
+        for (let h of h6) h.style.fontFamily = 'rb';
+        for (let i of b) i.style.fontFamily = 'rb';
+        for (let a of i) a.style.fontFamily = 'ri';
+        for (let a of i2) a.style.fontFamily = 'ri';
+        for (let a of btext) a.style.fontFamily = 'rr';
+        display.style.fontFamily = 'rr';
+        curName.style.fontFamily = 'rr';
+        break
+      case 'segoe':
+        book.style.fontFamily = 'segr';
+        content.style.fontFamily = 'segb';
+        for (let link of boldLinks) link.style.fontFamily = 'segb';
+        for (let link of subLinks) link.style.fontFamily = 'segr';
+        for (let link of sub2Links) link.style.fontFamily = 'segr';
+        for (let link of sub3Links) link.style.fontFamily = 'segr';
+        for (let h of h1) h.style.fontFamily = 'segb';
+        for (let h of h2) h.style.fontFamily = 'segb';
+        for (let h of h3) h.style.fontFamily = 'segb';
+        for (let h of h4) h.style.fontFamily = 'segb';
+        for (let h of h5) h.style.fontFamily = 'segb';
+        for (let h of h6) h.style.fontFamily = 'segb';
+        for (let i of b) i.style.fontFamily = 'segb';
+        for (let a of i) a.style.fontFamily = 'segi';
+        for (let a of i2) a.style.fontFamily = 'segi';
+        for (let a of btext) a.style.fontFamily = 'serg';
+        display.style.fontFamily = 'segr';
+        curName.style.fontFamily = 'segr';
+        break
+      case 'times new roman':
+        book.style.fontFamily = 'tnrr';
+        content.style.fontFamily = 'tnrb';
+        for (let link of boldLinks) link.style.fontFamily = 'tnrb';
+        for (let link of subLinks) link.style.fontFamily = 'tnrr';
+        for (let link of sub2Links) link.style.fontFamily = 'tnrr';
+        for (let link of sub3Links) link.style.fontFamily = 'tnrr';
+        for (let h of h1) h.style.fontFamily = 'tnrb';
+        for (let h of h2) h.style.fontFamily = 'tnrb';
+        for (let h of h3) h.style.fontFamily = 'tnrb';
+        for (let h of h4) h.style.fontFamily = 'tnrb';
+        for (let h of h5) h.style.fontFamily = 'tnrb';
+        for (let h of h6) h.style.fontFamily = 'tnrb';
+        for (let i of b) i.style.fontFamily = 'tnrb';
+        for (let a of i) a.style.fontFamily = 'tnri';
+        for (let a of i2) a.style.fontFamily = 'tnri';
+        for (let a of btext) a.style.fontFamily = 'tnrr';
+        display.style.fontFamily = 'tnrr';
+        curName.style.fontFamily = 'tnrr';
+        break
+    }
+  }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-// зберігання налаштувань в тілі невидимого тегу?
-//
-// налаштування: вибір шрифту, розмір шрифту, колір шрифту, колір тла, скидання усіх опцій
-//
-// виділення тексту: кнопки "витерти усі виділення" / "витерти конкретне виділення", складний парсинг виділеного тексту, помилка при кліку на кнопку без вибору тексту
-
-////////////////////////////////////////////////////////////////////////////////
-
-// document.addEventListener("DOMContentLoaded", ready);
-// function ready() {
-// ////////////////////////////////////////////////////////////////////////////////
-
-  // let selectedText, selectedNode;
-  // document.getElementById('selectText').onclick = function(){
-  //   document.querySelector('.bbp__color-field').classList.toggle('bbp__color-field_active');
-
-  //   selectedText = window.getSelection();
-  //   alert("selectedText:", selectedText, selectedText.toString());
-  //   selectedNode = selectedText.anchorNode.parentNode;
-  // };
-
-  // let colorBtns = document.getElementsByClassName('bbp__color');
-  // for ( let i = 0; i < colorBtns.length; i++ ) {
-  //   (function(n){
-  //     colorBtns[n].onclick = function(event) {
-  //       // підсвічуємо текст
-  //       let colorClass = 'selected_' + event.target.getAttribute('data-color');
-  //       let newText    = '<span class="' + colorClass + '">' + selectedText + '</span>';
-  //       selectedNode.innerHTML = selectedNode.innerHTML.replace(selectedText, newText);
-
-  //       // ховаємо панель
-  //       document.querySelector('.bbp__color-field').classList.toggle('bbp__color-field_active');
-
-  //       // зберігаємо зміни в ls
-  //       let bookInnerHTML = document.getElementById('book').innerHTML;
-  //       ebooks = JSON.parse(ls.ebooks);
-  //       ebooks[book].bookInnerHTML = bookInnerHTML;
-  //       ls.setItem('ebooks', JSON.stringify(ebooks) );
-  //     };
-  //   }(i));
-  // }
-
-////////////////////////////////////////////////////////////////////////////////
-// }

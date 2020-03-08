@@ -6,7 +6,7 @@
 }
 
 html {
-  font-family     : small;
+  font-family     : gost;
   font-size       : 20px;
   text-align      : justify;
 }
@@ -27,6 +27,7 @@ main {
   margin          : 0 auto;
   position        : relative;
   font-size       : 20px;
+  font-family     : gost;
 }
 
 .first-screen {
@@ -90,11 +91,11 @@ main {
     font-family       : bold;
   }
   &__sub-link {
-    font-family       : small;
+    font-family       : gost;
     padding-left      : 15px;
   }
   &__sub2-link {
-    font-family       : small;
+    font-family       : gost;
     padding-left      : 30px;
   }
   &__sub3-link {
@@ -238,7 +239,7 @@ table {
   font-family         : condensed_italic;
 }
 .f-sm {
-  font-family         : small;
+  font-family         : gost;
 }
 .f-cons {
   font-family         : condensed_small;

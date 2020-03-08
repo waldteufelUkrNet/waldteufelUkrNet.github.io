@@ -37,17 +37,14 @@
     }
   }
   &__color-field {
-    height                : 108px;
+    height                : auto;
     width                 : 100%;
     padding               : 2px 15px;
-    display               : grid; //none;
+    display               : grid;
     grid-template-columns : repeat(6, 50px);
     grid-gap              : 4px;
     justify-content       : center;
     align-items           : center;
-    &_active {
-      display             : grid;
-    }
   }
 }
 
@@ -100,17 +97,8 @@
   }
   &__oa-options-param {
     margin-right: 10px;
-    width: calc( (100% - 50px - 20px) / 2 );
-    select {
-      width: 100%;
-      height: 30px;
-      cursor: pointer;
-      font: 20px small;
-      option {
-        height: 30px;
-        font: 14px small;
-      }
-    }
+    width: calc( 50% - 35px );
+    max-width: 200px;
     input {
       width: 100%;
       height: 30px;
@@ -140,7 +128,7 @@
       margin: auto;
     }
     &_color {
-      font: 20px small;
+      font: 20px gost;
       width: 100%;
     }
   }
@@ -150,8 +138,70 @@
     margin: 5px 15px;
     text-align: center;
   }
+  &__oa-options-font-wrapper {
+    border: 1px solid lightgrey;
+    cursor: pointer;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 12px;
+      right: 6px;
+      border-top: 9px solid black;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+    }
+  }
+  &__oa-options-font-current-name {
+    height: 30px;
+    line-height: 28px;
+    padding-left: 6px;
+  }
+  &__oa-options-font-list {
+    position: absolute;
+    left: -1px;
+    top: calc(100% + 2px);
+    z-index: 1;
+    border: 1px solid lightgrey;
+    width: calc(100% + 2px);
+    background-color: #fff;
+    max-height: 135px;
+    overflow-y: auto;
+    display: none;
+    &_active {
+      display: block;
+    }
+  }
+  &__oa-options-font-item {
+    padding-left: 6px;
+    height: 30px;
+    line-height: 28px;
+    &:nth-of-type(even) {
+      background-color: lightgrey;
+    }
+    &:nth-of-type(1) {
+      font-family: ar;
+    }
+    &:nth-of-type(2) {
+      font-family: cr;
+    }
+    &:nth-of-type(3) {
+      font-family: gost;
+    }
+    &:nth-of-type(4) {
+      font-family: rr;
+    }
+    &:nth-of-type(5) {
+      font-family: segr;
+    }
+    &:nth-of-type(6) {
+      font-family: tnrr;
+    }
+  }
 }
 
+// select area
 .selected {
   height                  : 50px;
   width                   : 50px;
@@ -161,6 +211,7 @@
   font-size               : 20px;
   line-height             : 50px;
   user-select             : none;
+  cursor                  : pointer;
   &_red {
     background-color      : red;
     color                 : black;
@@ -200,13 +251,37 @@
   &_white-corrector {
     background-color      : white;
     color                 : white;
-  }&_black {
+  }
+  &_black {
     background-color      : black;
     color                 : lightgrey;
   }
   &_black-corrector {
     background-color      : black;
     color                 : black;
+  }
+  &_overscored {
+    text-decoration-line: line-through;
+  }
+  &_underscored {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+  }
+  &_double-underscored {
+    text-decoration-line: underline;
+    text-decoration-style: double;
+  }
+  &_dotted-underscored {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+  }
+  &_dashed-underscored {
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+  }
+  &_wavy-underscored {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
   }
 }
 
@@ -272,7 +347,7 @@
       margin-right: 7px;
     }
     span {
-      font: 20px small;
+      font: 20px gost;
     }
     &:first-of-type {
       svg {

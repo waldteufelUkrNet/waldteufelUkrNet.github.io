@@ -53,7 +53,7 @@ table {
 }
 
 @font-face {
-  font-family: small;
+  font-family: gost;
   src: url("../fonts/gost_type_au.ttf");
 }
 
@@ -102,13 +102,88 @@ table {
   src: url("../fonts/gost_condensed_italic.ttf");
 }
 
+@font-face {
+  font-family: ab;
+  src: url("../fonts/ArialBold.ttf");
+}
+
+@font-face {
+  font-family: ar;
+  src: url("../fonts/ArialRegular.ttf");
+}
+
+@font-face {
+  font-family: ai;
+  src: url("../fonts/ArialItalic.ttf");
+}
+
+@font-face {
+  font-family: cb;
+  src: url("../fonts/consolab.ttf");
+}
+
+@font-face {
+  font-family: cr;
+  src: url("../fonts/consola.ttf");
+}
+
+@font-face {
+  font-family: ci;
+  src: url("../fonts/consolai.ttf");
+}
+
+@font-face {
+  font-family: rb;
+  src: url("../fonts/RobotoBold.ttf");
+}
+
+@font-face {
+  font-family: rr;
+  src: url("../fonts/RobotoRegular.ttf");
+}
+
+@font-face {
+  font-family: ri;
+  src: url("../fonts/RobotoItalic.ttf");
+}
+
+@font-face {
+  font-family: segb;
+  src: url("../fonts/SegoeUIBold.ttf");
+}
+
+@font-face {
+  font-family: segr;
+  src: url("../fonts/SegoeUIRegular.ttf");
+}
+
+@font-face {
+  font-family: segi;
+  src: url("../fonts/SegoeUIItalic.ttf");
+}
+
+@font-face {
+  font-family: tnrb;
+  src: url("../fonts/TimesNewRomanBold.ttf");
+}
+
+@font-face {
+  font-family: tnrr;
+  src: url("../fonts/TimesNewRomanRegular.ttf");
+}
+
+@font-face {
+  font-family: tnri;
+  src: url("../fonts/TimesNewRomanItalic.ttf");
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
 html {
-  font-family: small;
+  font-family: gost;
   font-size: 20px;
   text-align: justify;
 }
@@ -166,7 +241,7 @@ h1 {
   width: 0px;
   max-width: 300px;
   display: block;
-  font: 20px small;
+  font: 20px gost;
   padding: 0;
   border: 1px solid transparent;
 }
