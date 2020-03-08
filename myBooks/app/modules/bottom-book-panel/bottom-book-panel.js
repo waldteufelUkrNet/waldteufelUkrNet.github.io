@@ -7,9 +7,40 @@
   let bookId   = href.slice(position+6, position+11);
   let ls       = localStorage;
   let myBooks  = JSON.parse( ls.getItem('myBooks') ) || {};
-  // alert("myBooks", JSON.stringify(myBooks) );
-  // alert( JSON.stringify(myBooks) );
 
+  let fontName, fontSize, fontColor;
+
+  // налаштування стилів книги
+  if ( !('generalSettings' in myBooks) ) {
+    myBooks.generalSettings = {}
+  }
+  if ( !('booksFontSettings' in myBooks.generalSettings) ) {
+    myBooks.generalSettings.booksFontSettings = {};
+
+    let bookTag = document.getElementById('book');
+    myBooks.generalSettings.booksFontSettings.name = getComputedStyle(bookTag).fontFamily;
+    myBooks.generalSettings.booksFontSettings.size = getComputedStyle(bookTag).fontSize;
+    myBooks.generalSettings.booksFontSettings.color = getComputedStyle(bookTag).color;
+    ls.setItem( 'myBooks', JSON.stringify(myBooks) );
+  } else {
+    let bookTag = document.getElementById('book');
+    // зі шрифтами подумати додатково, бо вони різні у різих класів
+    // bookTag.style.fontName  = myBooks.generalSettings.booksFontSettings.name;
+    bookTag.style.fontSize  = myBooks.generalSettings.booksFontSettings.size;
+    bookTag.style.color = myBooks.generalSettings.booksFontSettings.color;
+  }
+
+  document.querySelector('.fontNameIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.name;
+  document.querySelector('.fontSizeIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.size;
+  document.querySelector('.fontColorIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.color;
+
+  let exampleIndicator = document.querySelector('.bbp__oa-block_display');
+  exampleIndicator.style.fontFamily = myBooks.generalSettings.booksFontSettings.name;
+  exampleIndicator.style.fontSize = myBooks.generalSettings.booksFontSettings.size;
+  exampleIndicator.style.color = myBooks.generalSettings.booksFontSettings.color;
+
+
+  // робота із закладкою (якщо вона є)
   if ( !('books' in myBooks) ) {
     myBooks.books = {[bookId]: {bookmark: []} }
   } else {
@@ -17,8 +48,6 @@
       myBooks.books[bookId] = {bookmark: []}
     }
   }
-
-  // робота із закладкою (якщо вона є)
   if (myBooks.books[bookId].bookmark.length == 2) {
     showBookmarksBtns();
   }
@@ -222,6 +251,10 @@
     book.scroll({top: topPoint, behavior: 'smooth'});
   }
 
+
+  /**
+   * [resizeFont змінює розмір шрифту книги]
+   */
   function resizeFont() {
     let exampleIndicator = document.querySelector('.bbp__oa-block_display');
     let buttonBehavior   = event.currentTarget.dataset.behavior;
@@ -239,7 +272,10 @@
 
     book.style.fontSize = newFontSize + 'px';
     exampleIndicator.style.fontSize = newFontSize + 'px';
-    indicator.innerHTML = newFontSize;
+    indicator.innerHTML = newFontSize + 'px';
+
+    myBooks.generalSettings.booksFontSettings.size = newFontSize + 'px';
+    ls.setItem( 'myBooks', JSON.stringify(myBooks) );
   }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////

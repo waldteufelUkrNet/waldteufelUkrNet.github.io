@@ -14,7 +14,7 @@
   let myBooks          = JSON.parse( ls.getItem('myBooks') ) || {};
 
   if ( !('generalSettings' in myBooks) ) {
-    myBooks.generalSettings = {bookListType: 'big' }
+    myBooks.generalSettings = {bookListType: 'big'}
   } else {
     if ( !('bookListType' in myBooks.generalSettings ) ) {
       myBooks.generalSettings.bookListType = 'big'
