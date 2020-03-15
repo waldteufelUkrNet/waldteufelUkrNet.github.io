@@ -200,7 +200,7 @@ main {
           flex-direction: column;
 }
 
-#book {
+html #book {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
