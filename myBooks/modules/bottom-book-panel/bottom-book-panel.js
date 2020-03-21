@@ -10,58 +10,60 @@
 
   let fontFamily, fontSize, fontColor;
 
-  // налаштування стилів книги
-  if ( !('generalSettings' in myBooks) ) {
-    myBooks.generalSettings = {}
-    ls.setItem( 'myBooks', JSON.stringify(myBooks) );
-  }
-
-  let bookTag = document.getElementById('book');
-  if ( !('booksFontSettings' in myBooks.generalSettings) ) {
-    myBooks.generalSettings.booksFontSettings = {};
-
-    myBooks.generalSettings.booksFontSettings.fontFamily  = getComputedStyle(bookTag).fontFamily || 'gost';
-    myBooks.generalSettings.booksFontSettings.fontSize    = getComputedStyle(bookTag).fontSize || '16px';
-    myBooks.generalSettings.booksFontSettings.fontColor   = getComputedStyle(bookTag).color || '#000000';
-    myBooks.generalSettings.booksFontSettings.bgColor     = '#ffffff';
-
-    ls.setItem( 'myBooks', JSON.stringify(myBooks) );
-  } else {
-    bookTag.style.fontSize        = myBooks.generalSettings.booksFontSettings.fontSize;
-    bookTag.style.color           = myBooks.generalSettings.booksFontSettings.fontColor;
-    bookTag.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
-  }
-
-  // зміна значень в input'ах
-  document.querySelector('.textColorInput').value = myBooks.generalSettings.booksFontSettings.fontColor;
-  document.querySelector('.pageColorInput').value = myBooks.generalSettings.booksFontSettings.bgColor;
-
-  // зміна значень в описах біля input'ів
-  document.querySelector('.fontNameIndicator').innerHTML  = myBooks.generalSettings.booksFontSettings.fontFamily;
-  document.querySelector('.fontSizeIndicator').innerHTML  = myBooks.generalSettings.booksFontSettings.fontSize;
-  document.querySelector('.fontColorIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.fontColor;
-  document.querySelector('.pageColorIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.bgColor;
-
-  // зміна стилів демонстраційного вікна
-  let exampleIndicator = document.querySelector('.bbp__oa-block_display');
-  exampleIndicator.style.fontSize        = myBooks.generalSettings.booksFontSettings.size;
-  exampleIndicator.style.color           = myBooks.generalSettings.booksFontSettings.color;
-  exampleIndicator.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
-
-  // тут ще шрифт
-  setFont();
-
-  // робота із закладкою (якщо вона є)
-  if ( !('books' in myBooks) ) {
-    myBooks.books = {[bookId]: {bookmark: []} }
-  } else {
-    if ( !(bookId in myBooks.books) ) {
-      myBooks.books[bookId] = {bookmark: []}
+  document.addEventListener("DOMContentLoaded", function() {
+    // налаштування стилів книги
+    if ( !('generalSettings' in myBooks) ) {
+      myBooks.generalSettings = {}
+      ls.setItem( 'myBooks', JSON.stringify(myBooks) );
     }
-  }
-  if (myBooks.books[bookId].bookmark.length == 2) {
-    showBookmarksBtns();
-  }
+
+    let bookTag = document.getElementById('book');
+    if ( !('booksFontSettings' in myBooks.generalSettings) ) {
+      myBooks.generalSettings.booksFontSettings = {};
+
+      myBooks.generalSettings.booksFontSettings.fontFamily  = getComputedStyle(bookTag).fontFamily || 'gost';
+      myBooks.generalSettings.booksFontSettings.fontSize    = getComputedStyle(bookTag).fontSize || '16px';
+      myBooks.generalSettings.booksFontSettings.fontColor   = getComputedStyle(bookTag).color || '#000000';
+      myBooks.generalSettings.booksFontSettings.bgColor     = '#ffffff';
+
+      ls.setItem( 'myBooks', JSON.stringify(myBooks) );
+    } else {
+      bookTag.style.fontSize        = myBooks.generalSettings.booksFontSettings.fontSize;
+      bookTag.style.color           = myBooks.generalSettings.booksFontSettings.fontColor;
+      bookTag.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
+    }
+
+    // зміна значень в input'ах
+    document.querySelector('.textColorInput').value = myBooks.generalSettings.booksFontSettings.fontColor;
+    document.querySelector('.pageColorInput').value = myBooks.generalSettings.booksFontSettings.bgColor;
+
+    // зміна значень в описах біля input'ів
+    document.querySelector('.fontNameIndicator').innerHTML  = myBooks.generalSettings.booksFontSettings.fontFamily;
+    document.querySelector('.fontSizeIndicator').innerHTML  = myBooks.generalSettings.booksFontSettings.fontSize;
+    document.querySelector('.fontColorIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.fontColor;
+    document.querySelector('.pageColorIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.bgColor;
+
+    // зміна стилів демонстраційного вікна
+    let exampleIndicator = document.querySelector('.bbp__oa-block_display');
+    exampleIndicator.style.fontSize        = myBooks.generalSettings.booksFontSettings.size;
+    exampleIndicator.style.color           = myBooks.generalSettings.booksFontSettings.color;
+    exampleIndicator.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
+
+    // тут ще шрифт
+    setFont();
+
+    // робота із закладкою (якщо вона є)
+    if ( !('books' in myBooks) ) {
+      myBooks.books = {[bookId]: {bookmark: []} }
+    } else {
+      if ( !(bookId in myBooks.books) ) {
+        myBooks.books[bookId] = {bookmark: []}
+      }
+    }
+    if (myBooks.books[bookId].bookmark.length == 2) {
+      showBookmarksBtns();
+    }
+  });
 /* ↑↑↑ /визначення ідентифікатору книги, робота з localStorage ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ навішування обробників ↓↓↓ */
