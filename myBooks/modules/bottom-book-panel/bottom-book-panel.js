@@ -20,9 +20,9 @@
   if ( !('booksFontSettings' in myBooks.generalSettings) ) {
     myBooks.generalSettings.booksFontSettings = {};
 
-    myBooks.generalSettings.booksFontSettings.fontFamily  = getComputedStyle(bookTag).fontFamily;
-    myBooks.generalSettings.booksFontSettings.fontSize    = getComputedStyle(bookTag).fontSize;
-    myBooks.generalSettings.booksFontSettings.fontColor   = getComputedStyle(bookTag).color;
+    myBooks.generalSettings.booksFontSettings.fontFamily  = getComputedStyle(bookTag).fontFamily || 'gost';
+    myBooks.generalSettings.booksFontSettings.fontSize    = getComputedStyle(bookTag).fontSize || '16px';
+    myBooks.generalSettings.booksFontSettings.fontColor   = getComputedStyle(bookTag).color || '#000000';
     myBooks.generalSettings.booksFontSettings.bgColor     = '#ffffff';
 
     ls.setItem( 'myBooks', JSON.stringify(myBooks) );
