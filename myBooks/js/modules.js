@@ -10,7 +10,8 @@ var position = href.indexOf('books');
 var bookId = href.slice(position + 6, position + 11);
 var ls = localStorage;
 var myBooks = JSON.parse(ls.getItem('myBooks')) || {};
-var fontFamily, fontSize, fontColor; // налаштування стилів книги
+var fontFamily, fontSize, fontColor;
+var consol = document.getElementById('consol'); // налаштування стилів книги
 
 if (!('generalSettings' in myBooks)) {
   myBooks.generalSettings = {};
@@ -32,10 +33,14 @@ if (!('booksFontSettings' in myBooks.generalSettings)) {
   bookTag.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
 }
 
-alert(JSON.stringify(ls)); // зміна значень в input'ах
+conlog('37: ' + JSON.stringify(ls)); // зміна значень в input'ах
 
 document.querySelector('.textColorInput').value = myBooks.generalSettings.booksFontSettings.fontColor;
-document.querySelector('.pageColorInput').value = myBooks.generalSettings.booksFontSettings.bgColor; // зміна значень в описах біля input'ів
+document.querySelector('.pageColorInput').value = myBooks.generalSettings.booksFontSettings.bgColor;
+conlog('43: ' + myBooks.generalSettings.booksFontSettings.fontColor);
+conlog('44: ' + myBooks.generalSettings.booksFontSettings.bgColor);
+conlog('45: ' + myBooks.generalSettings.booksFontSettings.fontFamily);
+conlog('46: ' + myBooks.generalSettings.booksFontSettings.fontSize); // зміна значень в описах біля input'ів
 
 document.querySelector('.fontNameIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.fontFamily;
 document.querySelector('.fontSizeIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.fontSize;
@@ -807,6 +812,31 @@ function setFont() {
   curName.style.fontFamily = regFont;
 }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////
+"use strict"; // consol module
+////////////////////////////////////////////////////////////////////////////////
+
+/* ↓↓↓ ??? ↓↓↓ */
+
+var isConsolOpen = false;
+
+document.getElementById('consol-button').onclick = function () {
+  if (isConsolOpen) {
+    document.getElementById('consol').style.height = '0px';
+  } else {
+    document.getElementById('consol').style.height = '50vh';
+  }
+
+  isConsolOpen = !isConsolOpen;
+};
+
+function conlog(value) {
+  var p = '<p>' + value + '</p>';
+  document.getElementById('consol').insertAdjacentHTML('beforeEnd', p);
+}
+
+;
+/* ↑↑↑ /??? ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 "use strict"; // top-book-panel module
 ////////////////////////////////////////////////////////////////////////////////
