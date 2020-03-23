@@ -34,11 +34,11 @@ let consol = document.getElementById('consol');
     bookTag.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
   }
 
-conlog( JSON.stringify(myBooks) );
-conlog( myBooks.generalSettings.booksFontSettings.fontFamily );
-conlog( myBooks.generalSettings.booksFontSettings.fontSize );
-conlog( myBooks.generalSettings.booksFontSettings.fontColor );
-conlog( myBooks.generalSettings.booksFontSettings.bgColor );
+// conlog( JSON.stringify(myBooks) );
+// conlog( myBooks.generalSettings.booksFontSettings.fontFamily );
+// conlog( myBooks.generalSettings.booksFontSettings.fontSize );
+// conlog( myBooks.generalSettings.booksFontSettings.fontColor );
+// conlog( myBooks.generalSettings.booksFontSettings.bgColor );
 
   // зміна значень в input'ах
   document.querySelector('.textColorInput').value = myBooks.generalSettings.booksFontSettings.fontColor;
@@ -302,8 +302,11 @@ conlog( myBooks.generalSettings.booksFontSettings.bgColor );
    * [resizeFont змінює розмір шрифту книги]
    */
   function resizeFont() {
+conlog('start resizeFont');
     let buttonBehavior   = event.currentTarget.dataset.behavior;
+conlog(`buttonBehavior: ${buttonBehavior}`);
     let fontSize         = +myBooks.generalSettings.booksFontSettings.fontSize.slice(0,2);
+conlog(`fontSize      : ${fontSize}`);
     let newFontSize;
     if (buttonBehavior == '+') {
       newFontSize = fontSize + 1;
@@ -312,6 +315,7 @@ conlog( myBooks.generalSettings.booksFontSettings.bgColor );
       newFontSize = fontSize - 1;
       if (newFontSize < 10) newFontSize = 10;
     }
+conlog(`newFontSize   : ${newFontSize}`);
 
     document.querySelector('html #book').style.fontSize = newFontSize + 'px';
     document.querySelector('.bbp__oa-block_display').style.fontSize = newFontSize + 'px';
@@ -319,6 +323,8 @@ conlog( myBooks.generalSettings.booksFontSettings.bgColor );
 
     myBooks.generalSettings.booksFontSettings.fontSize = newFontSize + 'px';
     ls.setItem( 'myBooks', JSON.stringify(myBooks) );
+conlog(`ls            : ${ JSON.stringify(ls) }`);
+conlog('end resizeFont');
   }
 
   function setFontColor() {

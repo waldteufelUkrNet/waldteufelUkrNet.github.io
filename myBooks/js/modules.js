@@ -31,13 +31,13 @@ if (!('booksFontSettings' in myBooks.generalSettings)) {
   bookTag.style.fontSize = myBooks.generalSettings.booksFontSettings.fontSize;
   bookTag.style.color = myBooks.generalSettings.booksFontSettings.fontColor;
   bookTag.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
-}
+} // conlog( JSON.stringify(myBooks) );
+// conlog( myBooks.generalSettings.booksFontSettings.fontFamily );
+// conlog( myBooks.generalSettings.booksFontSettings.fontSize );
+// conlog( myBooks.generalSettings.booksFontSettings.fontColor );
+// conlog( myBooks.generalSettings.booksFontSettings.bgColor );
+// зміна значень в input'ах
 
-conlog(JSON.stringify(myBooks));
-conlog(myBooks.generalSettings.booksFontSettings.fontFamily);
-conlog(myBooks.generalSettings.booksFontSettings.fontSize);
-conlog(myBooks.generalSettings.booksFontSettings.fontColor);
-conlog(myBooks.generalSettings.booksFontSettings.bgColor); // зміна значень в input'ах
 
 document.querySelector('.textColorInput').value = myBooks.generalSettings.booksFontSettings.fontColor;
 document.querySelector('.pageColorInput').value = myBooks.generalSettings.booksFontSettings.bgColor; // зміна значень в описах біля input'ів
@@ -320,8 +320,11 @@ function scrollingWindow(how) {
 
 
 function resizeFont() {
+  conlog('start resizeFont');
   var buttonBehavior = event.currentTarget.dataset.behavior;
+  conlog("buttonBehavior: ".concat(buttonBehavior));
   var fontSize = +myBooks.generalSettings.booksFontSettings.fontSize.slice(0, 2);
+  conlog("fontSize      : ".concat(fontSize));
   var newFontSize;
 
   if (buttonBehavior == '+') {
@@ -332,11 +335,14 @@ function resizeFont() {
     if (newFontSize < 10) newFontSize = 10;
   }
 
+  conlog("newFontSize   : ".concat(newFontSize));
   document.querySelector('html #book').style.fontSize = newFontSize + 'px';
   document.querySelector('.bbp__oa-block_display').style.fontSize = newFontSize + 'px';
   document.querySelector('.fontSizeIndicator').innerHTML = newFontSize + 'px';
   myBooks.generalSettings.booksFontSettings.fontSize = newFontSize + 'px';
   ls.setItem('myBooks', JSON.stringify(myBooks));
+  conlog("ls            : ".concat(JSON.stringify(ls)));
+  conlog('end resizeFont');
 }
 
 function setFontColor() {
