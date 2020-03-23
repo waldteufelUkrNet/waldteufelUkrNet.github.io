@@ -33,14 +33,16 @@ if (!('booksFontSettings' in myBooks.generalSettings)) {
   bookTag.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
 }
 
-conlog('37: ' + JSON.stringify(ls)); // зміна значень в input'ах
+conlog('37: ' + JSON.stringify(ls));
+ls.clear();
+conlog('39: ' + JSON.stringify(ls)); // зміна значень в input'ах
 
 document.querySelector('.textColorInput').value = myBooks.generalSettings.booksFontSettings.fontColor;
 document.querySelector('.pageColorInput').value = myBooks.generalSettings.booksFontSettings.bgColor;
-conlog('43: ' + myBooks.generalSettings.booksFontSettings.fontColor);
-conlog('44: ' + myBooks.generalSettings.booksFontSettings.bgColor);
-conlog('45: ' + myBooks.generalSettings.booksFontSettings.fontFamily);
-conlog('46: ' + myBooks.generalSettings.booksFontSettings.fontSize); // зміна значень в описах біля input'ів
+conlog('45: ' + myBooks.generalSettings.booksFontSettings.fontColor);
+conlog('46: ' + myBooks.generalSettings.booksFontSettings.bgColor);
+conlog('47: ' + myBooks.generalSettings.booksFontSettings.fontFamily);
+conlog('48: ' + myBooks.generalSettings.booksFontSettings.fontSize); // зміна значень в описах біля input'ів
 
 document.querySelector('.fontNameIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.fontFamily;
 document.querySelector('.fontSizeIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.fontSize;
