@@ -3217,10 +3217,18 @@
       <div class="bbp">
         <div class="bbp__btns-wrapper">
           <!-- ↓↓↓ modules: consol (start) ↓↓↓-->
-          <div id="consol" style="position: fixed; left:0; bottom: 60px; border: 1px dotted red; width: 100vw; height: 0px; padding: 0 5px; background-color: white; font: 14px cr; overflow-y: auto; text-align: left">
+          <style>
+            #consol > p {
+              padding: 0 0 0 30px !important;
+              text-indent: -30px !important;
+            }
+            
+          </style>
+          <div id="consol" style="position: fixed; left:0; bottom: 60px; border: 1px solid black; width: 100vw; height: 0px; padding: 0 5px; background-color: white; font: 14px cr; overflow-y: auto; text-align: left">
             <p>*** consol ***</p>
           </div>
-          <button id="consol-button" style="position: fixed; bottom: 10px; right: 10px; cursor: pointer">open consol</button>
+          <button id="consol-button" style="position: fixed; bottom: 10px; right: 10px; cursor: pointer; width: 90px">open consol</button>
+          <button id="ls-button" style="position: fixed; bottom: 36px; right: 10px; cursor: pointer; width: 90px">clear LS</button>
           <!-- ↑↑↑ modules: consol (end) ↑↑↑-->
           <div class="bbp__btn" id="bookmark">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">

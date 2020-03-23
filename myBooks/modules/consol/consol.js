@@ -12,6 +12,11 @@
      isConsolOpen = !isConsolOpen;
   };
 
+  document.getElementById('ls-button').onclick = function() {
+    localStorage.clear();
+    conlog('localStorage: ' + JSON.stringify(localStorage));
+  };
+
   function conlog (value) {
     let p = '<p>' + value + '</p>';
     document.getElementById('consol').insertAdjacentHTML('beforeEnd',p);

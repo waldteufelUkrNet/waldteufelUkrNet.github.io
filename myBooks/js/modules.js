@@ -22,9 +22,9 @@ var bookTag = document.getElementById('book');
 
 if (!('booksFontSettings' in myBooks.generalSettings)) {
   myBooks.generalSettings.booksFontSettings = {};
-  myBooks.generalSettings.booksFontSettings.fontFamily = getComputedStyle(bookTag).fontFamily || 'gost';
-  myBooks.generalSettings.booksFontSettings.fontSize = getComputedStyle(bookTag).fontSize || '16px';
-  myBooks.generalSettings.booksFontSettings.fontColor = getComputedStyle(bookTag).color || '#000000';
+  myBooks.generalSettings.booksFontSettings.fontFamily = 'gost';
+  myBooks.generalSettings.booksFontSettings.fontSize = '16px';
+  myBooks.generalSettings.booksFontSettings.fontColor = '#000000';
   myBooks.generalSettings.booksFontSettings.bgColor = '#ffffff';
   ls.setItem('myBooks', JSON.stringify(myBooks));
 } else {
@@ -33,16 +33,14 @@ if (!('booksFontSettings' in myBooks.generalSettings)) {
   bookTag.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
 }
 
-conlog('37: ' + JSON.stringify(ls));
-ls.clear();
-conlog('39: ' + JSON.stringify(ls)); // зміна значень в input'ах
+conlog(JSON.stringify(myBooks));
+conlog(myBooks.generalSettings.booksFontSettings.fontFamily);
+conlog(myBooks.generalSettings.booksFontSettings.fontSize);
+conlog(myBooks.generalSettings.booksFontSettings.fontColor);
+conlog(myBooks.generalSettings.booksFontSettings.bgColor); // зміна значень в input'ах
 
 document.querySelector('.textColorInput').value = myBooks.generalSettings.booksFontSettings.fontColor;
-document.querySelector('.pageColorInput').value = myBooks.generalSettings.booksFontSettings.bgColor;
-conlog('45: ' + myBooks.generalSettings.booksFontSettings.fontColor);
-conlog('46: ' + myBooks.generalSettings.booksFontSettings.bgColor);
-conlog('47: ' + myBooks.generalSettings.booksFontSettings.fontFamily);
-conlog('48: ' + myBooks.generalSettings.booksFontSettings.fontSize); // зміна значень в описах біля input'ів
+document.querySelector('.pageColorInput').value = myBooks.generalSettings.booksFontSettings.bgColor; // зміна значень в описах біля input'ів
 
 document.querySelector('.fontNameIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.fontFamily;
 document.querySelector('.fontSizeIndicator').innerHTML = myBooks.generalSettings.booksFontSettings.fontSize;
@@ -830,6 +828,11 @@ document.getElementById('consol-button').onclick = function () {
   }
 
   isConsolOpen = !isConsolOpen;
+};
+
+document.getElementById('ls-button').onclick = function () {
+  localStorage.clear();
+  conlog('localStorage: ' + JSON.stringify(localStorage));
 };
 
 function conlog(value) {
