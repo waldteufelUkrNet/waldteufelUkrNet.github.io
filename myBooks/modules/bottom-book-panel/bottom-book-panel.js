@@ -302,11 +302,21 @@ let consol = document.getElementById('consol');
    * [resizeFont змінює розмір шрифту книги]
    */
   function resizeFont() {
+
 conlog('start resizeFont');
+// console.log( event, event.target, event.currentTarget );
+conlog(`event: ${ JSON.stringify( event ) }`);
+conlog(`event.target: ${ event.target }`);
+conlog(`event.currentTarget: ${ event.currentTarget }`);
+
     let buttonBehavior   = event.currentTarget.dataset.behavior;
+
 conlog(`buttonBehavior: ${buttonBehavior}`);
+
     let fontSize         = +myBooks.generalSettings.booksFontSettings.fontSize.slice(0,2);
-conlog(`fontSize      : ${fontSize}`);
+
+conlog(`fontSize: ${fontSize}`);
+
     let newFontSize;
     if (buttonBehavior == '+') {
       newFontSize = fontSize + 1;
@@ -315,7 +325,7 @@ conlog(`fontSize      : ${fontSize}`);
       newFontSize = fontSize - 1;
       if (newFontSize < 10) newFontSize = 10;
     }
-conlog(`newFontSize   : ${newFontSize}`);
+conlog(`newFontSize: ${newFontSize}`);
 
     document.querySelector('html #book').style.fontSize = newFontSize + 'px';
     document.querySelector('.bbp__oa-block_display').style.fontSize = newFontSize + 'px';
@@ -323,7 +333,7 @@ conlog(`newFontSize   : ${newFontSize}`);
 
     myBooks.generalSettings.booksFontSettings.fontSize = newFontSize + 'px';
     ls.setItem( 'myBooks', JSON.stringify(myBooks) );
-conlog(`ls            : ${ JSON.stringify(ls) }`);
+conlog(`ls: ${ JSON.stringify(ls) }`);
 conlog('end resizeFont');
   }
 

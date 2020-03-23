@@ -320,11 +320,15 @@ function scrollingWindow(how) {
 
 
 function resizeFont() {
-  conlog('start resizeFont');
+  conlog('start resizeFont'); // console.log( event, event.target, event.currentTarget );
+
+  conlog("event: ".concat(JSON.stringify(event)));
+  conlog("event.target: ".concat(event.target));
+  conlog("event.currentTarget: ".concat(event.currentTarget));
   var buttonBehavior = event.currentTarget.dataset.behavior;
   conlog("buttonBehavior: ".concat(buttonBehavior));
   var fontSize = +myBooks.generalSettings.booksFontSettings.fontSize.slice(0, 2);
-  conlog("fontSize      : ".concat(fontSize));
+  conlog("fontSize: ".concat(fontSize));
   var newFontSize;
 
   if (buttonBehavior == '+') {
@@ -335,13 +339,13 @@ function resizeFont() {
     if (newFontSize < 10) newFontSize = 10;
   }
 
-  conlog("newFontSize   : ".concat(newFontSize));
+  conlog("newFontSize: ".concat(newFontSize));
   document.querySelector('html #book').style.fontSize = newFontSize + 'px';
   document.querySelector('.bbp__oa-block_display').style.fontSize = newFontSize + 'px';
   document.querySelector('.fontSizeIndicator').innerHTML = newFontSize + 'px';
   myBooks.generalSettings.booksFontSettings.fontSize = newFontSize + 'px';
   ls.setItem('myBooks', JSON.stringify(myBooks));
-  conlog("ls            : ".concat(JSON.stringify(ls)));
+  conlog("ls: ".concat(JSON.stringify(ls)));
   conlog('end resizeFont');
 }
 
