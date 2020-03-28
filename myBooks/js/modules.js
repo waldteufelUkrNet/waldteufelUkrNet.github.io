@@ -1,3 +1,27 @@
+// "use strict";
+// // consol module
+// ////////////////////////////////////////////////////////////////////////////////
+// /* ↓↓↓ ??? ↓↓↓ */
+//   let isConsolOpen = false;
+//   document.getElementById('consol-button').onclick = function() {
+//     if (isConsolOpen) {
+//       document.getElementById('consol').style.height = '0px';
+//     } else {
+//       document.getElementById('consol').style.height = '50vh';
+//     }
+//      isConsolOpen = !isConsolOpen;
+//   };
+//   document.getElementById('ls-button').onclick = function() {
+//     localStorage.clear();
+//     conlog('localStorage: ' + JSON.stringify(localStorage));
+//   };
+//   function conlog (value) {
+//     let p = '<p>' + value + '</p>';
+//     document.getElementById('consol').insertAdjacentHTML('beforeEnd',p);
+//   };
+// /* ↑↑↑ /??? ↑↑↑ */
+// ////////////////////////////////////////////////////////////////////////////////
+"use strict";
 "use strict"; // bbp module
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -10,8 +34,7 @@ var position = href.indexOf('books');
 var bookId = href.slice(position + 6, position + 11);
 var ls = localStorage;
 var myBooks = JSON.parse(ls.getItem('myBooks')) || {};
-var fontFamily, fontSize, fontColor;
-var consol = document.getElementById('consol'); // налаштування стилів книги
+var fontFamily, fontSize, fontColor; // налаштування стилів книги
 
 if (!('generalSettings' in myBooks)) {
   myBooks.generalSettings = {};
@@ -31,12 +54,7 @@ if (!('booksFontSettings' in myBooks.generalSettings)) {
   bookTag.style.fontSize = myBooks.generalSettings.booksFontSettings.fontSize;
   bookTag.style.color = myBooks.generalSettings.booksFontSettings.fontColor;
   bookTag.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
-} // conlog( JSON.stringify(myBooks) );
-// conlog( myBooks.generalSettings.booksFontSettings.fontFamily );
-// conlog( myBooks.generalSettings.booksFontSettings.fontSize );
-// conlog( myBooks.generalSettings.booksFontSettings.fontColor );
-// conlog( myBooks.generalSettings.booksFontSettings.bgColor );
-// зміна значень в input'ах
+} // зміна значень в input'ах
 
 
 document.querySelector('.textColorInput').value = myBooks.generalSettings.booksFontSettings.fontColor;
@@ -320,15 +338,8 @@ function scrollingWindow(how) {
 
 
 function resizeFont() {
-  conlog('start resizeFont'); // console.log( event, event.target, event.currentTarget );
-
-  conlog("event: ".concat(JSON.stringify(event)));
-  conlog("event.target: ".concat(event.target));
-  conlog("event.currentTarget: ".concat(event.currentTarget));
   var buttonBehavior = event.currentTarget.dataset.behavior;
-  conlog("buttonBehavior: ".concat(buttonBehavior));
   var fontSize = +myBooks.generalSettings.booksFontSettings.fontSize.slice(0, 2);
-  conlog("fontSize: ".concat(fontSize));
   var newFontSize;
 
   if (buttonBehavior == '+') {
@@ -339,14 +350,11 @@ function resizeFont() {
     if (newFontSize < 10) newFontSize = 10;
   }
 
-  conlog("newFontSize: ".concat(newFontSize));
   document.querySelector('html #book').style.fontSize = newFontSize + 'px';
   document.querySelector('.bbp__oa-block_display').style.fontSize = newFontSize + 'px';
   document.querySelector('.fontSizeIndicator').innerHTML = newFontSize + 'px';
   myBooks.generalSettings.booksFontSettings.fontSize = newFontSize + 'px';
   ls.setItem('myBooks', JSON.stringify(myBooks));
-  conlog("ls: ".concat(JSON.stringify(ls)));
-  conlog('end resizeFont');
 }
 
 function setFontColor() {
@@ -374,36 +382,63 @@ function setPageColor() {
 }
 
 function markText() {
-  console.log("markText"); // let selectedText = window.getSelection();
-  // if (!selectedText.anchorNode) return;
-  // let markedClass  = 'selected_' + this.dataset.select;
-  // let {anchorNode, anchorOffset, focusNode, focusOffset} = selectedText;
-  // // знаходимо спільного предка для усіх тегів виділення
-  // // через Range не підходить, бо focus може бути перед anchor
-  // let parentNode = anchorNode.parentNode;
-  // while ( !parentNode.contains(focusNode) ) {
-  //   parentNode = parentNode.parentNode;
-  // }
-  // // усі вузли виділення огортаємо в окремий не стандартний тег
-  // let nodes = selectedText.getRangeAt(0).cloneContents();
-  // // console.log(nodes);
-  // for (let node of nodes.childNodes) {
-  //   let html;
-  //   if (node.innerHTML) {
-  //     html = node.innerHTML;
-  //     node.innerHTML = '<mspan class="' + markedClass + '">' + html + '</mspan>';
-  //   } else {
-  //     console.log('data');
-  //     html = node.data
-  //   }
-  // }
-  // // console.log(nodes);
-  // // замінюємо у предку старе виділення на перероблене
-  // parentNode.innerHTML = parentNode.innerHTML.replace(selectedText, nodes.toString());
-  // // 4 зробити запис в ls: anchorNode, anchorOffset, focusNode, focusOffset + клас
-  // // перехресні виділення?
-  // // console.log( selectedText.toString() );
-  // // console.log( selectedText.getRangeAt(0).cloneContents() );
+  var selectedText = window.getSelection();
+  if (!selectedText.anchorNode) return;
+  var markedClass = 'selected_' + this.dataset.select;
+  var anchorNode = selectedText.anchorNode,
+      anchorOffset = selectedText.anchorOffset,
+      focusNode = selectedText.focusNode,
+      focusOffset = selectedText.focusOffset; // знаходимо спільного предка для усіх тегів виділення
+  // через Range не підходить, бо focus може бути перед anchor
+
+  var parentNode = anchorNode.parentNode;
+
+  while (!parentNode.contains(focusNode)) {
+    parentNode = parentNode.parentNode;
+  } // усі вузли виділення огортаємо в окремий не стандартний тег
+
+
+  var nodes = selectedText.getRangeAt(0).cloneContents();
+  console.log("nodes", nodes);
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = nodes.childNodes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var node = _step.value;
+      console.log("node", node, node.nodeType, node.innerHTML);
+      var html = void 0;
+
+      if (node.innerHTML) {
+        html = node.innerHTML;
+        node.innerHTML = '<mspan class="' + markedClass + '">' + html + '</mspan>';
+      } else {
+        console.log('data');
+        html = node.data;
+      }
+    } // console.log(nodes);
+    // // замінюємо у предку старе виділення на перероблене
+    // parentNode.innerHTML = parentNode.innerHTML.replace(selectedText, nodes.toString());
+    // // 4 зробити запис в ls: anchorNode, anchorOffset, focusNode, focusOffset + клас
+    // // перехресні виділення?
+    // // console.log( selectedText.toString() );
+    // // console.log( selectedText.getRangeAt(0).cloneContents() );
+
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+        _iterator["return"]();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
 }
 
 function setFont() {
@@ -482,38 +517,14 @@ function setFont() {
   var curName = document.querySelector('.bbp__oa-options-font-current-name') || lightningConductor;
   book.style.fontFamily = regFont;
   content.style.fontFamily = boldFont;
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
-
-  try {
-    for (var _iterator = boldLinks[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var link = _step.value;
-      link.style.fontFamily = boldFont;
-    }
-  } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-        _iterator["return"]();
-      }
-    } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
-      }
-    }
-  }
-
   var _iteratorNormalCompletion2 = true;
   var _didIteratorError2 = false;
   var _iteratorError2 = undefined;
 
   try {
-    for (var _iterator2 = subLinks[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-      var _link = _step2.value;
-      _link.style.fontFamily = regFont;
+    for (var _iterator2 = boldLinks[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+      var link = _step2.value;
+      link.style.fontFamily = boldFont;
     }
   } catch (err) {
     _didIteratorError2 = true;
@@ -535,9 +546,9 @@ function setFont() {
   var _iteratorError3 = undefined;
 
   try {
-    for (var _iterator3 = sub2Links[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-      var _link2 = _step3.value;
-      _link2.style.fontFamily = regFont;
+    for (var _iterator3 = subLinks[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+      var _link = _step3.value;
+      _link.style.fontFamily = regFont;
     }
   } catch (err) {
     _didIteratorError3 = true;
@@ -559,9 +570,9 @@ function setFont() {
   var _iteratorError4 = undefined;
 
   try {
-    for (var _iterator4 = sub3Links[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-      var _link3 = _step4.value;
-      _link3.style.fontFamily = regFont;
+    for (var _iterator4 = sub2Links[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+      var _link2 = _step4.value;
+      _link2.style.fontFamily = regFont;
     }
   } catch (err) {
     _didIteratorError4 = true;
@@ -583,9 +594,9 @@ function setFont() {
   var _iteratorError5 = undefined;
 
   try {
-    for (var _iterator5 = h1[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-      var h = _step5.value;
-      h.style.fontFamily = boldFont;
+    for (var _iterator5 = sub3Links[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+      var _link3 = _step5.value;
+      _link3.style.fontFamily = regFont;
     }
   } catch (err) {
     _didIteratorError5 = true;
@@ -607,9 +618,9 @@ function setFont() {
   var _iteratorError6 = undefined;
 
   try {
-    for (var _iterator6 = h2[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-      var _h = _step6.value;
-      _h.style.fontFamily = boldFont;
+    for (var _iterator6 = h1[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+      var h = _step6.value;
+      h.style.fontFamily = boldFont;
     }
   } catch (err) {
     _didIteratorError6 = true;
@@ -631,9 +642,9 @@ function setFont() {
   var _iteratorError7 = undefined;
 
   try {
-    for (var _iterator7 = h3[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-      var _h2 = _step7.value;
-      _h2.style.fontFamily = boldFont;
+    for (var _iterator7 = h2[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+      var _h = _step7.value;
+      _h.style.fontFamily = boldFont;
     }
   } catch (err) {
     _didIteratorError7 = true;
@@ -655,9 +666,9 @@ function setFont() {
   var _iteratorError8 = undefined;
 
   try {
-    for (var _iterator8 = h4[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-      var _h3 = _step8.value;
-      _h3.style.fontFamily = boldFont;
+    for (var _iterator8 = h3[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+      var _h2 = _step8.value;
+      _h2.style.fontFamily = boldFont;
     }
   } catch (err) {
     _didIteratorError8 = true;
@@ -679,9 +690,9 @@ function setFont() {
   var _iteratorError9 = undefined;
 
   try {
-    for (var _iterator9 = h5[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-      var _h4 = _step9.value;
-      _h4.style.fontFamily = boldFont;
+    for (var _iterator9 = h4[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+      var _h3 = _step9.value;
+      _h3.style.fontFamily = boldFont;
     }
   } catch (err) {
     _didIteratorError9 = true;
@@ -703,9 +714,9 @@ function setFont() {
   var _iteratorError10 = undefined;
 
   try {
-    for (var _iterator10 = h6[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-      var _h5 = _step10.value;
-      _h5.style.fontFamily = boldFont;
+    for (var _iterator10 = h5[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+      var _h4 = _step10.value;
+      _h4.style.fontFamily = boldFont;
     }
   } catch (err) {
     _didIteratorError10 = true;
@@ -727,9 +738,9 @@ function setFont() {
   var _iteratorError11 = undefined;
 
   try {
-    for (var _iterator11 = b[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
-      var _i2 = _step11.value;
-      _i2.style.fontFamily = boldFont;
+    for (var _iterator11 = h6[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
+      var _h5 = _step11.value;
+      _h5.style.fontFamily = boldFont;
     }
   } catch (err) {
     _didIteratorError11 = true;
@@ -751,9 +762,9 @@ function setFont() {
   var _iteratorError12 = undefined;
 
   try {
-    for (var _iterator12 = i[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
-      var a = _step12.value;
-      a.style.fontFamily = italFont;
+    for (var _iterator12 = b[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
+      var _i2 = _step12.value;
+      _i2.style.fontFamily = boldFont;
     }
   } catch (err) {
     _didIteratorError12 = true;
@@ -775,9 +786,9 @@ function setFont() {
   var _iteratorError13 = undefined;
 
   try {
-    for (var _iterator13 = i2[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
-      var _a = _step13.value;
-      _a.style.fontFamily = italFont;
+    for (var _iterator13 = i[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
+      var a = _step13.value;
+      a.style.fontFamily = italFont;
     }
   } catch (err) {
     _didIteratorError13 = true;
@@ -799,9 +810,9 @@ function setFont() {
   var _iteratorError14 = undefined;
 
   try {
-    for (var _iterator14 = btext[Symbol.iterator](), _step14; !(_iteratorNormalCompletion14 = (_step14 = _iterator14.next()).done); _iteratorNormalCompletion14 = true) {
-      var _a2 = _step14.value;
-      _a2.style.fontFamily = regFont;
+    for (var _iterator14 = i2[Symbol.iterator](), _step14; !(_iteratorNormalCompletion14 = (_step14 = _iterator14.next()).done); _iteratorNormalCompletion14 = true) {
+      var _a = _step14.value;
+      _a.style.fontFamily = italFont;
     }
   } catch (err) {
     _didIteratorError14 = true;
@@ -818,35 +829,35 @@ function setFont() {
     }
   }
 
+  var _iteratorNormalCompletion15 = true;
+  var _didIteratorError15 = false;
+  var _iteratorError15 = undefined;
+
+  try {
+    for (var _iterator15 = btext[Symbol.iterator](), _step15; !(_iteratorNormalCompletion15 = (_step15 = _iterator15.next()).done); _iteratorNormalCompletion15 = true) {
+      var _a2 = _step15.value;
+      _a2.style.fontFamily = regFont;
+    }
+  } catch (err) {
+    _didIteratorError15 = true;
+    _iteratorError15 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion15 && _iterator15["return"] != null) {
+        _iterator15["return"]();
+      }
+    } finally {
+      if (_didIteratorError15) {
+        throw _iteratorError15;
+      }
+    }
+  }
+
   display.style.fontFamily = regFont;
   curName.style.fontFamily = regFont;
 }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
-// "use strict";
-// // consol module
-// ////////////////////////////////////////////////////////////////////////////////
-// /* ↓↓↓ ??? ↓↓↓ */
-//   let isConsolOpen = false;
-//   document.getElementById('consol-button').onclick = function() {
-//     if (isConsolOpen) {
-//       document.getElementById('consol').style.height = '0px';
-//     } else {
-//       document.getElementById('consol').style.height = '50vh';
-//     }
-//      isConsolOpen = !isConsolOpen;
-//   };
-//   document.getElementById('ls-button').onclick = function() {
-//     localStorage.clear();
-//     conlog('localStorage: ' + JSON.stringify(localStorage));
-//   };
-//   function conlog (value) {
-//     let p = '<p>' + value + '</p>';
-//     document.getElementById('consol').insertAdjacentHTML('beforeEnd',p);
-//   };
-// /* ↑↑↑ /??? ↑↑↑ */
-// ////////////////////////////////////////////////////////////////////////////////
-"use strict";
 "use strict"; // top-book-panel module
 ////////////////////////////////////////////////////////////////////////////////
 

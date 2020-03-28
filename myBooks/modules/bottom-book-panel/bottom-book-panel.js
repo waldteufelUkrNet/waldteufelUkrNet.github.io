@@ -10,8 +10,6 @@
 
   let fontFamily, fontSize, fontColor;
 
-let consol = document.getElementById('consol');
-
   // налаштування стилів книги
   if ( !('generalSettings' in myBooks) ) {
     myBooks.generalSettings = {}
@@ -33,12 +31,6 @@ let consol = document.getElementById('consol');
     bookTag.style.color           = myBooks.generalSettings.booksFontSettings.fontColor;
     bookTag.style.backgroundColor = myBooks.generalSettings.booksFontSettings.bgColor;
   }
-
-// conlog( JSON.stringify(myBooks) );
-// conlog( myBooks.generalSettings.booksFontSettings.fontFamily );
-// conlog( myBooks.generalSettings.booksFontSettings.fontSize );
-// conlog( myBooks.generalSettings.booksFontSettings.fontColor );
-// conlog( myBooks.generalSettings.booksFontSettings.bgColor );
 
   // зміна значень в input'ах
   document.querySelector('.textColorInput').value = myBooks.generalSettings.booksFontSettings.fontColor;
@@ -70,11 +62,9 @@ let consol = document.getElementById('consol');
   if (myBooks.books[bookId].bookmark.length == 2) {
     showBookmarksBtns();
   }
-
 /* ↑↑↑ /визначення ідентифікатору книги, робота з localStorage ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ навішування обробників ↓↓↓ */
-
   // кнопки головного меню
   let bottomBookPanelBtns = document.getElementsByClassName('bbp__btn');
   for ( let i = 0; i < bottomBookPanelBtns.length; i++ ) {
@@ -302,21 +292,8 @@ let consol = document.getElementById('consol');
    * [resizeFont змінює розмір шрифту книги]
    */
   function resizeFont() {
-
-conlog('start resizeFont');
-// console.log( event, event.target, event.currentTarget );
-conlog(`event: ${ JSON.stringify( event ) }`);
-conlog(`event.target: ${ event.target }`);
-conlog(`event.currentTarget: ${ event.currentTarget }`);
-
     let buttonBehavior   = event.currentTarget.dataset.behavior;
-
-conlog(`buttonBehavior: ${buttonBehavior}`);
-
     let fontSize         = +myBooks.generalSettings.booksFontSettings.fontSize.slice(0,2);
-
-conlog(`fontSize: ${fontSize}`);
-
     let newFontSize;
     if (buttonBehavior == '+') {
       newFontSize = fontSize + 1;
@@ -325,7 +302,6 @@ conlog(`fontSize: ${fontSize}`);
       newFontSize = fontSize - 1;
       if (newFontSize < 10) newFontSize = 10;
     }
-conlog(`newFontSize: ${newFontSize}`);
 
     document.querySelector('html #book').style.fontSize = newFontSize + 'px';
     document.querySelector('.bbp__oa-block_display').style.fontSize = newFontSize + 'px';
@@ -333,8 +309,6 @@ conlog(`newFontSize: ${newFontSize}`);
 
     myBooks.generalSettings.booksFontSettings.fontSize = newFontSize + 'px';
     ls.setItem( 'myBooks', JSON.stringify(myBooks) );
-conlog(`ls: ${ JSON.stringify(ls) }`);
-conlog('end resizeFont');
   }
 
   function setFontColor() {
@@ -366,35 +340,37 @@ conlog('end resizeFont');
   }
 
   function markText() {
-    console.log("markText");
-    // let selectedText = window.getSelection();
-    // if (!selectedText.anchorNode) return;
 
-    // let markedClass  = 'selected_' + this.dataset.select;
+    let selectedText = window.getSelection();
 
-    // let {anchorNode, anchorOffset, focusNode, focusOffset} = selectedText;
+    if (!selectedText.anchorNode) return;
 
-    // // знаходимо спільного предка для усіх тегів виділення
-    // // через Range не підходить, бо focus може бути перед anchor
-    // let parentNode = anchorNode.parentNode;
-    // while ( !parentNode.contains(focusNode) ) {
-    //   parentNode = parentNode.parentNode;
-    // }
+    let markedClass  = 'selected_' + this.dataset.select;
+    let {anchorNode, anchorOffset, focusNode, focusOffset} = selectedText;
 
-    // // усі вузли виділення огортаємо в окремий не стандартний тег
-    // let nodes = selectedText.getRangeAt(0).cloneContents();
-    // // console.log(nodes);
-    // for (let node of nodes.childNodes) {
-    //   let html;
-    //   if (node.innerHTML) {
-    //     html = node.innerHTML;
-    //     node.innerHTML = '<mspan class="' + markedClass + '">' + html + '</mspan>';
-    //   } else {
-    //     console.log('data');
-    //     html = node.data
-    //   }
-    // }
-    // // console.log(nodes);
+    // знаходимо спільного предка для усіх тегів виділення
+    // через Range не підходить, бо focus може бути перед anchor
+    let parentNode = anchorNode.parentNode;
+    while ( !parentNode.contains(focusNode) ) {
+      parentNode = parentNode.parentNode;
+    }
+
+    // усі вузли виділення огортаємо в окремий не стандартний тег
+    let nodes = selectedText.getRangeAt(0).cloneContents();
+    console.log("nodes", nodes);
+
+    for (let node of nodes.childNodes) {
+      console.log("node", node, node.nodeType, node.innerHTML);
+      let html;
+      if (node.innerHTML) {
+        html = node.innerHTML;
+        node.innerHTML = '<mspan class="' + markedClass + '">' + html + '</mspan>';
+      } else {
+        console.log('data');
+        html = node.data
+      }
+    }
+    // console.log(nodes);
 
     // // замінюємо у предку старе виділення на перероблене
     // parentNode.innerHTML = parentNode.innerHTML.replace(selectedText, nodes.toString());
@@ -402,14 +378,6 @@ conlog('end resizeFont');
     // // 4 зробити запис в ls: anchorNode, anchorOffset, focusNode, focusOffset + клас
 
     // // перехресні виділення?
-
-
-
-
-
-
-
-
 
     // // console.log( selectedText.toString() );
     // // console.log( selectedText.getRangeAt(0).cloneContents() );
