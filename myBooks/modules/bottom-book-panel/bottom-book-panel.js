@@ -164,7 +164,7 @@
   document.querySelector('.pageColorInput').oninput = setPageColor;
 
   let selectedBtns = document.getElementsByClassName('selected');
-  addEventListenerToObject('click', selectedBtns, markText);
+  addEventListenerToObject('click', selectedBtns, prepareSelection);
 /* ↑↑↑ /навішування обробників ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ FUNCTIONS DECLARATION ↓↓↓ */
@@ -339,50 +339,6 @@
     ls.setItem( 'myBooks', JSON.stringify(myBooks) );
   }
 
-  function markText() {
-
-    let selectedText = window.getSelection();
-
-    if (!selectedText.anchorNode) return;
-
-    let markedClass  = 'selected_' + this.dataset.select;
-    let {anchorNode, anchorOffset, focusNode, focusOffset} = selectedText;
-
-    // знаходимо спільного предка для усіх тегів виділення
-    // через Range не підходить, бо focus може бути перед anchor
-    let parentNode = anchorNode.parentNode;
-    while ( !parentNode.contains(focusNode) ) {
-      parentNode = parentNode.parentNode;
-    }
-
-    // усі вузли виділення огортаємо в окремий не стандартний тег
-    let nodes = selectedText.getRangeAt(0).cloneContents();
-    console.log("nodes", nodes);
-
-    for (let node of nodes.childNodes) {
-      console.log("node", node, node.nodeType, node.innerHTML);
-      let html;
-      if (node.innerHTML) {
-        html = node.innerHTML;
-        node.innerHTML = '<mspan class="' + markedClass + '">' + html + '</mspan>';
-      } else {
-        console.log('data');
-        html = node.data
-      }
-    }
-    // console.log(nodes);
-
-    // // замінюємо у предку старе виділення на перероблене
-    // parentNode.innerHTML = parentNode.innerHTML.replace(selectedText, nodes.toString());
-
-    // // 4 зробити запис в ls: anchorNode, anchorOffset, focusNode, focusOffset + клас
-
-    // // перехресні виділення?
-
-    // // console.log( selectedText.toString() );
-    // // console.log( selectedText.getRangeAt(0).cloneContents() );
-  }
-
   function setFont() {
     let font;
 
@@ -473,5 +429,125 @@
     display.style.fontFamily = regFont;
     curName.style.fontFamily = regFont;
   }
+
+  function prepareSelection() {
+    // 1. відловлюємо виділення,
+    // 2. визначаємо його батька і межі,
+    // 3. вписуємо в ls
+    // 4. викликаємо функцію підсвітки
+
+    let selectedText = window.getSelection();
+
+    if (!selectedText.anchorNode) return;
+
+    let markedClass  = 'selected_' + this.dataset.select;
+    let {anchorNode, anchorOffset, focusNode, focusOffset} = selectedText;
+
+    // знаходимо спільного предка для усіх тегів виділення
+    // через Range не підходить, бо focus може бути перед anchor
+    let parentNode = anchorNode.parentNode;
+    while ( !parentNode.contains(focusNode) ) {
+      parentNode = parentNode.parentNode;
+    }
+
+    // формуємо мітку предка: [tag, counting number]
+    let parentMark = [parentNode.tagName.toLowerCase()];
+    if ( parentNode.getAttribute('id') == 'book' ) {
+      // div#book - найвищий елемент, братів не має
+      parentMark.push('book');
+    } else {
+      let bookElementsList = document.querySelectorAll('#book ' + parentMark[0]);
+      for (let i = 0; i < bookElementsList.length; i++ ) {
+        if ( bookElementsList[i] == parentNode ) {
+          parentMark.push(i);
+          break
+        }
+      }
+    }
+
+    // формуємо мітку старту (відносно предка)
+    let startMark;
+    let anchorNodeType = anchorNode.nodeType; // 1 - element; 3 - text
+
+    if (anchorNodeType == 1) {
+      // tag - визначаємо його положення відносно parentNode,
+      // мітка виду ['tag', tagName, tagCountingNumber]
+      let parentElement = anchorNode.parentElement;
+      if ( parentElement.getAttribute('id') == 'book' ) {
+        let anchorNodeTagName = anchorNode.tagName.toLowerCase();
+        let arrOfAncestorsChildren = parentElement.querySelectorAll(anchorNodeTagName);
+        for (let i = 0; i < arrOfAncestorsChildren.length; i++) {
+          if (arrOfAncestorsChildren[i] == anchorNode) {
+            startMark = ['tag', anchorNodeTagName, i];
+            break
+          }
+        }
+      } else {
+        let parentElementTagName = parentElement.tagName.toLowerCase();
+        let arrOfAncestorsChildren = parentNode.querySelectorAll(parentElementTagName);
+        for (let i = 0; i < arrOfAncestorsChildren.length; i++) {
+          if (arrOfAncestorsChildren[i] == parentElement) {
+            startMark = ['text', parentElementTagName, i];
+            break
+          }
+        }
+      }
+    } else if (anchorNodeType == 3) {
+      // text
+      // якщо це текст, то батьком його обов'язково буде елемент.
+      let parentElement = anchorNode.parentElement;
+      if ( parentElement == parentNode) {
+        // якщо батько текстового вузла є предком виділення
+        // мітка виду ['text', textNodeCountingNumber, offset]
+        let childrenNodes = parentElement.childNodes;
+        for (let i = 0; i < childrenNodes.length; i++) {
+          if (childrenNodes[i].data == anchorNode.data) {
+            startMark = ['text', i, anchorOffset];
+            break
+          }
+        }
+      } else {
+        // якщо батько текстового вузла є дочірнім елементом предка виділення
+        // мітка виду ['text', parentTagName, parentTagCountingNumber, textNodeCountingNumber, offset]
+
+        // визначаємо положення батьківського елемента відносно предка виділення
+        let parentElementTagName = parentElement.tagName.toLowerCase();
+        let arrOfAncestorsChildren = parentNode.querySelectorAll(parentElementTagName);
+        for (let i = 0; i < arrOfAncestorsChildren.length; i++) {
+          if (arrOfAncestorsChildren[i] == parentElement) {
+            startMark = ['text', parentElementTagName, i];
+            break
+          }
+        }
+
+        // визначаємо положення текстового вузла відносно батька
+        let childrenNodes = parentElement.childNodes;
+        for (let i = 0; i < childrenNodes.length; i++) {
+          if (childrenNodes[i].data == anchorNode.data) {
+            startMark.push(i, anchorOffset);
+            break
+          }
+        }
+      }
+    }
+
+
+
+    // формуємо інфо по виділенню:
+    let mark = {
+      parent      : parentMark,
+      markedClass : markedClass,
+      startMark   : startMark,
+      // endMark     : endMark
+    };
+
+    console.log(mark);
+
+    // // перехресні виділення?
+  }
+
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
+
+
+// https://stackoverflow.com/questions/6520192/how-to-get-the-text-node-of-an-element
