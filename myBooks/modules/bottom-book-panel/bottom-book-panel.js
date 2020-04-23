@@ -430,12 +430,10 @@
     curName.style.fontFamily = regFont;
   }
 
+  /**
+   * [prepareSelection визначення меж виділення, запис цих меж у ls, виклик функції підсвітки]
+   */
   function prepareSelection() {
-    // 1. відловлюємо виділення,
-    // 2. визначаємо його батька і межі,
-    // 3. вписуємо в ls
-    // 4. викликаємо функцію підсвітки
-
     let selectedText = window.getSelection();
 
     if (!selectedText.anchorNode) return;
@@ -465,21 +463,60 @@
       }
     }
 
-    // формуємо мітку старту (відносно предка)
-    let startMark;
-    let anchorNodeType = anchorNode.nodeType; // 1 - element; 3 - text
+    // формуємо інфо по виділенню
+    let mark = {
+      parent      : parentMark,
+      markedClass : markedClass,
+      start       : calculateMarkPosition(anchorNode, anchorOffset, parentNode),
+      end         : calculateMarkPosition(focusNode, focusOffset, parentNode)
+    };
 
-    if (anchorNodeType == 1) {
+    // зберігаємо дані в ls
+    myBooks  = JSON.parse( ls.getItem('myBooks') ) || {};
+    if ( !('books' in myBooks) ) {
+      myBooks.books = {[bookId]: {selections: []} }
+    } else {
+      if ( !(bookId in myBooks.books) ) {
+        myBooks.books[bookId] = {selections: []}
+      } else {
+        if ( !('selections' in myBooks.books[bookId] ) ) {
+          myBooks.books[bookId].selections = []
+        }
+      }
+    }
+
+    let selectionsArr = myBooks.books[bookId].selections;
+    selectionsArr.push(mark);
+    ls.setItem( 'myBooks', JSON.stringify(myBooks) );
+
+    // викликаємо функцію підсвітки
+    markText(mark);
+  }
+
+  /**
+   * [calculateMarkPosition розрахунок положення початку/кінця виділення]
+   * @param {[DOM-object]} node [anchorNode/focusNode]
+   * @param {[Number]}     offset [anchorOffset/focusOffset]
+   * @param {[DOM-object]} parentNode [вузол, який містить повністю усе виділення]
+   * @return {[Array]}     [cформована мітка: положення початку/кінця виділення відносно елементу, який містить виділення]
+   */
+  function calculateMarkPosition(node, offset, parentNode) {
+    let mark;
+    let nodeType = node.nodeType; // 1 - element; 3 - text
+
+    if (nodeType == 1) {
+      console.log("nodeType", nodeType);
       // tag - визначаємо його положення відносно parentNode,
       // мітка виду ['tag', tagName, tagCountingNumber]
-      let parentElement = anchorNode.parentElement;
+      let parentElement = node.parentElement;
+      console.log("parentElement", parentElement);
       if ( parentElement.getAttribute('id') == 'book' ) {
-        let anchorNodeTagName = anchorNode.tagName.toLowerCase();
-        let arrOfAncestorsChildren = parentElement.querySelectorAll(anchorNodeTagName);
+        let nodeTagName = node.tagName.toLowerCase();
+        console.log("nodeTagName", nodeTagName);
+        let arrOfAncestorsChildren = parentElement.querySelectorAll(nodeTagName);
         for (let i = 0; i < arrOfAncestorsChildren.length; i++) {
-          if (arrOfAncestorsChildren[i] == anchorNode) {
-            startMark = ['tag', anchorNodeTagName, i];
-            break
+          if (arrOfAncestorsChildren[i] == node) {
+            return ['tag', nodeTagName, i];
           }
         }
       } else {
@@ -487,23 +524,21 @@
         let arrOfAncestorsChildren = parentNode.querySelectorAll(parentElementTagName);
         for (let i = 0; i < arrOfAncestorsChildren.length; i++) {
           if (arrOfAncestorsChildren[i] == parentElement) {
-            startMark = ['text', parentElementTagName, i];
-            break
+            return ['text', parentElementTagName, i];
           }
         }
       }
-    } else if (anchorNodeType == 3) {
+    } else if (nodeType == 3) {
       // text
       // якщо це текст, то батьком його обов'язково буде елемент.
-      let parentElement = anchorNode.parentElement;
+      let parentElement = node.parentElement;
       if ( parentElement == parentNode) {
         // якщо батько текстового вузла є предком виділення
         // мітка виду ['text', textNodeCountingNumber, offset]
         let childrenNodes = parentElement.childNodes;
         for (let i = 0; i < childrenNodes.length; i++) {
-          if (childrenNodes[i].data == anchorNode.data) {
-            startMark = ['text', i, anchorOffset];
-            break
+          if (childrenNodes[i].data == node.data) {
+            return ['text', i, offset];
           }
         }
       } else {
@@ -515,7 +550,7 @@
         let arrOfAncestorsChildren = parentNode.querySelectorAll(parentElementTagName);
         for (let i = 0; i < arrOfAncestorsChildren.length; i++) {
           if (arrOfAncestorsChildren[i] == parentElement) {
-            startMark = ['text', parentElementTagName, i];
+            mark = ['text', parentElementTagName, i];
             break
           }
         }
@@ -523,29 +558,19 @@
         // визначаємо положення текстового вузла відносно батька
         let childrenNodes = parentElement.childNodes;
         for (let i = 0; i < childrenNodes.length; i++) {
-          if (childrenNodes[i].data == anchorNode.data) {
-            startMark.push(i, anchorOffset);
-            break
+          if (childrenNodes[i].data == node.data) {
+            mark.push(i, offset);
+            return mark
           }
         }
       }
     }
-
-
-
-    // формуємо інфо по виділенню:
-    let mark = {
-      parent      : parentMark,
-      markedClass : markedClass,
-      startMark   : startMark,
-      // endMark     : endMark
-    };
-
-    console.log(mark);
-
-    // // перехресні виділення?
   }
 
+  function markText(mark) {
+    console.log("mark", mark);
+    // перехресні виділення?
+  }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 

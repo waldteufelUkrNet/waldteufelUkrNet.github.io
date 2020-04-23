@@ -772,12 +772,12 @@ function setFont() {
   display.style.fontFamily = regFont;
   curName.style.fontFamily = regFont;
 }
+/**
+ * [prepareSelection визначення меж виділення, запис цих меж у ls, виклик функції підсвітки]
+ */
+
 
 function prepareSelection() {
-  // 1. відловлюємо виділення,
-  // 2. визначаємо його батька і межі,
-  // 3. вписуємо в ls
-  // 4. викликаємо функцію підсвітки
   var selectedText = window.getSelection();
   if (!selectedText.anchorNode) return;
   var markedClass = 'selected_' + this.dataset.select;
@@ -808,25 +808,68 @@ function prepareSelection() {
         break;
       }
     }
-  } // формуємо мітку старту (відносно предка)
+  } // формуємо інфо по виділенню
 
 
-  var startMark;
-  var anchorNodeType = anchorNode.nodeType; // 1 - element; 3 - text
+  var mark = {
+    parent: parentMark,
+    markedClass: markedClass,
+    start: calculateMarkPosition(anchorNode, anchorOffset, parentNode),
+    end: calculateMarkPosition(focusNode, focusOffset, parentNode)
+  }; // зберігаємо дані в ls
 
-  if (anchorNodeType == 1) {
-    // tag - визначаємо його положення відносно parentNode,
+  myBooks = JSON.parse(ls.getItem('myBooks')) || {};
+
+  if (!('books' in myBooks)) {
+    myBooks.books = _defineProperty({}, bookId, {
+      selections: []
+    });
+  } else {
+    if (!(bookId in myBooks.books)) {
+      myBooks.books[bookId] = {
+        selections: []
+      };
+    } else {
+      if (!('selections' in myBooks.books[bookId])) {
+        myBooks.books[bookId].selections = [];
+      }
+    }
+  }
+
+  var selectionsArr = myBooks.books[bookId].selections;
+  selectionsArr.push(mark);
+  ls.setItem('myBooks', JSON.stringify(myBooks)); // викликаємо функцію підсвітки
+
+  markText(mark);
+}
+/**
+ * [calculateMarkPosition розрахунок положення початку/кінця виділення]
+ * @param {[DOM-object]} node [anchorNode/focusNode]
+ * @param {[Number]}     offset [anchorOffset/focusOffset]
+ * @param {[DOM-object]} parentNode [вузол, який містить повністю усе виділення]
+ * @return {[Array]}     [cформована мітка: положення початку/кінця виділення відносно елементу, який містить виділення]
+ */
+
+
+function calculateMarkPosition(node, offset, parentNode) {
+  var mark;
+  var nodeType = node.nodeType; // 1 - element; 3 - text
+
+  if (nodeType == 1) {
+    console.log("nodeType", nodeType); // tag - визначаємо його положення відносно parentNode,
     // мітка виду ['tag', tagName, tagCountingNumber]
-    var parentElement = anchorNode.parentElement;
+
+    var parentElement = node.parentElement;
+    console.log("parentElement", parentElement);
 
     if (parentElement.getAttribute('id') == 'book') {
-      var anchorNodeTagName = anchorNode.tagName.toLowerCase();
-      var arrOfAncestorsChildren = parentElement.querySelectorAll(anchorNodeTagName);
+      var nodeTagName = node.tagName.toLowerCase();
+      console.log("nodeTagName", nodeTagName);
+      var arrOfAncestorsChildren = parentElement.querySelectorAll(nodeTagName);
 
       for (var _i4 = 0; _i4 < arrOfAncestorsChildren.length; _i4++) {
-        if (arrOfAncestorsChildren[_i4] == anchorNode) {
-          startMark = ['tag', anchorNodeTagName, _i4];
-          break;
+        if (arrOfAncestorsChildren[_i4] == node) {
+          return ['tag', nodeTagName, _i4];
         }
       }
     } else {
@@ -836,15 +879,14 @@ function prepareSelection() {
 
       for (var _i5 = 0; _i5 < _arrOfAncestorsChildren.length; _i5++) {
         if (_arrOfAncestorsChildren[_i5] == parentElement) {
-          startMark = ['text', parentElementTagName, _i5];
-          break;
+          return ['text', parentElementTagName, _i5];
         }
       }
     }
-  } else if (anchorNodeType == 3) {
+  } else if (nodeType == 3) {
     // text
     // якщо це текст, то батьком його обов'язково буде елемент.
-    var _parentElement = anchorNode.parentElement;
+    var _parentElement = node.parentElement;
 
     if (_parentElement == parentNode) {
       // якщо батько текстового вузла є предком виділення
@@ -852,9 +894,8 @@ function prepareSelection() {
       var childrenNodes = _parentElement.childNodes;
 
       for (var _i6 = 0; _i6 < childrenNodes.length; _i6++) {
-        if (childrenNodes[_i6].data == anchorNode.data) {
-          startMark = ['text', _i6, anchorOffset];
-          break;
+        if (childrenNodes[_i6].data == node.data) {
+          return ['text', _i6, offset];
         }
       }
     } else {
@@ -867,7 +908,7 @@ function prepareSelection() {
 
       for (var _i7 = 0; _i7 < _arrOfAncestorsChildren2.length; _i7++) {
         if (_arrOfAncestorsChildren2[_i7] == _parentElement) {
-          startMark = ['text', _parentElementTagName, _i7];
+          mark = ['text', _parentElementTagName, _i7];
           break;
         }
       } // визначаємо положення текстового вузла відносно батька
@@ -876,26 +917,45 @@ function prepareSelection() {
       var _childrenNodes = _parentElement.childNodes;
 
       for (var _i8 = 0; _i8 < _childrenNodes.length; _i8++) {
-        if (_childrenNodes[_i8].data == anchorNode.data) {
-          startMark.push(_i8, anchorOffset);
-          break;
+        if (_childrenNodes[_i8].data == node.data) {
+          mark.push(_i8, offset);
+          return mark;
         }
       }
     }
-  } // формуємо інфо по виділенню:
+  }
+}
 
-
-  var mark = {
-    parent: parentMark,
-    markedClass: markedClass,
-    startMark: startMark // endMark     : endMark
-
-  };
-  console.log(mark); // // перехресні виділення?
+function markText(mark) {
+  console.log("mark", mark); // перехресні виділення?
 }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 // https://stackoverflow.com/questions/6520192/how-to-get-the-text-node-of-an-element
+// "use strict";
+// // consol module
+// ////////////////////////////////////////////////////////////////////////////////
+// /* ↓↓↓ ??? ↓↓↓ */
+//   let isConsolOpen = false;
+//   document.getElementById('consol-button').onclick = function() {
+//     if (isConsolOpen) {
+//       document.getElementById('consol').style.height = '0px';
+//     } else {
+//       document.getElementById('consol').style.height = '50vh';
+//     }
+//      isConsolOpen = !isConsolOpen;
+//   };
+//   document.getElementById('ls-button').onclick = function() {
+//     localStorage.clear();
+//     conlog('localStorage: ' + JSON.stringify(localStorage));
+//   };
+//   function conlog (value) {
+//     let p = '<p>' + value + '</p>';
+//     document.getElementById('consol').insertAdjacentHTML('beforeEnd',p);
+//   };
+// /* ↑↑↑ /??? ↑↑↑ */
+// ////////////////////////////////////////////////////////////////////////////////
+"use strict";
 "use strict"; // top-book-panel module
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -980,27 +1040,3 @@ function pagination() {
 }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
-// "use strict";
-// // consol module
-// ////////////////////////////////////////////////////////////////////////////////
-// /* ↓↓↓ ??? ↓↓↓ */
-//   let isConsolOpen = false;
-//   document.getElementById('consol-button').onclick = function() {
-//     if (isConsolOpen) {
-//       document.getElementById('consol').style.height = '0px';
-//     } else {
-//       document.getElementById('consol').style.height = '50vh';
-//     }
-//      isConsolOpen = !isConsolOpen;
-//   };
-//   document.getElementById('ls-button').onclick = function() {
-//     localStorage.clear();
-//     conlog('localStorage: ' + JSON.stringify(localStorage));
-//   };
-//   function conlog (value) {
-//     let p = '<p>' + value + '</p>';
-//     document.getElementById('consol').insertAdjacentHTML('beforeEnd',p);
-//   };
-// /* ↑↑↑ /??? ↑↑↑ */
-// ////////////////////////////////////////////////////////////////////////////////
-"use strict";
