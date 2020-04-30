@@ -1,0 +1,976 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description' content="???")
+
+    title Главная страница
+    link(rel='icon', href='assets/img/logo.png')
+
+    // ↓↓↓ VERSION CONTROL SYSTEM ↓↓↓
+    script.
+      // js із версіями файлів js/css щоразу завантажується новий
+      document.write('\
+        <script src="assets/js/version-control.js?version=' + Date.now() + '"><\/script>\
+      ');
+    script.
+      // ці файли завантажуються з кешу, або (якщо були зміни) - з нету
+      document.write('\
+        <!-- css-libs -->\
+        <link rel="stylesheet" type="text/css" href="assets/libs-css/animate.css?version=' + v.animateCss + '">\
+        <link rel="stylesheet" type="text/css" href="assets/libs-css/slick.css?version=' + v.slickCss + '">\
+        <link rel="stylesheet" type="text/css" href="assets/libs-css/slick-theme.css?version=' + v.slickThemeCss + '">\
+        <!-- icon font -->\
+        <link rel="stylesheet" type="text/css" href="assets/libs-css/icon-font_material-design-icons.css?version=' + v.materialFontCss + '">\
+        <!-- own stylesheet -->\
+        <link rel="stylesheet" type="text/css" href="assets/css/index.css?version=' + v.indexCss + '">\
+        <link rel="stylesheet" type="text/css" href="assets/css/modules.css?version=' + v.modulesCss + '">\
+        <!-- js-libs -->\
+        <script defer src="assets/libs-js/jquery.js?version=' + v.jqueryJs + '"><\/script>\
+        <script defer src="assets/libs-js/slick.js?version=' + v.slickJs + '"><\/script>\
+        <script defer src="assets/libs-js/parallax.js?version=' + v.parallaxJs + '"><\/script>\
+        <script defer src="assets/libs-js/wow.js?version=' + v.wowJs + '"><\/script>\
+        <script defer src="assets/libs-js/countries.js?version=' + v.countriesJs + '"><\/script>\
+        <!-- own js -->\
+        <script defer src="assets/js/main.js?version=' + v.mainJs + '"><\/script>\
+        <script defer src="assets/js/index.js?version=' + v.indexJs + '"><\/script>\
+        <script defer src="assets/js/modules.js?version=' + v.modulesJs + '"><\/script>\
+        <script defer src="assets/js/company-info.js?version=' + v.companyInfoJs + '"><\/script>\
+      ');
+    // ↑↑↑ /VERSION CONTROL SYSTEM ↑↑↑
+  body
+    // HEADER
+    include ../modules/header/header_en.pug
+    // /HEADER
+
+    // MAIN PART
+    .main-wrapper
+      main.main
+        // ↓↓↓ SECTION (first-screen) ↓↓↓
+        section.first-screen-section
+          .first-screen-section__inner.parallax-window
+            .first-screen-section__bg-container.parallax-slider
+              //- img(src="assets/img/first-screen.jpg", alt="")
+              video.first-screen-section__bg-video(src="assets/video/videoplayback1.mp4" autoplay loop muted)
+            .first-screen-section__content-conteiner
+              h2.first-screen-section__header INVESTMENT IS THE BIGGEST BUSINESS OF THE WORLD
+              .first-screen-section__form-wrapper
+                include ../modules/form-registration/form-registration_en.pug
+
+        //- section.first-screen-section
+        //-   .first-screen-section__inner(data-parallax="scroll" data-image-src="assets/img/first-screen.jpg")
+        //-     .first-screen-section__content-conteiner
+        //-       h2.first-screen-section__header INVESTMENT IS THE BIGGEST BUSINESS OF THE WORLD
+        //-       .first-screen-section__form-wrapper
+        //-         include ../modules/form-registration/form-registration_en.pug
+        // ↑↑↑ SECTION (first-screen) ↑↑↑
+
+        // ↓↓↓ SECTION (tradingview-widget) ↓↓↓
+        section.tv-widget-section
+          .tv-widget-section__inner
+            // TradingView Widget BEGIN
+            .tradingview-widget-container
+              .tradingview-widget-container__widget
+              .tradingview-widget-copyright
+                a(href='https://ru.tradingview.com', rel='noopener', target='_blank')
+                  span.blue-text Финансовые рынки
+                |  от TradingView
+              script(type='text/javascript', src='https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js', async='').
+                {
+                "symbols": [
+                {
+                "title": "S&P 500",
+                "proName": "INDEX:SPX"
+                },
+                {
+                "title": "Shanghai Composite",
+                "proName": "INDEX:XLY0"
+                },
+                {
+                "title": "EUR/USD",
+                "proName": "FX_IDC:EURUSD"
+                },
+                {
+                "title": "USDCHF",
+                "proName": "FX_IDC:USDCHF"
+                },
+                {
+                "title": "USDCAD",
+                "proName": "FX_IDC:USDCAD"
+                },
+                {
+                "title": "GBP/USD",
+                "proName": "FX_IDC:GBPUSD"
+                },
+                {
+                "title": "NZD/USD",
+                "proName": "FX_IDC:NZDUSD"
+                },
+                {
+                "title": "AUD/USD",
+                "proName": "FX_IDC:AUDUSD"
+                },
+                {
+                "title": "BTC/USD",
+                "proName": "BITFINEX:BTCUSD"
+                },
+                {
+                "title": "ETH/USD",
+                "proName": "BITFINEX:ETHUSD"
+                }
+                ],
+                "theme": "dark",
+                "isTransparent": false,
+                "displayMode": "adaptive",
+                "locale": "ru"
+                }
+            // TradingView Widget END
+        // ↑↑↑ SECTION (tradingview-widget) ↑↑↑
+
+        // ↓↓↓ SECTION (goods) ↓↓↓
+        section.section
+          .section__inner
+            h2.section__header Our field of activity
+            .goods__container
+
+              .goods__item
+                h2.goods__header
+                  span.goods__logo-wrapper
+                    i.goods__img.ifont-mdi-editor-attach-money
+                  span.goods__name Currencies
+                .goods__text Primary, secondary and cryptocurrency pairs.
+                .goods__stars
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+
+              .goods__item
+                h2.goods__header
+                  span.goods__logo-wrapper
+                    i.goods__img.ifont-mdi-maps-local-atm
+                  span.goods__name Stocks
+                .goods__text Trade only world-class liquid stocks.
+                .goods__stars
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+
+              .goods__item
+                h2.goods__header
+                  span.goods__logo-wrapper
+                    i.goods__img.ifont-mdi-editor-format-italic
+                  span.goods__name Indices
+                .goods__text Direct trade with leading indicators of the markets of Europe, the USA and the Far East.
+                .goods__stars
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+
+              .goods__item
+                h2.goods__header
+                  span.goods__logo-wrapper
+                    i.goods__img.ifont-mdi-action-add-shopping-cart
+                  span.goods__name Goods
+                .goods__text Vapors on precious metals, including gold and platinum.
+                .goods__stars
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star-outline
+
+              .goods__item
+                h2.goods__header
+                  span.goods__logo-wrapper
+                    i.goods__img.ifont-mdi-action-polymer
+                  span.goods__name Cryptocurrencies
+                .goods__text Cryptocurrency pairs with Bitcoin, Ethereum and Litecoin.
+                .goods__stars
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+        // ↑↑↑ SECTION (goods) ↑↑↑
+
+        // ↓↓↓ SECTION (advertising) ↓↓↓
+        section.advertising-section
+          .advertising-section__inner
+            img.advertising-section__img.wow.fadeInLeft(src="assets/img/advertising1.jpg", alt="" data-wow-offset='400')
+            .advertising-section__text-block.wow.fadeInRight(data-wow-offset='200')
+              h2.advertising-section__header Trade for pleasure
+              .advertising-section__text We offer a convenient way to increase your capital. Earn without breaking away from study, work or rest. Trading on the exchange will become for you a source of additional profit and good mood.
+        // ↑↑↑ SECTION (advertising) ↑↑↑
+
+        // ↓↓↓ SECTION (our advantages) ↓↓↓
+        section.section
+          .section__inner
+            h2.section__header Our advantages
+            .advantages__container
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-communication-call-split
+                  .advantages__name Flexible financial policy
+                p.advantages__text Support for payment card types (VISA, MasterCard, Maestro, MIR) in accordance with PCI DSS requirements. Cryptocurrency BTC.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-action-extension
+                  .advantages__name A variety of trading tools
+                p.advantages__text A large selection of diverse trading pairs received from several independent suppliers guarantees the possibility of trading at any time convenient for you.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-action-query-builder
+                  .advantages__name Weekend work
+                p.advantages__text Do not lose your earnings on the weekend. Trade daily and get more profit.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-device-devices
+                  .advantages__name Our technology
+                p.advantages__text Our innovative technology allows you to open deals in just one click.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-action-thumb-up
+                  .advantages__name Risk-free trading
+                p.advantages__text Open an account and get one risk-free transaction for a successful start on the path to financial success.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-social-person
+                  .advantages__name Do-it-yourself trading
+                p.advantages__text Independent trading allows you to completely concentrate on trading on the market, on your reactions and eliminates the need to worry about a trading group if it cooperates with one.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-toggle-star-outline
+                  .advantages__name Trust management
+                p.advantages__text Trust management is chosen by many people who simply want to invest available available funds and not engage in trading activities. A professional manager with experience in trading in financial markets will increase your funds.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-toggle-star
+                  .advantages__name Automatic trading
+                p.advantages__text Automatic advisers work on algorithms that are created based on the knowledge and experience of traders from around the world. Thus, you can use ready-made working schemes at any time that you don’t have to learn for a long time.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-action-face-unlock
+                  .advantages__name High customer loyalty
+                p.advantages__text Game tournaments, regular bonuses, promotional codes and contests.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-action-perm-phone-msg
+                  .advantages__name Support service
+                p.advantages__text We work 24/7. Emergency financial assistance is always in touch.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-social-school
+                  .advantages__name FAQ
+                p.advantages__text Comprehensive training in trading and working with the platform will quickly help a beginner to master trading. An experienced mentor is always ready to help you.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-hardware-security
+                  .advantages__name Security
+                p.advantages__text We apply innovative security measures to protect your funds, as well as personal information at all stages of work. The security of your funds is the basis of our successful work.
+        // ↑↑↑ SECTION (our advantages) ↑↑↑
+
+        // ↓↓↓ SECTION (advertising) ↓↓↓
+        section.advertising-section
+          .advertising-section__inner
+            .advertising-section__text-block.wow.fadeInLeft(data-wow-offset='200')
+              h2.advertising-section__header Exceptional Reliability
+              .advertising-section__text The main credo of the company is financial reliability and transparency. You will always be aware of what stage your transactions are at.
+            img.advertising-section__img.wow.fadeInRight(data-wow-offset='400' src="assets/img/advertising22.jpg", alt="")
+        // ↑↑↑ SECTION (advertising) ↑↑↑
+
+        // ↓↓↓ SECTION (three simple steps) ↓↓↓
+        section.section
+          .section__inner
+            h2.section__header Three easy steps to financial well-being
+            .steps__container
+              .steps__item
+                h2.steps__header
+                  i.steps__img.ifont-mdi-image-filter-1
+                  span.steps__name Sign up
+                p.steps__text Register, it will take you no more than 15 seconds.
+              .steps__item
+                h2.steps__header
+                  i.steps__img.ifont-mdi-image-filter-2
+                  span.steps__name Make a deposit
+                p.steps__text Top up your account with an amount of $ 300
+              .steps__item
+                h2.steps__header
+                  i.steps__img.ifont-mdi-image-filter-3
+                  span.steps__name Start earning
+                p.steps__text Get full access to financial instruments and start earning money
+        // ↑↑↑ SECTION (three simple steps) ↑↑↑
+
+        // ↓↓↓ SECTION (advertising) ↓↓↓
+        section.advertising-section
+          .advertising-section__inner
+            img.advertising-section__img.wow.fadeInLeft(data-wow-offset='400' src="assets/img/advertising3.jpg", alt="")
+            .advertising-section__text-block.wow.fadeInRight(data-wow-offset='200')
+              h2.advertising-section__header Big choice
+              .advertising-section__text We provide you with a huge selection of trading pairs for every taste - currency pairs, stocks, goods, cryptocurrency. Choose and win!
+        // ↑↑↑ SECTION (advertising) ↑↑↑
+
+        // ↓↓↓ SECTION (our offers) ↓↓↓
+        section.section
+          .section__inner
+            h2.section__header Our offers
+            .offers__container
+
+              .offers__item
+                h2.offers__header
+                  i.offers__img.ifont-mdi-toggle-star-outline
+                  span.offers__name STANDART
+                .offers__price
+                  i.ifont-mdi-editor-attach-money
+                  span 5 000 - 30 000
+                ul.offers__list
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Acquaintance with the platform
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Account manager
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Video tutorials (full access)
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Profitability min 50%
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Margin Requirements 100%
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Deposit bonus 20%
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Professional analytics
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Social trade
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Individual training plan
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Accelerated withdrawal
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span 24/7 support
+                button.offers__btn(type='button'): a.offers__link(href="forms_registration_en.html") open an account
+
+              .offers__item
+                h2.offers__header
+                  i.offers__img.ifont-mdi-toggle-star
+                  span.offers__name BUSINESS
+                .offers__price
+                  i.ifont-mdi-editor-attach-money
+                  span 30 000 - 50 000
+                ul.offers__list
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Acquaintance with the platform
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Personal Account Manager
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span PLUS
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Profitability 60%
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Margin Requirements 100%
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Deposit bonus 100%
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Professional analytics
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Participation in seminars and webinars
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Individual training plan
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Accelerated withdrawal
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span 24/7 support
+                button.offers__btn(type='button'): a.offers__link(href="forms_registration_en.html") open an account
+
+              .offers__item
+                h2.offers__header
+                  i.offers__img.ifont-mdi-toggle-star
+                  i.offers__img.ifont-mdi-toggle-star
+                  span.offers__name PREMIUM
+                .offers__price
+                  i.ifont-mdi-editor-attach-money
+                  span 50 000+
+                ul.offers__list
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Acquaintance with the platform
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Personal Account Manager
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span PLUS
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Profitability 72%
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Margin Requirements 100%
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Partner Bank Refinancing
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Professional analytics
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Participation in seminars and webinars
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Participation in company events
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Express transfers
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Referral Finance Return Programs
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Accelerated withdrawal
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span 24/7 support
+                button.offers__btn(type='button'): a.offers__link(href="forms_registration_en.html") open an account
+
+              .offers__item
+                h2.offers__header
+                  i.offers__img.ifont-mdi-toggle-star
+                  i.offers__img.ifont-mdi-toggle-star
+                  i.offers__img.ifont-mdi-toggle-star
+                  span.offers__name VIP
+                .offers__price
+                  i.ifont-mdi-editor-attach-money
+                  span 100 000+
+                ul.offers__list
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Acquaintance with the platform
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Personal Account Manager
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span PLUS
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Profitability 82%
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Margin Requirements 100%
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Partner Bank Refinancing
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Professional analytics
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Participation in seminars and webinars
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Participation in company events
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Express transfers
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Referral Finance Return Programs
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Priority Withdrawal
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span No commission for withdrawing funds
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span 24/7 support
+                button.offers__btn(type='button'): a.offers__link(href="forms_registration_en.html") open an account
+
+              .offers__item
+                h2.offers__header
+                  i.offers__img.ifont-mdi-toggle-star-half
+                  span.offers__name Robot
+                .offers__price
+                  i.ifont-mdi-editor-attach-money
+                  span 5 000+
+                ul.offers__list
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Acquaintance with the platform
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Account manager
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Additional support for Robot and Algo Trading
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Creating a trading strategy
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Trading according to the algorithm
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span Accelerated withdrawal
+                  li.offers__list-item
+                    i.ifont-mdi-action-done
+                    span 24/7 support
+                button.offers__btn(type='button'): a.offers__link(href="forms_registration_en.html") open an account
+        // ↑↑↑ SECTION (our offers) ↑↑↑
+
+        // ↓↓↓ SECTION (advertising) ↓↓↓
+        section.advertising-section
+          .advertising-section__inner
+            .advertising-section__text-block.wow.fadeInLeft(data-wow-offset='200')
+              h2.advertising-section__header Qualified support
+              .advertising-section__text We have only the best traders who have vast experience in trading operations and are high-class mentors. They are always ready to respond to your request for help. And good advice is worth its weight in gold.
+            img.advertising-section__img.wow.fadeInRight(data-wow-offset='200' src="assets/img/advertising4.png", alt="")
+        // ↑↑↑ SECTION (advertising) ↑↑↑
+
+        // ↓↓↓ SECTION (comments) ↓↓↓
+        section.section
+          .section__inner
+            h2.section__header User reviews
+            .comments__container
+              .comments__item
+                img.comments__img(src="assets/img/comment1.jpg", alt="commentators avatar")
+                p.comments__name Oksana Potapova
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  | At the moment, this is the most transparent broker, in my humble opinion. Support at altitude, not intrusive, responds immediately, problems are solved. The broker is developing, the platform is being improved, but what is promised is 100% fulfilled.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment2.jpg", alt="commentators avatar")
+                p.comments__name Irina Chmykhalova
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Today I got the money, actually quickly and without problems
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment3.jpg", alt="commentators avatar")
+                p.comments__name Mahtumkuli Fragi
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  С
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | I work more than a year. In my opinion, this company is today one of the most progressive and fast-growing brokerage services market. Particularly impressive is the high level of customer service, worthy of relevant ratings, bonuses and various contests.
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | - reliable broker with quality service.
+                  |
+                  |
+                  span.company-brand
+                  |, keep it up!
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment4.jpg", alt="commentators avatar")
+                p.comments__name Alexey Izotov
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  span.company-brand
+                  |
+                  | — this is the company in which I was not mistaken, having come to the foreign exchange market as a trader. The webinars held by the company are very useful to me. Very friendly staff and technical support
+                  |
+                  |
+                  span.company-brand
+                  |.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment5.jpg", alt="commentators avatar")
+                p.comments__name Gulsina Karimova
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  the conclusion, as always, is at its best. Today an order is made today and brought out. Super
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment6.jpg", alt="commentators avatar")
+                p.comments__name Mikhail Golovko
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  I have been working with
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | for a year now and I can only say the best things about this broker that inspires confidence. Most of all I like the fact that, despite my poor English, it’s easy for me to talk to the support staff who are very respectful in communication.
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | is an open company that provides information about itself to everyone who wants it - just visit the official website. Also on the site there are many training materials, video lessons on working with the terminal. I’m a gambler, because I really like competitions in which you can win cash prizes.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment7.jpg", alt="commentators avatar")
+                p.comments__name Kirill Levochkin
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  I think
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | is a serious broker, and the rest is up to you. Everything is at a high level ...
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment8.jpg", alt="commentators avatar")
+                p.comments__name Marat Nasirov
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  I’ve been trading in
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | for a year and a half. The broker was struck by the speed of execution of orders, namely the lack of slippage. Of course, there are slight delays, but only in a very frantic market. Deposits and withdrawals are fast, all issues are also resolved promptly. In addition, I would like to mention training at
+                  |
+                  |
+                  span.company-brand
+                  |. I learned a lot from the mentor of Vitamir, who is a partner of the company. His competent courses helped to master the secrets of trading, and
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | allowed to successfully apply the acquired knowledge in practice. I like to participate in the campaigns held by the company. I am glad that they are held impeccably and serve as an example of high-quality and fair competition.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment9.jpg", alt="commentators avatar")
+                p.comments__name Mikhail Soldatenkov
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  | Company
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | is that company in which I was not mistaken, having come to the foreign exchange market as a trader. The webinars held by the company are very useful to me. Very friendly staff and technical support
+                  |
+                  |
+                  span.company-brand
+                  |.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment10.jpg", alt="commentators avatar")
+                p.comments__name Natalia Bezkorovaynaya
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  You listen to moody clients - yes you are really the best
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment11.jpg", alt="commentators avatar")
+                p.comments__name Elvis Mamardashvili
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  This is more likely not a review, but a state of mind that you just want to share. About 100,000 rubles were withdrawn during this time. The maximum withdrawal time is 4 minutes.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment12.jpg", alt="commentators avatar")
+                p.comments__name Vitaliy Cheremis
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  | In my opinion, the broker company and its well-coordinated team know their job. I like the service. Very well-mannered and attentive staff who are ready to help at any time of the day or night. On the Internet or by phone - they will always listen carefully, they will explain everything on their fingers and deal with everything. You can also order a free call to your phone, and at the appointed time, the operator will call you back, get in and help eliminate any difficulty. I believe that they offer very good conditions for trade. Good website design. Everything is easy and affordable.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment13.jpg", alt="commentators avatar")
+                p.comments__name Vasily Zaichenkov
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  | For the past year, I have been working with company
+                  |
+                  |
+                  span.company-brand
+                  |. I have been working in the Forex market since 1995, and seventeen years of experience allows me to say with confidence that the level and professionalism of the company fully meets the modern requirements of a currency trader.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment14.jpg", alt="commentators avatar")
+                p.comments__name Alexey Bukharin
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  span.company-brand
+                  |
+                  | pleasantly surprises with its innovative solutions. The warmth of attitude to each trader, the ability to quickly respond to emerging issues, the rapid development of additional services - of course, puts the company in the category of leaders. Today,
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | is ahead of other brokerage companies in the trading services market in many matters. In addition, it is focused on the market of the CIS countries, which is especially pleasant for me and allows me to call
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | a rare company. Perhaps the opinion expressed by me is very emotional, but this only emphasizes the ability of the company not to remain indifferent.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment15.jpg", alt="commentators avatar")
+                p.comments__name Marat Isaenko
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  This is the approach of true professionals! Thank you and good luck!
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment16.jpg", alt="commentators avatar")
+                p.comments__name Mstislav Popov
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  I met 
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | in 2012, and at the same time passed a training course. By the way, the company's managers are very attentive and serious about the training cycle, they try to explain everything in an accessible way and deal individually with each person. The company regularly hosts many contests, there are benefits and bonus programs. I really like
+                  |
+                  |
+                  span.company-brand
+                  |.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment17.jpg", alt="commentators avatar")
+                p.comments__name Anton Ivanov
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  here as regards the conclusion, then handsome. Money came to kiwi in 5 minutes.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment18.jpg", alt="commentators avatar")
+                p.comments__name Timur Aslanbekov
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  | In 2017, I opened an account with
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | and am satisfied with this to this day. I value my broker for reasonable spreads, convenient trading conditions, quick execution of transactions and instant response to any request. I believe that
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | is currently the best in all respects. I am ready to recommend this broker both to beginners who are taking their first steps, and to experienced traders who can discover new opportunities with
+                  |
+                  |
+                  span.company-brand
+                  |.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment19.jpg", alt="commentators avatar")
+                p.comments__name Denis Grishin
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  | My choice is
+                  |
+                  |
+                  span.company-brand
+                  |. Why? Firstly, fixed spreads. Secondly - fast execution of orders. Thirdly, a large number of tools. Fourth, a system of encouraging traders: bonuses, club cards, annual interest accruals. And finally, there are lotteries, sweepstakes and promotions in which you always want to participate.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment20.jpg", alt="commentators avatar")
+                p.comments__name Svetlana Preobrazhenskaya
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  I started trading Forex while still a student, but did not immediately discover a
+                  |
+                  |
+                  span.company-brand
+                  |. But thanks to this, I had the opportunity to compare and appreciate the work of my current broker. First of all, the
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | really presents the widest range of trading tools, as well as services. Therefore, I recommend only
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | to my acquaintances and friends!
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment21.jpg", alt="commentators avatar")
+                p.comments__name Maxim Protchenko
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  | For six months of work, I can say that the broker has never let me down. In particular, I would like to note such a competitive advantage of the company as the bonus program. I do not know other brokers who would offer such high bonuses.
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | trade is also made pleasant by its responsive staff, employees will always patiently and intelligibly explain all the nuances of each service and give practical advice. I like that I can see my statistics on the work done. I would like to thank everyone who moves the company forward and makes life easier for traders.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment22.jpg", alt="commentators avatar")
+                p.comments__name Alexander Zavenyagin
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  I would like to share feedback about
+                  |
+                  |
+                  span.company-brand
+                  |. For several years of trading in the foreign exchange market, I have exchanged about 10 different dealing centers. Some of them were distinguished by favorable terms of trade, some by the speed of fulfillment of their obligations, but none of them had all the advantages for a full and confident trade (full in terms of functionality and the ability to derive profit without problems). Until I came across
+                  |
+                  |
+                  span.company-brand
+                  |. For a long time I was looking for pitfalls, which, as a rule, is fraught with any dealing center. And to my great surprise, I did not find a single minus. Trading conditions, the speed of technical support services, bonuses, privileges, and most importantly - the trust of a huge number of traders over the years makes this broker number 1. I have finished my search, and now I am with
+                  |
+                  |
+                  span.company-brand
+                  |.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment23.jpg", alt="commentators avatar")
+                p.comments__name Sergey Gorsky
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  It has become very convenient to trade. Thanks. True. Today you are the BEST! I still came to you, albeit from Europe. Somehow we will agree .....;) :).
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment24.jpg", alt="commentators avatar")
+                p.comments__name Vadim Matrosov
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  | I don’t know how in 15 minutes, but I have all the conclusions, like the last one that I did was made within the first minute.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment25.jpg", alt="commentators avatar")
+                p.comments__name Eugene Pushkar
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  | In my opinion, it is not surprising that
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | occupies a leading position in a number of essential characteristics. Not a single broker I have seen such generous bonuses and sweepstakes. I regularly take part in company contests - this is a great opportunity to practice, try new strategies and tools without risk, and even with the probability of getting a decent amount of money into the account in case of victory. I have been trading with this broker for 3 years now, because it is profitable and reliable.
+        // ↑↑↑ SECTION (comments) ↑↑↑
+
+        // ↓↓↓ SECTION (advertising) ↓↓↓
+        section.advertising-section
+          .advertising-section__inner
+            img.advertising-section__img.wow.fadeInLeft(data-wow-offset='400' src="assets/img/platform.png", alt="")
+            .advertising-section__text-block.wow.fadeInRight(data-wow-offset='200')
+              h2.advertising-section__header Innovative platform
+              .advertising-section__text Windows? Linux? MacOs? Android? Our ergonomic platform is equally comfortable on any device because it uses a browser convenient for you.
+        // ↑↑↑ SECTION (advertising) ↑↑↑
+    // /MAIN PART
+
+    include ../modules/form-contact/form-contact_en.pug
+
+    // FOOTER
+    include ../modules/footer/footer_en.pug
+    // /FOOTER
+    script.
+      document.addEventListener("DOMContentLoaded", function(){new WOW().init();});

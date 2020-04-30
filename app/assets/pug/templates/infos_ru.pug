@@ -1,0 +1,54 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description' content="???")
+
+    title
+      block title
+    link(rel='icon', href='assets/img/logo.png')
+
+    // ↓↓↓ VERSION CONTROL SYSTEM ↓↓↓
+    script.
+      // js із версіями файлів js/css щоразу завантажується новий
+      document.write('\
+        <script src="assets/js/version-control.js?version=' + Date.now() + '"><\/script>\
+      ');
+    script.
+      // ці файли завантажуються з кешу, або (якщо були зміни) - з нету
+      document.write('\
+        <!-- icon font -->\
+        <link rel="stylesheet" type="text/css" href="assets/libs-css/icon-font_material-design-icons.css?version=' + v.materialFontCss + '">\
+        <!-- own stylesheet -->\
+        <link rel="stylesheet" type="text/css" href="assets/css/info.css?version=' + v.infoCss + '">\
+        <link rel="stylesheet" type="text/css" href="assets/css/modules.css?version=' + v.modulesCss + '">\
+        <!-- js-libs -->\
+        <script defer src="assets/libs-js/jquery.js?version=' + v.jqueryJs + '"><\/script>\
+        <script defer src="assets/libs-js/countries.js?version=' + v.countriesJs + '"><\/script>\
+        <!-- own js -->\
+        <script defer src="assets/js/main.js?version=' + v.mainJs + '"><\/script>\
+        <script defer src="assets/js/modules.js?version=' + v.modulesJs + '"><\/script>\
+        <script defer src="assets/js/company-info.js?version=' + v.companyInfoJs + '"><\/script>\
+      ');
+    // ↑↑↑ /VERSION CONTROL SYSTEM ↑↑↑
+  body
+    // HEADER
+    include ../../modules/header/header_ru.pug
+    // /HEADER
+
+    // MAIN PART
+    .main-wrapper
+      main.main
+        // ↓↓↓ SECTION ↓↓↓
+        section.section
+          .section__inner
+            block page-content
+        // ↑↑↑ SECTION ↑↑↑
+    // /MAIN PART
+
+    include ../../modules/form-contact/form-contact_ru.pug
+
+    // FOOTER
+    include ../../modules/footer/footer_ru.pug
+    // /FOOTER

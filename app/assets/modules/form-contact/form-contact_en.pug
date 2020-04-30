@@ -1,0 +1,37 @@
+// ↓↓↓ modules: form-contact (start) ↓↓↓
+
+//- style
+  include form-contact.css
+
+form.form-contact#contactForm(name='contact form' action='#' method='post')
+  .form-contact__tassel
+    i.ifont-mdi-content-markunread
+    span contact us
+    i.ifont-mdi-hardware-keyboard-arrow-left.form-contact__tassel-arrow
+  .form-contact__form-group
+    label.form-contact__label(for='name') Your Name:
+    input.form-contact__input#name(name='name' placeholder='Enter Your Name' type='text')
+
+  .form-contact__form-group
+    label.form-contact__label(for='email') Email address:
+    input.form-contact__input#contact-email(name='email' placeholder='Your Email Address' type='text')
+
+  .form-contact__form-group
+    label.form-contact__label(for='textarea') Type your message here:
+    textarea.form-contact__textarea#textarea(name='textarea' placeholder='Your message')
+
+  .form-contact__form-group.form-contact__form-group_errors-list.errors-list
+    p.form-contact__form-error.form-error Name is required
+    p.form-contact__form-error.form-error Email address is required
+    p.form-contact__form-error.form-error Invalid email address
+    p.form-contact__form-error.form-error Type your message
+
+  .form-contact__form-group
+    button(type='button').form-contact__btn#submitContact
+      i.ifont-mdi-content-markunread
+      | Send message
+
+//- script
+  include ../minjs/form-contact/form-contact.js
+
+// ↑↑↑ modules: form-contact (end) ↑↑↑

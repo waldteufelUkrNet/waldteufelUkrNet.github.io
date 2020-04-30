@@ -1,0 +1,27 @@
+// ↓↓↓ modules: header (start) ↓↓↓
+
+//- style
+  include header.css
+
+header.header
+  .header__inner
+    a.header__logo(href="index.html")
+      img.header__logo-img(src="assets/img/logo.png", alt="logo")
+      span.header__logo-name.company-brand
+    .header__btns-wrapper
+      button.btn(type='button')
+        a.btn__link(href="forms_registration_ru.html")
+          i.ifont-mdi-social-person-add
+          span Открыть счет
+      button.btn(type='button')
+        a.btn__link(href="forms_login_ru.html")
+          i.ifont-mdi-action-exit-to-app
+          span Войти
+    .header__lang RU
+
+  include ../nav/nav_ru.pug
+
+//- script
+  include ../minjs/header/header.js
+
+// ↑↑↑ modules: header (end) ↑↑↑
