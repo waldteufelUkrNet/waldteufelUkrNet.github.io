@@ -4,7 +4,8 @@ $(document).ready(function () {
   // parallax.js
   $('.parallax-window').parallax({
     naturalWidth: 600,
-    naturalHeight: 400
+    naturalHeight: 400,
+    androidFix: false
   }); // slick slider
 
   $('.comments__container').slick({
