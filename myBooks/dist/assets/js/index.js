@@ -1,0 +1,1 @@
+"use strict";$(document).ready(function(){$(".parallax-window").parallax({naturalWidth:600,naturalHeight:400}),$(".comments__container").slick({infinite:!0,slidesToShow:3,autoplay:!0,autoplaySpeed:1e4,responsive:[{breakpoint:900,settings:{slidesToShow:1,slidesToScroll:1}}]})});
