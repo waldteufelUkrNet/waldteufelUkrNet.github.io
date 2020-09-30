@@ -1,0 +1,28 @@
+extends templates/documents_en.pug
+
+block title
+  | Documentation
+
+block page-header
+  h2(style='text-align: center') Documentation
+
+block page-text
+  .content
+    a.content__link(href="docs_agreement_en.html")
+      i.content__img.ifont-mdi-content-content-paste
+      span.content__text End user license agreement
+    a.content__link(href="docs_aml-kyc_en.html")
+      i.content__img.ifont-mdi-editor-insert-drive-file
+      span.content__text AML and KYC policy
+    a.content__link(href="docs_privacy_en.html")
+      i.content__img.ifont-mdi-action-lock
+      span.content__text Privacy policy
+    a.content__link(href="docs_refund_en.html")
+      i.content__img.ifont-mdi-action-account-balance-wallet
+      span.content__text Cash return policy
+    a.content__link(href="docs_risk_en.html")
+      i.content__img.ifont-mdi-action-description
+      span.content__text Notification of risk
+    a.content__link(href="docs_user-verification_en.html")
+      i.content__img.ifont-mdi-action-account-box
+      span.content__text User verification

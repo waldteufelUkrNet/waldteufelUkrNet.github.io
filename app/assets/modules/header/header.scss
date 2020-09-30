@@ -1,0 +1,69 @@
+////////////////////////////////////////////////////////////////////////////////
+/* ↓↓↓ header module ↓↓↓ */
+.header {
+  width                : 100%;
+  height               : 43px;
+  @media (min-width: 386px) {
+    height: 70px;
+  }
+  position             : fixed;
+  z-index              : 1000;
+  top                  : 0;
+  left                 : 0;
+  background-color     : #1c2e3d;
+  color                : white;
+  font                 : 16px maintext;
+  &__inner {
+    max-width          : 1220px;
+    padding            : 5px;
+    margin             : 0 auto;
+    display            : flex;
+    justify-content    : space-between;
+    align-items        : center;
+  }
+  &__logo {
+    flex-grow          : 1;
+    display            : flex;
+    align-items        : center;
+    color              : #60abdd;
+    font-weight        : 900;
+    &:hover {
+      color              : #60abdd;
+    }
+  }
+  &__logo-img {
+    height             : 30px;
+    width              : auto;
+    margin-right       : 5px;
+  }
+  &__logo-name {
+    display            : none;
+    @media screen and (min-width: 400px) {
+      display          : block;
+    }
+  }
+  &__btns-wrapper {
+    margin-right       : 20px;
+    .btn span {
+      display: none;
+      @media screen and (min-width: 600px) {
+        display: block;
+      }
+    }
+    .btn:first-of-type {
+      background-color : steelblue;
+      color            : white;
+      margin-right     : 6px;
+    }
+    .btn:last-of-type {
+      background-color : #23cd45;
+      color            : white;
+    }
+  }
+  &__lang {
+    font-weight        : 900;
+    cursor             : pointer;
+  }
+}
+/* ↑↑↑ header module ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////

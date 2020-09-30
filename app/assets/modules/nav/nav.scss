@@ -1,0 +1,55 @@
+////////////////////////////////////////////////////////////////////////////////
+/* ↓↓↓ navigation module ↓↓↓ */
+.navigation {
+  display              : none;
+  max-width            : 1220px;
+  padding              : 2px 0;
+  margin               : 0 auto;
+  border-top           : 1px solid silver;
+  @media screen and (min-width: 386px) {
+    display            : block;
+  }
+  &__list {
+    display            : flex;
+    justify-content    : flex-end;
+    align-items        : center;
+  }
+  &__item {
+    &:last-of-type {
+      .navigation__link {
+        margin-right   : 0;
+      }
+    }
+  }
+  &__link {
+    padding            : 0px 4px;
+    border-bottom      : 1px solid orange;
+    position           : relative;
+    display            : block;
+    overflow           : hidden;
+    margin-right       : 10px;
+    &::after {
+      display          : block;
+      content          : '';
+      position         : absolute;
+      z-index          : 0;
+      left             : -100%;
+      top              : 0;
+      width            : 100%;
+      height           : 100%;
+      background-color : orange;
+      transition       : left .3s;
+    }
+    span {
+      position         : relative;
+      z-index          : 2;
+    }
+    &:hover {
+      &::after {
+        left           : 0;
+      }
+    }
+  }
+}
+/* ↑↑↑ navigation module ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////

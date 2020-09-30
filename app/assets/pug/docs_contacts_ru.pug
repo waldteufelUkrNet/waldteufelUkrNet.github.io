@@ -1,0 +1,20 @@
+extends templates/documents_ru.pug
+
+block title
+  | Контакты
+
+block page-header
+  h2(style='text-align: center') Наши контакты
+
+block page-text
+  .contacts
+    p.contacts__text
+      span.company-brand
+      |
+      | располагает высокопрофессиональной службой поддержки.
+    .contacts__phone
+      span mail:
+      img(src="assets/img/mail-img.jpg", style='position:relative; top:6px; cursor: pointer')
+    .contacts__phone
+      span address:
+      span.company-address

@@ -1,0 +1,758 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description' content="ИНВЕСТИЦИИ - ЭТО ВЕЛИЧАЙШИЙ БИЗНЕС МИРА")
+
+    title Главная страница
+    link(rel='icon', href='assets/img/logo.png')
+
+    // ↓↓↓ VERSION CONTROL SYSTEM ↓↓↓
+    script.
+      // js із версіями файлів js/css щоразу завантажується новий
+      document.write('\
+        <script src="assets/js/version-control.js?version=' + Date.now() + '"><\/script>\
+      ');
+    script.
+      // ці файли завантажуються з кешу, або (якщо були зміни) - з нету
+      document.write('\
+        <!-- css-libs -->\
+        <link rel="stylesheet" type="text/css" href="assets/libs-css/animate.css?version=' + v.animateCss + '">\
+        <link rel="stylesheet" type="text/css" href="assets/libs-css/slick.css?version=' + v.slickCss + '">\
+        <link rel="stylesheet" type="text/css" href="assets/libs-css/slick-theme.css?version=' + v.slickThemeCss + '">\
+        <!-- icon font -->\
+        <link rel="stylesheet" type="text/css" href="assets/libs-css/icon-font_material-design-icons.css?version=' + v.materialFontCss + '">\
+        <!-- own stylesheet -->\
+        <link rel="stylesheet" type="text/css" href="assets/css/index.css?version=' + v.indexCss + '">\
+        <link rel="stylesheet" type="text/css" href="assets/css/modules.css?version=' + v.modulesCss + '">\
+        <!-- js-libs -->\
+        <script defer src="assets/libs-js/jquery.js?version=' + v.jqueryJs + '"><\/script>\
+        <script defer src="assets/libs-js/slick.js?version=' + v.slickJs + '"><\/script>\
+        <script defer src="assets/libs-js/parallax.js?version=' + v.parallaxJs + '"><\/script>\
+        <script defer src="assets/libs-js/wow.js?version=' + v.wowJs + '"><\/script>\
+        <script defer src="assets/libs-js/countries.js?version=' + v.countriesJs + '"><\/script>\
+        <!-- own js -->\
+        <script defer src="assets/js/main.js?version=' + v.mainJs + '"><\/script>\
+        <script defer src="assets/js/index.js?version=' + v.indexJs + '"><\/script>\
+        <script defer src="assets/js/modules.js?version=' + v.modulesJs + '"><\/script>\
+        <script defer src="assets/js/company-info.js?version=' + v.companyInfoJs + '"><\/script>\
+      ');
+    // ↑↑↑ /VERSION CONTROL SYSTEM ↑↑↑ open-acc
+  body
+    // HEADER
+    include ../modules/header/header_ru.pug
+    // /HEADER
+
+    // MAIN PART
+    .main-wrapper
+      main.main
+        // ↓↓↓ SECTION (first-screen) ↓↓↓
+
+        section.first-screen-section
+          .first-screen-section__inner
+            .first-screen-section__bg-container
+              video.first-screen-section__bg-video(src="assets/video/videoplayback1.mp4" autoplay loop muted)
+            .first-screen-section__content-conteiner
+              h2.first-screen-section__header ИНВЕСТИЦИИ - ЭТО ВЕЛИЧАЙШИЙ БИЗНЕС МИРА
+              .first-screen-section__form-wrapper
+                include ../modules/form-registration/form-registration_ru.pug
+        // ↑↑↑ SECTION (first-screen) ↑↑↑
+
+        // ↓↓↓ SECTION (tradingview-widget) ↓↓↓
+        section.tv-widget-section
+          .tv-widget-section__inner
+            // TradingView Widget BEGIN
+            .tradingview-widget-container
+              .tradingview-widget-container__widget
+              .tradingview-widget-copyright
+                a(href='https://ru.tradingview.com', rel='noopener', target='_blank')
+                  span.blue-text Финансовые рынки
+                |  от TradingView
+              script(type='text/javascript', src='https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js', async='').
+                {
+                "symbols": [
+                {
+                "title": "S&P 500",
+                "proName": "INDEX:SPX"
+                },
+                {
+                "title": "Shanghai Composite",
+                "proName": "INDEX:XLY0"
+                },
+                {
+                "title": "EUR/USD",
+                "proName": "FX_IDC:EURUSD"
+                },
+                {
+                "title": "USDCHF",
+                "proName": "FX_IDC:USDCHF"
+                },
+                {
+                "title": "USDCAD",
+                "proName": "FX_IDC:USDCAD"
+                },
+                {
+                "title": "GBP/USD",
+                "proName": "FX_IDC:GBPUSD"
+                },
+                {
+                "title": "NZD/USD",
+                "proName": "FX_IDC:NZDUSD"
+                },
+                {
+                "title": "AUD/USD",
+                "proName": "FX_IDC:AUDUSD"
+                },
+                {
+                "title": "BTC/USD",
+                "proName": "BITFINEX:BTCUSD"
+                },
+                {
+                "title": "ETH/USD",
+                "proName": "BITFINEX:ETHUSD"
+                }
+                ],
+                "theme": "dark",
+                "isTransparent": false,
+                "displayMode": "adaptive",
+                "locale": "ru"
+                }
+            // TradingView Widget END
+        // ↑↑↑ SECTION (tradingview-widget) ↑↑↑
+
+        // ↓↓↓ SECTION (goods) ↓↓↓
+        section.section
+          .section__inner
+            h2.section__header Наша сфера деятельности
+            .goods__container
+
+              .goods__item
+                h2.goods__header
+                  span.goods__logo-wrapper
+                    i.goods__img.ifont-mdi-editor-attach-money
+                  span.goods__name Валюты
+                .goods__text Основные, вторичные и криптовалютные пары.
+                .goods__stars
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+
+              .goods__item
+                h2.goods__header
+                  span.goods__logo-wrapper
+                    i.goods__img.ifont-mdi-maps-local-atm
+                  span.goods__name Акции
+                .goods__text Торгуйте только ликвидными акциями мирового уровня.
+                .goods__stars
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+
+              .goods__item
+                h2.goods__header
+                  span.goods__logo-wrapper
+                    i.goods__img.ifont-mdi-editor-format-italic
+                  span.goods__name Индексы
+                .goods__text Прямая торговля ведущими показателями рынков Европы, США и Дальнего Востока.
+                .goods__stars
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star-outline
+                  i.ifont-mdi-toggle-star-outline
+
+              .goods__item
+                h2.goods__header
+                  span.goods__logo-wrapper
+                    i.goods__img.ifont-mdi-action-add-shopping-cart
+                  span.goods__name Товары
+                .goods__text Пары на драгоценных металлах, включая золото и платину.
+                .goods__stars
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star-outline
+
+              .goods__item
+                h2.goods__header
+                  span.goods__logo-wrapper
+                    i.goods__img.ifont-mdi-action-polymer
+                  span.goods__name Криптовалюты
+                .goods__text Криптовалютные пары с Bitcoin, Ethereum и Litecoin.
+                .goods__stars
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+                  i.ifont-mdi-toggle-star
+        // ↑↑↑ SECTION (goods) ↑↑↑
+
+        // ↓↓↓ SECTION (advertising) ↓↓↓
+        section.advertising-section
+          .advertising-section__inner
+            img.advertising-section__img.wow.fadeInLeft(src="assets/img/advertising1.jpg", alt="" data-wow-offset='400')
+            .advertising-section__text-block.wow.fadeInRight(data-wow-offset='200')
+              h2.advertising-section__header Торгуйте в удовольствие
+              .advertising-section__text Мы предлагаем удобный способ приумножить свой капитал. Зарабатывайте, не отрываясь от учебы, работы или отдыха. Торговля на бирже станет для Вас источником дополнительной прибыли и приятного настроения.
+        // ↑↑↑ SECTION (advertising) ↑↑↑
+
+        // ↓↓↓ SECTION (our advantages) ↓↓↓
+        section.section
+          .section__inner
+            h2.section__header Наши преимущества
+            .advantages__container
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-communication-call-split
+                  .advantages__name Гибкая финансовая политика
+                p.advantages__text Поддержка типов платежных карт (VISA, MasterCard, Maestro, МИР) в соответствии с требованиям PCI DSS. Криптовалюта BTC.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-action-extension
+                  .advantages__name Разнообразные торговые инструменты
+                p.advantages__text Большой выбор разноплановых торговых пар, получаемых от нескольких независимых поставщиков, гарантирует возможность торговли в любое удобное для Вас время.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-action-query-builder
+                  .advantages__name Работа в выходные дни
+                p.advantages__text Не лишайте себя заработка в выходные. Торгуйте ежедневно и получайте больше прибыли.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-device-devices
+                  .advantages__name Наши технологии
+                p.advantages__text Наша инновационная технология позволяет вам открывать сделки всего в один клик.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-action-thumb-up
+                  .advantages__name Безрисковая торговля
+                p.advantages__text Откройте счет и получите одну безрисковую сделку для успешного старта на пути к финансовому успеху.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-social-person
+                  .advantages__name Самостоятельная торговля
+                p.advantages__text Самостоятельный трейдинг позволяет полностью сконцентрироваться на торговле, происходящей на рынке, на своих реакциях и освобождает от необходимости переживать за торговую группу, если он сотрудничает с таковой.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-toggle-star-outline
+                  .advantages__name Доверительное управление
+                p.advantages__text Доверительное управление выбирает много людей, которые хотят просто инвестировать имеющиеся свободные средства и при этом не заниматься трейдерской деятельностью. Профессиональный управляющий с опытом торговли на финансовых рынках, приумножит Ваши средства.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-toggle-star
+                  .advantages__name Автоматическая торговля
+                p.advantages__text Автоматические советники работают по алгоритмам, которые создаются на основе знаний и опыта работы трейдеров со всего мира. Таким образом, вы можете в любой момент воспользоваться готовыми работающими схемами, которым не придется учиться в течение долгого времени.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-action-face-unlock
+                  .advantages__name Высокая лояльность к клиентам
+                p.advantages__text Игровые турниры, регулярные бонусы, промокоды и конкурсы.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-action-perm-phone-msg
+                  .advantages__name Служба поддержки
+                p.advantages__text Работаем в режиме 24/7. Скорая финансовая помощь всегда на связи.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-social-school
+                  .advantages__name FAQ
+                p.advantages__text Всестороннее обучение трейдингу и работа с платформой быстро помоут новичку освоить трейдинг. Опытный ментор всегда готов Вам помочь.
+
+              .advantages__item
+                h4.advantages__header
+                  i.advantages__img.ifont-mdi-hardware-security
+                  .advantages__name Безопасность
+                p.advantages__text Мы применяем инновационные меры безопасности, чтобы защитить Ваши средства, а также личную информацию на всех этапах работы. Защищенность Ваших средств - основа нашей успешной работы.
+        // ↑↑↑ SECTION (our advantages) ↑↑↑
+
+        // ↓↓↓ SECTION (advertising) ↓↓↓
+        section.advertising-section
+          .advertising-section__inner
+            .advertising-section__text-block.wow.fadeInLeft(data-wow-offset='200')
+              h2.advertising-section__header Исключительная надежность
+              .advertising-section__text Главным кредо компании является финансовая надежность и прозрачность деятельности. Вы всегда будете в курсе, на каком этапе находятся Ваши сделки.
+            img.advertising-section__img.wow.fadeInRight(data-wow-offset='400' src="assets/img/advertising22.jpg", alt="")
+        // ↑↑↑ SECTION (advertising) ↑↑↑
+
+        // ↓↓↓ SECTION (three simple steps) ↓↓↓
+        section.section
+          .section__inner
+            h2.section__header Три простых шага к финансовому благополучию
+            .steps__container
+              .steps__item
+                h2.steps__header
+                  i.steps__img.ifont-mdi-image-filter-1
+                  span.steps__name Зарегистрируйтесь
+                p.steps__text Зарегистрируйтесь, это займет у вас не больше 15 секунд.
+              .steps__item
+                h2.steps__header
+                  i.steps__img.ifont-mdi-image-filter-2
+                  span.steps__name Внесите депозит
+                p.steps__text Пополните счет на сумму от 300$
+              .steps__item
+                h2.steps__header
+                  i.steps__img.ifont-mdi-image-filter-3
+                  span.steps__name Начинайте зарабатывать
+                p.steps__text Получите полный доступ к финансовым инструментам и начинайте зарабатывать
+        // ↑↑↑ SECTION (three simple steps) ↑↑↑
+
+        // ↓↓↓ SECTION (advertising) ↓↓↓
+        section.advertising-section
+          .advertising-section__inner
+            img.advertising-section__img.wow.fadeInLeft(data-wow-offset='400' src="assets/img/advertising3.jpg", alt="")
+            .advertising-section__text-block.wow.fadeInRight(data-wow-offset='200')
+              h2.advertising-section__header Большой выбор
+              .advertising-section__text Мы предоставляем Вам огромный выбор торговых пар на любой вкус - валютные пары, акции, товары, криптовалюта. Выбирайте и выигрывайте!
+        // ↑↑↑ SECTION (advertising) ↑↑↑
+
+        // ↓↓↓ SECTION (our offers) ↓↓↓
+        section.section
+          .section__inner
+            h2.section__header Наши прeдложения
+            include ../modules/acc-types/acc-types_ru.pug
+        // ↑↑↑ SECTION (our offers) ↑↑↑
+
+        // ↓↓↓ SECTION (advertising) ↓↓↓
+        section.advertising-section
+          .advertising-section__inner
+            .advertising-section__text-block.wow.fadeInLeft(data-wow-offset='200')
+              h2.advertising-section__header Квалифицированная поддержка
+              .advertising-section__text У нас только лучшие трейдеры, имеющие огромный опыт в торговых операциях и являющиеся высококлассными менторами. Они всегда готовы откликнуться на Вашу просьбу помочь. А хороший совет - на вес золота.
+            img.advertising-section__img.wow.fadeInRight(data-wow-offset='200' src="assets/img/advertising4.png", alt="")
+        // ↑↑↑ SECTION (advertising) ↑↑↑
+
+        // ↓↓↓ SECTION (comments) ↓↓↓
+        section.section
+          .section__inner
+            h2.section__header Отзывы пользователей
+            .comments__container
+              .comments__item
+                img.comments__img(src="assets/img/comment1.jpg", alt="commentators avatar")
+                p.comments__name Оксана Потапова
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  | На данный момент это самый прозрачный брокер, по моему скромному мнению. Поддержка на высоте, не навязчивая, отвечает сразу, проблемы решаются. Брокер развивается, платформа совершенствуется, но то что обещается выполняется на все 100%.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment2.jpg", alt="commentators avatar")
+                p.comments__name Ирина Чмыхалова
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Сегодня мне вывели деньги, на самом деле быстро и без проблем
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment3.jpg", alt="commentators avatar")
+                p.comments__name Махтумкули Фраги
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  С
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | работаю более года. На мой взгляд, данная компания является сегодня одной из наиболее прогрессивных и быстроразвивающихся на рынке брокерских услуг. Особенно впечатляет высокий уровень работы с клиентами, достойный соответствующих оценок, бонусы и проведение разнообразных конкурсов.
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | - надежный брокер с качественным сервисом.
+                  |
+                  |
+                  span.company-brand
+                  |, так держать!
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment4.jpg", alt="commentators avatar")
+                p.comments__name Алексей Изотов
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Компания
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | — это та компания, в которой я не ошибся, придя на валютный рынок в качестве трейдера. Мне очень полезны вебинары, которые проводит компания. Очень доброжелателен персонал и служба технической поддержки
+                  |
+                  |
+                  span.company-brand
+                  |.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment5.jpg", alt="commentators avatar")
+                p.comments__name Гульсина Каримова
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  вывод как всегда на высоте. Сегодня сделан заказ сегодня и вывели. Супер
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment6.jpg", alt="commentators avatar")
+                p.comments__name Михаил Головко
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Вот уже год как я работаю с компанией
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | и могу сказать только самое хорошее об этом брокере, который внушает доверие. Больше всего мне нравится то, что, несмотря на свой плохой английский, мне легко разговаривать с сотрудниками отдела поддержки, которые очень уважительны в общении.
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | – открытая компания, которая предоставляет информацию о себе всем желающим – достаточно посетить официальный сайт. Также на сайте размещено много обучающих материалов, видеоуроки по работе с терминалом. Я человек азартный, потому мне очень нравятся конкурсы
+                  |
+                  |
+                  span.company-brand
+                  |, в которых можно выиграть денежные призы.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment7.jpg", alt="commentators avatar")
+                p.comments__name Кирилл Левочкин
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Считаю
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | - серьёзный брокер, а остальное зависит от тебя самого. Всё на высоком уровне...
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment8.jpg", alt="commentators avatar")
+                p.comments__name Марат Насиров
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Торгую в
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | уже полтора года. Брокер поразил скоростью исполнения ордеров, а именно отсутствием проскальзываний. Конечно, есть небольшие задержки, но только на очень бешеном рынке. Ввод и вывод средств производится быстро, все вопросы решаются также оперативно. Кроме того, хотелось бы отметить обучение в
+                  |
+                  |
+                  span.company-brand
+                  |. Я многому научился у наставника Витамира, который является партнёром компании. Его грамотные курсы помогли освоить секреты трейдинга, а компания
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | позволила успешно применить полученные знания на практике. Очень нравится участвовать в акциях, проводимых компанией. Радует, что они проходят безукоризненно и служат примером качественного и честного проведения конкурсов.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment9.jpg", alt="commentators avatar")
+                p.comments__name Михаил Солдатенков
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Компания
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | — это та компания, в которой я не ошибся, придя на валютный рынок в качестве трейдера. Мне очень полезны вебинары, которые проводит компания. Очень доброжелателен персонал и служба технической поддержки
+                  |
+                  |
+                  span.company-brand
+                  |.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment10.jpg", alt="commentators avatar")
+                p.comments__name Наталия Безкоровайная
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Вы прислушиваетесь к капризным клиентам - да вы на самом деле лучшие
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment11.jpg", alt="commentators avatar")
+                p.comments__name Елвис Мамардашвили
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Это скорее не отзыв, а душевное состояние, которым просто хочется поделится. За это время выведено около 100 000 рублей. Максимальное время вывода 4 минуты.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment12.jpg", alt="commentators avatar")
+                p.comments__name Виталий Черемис
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  На мой взгляд, брокер-компания и ее слаженная команда знают свое дело. Мне нравится обслуживание. Очень воспитанный и внимательный персонал, который готов прийти на помощь в любое время дня и ночи. По интернету или по телефону - вас всегда внимательно выслушают, все разъяснят на пальцах и со всем разберутся. А еще можно заказать бесплатный звонок на свой телефон, и в назначенное время оператор сам перезвонит, вникнет и поможет устранить любую трудность. Я считаю, что тут предлагают очень хорошие условия для торговли. Хорошее оформление сайта. Все легко и доступно.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment13.jpg", alt="commentators avatar")
+                p.comments__name Василий Зайченков
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Вот уже год, как я сотрудничаю с компанией
+                  |
+                  |
+                  span.company-brand
+                  |. Работаю на рынке Forex с 1995 года, и семнадцатилетний опыт работы позволяет мне с уверенностью говорить, что уровень и профессионализм компании в полной мере удовлетворяет современным требованиям валютного трейдера.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment14.jpg", alt="commentators avatar")
+                p.comments__name Алексей Бухарин
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Компания
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | приятно удивляет своими инновационными решениями. Теплота отношения к каждому трейдеру, способность быстро реагировать на возникающие вопросы, быстрое развитие дополнительных сервисов – безусловно, ставит компанию в разряд лидеров. Сегодня
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | во многих вопросах опережает другие брокерские компании на рынке трейдерских услуг. Кроме того, она ориентирована на рынок стран СНГ, что мне особенно приятно и позволяет назвать
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | редкой компанией. Возможно, высказанное мной мнение очень эмоционально, но это лишь подчеркивает способность компании не оставлять равнодушной.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment15.jpg", alt="commentators avatar")
+                p.comments__name Марат Исаенко
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Вот это подход настоящих профессионалов! Спасибо и удачи Вам!
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment16.jpg", alt="commentators avatar")
+                p.comments__name Мстислав Попов
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  С компанией
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | я познакомился в 2012 году, тогда же и прошел курс обучения. Кстати, менеджеры компании очень внимательно и серьезно относятся к циклу обучения, стараются все объяснить доступно и занимаются индивидуально с каждым человеком. В компании регулярно проходит много конкурсов, существуют льготы и бонусные программы. В компании
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | мне очень нравится.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment17.jpg", alt="commentators avatar")
+                p.comments__name Антон Иванов
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  вот что касается вывода, то красавцы. Деньги пришли на киви в течении 5 минут.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment18.jpg", alt="commentators avatar")
+                p.comments__name Тимур Асланбеков
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  В 2017 году я открыл счёт в компании
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | и доволен этим по сей день. Ценю своего брокера за разумные спреды, удобные торговые условия, быстрое исполнение сделок и мгновенный ответ на любой запрос. Считаю, что компания
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | на данный момент лучшая по всем параметрам. Этого брокера я готов порекомендовать и новичкам, которые делают свои первые шаги, и опытным трейдерам, которые смогут открыть для себя новые возможности с
+                  |
+                  |
+                  span.company-brand
+                  |.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment19.jpg", alt="commentators avatar")
+                p.comments__name Денис Гришин
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Мой выбор — компания
+                  |
+                  |
+                  span.company-brand
+                  |. Почему? Во-первых — фиксированные спреды. Во-вторых — быстрое исполнение ордеров. В-третьих — большое количество инструментов. В-четвертых — система поощрения трейдеров: бонусы, клубная карта, начисление годового процента. Ну и наконец — это лотереи, розыгрыши и промо-акции, в которых всегда хочется участвовать.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment20.jpg", alt="commentators avatar")
+                p.comments__name Светлана Преображенская
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Я начала торговать на Форекс еще будучи студентом, но не сразу открыла для себя
+                  |
+                  |
+                  span.company-brand
+                  |. Но благодаря этому, у меня была возможность сравнить и по достоинству оценить работу моего нынешнего брокера. Прежде всего, в
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | действительно представлен широчайший набор торговых инструментов, а также сервисов и услуг. Поэтому своим знакомым и друзьям я рекомендую только
+                  |
+                  |
+                  span.company-brand
+                  |!
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment21.jpg", alt="commentators avatar")
+                p.comments__name Максим Протченко
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  За полгода работы смогу сказать, что брокер меня ни разу не подводил. Хотелось бы в особенности отметить такое конкурентное преимущество компании, как бонусная программа. Я не знаю других брокеров, которые бы предлагали такие высокие бонусы. Также торговлю в
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | делает приятной ее отзывчивый персонал, сотрудники всегда терпеливо и доходчиво разъяснят все нюансы каждой услуги и дадут дельный совет. Мне нравится, что я могу видеть свою статистику по проделанной работе. Хочется сказать спасибо всем, кто движет вперед компанию и облегчает жизнь трейдерам.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment22.jpg", alt="commentators avatar")
+                p.comments__name Александр Завенягин
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Я хотел бы поделиться отзывом о компании
+                  |
+                  |
+                  span.company-brand
+                  |. За несколько лет торговли на валютном рынке я поменял около 10 различных дилинговых центров. Некоторые из них отличались выгодными условиями торговли, некоторые скоростью исполнения своих обязательств, но ни один из них не обладал всеми преимуществами для полноценной и уверенной торговли (полноценной в плане функциональности и возможности без проблем вывести прибыль). До тех пор, пока я не столкнулся с
+                  |
+                  |
+                  span.company-brand
+                  |. Я долгое время искал подводные камни, которые, как правило, таит в себе любой дилинговый центр. И к моему огромному удивлению, не нашел ни одного минуса. Торговые условия, оперативность службы технической поддержки, бонусы, привилегии, а главное - доверие огромного количества трейдеров на протяжении многих лет делает данного брокера №1. Я закончил свой поиск, и теперь я с
+                  |
+                  |
+                  span.company-brand
+                  |.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment23.jpg", alt="commentators avatar")
+                p.comments__name Сергей Горский
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Очень удобно торговать стало. Спасибо. Правда. На сегодняшний день вы ЛУЧШИЕ! Я всё таки к вам перешёл, хоть и с Европы. Как нибудь договоримся.....;):).
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment24.jpg", alt="commentators avatar")
+                p.comments__name Вадим Матросов
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  Не знаю как за 15 минут, но у меня все выводы, как и последний, который я сделал был сделан в течении 1-ой минуты.
+                  |
+                  span.comments__quotes ”
+              .comments__item
+                img.comments__img(src="assets/img/comment25.jpg", alt="commentators avatar")
+                p.comments__name Евгений Пушкарь
+                p.comments__comment
+                  |
+                  span.comments__quotes “
+                  |
+                  |  На мой взгляд, совершенно неудивительно, что
+                  |
+                  |
+                  span.company-brand
+                  |
+                  | занимает лидирующие позиции по ряду существенных характеристик. Ни у одного брокера я не видел настолько щедрых бонусов и розыгрышей. Я регулярно принимаю участие в конкурсах компании — это отличная возможность практиковаться, пробовать новые стратегии и инструменты без риска, да ещё и с вероятностью получить приличную сумму денег на счёт в случае победы. Я торгую с этим брокером вот уже 3 года, потому что это выгодно и надёжно.
+        // ↑↑↑ SECTION (comments) ↑↑↑
+
+        // ↓↓↓ SECTION (advertising) ↓↓↓
+        section.advertising-section
+          .advertising-section__inner
+            img.advertising-section__img.wow.fadeInLeft(data-wow-offset='400' src="assets/img/platform.png", alt="")
+            .advertising-section__text-block.wow.fadeInRight(data-wow-offset='200')
+              h2.advertising-section__header Инновационная платформа
+              .advertising-section__text Windows? Linux? MacOs? Android? Наша эргономичная платформа одинаково комфортна на любом устройстве, поскольку использует удобный для вас браузер.
+        // ↑↑↑ SECTION (advertising) ↑↑↑
+    // /MAIN PART
+
+    include ../modules/form-contact/form-contact_ru.pug
+
+    // FOOTER
+    include ../modules/footer/footer_ru.pug
+    // /FOOTER
+    script.
+      document.addEventListener("DOMContentLoaded", function(){new WOW().init();});

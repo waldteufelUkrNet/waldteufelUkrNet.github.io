@@ -1,0 +1,53 @@
+////////////////////////////////////////////////////////////////////////////////
+/* ↓↓↓ login form module ↓↓↓ */
+.form-login {
+  min-width            : 300px;
+  max-width            : 600px;
+  background-color     : rgba(94, 143, 166, 0.5);
+  padding              : 15px;
+  font                 : 14px infotext;
+  &__form-group {
+    margin-bottom      : 10px;
+    display            : flex;
+    flex-direction     : column;
+    position           : relative;
+    &_errors-list {
+      display          : none;
+      border           : 1px solid maroon;
+      background-color : maroon;
+      padding          : 0 6px;
+      color            : white;
+    }
+  }
+  &__label {
+    font-family        : mainsub;
+    color              : white;
+  }
+  &__input {
+    display            : block;
+    height             : 30px;
+    padding            : 0 6px;
+    border             : none;
+    background-color   : #fff;
+  }
+  &__form-error {
+    display            : none;
+  }
+  &__btn {
+    height             : 30px;
+    cursor             : pointer;
+    display            : flex;
+    justify-content    : center;
+    align-items        : center;
+    i {
+      margin-right     : 6px;
+      font-size        : 20px;
+      color            : #1c2e3d;
+    }
+  }
+  &__check-yes {
+    display            : none;
+  }
+}
+/* ↑↑↑ login form module ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////

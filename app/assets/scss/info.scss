@@ -1,0 +1,76 @@
+@import "fonts";
+@import "reset";
+@import "style_general";
+
+// @import "index/index_768+";
+// @media screen and (min-width: 768px) {}
+body {
+  position         : relative;
+}
+
+.main {
+  border-top       : 1px solid transparent;
+  margin-top       : 67px;
+  min-height       : calc(100vh - 67px);
+  padding-bottom   : calc( 441px + 15px );
+  background-color : rgba(94, 143, 166, 0.5);
+}
+
+.section {
+  min-height       : calc( 100vh - 67px );
+  &__inner {
+    max-width      : 1000px;
+    margin         : 0 auto;
+    font           : 16px infotext;
+    text-align     : justify;
+  }
+}
+
+.info-block {
+  max-width: 500px;
+  min-height: 105px;
+  background-color: rgba(0,0,0,.2);
+  border-radius: 6px;
+  margin: 100px auto;
+  color: #d4d5d8;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  &__logo {
+    width: 77px;
+    height: 77px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background-color: #0084d4;
+    margin-right: 10px;
+    flex-shrink: 1;
+    text-align: center;
+    padding-top: 17px;
+    svg {
+      height: 40px;
+      width:  auto;
+      fill: white;
+    }
+  }
+  &__info-wrapper {
+    flex-shrink: 10;
+  }
+  &__header {
+    font-weight: 900;
+    line-height: 1em;
+    margin: 0;
+    font-size: 1.3em;
+  }
+  &__text {
+    margin: 0;
+    padding: 3px 0 10px;
+  }
+  &__link {
+    font-size: 1.2em;
+    margin: 0;
+  }
+}
+
+//modules
+// @import "../modules/header/header.scss";

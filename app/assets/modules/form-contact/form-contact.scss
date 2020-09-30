@@ -1,0 +1,106 @@
+////////////////////////////////////////////////////////////////////////////////
+/* ↓↓↓ contact form module ↓↓↓ */
+.form-contact {
+  position             : fixed;
+  z-index              : 2;
+  left                 : 100%;
+  bottom               : 0;
+  width                : 300px;
+  background-color     : rgba(94, 143, 166, 1);
+  padding              : 15px;
+  font                 : 14px infotext;
+  transition           : left .3s;
+  &__tassel {
+    border             : 1px solid transparent;
+    background-color   : red;
+    color              : white;
+    position           : absolute;
+    bottom             : 0;
+    right              : 100%;
+    padding            : 0px;
+    display            : flex;
+    flex-direction     : column;
+    justify-content    : space-between;
+    align-items        : center;
+    height             : 180px;
+    width              : 40px;
+    border-radius      : 12px 0 0 0;
+    cursor             : pointer;
+    transition         : background-color 1s;
+    i {
+      font-size        : 35px;
+      &:last-of-type {
+        font-size        : 25px;
+        transition       : transform 1s;
+        border           : 1px dotted white;
+        border-radius    : 50%;
+        background-color : #fff;
+        color            : red;
+        margin           : 6px 0;
+      }
+    }
+    span {
+      font             : 20px maintext;
+      white-space      : nowrap;
+      transform        : rotate(-90deg);
+      height           : 30px;
+      width            : 100px;
+    }
+    &_open {
+      background-color : blue;
+      i:last-of-type {
+        transform      : rotateY(180deg);
+        color          : blue;
+      }
+    }
+  }
+  &__form-group {
+    margin-bottom      : 10px;
+    display            : flex;
+    flex-direction     : column;
+    position           : relative;
+    &_errors-list {
+      display          : none;
+      border           : 1px solid maroon;
+      background-color : maroon;
+      padding          : 0 6px;
+      color            : white;
+    }
+  }
+  &__label {
+    font-family        : mainsub;
+    color              : white;
+  }
+  &__input {
+    display            : block;
+    height             : 30px;
+    padding            : 0 6px;
+    border             : none;
+    background-color   : #fff;
+  }
+  &__textarea {
+    max-width          : calc( 300px - 30px );
+    min-width          : calc( 300px - 30px );
+    min-height         : 100px;
+    max-height         : 300px;
+    padding            : 6px;
+    font               : 14px maintext;
+  }
+  &__btn {
+    height             : 30px;
+    cursor             : pointer;
+    display            : flex;
+    justify-content    : center;
+    align-items        : center;
+    i {
+      margin-right     : 6px;
+      font-size        : 16px;
+      color            : #1c2e3d;
+    }
+  }
+  &__form-error {
+    display            : none;
+  }
+}
+/* ↑↑↑ contact form module ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////
