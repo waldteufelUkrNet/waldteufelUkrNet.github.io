@@ -33,6 +33,7 @@
     let bookList      = await requestTextData('assets/db/booklist.txt'),
         bookContainer = document.querySelector('.learning__body[data-learn-group="books"]');
     bookList = bookList.split('\r\n');
+    console.log("bookList", bookList);
 
     let text = 'загрузить';
     if ( document.querySelector('html').getAttribute('lang') == 'en' ) {
@@ -59,6 +60,7 @@
     bookContainer.insertAdjacentHTML('beforeEnd',downlodableBook);
 
     bookList.forEach( (item) => {
+      console.log("item", item);
       let temp = item.split(' - '),
           author = temp[0],
           name = temp[1];
