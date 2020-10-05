@@ -32,8 +32,12 @@
   (async()=>{
     let bookList      = await requestTextData('assets/db/booklist.txt'),
         bookContainer = document.querySelector('.learning__body[data-learn-group="books"]');
-    bookList = bookList.split('\r\n');
-    console.log("bookList", bookList);
+
+    if ( bookList.includes('\r\n') ) {
+      bookList = bookList.split('\r\n');
+    } else {
+      bookList = bookList.split('\n');
+    }
 
     let text = 'загрузить';
     if ( document.querySelector('html').getAttribute('lang') == 'en' ) {
@@ -60,7 +64,6 @@
     bookContainer.insertAdjacentHTML('beforeEnd',downlodableBook);
 
     bookList.forEach( (item) => {
-      console.log("item", item);
       let temp = item.split(' - '),
           author = temp[0],
           name = temp[1];
@@ -86,7 +89,12 @@
   (async () => {
     let videoList      = await requestTextData('assets/db/videolist.txt'),
         videoContainer = document.querySelector('.learning__body[data-learn-group="videos"]');
-    videoList = videoList.split('\r\n');
+
+    if ( videoList.includes('\r\n') ) {
+      videoList = videoList.split('\r\n');
+    } else {
+      videoList = videoList.split('\n');
+    }
 
     videoList.forEach( (item) => {
       let temp = item.split(' / '),
