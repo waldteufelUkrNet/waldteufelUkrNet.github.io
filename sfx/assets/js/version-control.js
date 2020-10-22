@@ -1,1 +1,0 @@
-"use strict";var v={animateCss:"3.5.2",perfectScrollbarCss:1,jqueryJs:"3.3.1",anychartCoreMinJs:"8.6.0.1927",anychartStockMinJs:"8.6.0.1927",anychartAnnotationsMinJs:"8.6.0.1927",perfectScrollbarJs:1,wCss:1,modulesCss:1,indexCss:1,safariFixCss:1,spectorFxCss:1,wJs:1,modulesJs:1,indexJs:1,anychartBinaryJs:1,safariFixJs:1,spectorFxJs:1};
