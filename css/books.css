@@ -187,7 +187,14 @@ html {
   font-size: 20px;
   text-align: justify;
 }
+html {
+  display: flex;
+  height: 100%;
+}
 
+body {
+  flex-grow: 1;
+}
 main {
   display: -webkit-box;
   display: -webkit-flex;
