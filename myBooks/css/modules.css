@@ -3,6 +3,7 @@
 /* ↓↓↓ book-panel module ↓↓↓ */
 
 .bbp {
+  border: 3px dotted red;
   width: 100%;
   height: 60px;
   padding: 5px 15px;
