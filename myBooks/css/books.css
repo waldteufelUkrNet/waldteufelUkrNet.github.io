@@ -178,7 +178,6 @@ table {
 }
 
 html {
-  border: 3px dotted red;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -188,7 +187,6 @@ html {
 }
 
 body {
-  border: 3px dotted blue;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
@@ -247,7 +245,10 @@ html #book {
 }
 
 .first-screen img {
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 70%;
+  height: auto;
   width: auto;
   margin: auto;
   padding: 20px;
