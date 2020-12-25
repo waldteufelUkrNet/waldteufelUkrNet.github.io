@@ -3,12 +3,12 @@
 
 /* ↓↓↓ VARIABLES DECLARATION ↓↓↓ */
 
-var keyForCompare = 'author';
-var sortedArr = books.sort(compare);
-var bookList = document.querySelector('.books-list');
-var ls = localStorage;
-var isSerchFieldOpen = false;
-var bookListType;
+var keyForCompare = 'author',
+    sortedArr = books.sort(compare),
+    bookList = document.querySelector('.books-list'),
+    ls = localStorage,
+    isSerchFieldOpen = false,
+    bookListType;
 /* ↑↑↑ /VARIABLES DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -175,7 +175,7 @@ function buildBooksList() {
 }
 
 function searchBook() {
-  //побудова списку потрібна, бо зміна в інпуті може бути відємна (напр: 'author' -> 'auth')
+  //побудова списку потрібна, бо зміна в інпуті може бути від'ємна (напр: 'author' -> 'auth')
   buildBooksList();
   var value = this.value.toLowerCase();
   var searchArr = document.querySelector('.books-list').children;

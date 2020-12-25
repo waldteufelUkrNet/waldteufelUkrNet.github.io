@@ -177,6 +177,26 @@ table {
   src: url("../fonts/TimesNewRomanItalic.ttf");
 }
 
+html {
+  border: 3px dotted red;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  border: 3px dotted blue;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -274,7 +294,6 @@ html #book {
 @media screen and (min-width: 768px) {
   .content {
     -webkit-column-count: 2;
-       -moz-column-count: 2;
             column-count: 2;
   }
 }

@@ -22,7 +22,7 @@ var books = [{
   id: '00003',
   author: 'Adolf Hitler',
   name: 'Mein Kampf',
-  genre: ''
+  genre: 'genre'
 }, {
   id: '00004',
   author: 'Сашко А.',
@@ -80,9 +80,9 @@ var books = [{
   genre: 'метод Франка: нім.мова'
 }, {
   id: '00015',
-  author: '',
+  author: 'author',
   name: 'Англійська фонетика',
-  genre: ''
+  genre: 'genre'
 }];
 /* ↑↑↑ /DATA BASE ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////

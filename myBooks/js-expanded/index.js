@@ -2,16 +2,16 @@
 // dbase.js
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ VARIABLES DECLARATION ↓↓↓ */
-  let keyForCompare    = 'author';
-  let sortedArr        = books.sort( compare );
-  let bookList         = document.querySelector('.books-list');
-  let ls               = localStorage;
-  let isSerchFieldOpen = false;
-  let bookListType;
+  let keyForCompare    = 'author',
+      sortedArr        = books.sort( compare ),
+      bookList         = document.querySelector('.books-list'),
+      ls               = localStorage,
+      isSerchFieldOpen = false,
+      bookListType;
 /* ↑↑↑ /VARIABLES DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ WORK WITH LOCALSTORAGE ↓↓↓ */
-  let myBooks          = JSON.parse( ls.getItem('myBooks') ) || {};
+  let myBooks = JSON.parse( ls.getItem('myBooks') ) || {};
 
   if ( !('generalSettings' in myBooks) ) {
     myBooks.generalSettings = {bookListType: 'big'}
@@ -176,7 +176,7 @@
   }
 
   function searchBook() {
-    //побудова списку потрібна, бо зміна в інпуті може бути відємна (напр: 'author' -> 'auth')
+    //побудова списку потрібна, бо зміна в інпуті може бути від'ємна (напр: 'author' -> 'auth')
     buildBooksList();
 
     let value     = this.value.toLowerCase();

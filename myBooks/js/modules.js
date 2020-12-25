@@ -3,12 +3,6 @@
 
 /* ↓↓↓ визначення ідентифікатору книги, робота з localStorage ↓↓↓ */
 
-function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var href = location.href;
@@ -439,201 +433,340 @@ function setFont() {
   var curName = document.querySelector('.bbp__oa-options-font-current-name') || lightningConductor;
   book.style.fontFamily = regFont;
   content.style.fontFamily = boldFont;
-
-  var _iterator = _createForOfIteratorHelper(boldLinks),
-      _step;
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
 
   try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+    for (var _iterator = boldLinks[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
       var link = _step.value;
       link.style.fontFamily = boldFont;
     }
   } catch (err) {
-    _iterator.e(err);
+    _didIteratorError = true;
+    _iteratorError = err;
   } finally {
-    _iterator.f();
+    try {
+      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+        _iterator["return"]();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
   }
 
-  var _iterator2 = _createForOfIteratorHelper(subLinks),
-      _step2;
+  var _iteratorNormalCompletion2 = true;
+  var _didIteratorError2 = false;
+  var _iteratorError2 = undefined;
 
   try {
-    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+    for (var _iterator2 = subLinks[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
       var _link = _step2.value;
       _link.style.fontFamily = regFont;
     }
   } catch (err) {
-    _iterator2.e(err);
+    _didIteratorError2 = true;
+    _iteratorError2 = err;
   } finally {
-    _iterator2.f();
+    try {
+      if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+        _iterator2["return"]();
+      }
+    } finally {
+      if (_didIteratorError2) {
+        throw _iteratorError2;
+      }
+    }
   }
 
-  var _iterator3 = _createForOfIteratorHelper(sub2Links),
-      _step3;
+  var _iteratorNormalCompletion3 = true;
+  var _didIteratorError3 = false;
+  var _iteratorError3 = undefined;
 
   try {
-    for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+    for (var _iterator3 = sub2Links[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
       var _link2 = _step3.value;
       _link2.style.fontFamily = regFont;
     }
   } catch (err) {
-    _iterator3.e(err);
+    _didIteratorError3 = true;
+    _iteratorError3 = err;
   } finally {
-    _iterator3.f();
+    try {
+      if (!_iteratorNormalCompletion3 && _iterator3["return"] != null) {
+        _iterator3["return"]();
+      }
+    } finally {
+      if (_didIteratorError3) {
+        throw _iteratorError3;
+      }
+    }
   }
 
-  var _iterator4 = _createForOfIteratorHelper(sub3Links),
-      _step4;
+  var _iteratorNormalCompletion4 = true;
+  var _didIteratorError4 = false;
+  var _iteratorError4 = undefined;
 
   try {
-    for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+    for (var _iterator4 = sub3Links[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
       var _link3 = _step4.value;
       _link3.style.fontFamily = regFont;
     }
   } catch (err) {
-    _iterator4.e(err);
+    _didIteratorError4 = true;
+    _iteratorError4 = err;
   } finally {
-    _iterator4.f();
+    try {
+      if (!_iteratorNormalCompletion4 && _iterator4["return"] != null) {
+        _iterator4["return"]();
+      }
+    } finally {
+      if (_didIteratorError4) {
+        throw _iteratorError4;
+      }
+    }
   }
 
-  var _iterator5 = _createForOfIteratorHelper(h1),
-      _step5;
+  var _iteratorNormalCompletion5 = true;
+  var _didIteratorError5 = false;
+  var _iteratorError5 = undefined;
 
   try {
-    for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+    for (var _iterator5 = h1[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
       var h = _step5.value;
       h.style.fontFamily = boldFont;
     }
   } catch (err) {
-    _iterator5.e(err);
+    _didIteratorError5 = true;
+    _iteratorError5 = err;
   } finally {
-    _iterator5.f();
+    try {
+      if (!_iteratorNormalCompletion5 && _iterator5["return"] != null) {
+        _iterator5["return"]();
+      }
+    } finally {
+      if (_didIteratorError5) {
+        throw _iteratorError5;
+      }
+    }
   }
 
-  var _iterator6 = _createForOfIteratorHelper(h2),
-      _step6;
+  var _iteratorNormalCompletion6 = true;
+  var _didIteratorError6 = false;
+  var _iteratorError6 = undefined;
 
   try {
-    for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+    for (var _iterator6 = h2[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
       var _h = _step6.value;
       _h.style.fontFamily = boldFont;
     }
   } catch (err) {
-    _iterator6.e(err);
+    _didIteratorError6 = true;
+    _iteratorError6 = err;
   } finally {
-    _iterator6.f();
+    try {
+      if (!_iteratorNormalCompletion6 && _iterator6["return"] != null) {
+        _iterator6["return"]();
+      }
+    } finally {
+      if (_didIteratorError6) {
+        throw _iteratorError6;
+      }
+    }
   }
 
-  var _iterator7 = _createForOfIteratorHelper(h3),
-      _step7;
+  var _iteratorNormalCompletion7 = true;
+  var _didIteratorError7 = false;
+  var _iteratorError7 = undefined;
 
   try {
-    for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+    for (var _iterator7 = h3[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
       var _h2 = _step7.value;
       _h2.style.fontFamily = boldFont;
     }
   } catch (err) {
-    _iterator7.e(err);
+    _didIteratorError7 = true;
+    _iteratorError7 = err;
   } finally {
-    _iterator7.f();
+    try {
+      if (!_iteratorNormalCompletion7 && _iterator7["return"] != null) {
+        _iterator7["return"]();
+      }
+    } finally {
+      if (_didIteratorError7) {
+        throw _iteratorError7;
+      }
+    }
   }
 
-  var _iterator8 = _createForOfIteratorHelper(h4),
-      _step8;
+  var _iteratorNormalCompletion8 = true;
+  var _didIteratorError8 = false;
+  var _iteratorError8 = undefined;
 
   try {
-    for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
+    for (var _iterator8 = h4[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
       var _h3 = _step8.value;
       _h3.style.fontFamily = boldFont;
     }
   } catch (err) {
-    _iterator8.e(err);
+    _didIteratorError8 = true;
+    _iteratorError8 = err;
   } finally {
-    _iterator8.f();
+    try {
+      if (!_iteratorNormalCompletion8 && _iterator8["return"] != null) {
+        _iterator8["return"]();
+      }
+    } finally {
+      if (_didIteratorError8) {
+        throw _iteratorError8;
+      }
+    }
   }
 
-  var _iterator9 = _createForOfIteratorHelper(h5),
-      _step9;
+  var _iteratorNormalCompletion9 = true;
+  var _didIteratorError9 = false;
+  var _iteratorError9 = undefined;
 
   try {
-    for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
+    for (var _iterator9 = h5[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
       var _h4 = _step9.value;
       _h4.style.fontFamily = boldFont;
     }
   } catch (err) {
-    _iterator9.e(err);
+    _didIteratorError9 = true;
+    _iteratorError9 = err;
   } finally {
-    _iterator9.f();
+    try {
+      if (!_iteratorNormalCompletion9 && _iterator9["return"] != null) {
+        _iterator9["return"]();
+      }
+    } finally {
+      if (_didIteratorError9) {
+        throw _iteratorError9;
+      }
+    }
   }
 
-  var _iterator10 = _createForOfIteratorHelper(h6),
-      _step10;
+  var _iteratorNormalCompletion10 = true;
+  var _didIteratorError10 = false;
+  var _iteratorError10 = undefined;
 
   try {
-    for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
+    for (var _iterator10 = h6[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
       var _h5 = _step10.value;
       _h5.style.fontFamily = boldFont;
     }
   } catch (err) {
-    _iterator10.e(err);
+    _didIteratorError10 = true;
+    _iteratorError10 = err;
   } finally {
-    _iterator10.f();
+    try {
+      if (!_iteratorNormalCompletion10 && _iterator10["return"] != null) {
+        _iterator10["return"]();
+      }
+    } finally {
+      if (_didIteratorError10) {
+        throw _iteratorError10;
+      }
+    }
   }
 
-  var _iterator11 = _createForOfIteratorHelper(b),
-      _step11;
+  var _iteratorNormalCompletion11 = true;
+  var _didIteratorError11 = false;
+  var _iteratorError11 = undefined;
 
   try {
-    for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
+    for (var _iterator11 = b[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
       var _i2 = _step11.value;
       _i2.style.fontFamily = boldFont;
     }
   } catch (err) {
-    _iterator11.e(err);
+    _didIteratorError11 = true;
+    _iteratorError11 = err;
   } finally {
-    _iterator11.f();
+    try {
+      if (!_iteratorNormalCompletion11 && _iterator11["return"] != null) {
+        _iterator11["return"]();
+      }
+    } finally {
+      if (_didIteratorError11) {
+        throw _iteratorError11;
+      }
+    }
   }
 
-  var _iterator12 = _createForOfIteratorHelper(i),
-      _step12;
+  var _iteratorNormalCompletion12 = true;
+  var _didIteratorError12 = false;
+  var _iteratorError12 = undefined;
 
   try {
-    for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
+    for (var _iterator12 = i[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
       var a = _step12.value;
       a.style.fontFamily = italFont;
     }
   } catch (err) {
-    _iterator12.e(err);
+    _didIteratorError12 = true;
+    _iteratorError12 = err;
   } finally {
-    _iterator12.f();
+    try {
+      if (!_iteratorNormalCompletion12 && _iterator12["return"] != null) {
+        _iterator12["return"]();
+      }
+    } finally {
+      if (_didIteratorError12) {
+        throw _iteratorError12;
+      }
+    }
   }
 
-  var _iterator13 = _createForOfIteratorHelper(i2),
-      _step13;
+  var _iteratorNormalCompletion13 = true;
+  var _didIteratorError13 = false;
+  var _iteratorError13 = undefined;
 
   try {
-    for (_iterator13.s(); !(_step13 = _iterator13.n()).done;) {
+    for (var _iterator13 = i2[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
       var _a = _step13.value;
       _a.style.fontFamily = italFont;
     }
   } catch (err) {
-    _iterator13.e(err);
+    _didIteratorError13 = true;
+    _iteratorError13 = err;
   } finally {
-    _iterator13.f();
+    try {
+      if (!_iteratorNormalCompletion13 && _iterator13["return"] != null) {
+        _iterator13["return"]();
+      }
+    } finally {
+      if (_didIteratorError13) {
+        throw _iteratorError13;
+      }
+    }
   }
 
-  var _iterator14 = _createForOfIteratorHelper(btext),
-      _step14;
+  var _iteratorNormalCompletion14 = true;
+  var _didIteratorError14 = false;
+  var _iteratorError14 = undefined;
 
   try {
-    for (_iterator14.s(); !(_step14 = _iterator14.n()).done;) {
+    for (var _iterator14 = btext[Symbol.iterator](), _step14; !(_iteratorNormalCompletion14 = (_step14 = _iterator14.next()).done); _iteratorNormalCompletion14 = true) {
       var _a2 = _step14.value;
       _a2.style.fontFamily = regFont;
     }
   } catch (err) {
-    _iterator14.e(err);
+    _didIteratorError14 = true;
+    _iteratorError14 = err;
   } finally {
-    _iterator14.f();
+    try {
+      if (!_iteratorNormalCompletion14 && _iterator14["return"] != null) {
+        _iterator14["return"]();
+      }
+    } finally {
+      if (_didIteratorError14) {
+        throw _iteratorError14;
+      }
+    }
   }
 
   display.style.fontFamily = regFont;
