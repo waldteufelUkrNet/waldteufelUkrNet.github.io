@@ -388,6 +388,11 @@
         regFont = 'tnrr';
         italFont = 'tnri';
         break
+      case 'bulgaria':
+        boldFont = 'bmp';
+        regFont = 'bmp';
+        italFont = 'bmp';
+        break
     }
 
     let lightningConductor = document.getElementById('lightning-conductor');

@@ -148,6 +148,11 @@ table {
 }
 
 @font-face {
+  font-family: bmp;
+  src: url("../fonts/Bulgaria_Moderna_Pro.otf");
+}
+
+@font-face {
   font-family: segb;
   src: url("../fonts/SegoeUIBold.ttf");
 }

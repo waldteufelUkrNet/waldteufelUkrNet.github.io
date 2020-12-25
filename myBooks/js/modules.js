@@ -410,6 +410,12 @@ function setFont() {
       regFont = 'tnrr';
       italFont = 'tnri';
       break;
+
+    case 'bulgaria':
+      boldFont = 'bmp';
+      regFont = 'bmp';
+      italFont = 'bmp';
+      break;
   }
 
   var lightningConductor = document.getElementById('lightning-conductor');
