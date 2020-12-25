@@ -15,11 +15,10 @@ html {
 main {
   display         : flex;
   flex-direction  : column;
-  border          : 3px dotted blue;
   height          : 100%;
 }
 
-html #book { border: 3px dotted red;
+html #book {
   flex-grow       : 1;
   // height          : calc(100vh - 60px - 66px);
   height          : 100%;

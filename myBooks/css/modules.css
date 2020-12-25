@@ -3,7 +3,6 @@
 /* ↓↓↓ book-panel module ↓↓↓ */
 
 .bbp {
-  border: 3px dotted red;
   width: 100%;
   height: 60px;
   padding: 5px 15px;
@@ -512,7 +511,7 @@
 .top-book-panel {
   background-color: black;
   padding: 6px 10px 0;
-  height: 66px;
+  min-height: 66px;
   overflow: hidden;
 }
 

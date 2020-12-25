@@ -216,12 +216,10 @@ main {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 3px dotted blue;
   height: 100%;
 }
 
 html #book {
-  border: 3px dotted red;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
