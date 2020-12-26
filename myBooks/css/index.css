@@ -256,7 +256,6 @@ h1 {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  margin-bottom: 5px;
 }
 
 .books-panel__search-field {
@@ -297,6 +296,108 @@ h1 {
 
 .books-panel__btn_active svg {
   fill: black;
+}
+
+.books-sort {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
+}
+
+.books-sort span {
+  margin-right: 6px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.select {
+  width: 111px;
+  height: 26px;
+  border: 1px solid lightgrey;
+  font: 1em gost;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.select__field-wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+.select__field {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding-left: 6px;
+}
+
+.select__btn {
+  height: 24px;
+  width: 24px;
+  background-color: lightgrey;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.select__btn:after {
+  content: '';
+  display: block;
+  margin: auto;
+  border-top: 7px solid black;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 0px solid transparent;
+}
+
+.select__list {
+  border: 1px solid lightgrey;
+  border-top: 0px solid transparent;
+  background-color: #fff;
+  width: calc(100% + 2px);
+  -webkit-transform: translate(-1px);
+      -ms-transform: translate(-1px);
+          transform: translate(-1px);
+  height: 0px;
+  overflow: hidden;
+  -webkit-transition: height .3s;
+  -o-transition: height .3s;
+  transition: height .3s;
+}
+
+.select__list-item {
+  padding-left: 6px;
+  -webkit-transition: background-color .3s;
+  -o-transition: background-color .3s;
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+.select__list-item:hover {
+  background-color: lightgrey;
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
 }
 
 #booksAmount {

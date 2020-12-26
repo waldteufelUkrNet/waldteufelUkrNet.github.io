@@ -213,6 +213,7 @@
     let topCoord    = markeredTag.getBoundingClientRect().top;
     let bookHeight  = document.getElementById('book').offsetHeight;
     markeredTag.insertAdjacentHTML('beforeBegin', bookmarkInText);
+    goToBookmark();
   }
 
   /**
@@ -395,25 +396,27 @@
         break
     }
 
-    let lightningConductor = document.getElementById('lightning-conductor');
-    let book               = document.getElementById('book')                              || lightningConductor;
-    let content            = document.querySelector('.content-section__name')             || lightningConductor;
-    let boldLinks          = document.getElementsByClassName('content__main-link')        || lightningConductor;
-    let subLinks           = document.getElementsByClassName('content__sub-link')         || lightningConductor;
-    let sub2Links          = document.getElementsByClassName('content__sub2-link')        || lightningConductor;
-    let sub3Links          = document.getElementsByClassName('content__sub3-link')        || lightningConductor;
-    let h1                 = document.getElementsByTagName('h1')                          || lightningConductor;
-    let h2                 = document.getElementsByTagName('h2')                          || lightningConductor;
-    let h3                 = document.getElementsByTagName('h3')                          || lightningConductor;
-    let h4                 = document.getElementsByTagName('h4')                          || lightningConductor;
-    let h5                 = document.getElementsByTagName('h5')                          || lightningConductor;
-    let h6                 = document.getElementsByTagName('h6')                          || lightningConductor;
-    let b                  = document.getElementsByTagName('b')                           || lightningConductor;
-    let i                  = document.getElementsByTagName('i')                           || lightningConductor;
-    let i2                 = document.getElementsByClassName('f-coni')                    || lightningConductor;
-    let btext              = document.getElementsByClassName('btext')                     || lightningConductor;
-    let display            = document.querySelector('.bbp__oa-block_display')             || lightningConductor;
-    let curName            = document.querySelector('.bbp__oa-options-font-current-name') || lightningConductor;
+    let lightningConductor = document.getElementById('lightning-conductor'),
+        book               = document.getElementById('book')                              || lightningConductor,
+        content            = document.querySelector('.content-section__name')             || lightningConductor,
+        boldLinks          = document.getElementsByClassName('content__main-link')        || lightningConductor,
+        subLinks           = document.getElementsByClassName('content__sub-link')         || lightningConductor,
+        sub2Links          = document.getElementsByClassName('content__sub2-link')        || lightningConductor,
+        sub3Links          = document.getElementsByClassName('content__sub3-link')        || lightningConductor,
+        h1                 = document.getElementsByTagName('h1')                          || lightningConductor,
+        h2                 = document.getElementsByTagName('h2')                          || lightningConductor,
+        h3                 = document.getElementsByTagName('h3')                          || lightningConductor,
+        h4                 = document.getElementsByTagName('h4')                          || lightningConductor,
+        h5                 = document.getElementsByTagName('h5')                          || lightningConductor,
+        h6                 = document.getElementsByTagName('h6')                          || lightningConductor,
+        b                  = document.getElementsByTagName('b')                           || lightningConductor,
+        i                  = document.getElementsByTagName('i')                           || lightningConductor,
+        i2                 = document.getElementsByClassName('f-coni')                    || lightningConductor,
+        btext              = document.getElementsByClassName('btext')                     || lightningConductor,
+        display            = document.querySelector('.bbp__oa-block_display')             || lightningConductor,
+        curName            = document.querySelector('.bbp__oa-options-font-current-name') || lightningConductor,
+        bookName           = document.getElementsByClassName('name-section__book')[0]     || lightningConductor,
+        authorName         = document.getElementsByClassName('name-section__author')[0]   || lightningConductor;
 
     book.style.fontFamily = regFont;
     content.style.fontFamily = boldFont;
@@ -433,6 +436,8 @@
     for (let a of btext) a.style.fontFamily = regFont;
     display.style.fontFamily = regFont;
     curName.style.fontFamily = regFont;
+    bookName.style.fontFamily = regFont;
+    authorName.style.fontFamily = regFont;
   }
 
   /**

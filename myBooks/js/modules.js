@@ -224,6 +224,7 @@ function showBookmarksBtns() {
   var topCoord = markeredTag.getBoundingClientRect().top;
   var bookHeight = document.getElementById('book').offsetHeight;
   markeredTag.insertAdjacentHTML('beforeBegin', bookmarkInText);
+  goToBookmark();
 }
 /**
  * [removeBookmarksBtns прибирання закладки]
@@ -418,25 +419,27 @@ function setFont() {
       break;
   }
 
-  var lightningConductor = document.getElementById('lightning-conductor');
-  var book = document.getElementById('book') || lightningConductor;
-  var content = document.querySelector('.content-section__name') || lightningConductor;
-  var boldLinks = document.getElementsByClassName('content__main-link') || lightningConductor;
-  var subLinks = document.getElementsByClassName('content__sub-link') || lightningConductor;
-  var sub2Links = document.getElementsByClassName('content__sub2-link') || lightningConductor;
-  var sub3Links = document.getElementsByClassName('content__sub3-link') || lightningConductor;
-  var h1 = document.getElementsByTagName('h1') || lightningConductor;
-  var h2 = document.getElementsByTagName('h2') || lightningConductor;
-  var h3 = document.getElementsByTagName('h3') || lightningConductor;
-  var h4 = document.getElementsByTagName('h4') || lightningConductor;
-  var h5 = document.getElementsByTagName('h5') || lightningConductor;
-  var h6 = document.getElementsByTagName('h6') || lightningConductor;
-  var b = document.getElementsByTagName('b') || lightningConductor;
-  var i = document.getElementsByTagName('i') || lightningConductor;
-  var i2 = document.getElementsByClassName('f-coni') || lightningConductor;
-  var btext = document.getElementsByClassName('btext') || lightningConductor;
-  var display = document.querySelector('.bbp__oa-block_display') || lightningConductor;
-  var curName = document.querySelector('.bbp__oa-options-font-current-name') || lightningConductor;
+  var lightningConductor = document.getElementById('lightning-conductor'),
+      book = document.getElementById('book') || lightningConductor,
+      content = document.querySelector('.content-section__name') || lightningConductor,
+      boldLinks = document.getElementsByClassName('content__main-link') || lightningConductor,
+      subLinks = document.getElementsByClassName('content__sub-link') || lightningConductor,
+      sub2Links = document.getElementsByClassName('content__sub2-link') || lightningConductor,
+      sub3Links = document.getElementsByClassName('content__sub3-link') || lightningConductor,
+      h1 = document.getElementsByTagName('h1') || lightningConductor,
+      h2 = document.getElementsByTagName('h2') || lightningConductor,
+      h3 = document.getElementsByTagName('h3') || lightningConductor,
+      h4 = document.getElementsByTagName('h4') || lightningConductor,
+      h5 = document.getElementsByTagName('h5') || lightningConductor,
+      h6 = document.getElementsByTagName('h6') || lightningConductor,
+      b = document.getElementsByTagName('b') || lightningConductor,
+      i = document.getElementsByTagName('i') || lightningConductor,
+      i2 = document.getElementsByClassName('f-coni') || lightningConductor,
+      btext = document.getElementsByClassName('btext') || lightningConductor,
+      display = document.querySelector('.bbp__oa-block_display') || lightningConductor,
+      curName = document.querySelector('.bbp__oa-options-font-current-name') || lightningConductor,
+      bookName = document.getElementsByClassName('name-section__book')[0] || lightningConductor,
+      authorName = document.getElementsByClassName('name-section__author')[0] || lightningConductor;
   book.style.fontFamily = regFont;
   content.style.fontFamily = boldFont;
   var _iteratorNormalCompletion = true;
@@ -777,6 +780,8 @@ function setFont() {
 
   display.style.fontFamily = regFont;
   curName.style.fontFamily = regFont;
+  bookName.style.fontFamily = regFont;
+  authorName.style.fontFamily = regFont;
 }
 /**
  * [prepareSelection визначення меж виділення, запис цих меж у ls, виклик функції підсвітки]
@@ -1044,5 +1049,27 @@ function pagination() {
   var currentLineWidth = maxLineWidth * pageNumber / pagesAmount;
   document.querySelector('.top-book-panel__read-line').style.width = currentLineWidth + 'px';
 }
+/* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////
+"use strict"; // loader module
+////////////////////////////////////////////////////////////////////////////////
+
+/* ↓↓↓ LOADER ↓↓↓ */
+
+var loader = document.querySelector('.loader');
+var bookInner = document.querySelector('#book');
+bookInner.style.overflow = 'hidden';
+
+window.onload = function () {
+  setTimeout(function () {
+    loader.classList.remove('loader_active');
+    bookInner.style.overflow = '';
+  }, 1000);
+};
+/* ↑↑↑ /LOADER ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////
+
+/* ↓↓↓ FUNCTIONS DECLARATION ↓↓↓ */
+
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////

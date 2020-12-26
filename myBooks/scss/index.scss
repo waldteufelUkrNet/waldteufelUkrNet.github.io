@@ -3,142 +3,206 @@
 @import "mobilefix";
 
 * {
-  box-sizing      : border-box;
+  box-sizing           : border-box;
 }
 
 html {
-  font-family     : gost;
-  font-size       : 20px;
-  text-align      : justify;
+  font-family          : gost;
+  font-size            : 20px;
+  text-align           : justify;
 }
 
 .main {
-  height          : 100%;
-  max-width       : 1200px;
-  margin          : 0 auto;
-  padding         : 15px;
-  position        : relative;
-  display         : flex;
-  flex-direction  : column;
+  height               : 100%;
+  max-width            : 1200px;
+  margin               : 0 auto;
+  padding              : 15px;
+  position             : relative;
+  display              : flex;
+  flex-direction       : column;
 }
 
 .header-wrapper {
-  position        : relative;
+  position             : relative;
 }
 
 h1 {
-  font-family     : bold;
-  font-weight     :900;
-  font-size       : 20px;
-  text-align      : center;
-  padding         : 5px;
-  letter-spacing  : 1px;
+  font-family          : bold;
+  font-weight          :900;
+  font-size            : 20px;
+  text-align           : center;
+  padding              : 5px;
+  letter-spacing       : 1px;
 }
 
 .books-panel {
-  height: 40px;
-  width: auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-bottom: 5px;
+  height               : 40px;
+  width                : auto;
+  display              : flex;
+  align-items          : center;
+  justify-content      : flex-end;
   &__search-field {
-    height: 35px;
-    width: 0px;
-    max-width: 300px;
-    display: block;
-    font: 20px gost;
-    padding: 0;
-    border: 1px solid transparent;
+    height             : 35px;
+    width              : 0px;
+    max-width          : 300px;
+    display            : block;
+    font               : 20px gost;
+    padding            : 0;
+    border             : 1px solid transparent;
   }
   &__btn {
-    width: 35px;
-    height: 35px;
-    margin-left: 3px;
-    padding: 0;
-    display: flex;
-    border: 1px solid transparent;
-    background-color: lightgrey;
-    cursor: pointer;
+    width              : 35px;
+    height             : 35px;
+    margin-left        : 3px;
+    padding            : 0;
+    display            : flex;
+    border             : 1px solid transparent;
+    background-color   : lightgrey;
+    cursor             : pointer;
     svg {
-      margin: auto;
-      height: 30px;
-      width : 30px;
-      padding: 0;
-      fill: grey;
+      margin           : auto;
+      height           : 30px;
+      width            : 30px;
+      padding          : 0;
+      fill             : grey;
     }
     &_active {
-      border: 1px solid grey;
+      border           : 1px solid grey;
       svg {
-        fill: black;
+        fill           : black;
       }
     }
   }
 }
 
+.books-sort {
+  display              : flex;
+  justify-content      : flex-end;
+  align-items          : center;
+  margin-bottom        : 5px;
+  span {
+    margin-right       : 6px;
+    user-select        : none;
+  }
+}
+
+.select {
+  width                : 111px;
+  height               : 26px;
+  border               : 1px solid lightgrey;
+  font                 : 1em gost;
+  user-select          : none;
+  &__field-wrapper {
+    height             : 100%;
+    display            : flex;
+    cursor             : pointer;
+  }
+  &__field {
+    flex-grow          : 1;
+    padding-left       : 6px;
+  }
+  &__btn {
+    height             : 24px;
+    width              : 24px;
+    background-color   : lightgrey;
+    display            : flex;
+    &:after {
+      content          : '';
+      display          : block;
+      margin           : auto;
+      border           : {
+        top            : 7px solid black;
+        left           : 5px solid transparent;
+        right          : 5px solid transparent;
+        bottom         : 0px solid transparent;
+      }
+    }
+  }
+  &__list {
+    border             : 1px solid lightgrey;
+    border-top         : 0px solid transparent;
+    background-color   : #fff;
+    width              : calc(100% + 2px);
+    transform          : translate(-1px);
+    height             : 0px;
+    overflow           : hidden;
+    transition         : height .3s;
+  }
+  &__list-item {
+    padding-left       : 6px;
+    transition         : background-color .3s;
+    cursor             : pointer;
+    &:hover {
+      background-color : lightgrey;
+      transition       : background-color.3s;
+    }
+  }
+}
+
 #booksAmount {
-  position: absolute;
-  right: 0;
-  padding: 0;
-  font: 16px bold;
+  position             : absolute;
+  right                : 0;
+  padding              : 0;
+  font                 : 16px bold;
 }
 
 .books-list {
-  border: 1px solid lightgrey;
-  flex-grow: 1;
-  overflow-y: auto;
-  padding: 6px;
+  border               : 1px solid lightgrey;
+  flex-grow            : 1;
+  overflow-y           : auto;
+  padding              : 6px;
 }
 
 .book {
-  border          : 1px solid lightgrey;
-  display         : flex;
-  align-items     : center;
-  margin-bottom   : 10px;
-  text-decoration : none;
-  position        : relative;
+  border               : 1px solid lightgrey;
+  display              : flex;
+  align-items          : center;
+  margin-bottom        : 10px;
+  text-decoration      : none;
+  position             : relative;
   &:last-of-type {
-    margin-bottom   : 6px;
+    margin-bottom      : 6px;
   }
   &__img-wrapper {
-    height        : 70px;
-    width         : 70px;
-    border        : 1px solid maroon;
-    display       : flex;
-    padding       : 5px;
-    margin        : 5px 15px 5px 5px;
+    height             : 70px;
+    width              : 70px;
+    border             : 1px solid maroon;
+    display            : flex;
+    padding            : 5px;
+    margin             : 5px 15px 5px 5px;
   }
   &__img {
-    max-height    : 100%;
-    max-width     : 100%;
-    margin        : auto;
+    max-height         : 100%;
+    max-width          : 100%;
+    margin             : auto;
   }
   &__name-wrapper {
-    flex-shrink   : 1000;
-    padding       : 5px;
+    flex-shrink        : 1000;
+    padding            : 5px;
   }
   &__author {
-    text-align    : left;
-    font-weight   : 900;
+    text-align         : left;
+    font-weight        : 900;
   }
   &__name {
-    text-align    : left;
-    border-bottom: 1px solid black;
-    padding-bottom: 6px;
-    margin-bottom: 2px;
+    text-align         : left;
+    border-bottom      : 1px solid black;
+    padding-bottom     : 6px;
+    margin-bottom      : 2px;
   }
   &__genre {
-    font: 16px semibold_small;
+    font               : 16px semibold_small;
   }
   &__id {
-    position: absolute;
-    right:3px; top:3px;
-    font-size: 12px;
-    font-family: monotype;
+    position           : absolute;
+    right              :3px;
+    top                : 3px;
+    font-size          : 12px;
+    font-family        : monotype;
   }
 }
 
 // ?
 .markered-text {
-  background-color: yellow;
+  background-color     : yellow;
 }

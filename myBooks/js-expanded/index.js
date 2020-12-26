@@ -59,10 +59,23 @@
 
   // пошук книги
   document.querySelector('.books-panel__search-field').oninput = searchBook;
+
+  // перемикання списку сортування
+  document.querySelector('.select__field-wrapper').onclick = toggleList;
+
+  // закриття списку, якщо клік повз елемент списку і список відкритий
+  document.addEventListener('click', function () {
+    if ( event.target.closest('.select') ) return;
+    if ( document.querySelector('.select__list').dataset.isopen == 'false' ) return;
+    toggleList();
+  });
+
+  // кліки на псевдоопціях списку
+  let listItems = document.querySelectorAll('.select__list-item');
+  addEventListenerToObject('click', listItems, selectListItem);
 /* ↑↑↑ /ASSIGNMENT OF HANDLERS ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ FUNCTIONS DECLARATION ↓↓↓ */
-
   function toggleSearchField () {
     if (isSerchFieldOpen) {
       closeSearchField();
@@ -197,6 +210,37 @@
         if ( !bookName.includes(value) && !author.includes(value) ) item.remove();
       });
     }
+  }
+
+  function toggleList() {
+    let list       = document.querySelector('.select__list'),
+        listStatus = list.dataset.isopen,
+        listHeight;
+
+    if (listStatus == 'false') {
+      list.style.height = 'auto';
+      listHeight = list.clientHeight + 'px';
+      list.style.height = '0px';
+      list.style.borderTop = '1px solid lightgrey';
+
+      setTimeout( () => {
+        list.style.height = listHeight;
+      },10 );
+
+      list.setAttribute('data-isopen', true);
+    } else {
+      list.style.height = '0px';
+      list.style.borderTop = '0px solid lightgrey';
+      list.setAttribute('data-isopen', false);
+    }
+  }
+
+  function selectListItem(event) {
+    let sortName = event.target.innerHTML,
+        sortType = event.target.dataset.value;
+
+    document.querySelector('.select__field').innerHTML = sortName;
+    toggleList();
   }
 
   /**
