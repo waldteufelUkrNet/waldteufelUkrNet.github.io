@@ -332,6 +332,7 @@ function resizeFont() {
   document.querySelector('.fontSizeIndicator').innerHTML = newFontSize + 'px';
   myBooks.generalSettings.booksFontSettings.fontSize = newFontSize + 'px';
   ls.setItem('myBooks', JSON.stringify(myBooks));
+  pagination();
 }
 
 function setFontColor() {
@@ -782,6 +783,7 @@ function setFont() {
   curName.style.fontFamily = regFont;
   bookName.style.fontFamily = regFont;
   authorName.style.fontFamily = regFont;
+  pagination();
 }
 /**
  * [prepareSelection визначення меж виділення, запис цих меж у ls, виклик функції підсвітки]
@@ -967,6 +969,27 @@ function markText(mark) {
 // /* ↑↑↑ /??? ↑↑↑ */
 // ////////////////////////////////////////////////////////////////////////////////
 "use strict";
+"use strict"; // loader module
+////////////////////////////////////////////////////////////////////////////////
+
+/* ↓↓↓ LOADER ↓↓↓ */
+
+var loader = document.querySelector('.loader');
+var bookInner = document.querySelector('#book');
+bookInner.style.overflow = 'hidden';
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    loader.classList.remove('loader_active');
+    bookInner.style.overflow = '';
+  }, 1000);
+});
+/* ↑↑↑ /LOADER ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////
+
+/* ↓↓↓ FUNCTIONS DECLARATION ↓↓↓ */
+
+/* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////
 "use strict"; // top-book-panel module
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -985,8 +1008,8 @@ document.querySelector('.top-book-panel__btn').addEventListener('click', functio
   }
 
   isFSOn = !isFSOn;
-  pagination();
 });
+document.onfullscreenchange = pagination;
 /* ↑↑↑ /FULL SCREEN MODE ON/OFF ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -1017,9 +1040,11 @@ document.querySelector('.name-section__book').innerHTML = bookName;
 /* ↓↓↓ PAGINATION ↓↓↓ */
 // затримка - для коректних розрахунків після повного рендерингу
 
-setTimeout(function () {
-  pagination();
-}, 1000);
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    pagination();
+  }, 1000);
+});
 document.getElementById('book').onscroll = pagination;
 /* ↑↑↑ /PAGINATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
@@ -1027,10 +1052,10 @@ document.getElementById('book').onscroll = pagination;
 /* ↓↓↓ FUNCTIONS DECLARATION ↓↓↓ */
 
 function pagination() {
-  var book = document.getElementById('book');
-  var visibleBookHeight = book.offsetHeight;
-  var fullBookHeight = book.scrollHeight;
-  var bookScrollTop = book.scrollTop;
+  var book = document.getElementById('book'),
+      visibleBookHeight = book.offsetHeight,
+      fullBookHeight = book.scrollHeight,
+      bookScrollTop = book.scrollTop;
   var pageNumber = Math.ceil(bookScrollTop / visibleBookHeight);
   if (pageNumber == 0) pageNumber = 1;
   var pagesAmount = Math.floor(fullBookHeight / visibleBookHeight); // вписування значень сторінок
@@ -1049,27 +1074,5 @@ function pagination() {
   var currentLineWidth = maxLineWidth * pageNumber / pagesAmount;
   document.querySelector('.top-book-panel__read-line').style.width = currentLineWidth + 'px';
 }
-/* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
-////////////////////////////////////////////////////////////////////////////////
-"use strict"; // loader module
-////////////////////////////////////////////////////////////////////////////////
-
-/* ↓↓↓ LOADER ↓↓↓ */
-
-var loader = document.querySelector('.loader');
-var bookInner = document.querySelector('#book');
-bookInner.style.overflow = 'hidden';
-
-window.onload = function () {
-  setTimeout(function () {
-    loader.classList.remove('loader_active');
-    bookInner.style.overflow = '';
-  }, 1000);
-};
-/* ↑↑↑ /LOADER ↑↑↑ */
-////////////////////////////////////////////////////////////////////////////////
-
-/* ↓↓↓ FUNCTIONS DECLARATION ↓↓↓ */
-
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////

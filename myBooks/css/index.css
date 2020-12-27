@@ -331,6 +331,8 @@ h1 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  position: relative;
+  z-index: 1;
 }
 
 .select__field-wrapper {

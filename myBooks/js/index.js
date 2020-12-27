@@ -4,7 +4,6 @@
 /* ↓↓↓ VARIABLES DECLARATION ↓↓↓ */
 
 var keyForCompare = 'author',
-    sortedArr = books.sort(compare),
     bookList = document.querySelector('.books-list'),
     ls = localStorage,
     isSerchFieldOpen = false,
@@ -35,7 +34,7 @@ bookListType = myBooks.generalSettings.bookListType;
 
 buildBooksList(); // відображення кількості книжок в базі
 
-document.getElementById('booksAmount').innerHTML = sortedArr.length + ' кн.';
+document.getElementById('booksAmount').innerHTML = books.sort(compare).length + ' кн.';
 /* ↑↑↑ /MAIN LOGIC ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -93,8 +92,8 @@ function toggleSearchField() {
 }
 
 function openSearchField() {
-  var button = document.querySelector('.books-panel__search-btn');
-  var searchField = document.querySelector('.books-panel__search-field'); // знімаємо обробник з кнопки для нормальної анімації поля
+  var button = document.querySelector('.books-panel__search-btn'),
+      searchField = document.querySelector('.books-panel__search-field'); // знімаємо обробник з кнопки для нормальної анімації поля
 
   document.querySelector('.books-panel__search-btn').onclick = '';
   searchField.style.width = '100%';
@@ -116,8 +115,8 @@ function openSearchField() {
 }
 
 function closeSearchField() {
-  var button = document.querySelector('.books-panel__search-btn');
-  var searchField = document.querySelector('.books-panel__search-field');
+  var button = document.querySelector('.books-panel__search-btn'),
+      searchField = document.querySelector('.books-panel__search-field');
   buildBooksList(); // знімаємо обробник з кнопки для нормальної анімації поля
 
   button.onclick = '';
@@ -147,6 +146,7 @@ function buildBooksList() {
 
 
   bookList.innerHTML = '';
+  var sortedArr = books.sort(compare);
 
   if (bookListType == 'big') {
     sortedArr.forEach(function (item) {
@@ -232,6 +232,9 @@ function selectListItem(event) {
       sortType = event.target.dataset.value;
   document.querySelector('.select__field').innerHTML = sortName;
   toggleList();
+  keyForCompare = sortType;
+  console.log("keyForCompare", keyForCompare);
+  buildBooksList();
 }
 /**
  * здійснює лексикографічне сортування масиву об'єктів phoneBook за ключем,
@@ -243,15 +246,7 @@ function selectListItem(event) {
 
 
 function compare(a, b) {
-  if (a[keyForCompare].toLowerCase() < b[keyForCompare].toLowerCase()) {
-    return -1;
-  }
-
-  if (a[keyForCompare].toLowerCase() > b[keyForCompare].toLowerCase()) {
-    return 1;
-  }
-
-  return 0;
+  return a[keyForCompare].localeCompare(b[keyForCompare]);
 }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////

@@ -7,12 +7,12 @@
 
   bookInner.style.overflow = 'hidden';
 
-  window.onload = () => {
+  window.addEventListener('load', function(){
     setTimeout(function(){
       loader.classList.remove('loader_active');
       bookInner.style.overflow = '';
     },1000);
-  };
+  });
 /* ↑↑↑ /LOADER ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ FUNCTIONS DECLARATION ↓↓↓ */

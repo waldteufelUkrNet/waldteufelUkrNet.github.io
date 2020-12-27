@@ -17,8 +17,9 @@
       document.documentElement.requestFullscreen();
     }
     isFSOn = !isFSOn;
-    pagination();
   });
+
+  document.onfullscreenchange = pagination;
 /* ↑↑↑ /FULL SCREEN MODE ON/OFF ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ SET NAMES AND META-TAGS ↓↓↓ */
@@ -49,20 +50,21 @@
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ PAGINATION ↓↓↓ */
   // затримка - для коректних розрахунків після повного рендерингу
-  setTimeout(function(){
-    pagination();
-  },1000);
+  window.addEventListener('load', function() {
+    setTimeout(function(){
+      pagination()
+    },1000);
+  });
 
   document.getElementById('book').onscroll = pagination;
 /* ↑↑↑ /PAGINATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ FUNCTIONS DECLARATION ↓↓↓ */
   function pagination() {
-    let book              = document.getElementById('book');
-
-    let visibleBookHeight = book.offsetHeight;
-    let fullBookHeight    = book.scrollHeight;
-    let bookScrollTop     = book.scrollTop;
+    let book              = document.getElementById('book'),
+        visibleBookHeight = book.offsetHeight,
+        fullBookHeight    = book.scrollHeight,
+        bookScrollTop     = book.scrollTop;
 
     let pageNumber = Math.ceil(bookScrollTop/visibleBookHeight);
     if (pageNumber == 0) pageNumber = 1;

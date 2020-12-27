@@ -310,6 +310,8 @@
 
     myBooks.generalSettings.booksFontSettings.fontSize = newFontSize + 'px';
     ls.setItem( 'myBooks', JSON.stringify(myBooks) );
+
+    pagination();
   }
 
   function setFontColor() {
@@ -324,6 +326,7 @@
 
     myBooks.generalSettings.booksFontSettings.fontColor = fontColor;
     ls.setItem( 'myBooks', JSON.stringify(myBooks) );
+
   }
 
   function setPageColor() {
@@ -438,6 +441,8 @@
     curName.style.fontFamily = regFont;
     bookName.style.fontFamily = regFont;
     authorName.style.fontFamily = regFont;
+
+    pagination();
   }
 
   /**

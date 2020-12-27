@@ -3,7 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ VARIABLES DECLARATION ↓↓↓ */
   let keyForCompare    = 'author',
-      sortedArr        = books.sort( compare ),
       bookList         = document.querySelector('.books-list'),
       ls               = localStorage,
       isSerchFieldOpen = false,
@@ -28,7 +27,7 @@
   buildBooksList();
 
   // відображення кількості книжок в базі
-  document.getElementById('booksAmount').innerHTML = sortedArr.length + ' кн.';
+  document.getElementById('booksAmount').innerHTML = books.sort(compare).length + ' кн.';
 /* ↑↑↑ /MAIN LOGIC ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ ASSIGNMENT OF HANDLERS ↓↓↓ */
@@ -85,8 +84,8 @@
   }
 
   function openSearchField() {
-    let button      = document.querySelector('.books-panel__search-btn');
-    let searchField = document.querySelector('.books-panel__search-field');
+    let button      = document.querySelector('.books-panel__search-btn'),
+        searchField = document.querySelector('.books-panel__search-field');
 
     // знімаємо обробник з кнопки для нормальної анімації поля
     document.querySelector('.books-panel__search-btn').onclick = '';
@@ -113,8 +112,8 @@
   }
 
   function closeSearchField() {
-    let button      = document.querySelector('.books-panel__search-btn');
-    let searchField = document.querySelector('.books-panel__search-field');
+    let button      = document.querySelector('.books-panel__search-btn'),
+        searchField = document.querySelector('.books-panel__search-field');
     buildBooksList();
     // знімаємо обробник з кнопки для нормальної анімації поля
     button.onclick = '';
@@ -151,6 +150,7 @@
 
     // побудова списку
     bookList.innerHTML = '';
+    let sortedArr = books.sort(compare);
     if (bookListType == 'big') {
       sortedArr.forEach(function(item){
         let book = '\
@@ -241,6 +241,11 @@
 
     document.querySelector('.select__field').innerHTML = sortName;
     toggleList();
+
+    keyForCompare    = sortType;
+    console.log("keyForCompare", keyForCompare);
+    buildBooksList();
+
   }
 
   /**
@@ -251,13 +256,7 @@
    * @return {[number]} результат порівняння
    */
   function compare( a, b ) {
-    if ( a[keyForCompare].toLowerCase() < b[keyForCompare].toLowerCase() ) {
-      return -1;
-    }
-    if ( a[keyForCompare].toLowerCase() > b[keyForCompare].toLowerCase() ){
-      return 1;
-    }
-    return 0;
+    return a[keyForCompare].localeCompare(b[keyForCompare]);
   }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////

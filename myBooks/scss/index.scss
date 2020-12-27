@@ -92,6 +92,8 @@ h1 {
   border               : 1px solid lightgrey;
   font                 : 1em gost;
   user-select          : none;
+  position             : relative;
+  z-index              : 1;
   &__field-wrapper {
     height             : 100%;
     display            : flex;
