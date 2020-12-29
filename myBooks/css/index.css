@@ -490,3 +490,28 @@ h1 {
 .markered-text {
   background-color: yellow;
 }
+
+.books-parser-wrapper {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  display: none;
+}
+
+@media (min-width: 768px) and (min-height: 786px) {
+  .books-parser-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.books-parser-wrapper .parserforFrank {
+  border: 1px solid lightgrey;
+  padding: 4px 8px;
+  margin-bottom: 10px;
+  color: black;
+  text-decoration: none;
+}
