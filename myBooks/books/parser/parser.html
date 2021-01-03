@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/parser.css">
+    <script defer src="../../js/parser.js"></script>
+    <title>Мої книги</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="textareas-wrapper">
+        <div class="textarea-wrapper">
+          <label for="plainText">plain text</label>
+          <textarea id="plainText"></textarea>
+          <button type="button" onclick="cleanTextArea(&quot;plainText&quot;)">очистити поле</button>
+        </div>
+        <div class="textarea-wrapper">
+          <label for="pugText">pug-formatted text</label>
+          <textarea id="pugText"></textarea>
+          <button type="button" onclick="cleanTextArea(&quot;pugText&quot;)">очистити поле</button>
+        </div>
+      </div>
+      <div class="buttons-wrapper">
+        <button type="button">вставити з буфера</button>
+        <button type="button">конвертувати</button>
+        <button type="button">скопіювати в буфер</button>
+      </div>
+    </main>
+  </body>
+</html>

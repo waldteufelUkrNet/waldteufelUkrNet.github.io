@@ -1,0 +1,24 @@
+doctype html
+html(lang="ua")
+  head
+    meta(charset="UTF-8")
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel="stylesheet", href="../../css/parser.css")
+    script(defer src="../../js/parser.js")
+    title Мої книги
+  body
+    main.main
+      .textareas-wrapper
+        .textarea-wrapper
+          label(for='plainText') plain text
+          textarea#plainText
+          button(type='button' onclick='cleanTextArea("plainText")') очистити поле
+        .textarea-wrapper
+          label(for='pugText') pug-formatted text
+          textarea#pugText
+          button(type='button' onclick='cleanTextArea("pugText")') очистити поле
+
+      .buttons-wrapper
+        button(type='button') вставити з буфера
+        button(type='button') конвертувати
+        button(type='button') скопіювати в буфер
