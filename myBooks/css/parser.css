@@ -216,8 +216,9 @@ body {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
+  padding: 15px;
 }
 
 .textareas-wrapper {
@@ -234,6 +235,7 @@ body {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  min-height: 700px;
 }
 
 .textarea-wrapper {
@@ -253,7 +255,7 @@ body {
           flex-direction: column;
 }
 
-.textarea-wrapper:first-of-type {
+.textarea-wrapper:not(:last-of-type) {
   margin-right: 20px;
 }
 
@@ -273,17 +275,11 @@ body {
   width: 100%;
   resize: none;
   padding: 10px;
-  font: 1.2em gost;
-}
-
-.textarea-wrapper button {
-  position: absolute;
-  right: -1px;
-  top: 36px;
+  font: 1em gost;
 }
 
 .buttons-wrapper {
-  max-width: 1200px;
+  max-width: 1600px;
   padding: 50px 0 100px;
   display: -webkit-box;
   display: -webkit-flex;

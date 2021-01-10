@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ua">
+<html lang="ua" allow="clipboard-read; clipboard-write">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/parser.css">
+    <link rel="stylesheet" href="../../css/books.css">
     <script defer src="../../js/parser.js"></script>
-    <title>Мої книги</title>
+    <title>Парсер</title>
   </head>
   <body>
     <main class="main">
@@ -13,19 +14,492 @@
         <div class="textarea-wrapper">
           <label for="plainText">plain text</label>
           <textarea id="plainText"></textarea>
-          <button type="button" onclick="cleanTextArea(&quot;plainText&quot;)">очистити поле</button>
         </div>
         <div class="textarea-wrapper">
           <label for="pugText">pug-formatted text</label>
           <textarea id="pugText"></textarea>
-          <button type="button" onclick="cleanTextArea(&quot;pugText&quot;)">очистити поле</button>
         </div>
       </div>
       <div class="buttons-wrapper">
-        <button type="button">вставити з буфера</button>
-        <button type="button">конвертувати</button>
-        <button type="button">скопіювати в буфер</button>
+        <button type="button" disabled>вставити з буфера</button>
+        <button type="button" onclick="convert()">конвертувати</button>
+        <button type="button" onclick="copy()">скопіювати в буфер</button>
+        <button type="button" onclick="cleanAllTextArea()">очистити все</button>
       </div>
+      <div class="test" style="display:flex">
+        <div class="example" style="margin-right:20px">
+          <p><span class="btext">Ich stellte also den Projektor (mein Projektor)</span>
+            (итак, я установила проектор (мой проектор))
+            <span class="btext">auf die Fensterbank</span>
+            (<span class="f-coni">das Fenster, die Bank – скамья, лавка</span>)<span class="btext">, legte den Drakulafilm ein</span>
+            (вложила = поставила дракула-фильм;
+            <span class="f-coni">einlegen</span>)
+            <span class="btext">und besorgte eine Verlängerungsschnur</span>
+            (и достала удлинитель;
+            <span class="f-coni">lang – длинный, verlängern – удлинять, die Schnur, besorgen – доставать, раздобыть</span>)<span class="btext">, weil ich sonst nicht bis an die Steckdose kam</span>
+            (так как иначе я не доставала до розетки;
+            <span class="f-coni">kommen-kam-gekommen – доходить, stecken – вставлять, die Dose – розетка</span>)<span class="btext">. Dann konnte ich mühelos</span>
+            (тогда я смогла легко (т.е. без усилий);
+            <span class="f-coni">die Mühe – усилие</span>)
+            <span class="btext">Drakulas Gesicht</span>
+            (лицо дракулы;
+            <span class="f-coni">das Gesicht</span>)
+            <span class="btext">auf die Fassade des Hochhauses</span>
+            (на фасад высотного здания)
+            <span class="btext">werfen</span>
+            (бросить = спроецировать)<span class="btext">. Drakula war dort</span>
+            (дракула был там)
+            <span class="btext">mindestens</span>
+            (по меньшей мере)
+            <span class="btext">dreimal so groß</span>
+            (втрое больше)
+            <span class="btext">wie in einem echten Kino</span>
+            (чем в настоящем кино;
+            <span class="f-coni">das Kíno</span>)<span class="btext">. Nur war meine Lampe im Projektor nicht stark genug</span>
+            (только моя лампа в проекторе не была достаточно сильной)<span class="btext">. Sein Gesicht erschien also</span>
+            (его /дракулы/ лицо появлялось, таким образом;
+            <span class="f-coni">erscheinen-erschien-erschienen</span>)
+            <span class="btext">wie im Nebel</span>
+            (как в тумане;
+            <span class="f-coni">der Nebel</span>)<span class="btext">. Verschwommen</span>
+            (расплывчато;
+            <span class="f-coni">verschwimmen – расплываться, schwimmen-schwamm-geschwommen – плыть</span>)<span class="btext">.</span>
+          </p>
+          <p><span class="btext">Das machte die Geschichte</span>
+            (это сделало историю)
+            <span class="btext">erst mal</span>
+            (сначала = как раз-то)
+            <span class="btext">richtig unheimlich</span>
+            (по-настоящему жуткой)<span class="btext">.</span>
+          </p>
+          <p><span class="btext">***</span></p>
+          <p><span class="btext">«Wieso</span>
+            (почему)<span class="btext">?» fragte ich</span>
+            (спросила я)<span class="btext">. «Hat einer den Löwen auf Sie losgelassen</span>
+            (разве кто-то спустил на Вас львов)<span class="btext">?»</span>
+          </p>
+          <p><span class="btext">Sie musterte mich von oben bis unten</span>
+            (она осмотрела меня с головы до ног;
+            <span class="f-coni">mustern – осматривать; обозревать; разглядывать; окидывать взглядом</span>)
+            <span class="btext">und überlegte</span>
+            (и обдумывала)<span class="btext">, ob ich eine Antwort wert war</span>
+            (достойна ли я была ответа;
+            <span class="f-coni">wert – стоящий</span>)<span class="btext">, dann hauchte sie</span>
+            (потом она прошептала)
+            <span class="btext">kaum hörbar</span>
+            (чуть слышно)<span class="btext">: «Man hat schon oft genug gehört</span>
+            (уже достаточно часто слышно = ходят слухи)<span class="btext">, dass so eine Bestie ausgebrochen ist</span>
+            (что так один зверь вырвался; ausbrechen,
+            <span class="f-coni">brechen-brach-gebrochen – ломать</span>)<span class="btext">.»</span>
+          </p>
+          <p><span class="btext">«Ich finde es aber gut</span>
+            (но я нахожу, однако, что это хорошо: «это хорошим»)<span class="btext">, dass die Löwen noch alle Zähne und Klauen haben</span>
+            (что у львов еще есть все зубы и когти;
+            <span class="f-coni">die Klaue</span>)<span class="btext">.»</span>
+          </p>
+          <p><span class="btext">«So, warum denn</span>
+            (так, почему же)<span class="btext">?»</span>
+          </p>
+          <p><span class="btext">«Ja, weil</span>
+            (да, потому что)
+            <span class="btext">– weil die</span>
+            (потому что они /львы/)
+            <span class="btext">auf meinen Schatz aufpassen</span>
+            (присматривают за моим сокровищем)<span class="btext">.»</span>
+          </p>
+          <p><span class="btext">«Auf deinen Schatz?»</span></p>
+          <p><span class="btext">«Mhm.»</span></p>
+          <p><span class="btext">«Du hast in dem Gehege einen Schatz versteckt</span>
+            (ты спрятала в канаве какое-то сокровище)<span class="btext">?»</span>
+          </p>
+          <p><span class="btext">«Ja, aber das erzähle ich nicht</span>
+            (да, но это я не расскажу)<span class="btext">, das ist nämlich mein Geheimnis</span>
+            (это, именно, моя тайна = дело в том, что это моя тайна;
+            <span class="f-coni">das Geheimnis</span>)<span class="btext">.»</span>
+          </p>
+        </div>
+        <div class="result">
+          <p><span class="btext">Ich stellte also den Projektor (mein Projektor) </span>
+            (итак, я установила проектор (мой проектор))
+            <span class="btext"> auf die Fensterbank </span>
+            (<span class="f-coni">das Fenster, die Bank – скамья, лавка</span>)<span class="btext">, legte den Drakulafilm ein </span>
+            (вложила = поставила дракула-фильм; 
+            <span class="f-coni">einlegen</span>)
+            <span class="btext"> und besorgte eine Verlängerungsschnur </span>
+            (и достала удлинитель; 
+            <span class="f-coni">lang – длинный, verlängern – удлинять, die Schnur, besorgen – доставать, раздобыть</span>)<span class="btext">, weil ich sonst nicht bis an die Steckdose kam </span>
+            (так как иначе я не доставала до розетки; 
+            <span class="f-coni">kommen-kam-gekommen – доходить, stecken – вставлять, die Dose – розетка</span>)<span class="btext">. Dann konnte ich mühelos </span>
+            (тогда я смогла легко (т.е. без усилий); 
+            <span class="f-coni">die Mühe – усилие</span>)
+            <span class="btext"> Drakulas Gesicht </span>
+            (лицо дракулы; 
+            <span class="f-coni">das Gesicht</span>)
+            <span class="btext"> auf die Fassade des Hochhauses </span>
+            (на фасад высотного здания)
+            <span class="btext"> werfen </span>
+            (бросить = спроецировать)<span class="btext">. Drakula war dort </span>
+            (дракула был там)
+            <span class="btext"> mindestens </span>
+            (по меньшей мере)
+            <span class="btext"> dreimal so groß </span>
+            (втрое больше)
+            <span class="btext"> wie in einem echten Kino </span>
+            (чем в настоящем кино; 
+            <span class="f-coni">das Kíno</span>)<span class="btext">. Nur war meine Lampe im Projektor nicht stark genug </span>
+            (только моя лампа в проекторе не была достаточно сильной)<span class="btext">. Sein Gesicht erschien also </span>
+            (его /дракулы/ лицо появлялось, таким образом; 
+            <span class="f-coni">erscheinen-erschien-erschienen</span>)
+            <span class="btext"> wie im Nebel </span>
+            (как в тумане; 
+            <span class="f-coni">der Nebel</span>)<span class="btext">. Verschwommen </span>
+            (расплывчато; 
+            <span class="f-coni">verschwimmen – расплываться, schwimmen-schwamm-geschwommen – плыть</span>)<span class="btext">.</span>
+          </p>
+          <p><span class="btext">Das machte die Geschichte </span>
+            (это сделало историю)
+            <span class="btext"> erst mal </span>
+            (сначала = как раз-то)
+            <span class="btext"> richtig unheimlich </span>
+            (по-настоящему жуткой)<span class="btext">.</span>
+          </p>
+          <p><span class="btext"> </span></p>
+          <p><span class="btext">***</span></p>
+          <p><span class="btext"> </span></p>
+          <p><span class="btext">«Wieso </span>
+            (почему)<span class="btext">?» fragte ich </span>
+            (спросила я)<span class="btext">. «Hat einer den Löwen auf Sie losgelassen </span>
+            (разве кто-то спустил на Вас львов)<span class="btext">?»</span>
+          </p>
+          <p><span class="btext">Sie musterte mich von oben bis unten </span>
+            (она осмотрела меня с головы до ног; 
+            <span class="f-coni">mustern – осматривать; обозревать; разглядывать; окидывать взглядом</span>)
+            <span class="btext"> und überlegte </span>
+            (и обдумывала)<span class="btext">, ob ich eine Antwort wert war </span>
+            (достойна ли я была ответа; 
+            <span class="f-coni">wert – стоящий</span>)<span class="btext">, dann hauchte sie </span>
+            (потом она прошептала)
+            <span class="btext"> kaum hörbar </span>
+            (чуть слышно)<span class="btext">: «Man hat schon oft genug gehört </span>
+            (уже достаточно часто слышно = ходят слухи)<span class="btext">, dass so eine Bestie ausgebrochen ist </span>
+            (что так один зверь вырвался; 
+            <span class="f-coni">ausbrechen, brechen-brach-gebrochen – ломать</span>)<span class="btext">.»</span>
+          </p>
+          <p><span class="btext">«Ich finde es aber gut </span>
+            (но я нахожу, однако, что это хорошо: «это хорошим»)<span class="btext">, dass die Löwen noch alle Zähne und Klauen haben </span>
+            (что у львов еще есть все зубы и когти; 
+            <span class="f-coni">die Klaue</span>)<span class="btext">.»</span>
+          </p>
+          <p><span class="btext">«So, warum denn </span>
+            (так, почему же)<span class="btext">?»</span>
+          </p>
+          <p><span class="btext">«Ja, weil </span>
+            (да, потому что)
+            <span class="btext"> – weil die </span>
+            (потому что они /львы/)
+            <span class="btext"> auf meinen Schatz aufpassen </span>
+            (присматривают за моим сокровищем)<span class="btext">.»</span>
+          </p>
+          <p><span class="btext">«Auf deinen Schatz?»</span></p>
+          <p><span class="btext">«Mhm.»</span></p>
+          <p><span class="btext">«Du hast in dem Gehege einen Schatz versteckt </span>
+            (ты спрятала в канаве какое-то сокровище)<span class="btext">?»</span>
+          </p>
+          <p><span class="btext">«Ja, aber das erzähle ich nicht </span>
+            (да, но это я не расскажу)<span class="btext">, das ist nämlich mein Geheimnis </span>
+            (это, именно, моя тайна = дело в том, что это моя тайна; 
+            <span class="f-coni">das Geheimnis</span>)<span class="btext">.»</span>
+          </p>
+        </div>
+      </div>
+      <p><span class="btext">1 Es war einmal eine kleine Hexe </span>
+        (жила - была маленькая ведьма)<span class="btext">, die war erst einhundertsiebenundzwanzig Jahre alt </span>
+        (которой было всего сто двадцать семь лет; 
+        <span class="f-coni">das Jahr – год; alt – старый</span>)
+        <span class="btext"> und das ist ja für eine Hexe noch gar kein Alter </span>
+        (а ведь это для ведьмы еще совсем не возраст /маленький возраст/; 
+        <span class="f-coni">das Alter</span>)<span class="btext">.</span>
+      </p>
+      <p><span class="btext">2 Sie wohnte in einem Hexenhaus </span>
+        (она жила в ведьмином доме)<span class="btext">, das stand einsam im tiefen Wald </span>
+        (который стоял одиноко в глубине леса; 
+        <span class="f-coni">stehen - stand - gestanden; tief – глубокий; der Wald</span>)<span class="btext">. Weil es nur einer kleinen Hexe gehörte </span>
+        (так как он /дом/ принадлежал только одной маленькой ведьме)<span class="btext">, war auch das Hexenhaus nicht besonders groß </span>
+        (был также /этот/ ведьмин дом не особенно большим; 
+        <span class="f-coni">sein - war - gewesen</span>)<span class="btext">.</span>
+      </p>
+      <p><span class="btext">3 Der kleinen Hexe genügte es aber </span>
+        (маленькой ведьме его /домика/, однако, хватало)<span class="btext">, sie hätte sich gar kein schöneres Hexenhaus wünschen können </span>
+        (она не могла бы пожелать себе никакого более хорошего ведьминого дома; 
+        <span class="f-coni">schön – красивый, хороший</span>)<span class="btext">. Es hatte ein wundervoll windschiefes Dach </span>
+        (у него была чудесная перекошенная крыша; 
+        <span class="f-coni">das Wunder – чудо, voll – наполненный; der Wind – ветер, schief – кривой</span>)<span class="btext">, einen krummen Schornstein </span>
+        (кривая дымовая труба)
+        <span class="btext"> und klapprige Fensterläden </span>
+        (и громыхающие ставни; 
+        <span class="f-coni">der Fensterladen, das Fenster – окно, der Laden – ставень; klappen – хлопать, стучать</span>)<span class="btext">. Hinten hinaus war ein Backofen angebaut </span>
+        (сзади снаружи = со двора была пристроена печка; 
+        <span class="f-coni">backen – печь/хлеб/, der Ofen – печка</span>)<span class="btext">. Der durfte nun einmal nicht fehlen </span>
+        (она /печка/ уж никак не могла отсутствовать = а как же без нее)<span class="btext">. Ein Hexenhaus ohne Backofen wäre kein richtiges Hexenhaus </span>
+        (ведьмин дом без печки не был бы настоящим ведьминым домом)<span class="btext">.</span>
+      </p>
+      <p><span class="btext">4 Die kleine Hexe besaß einen Raben </span>
+        (у маленькой ведьмы был ворон; 
+        <span class="f-coni">besitzen - besaß - besessen – владеть, иметь</span>)<span class="btext">, der sprechen konnte </span>
+        (который умел говорить)<span class="btext">. Das war der Rabe Abraxas. Er konnte nicht nur „Guten Morgen!" und „Guten Abend!" krächzen </span>
+        (он мог каркать не только...)
+        <span class="btext"> wie ein gewöhnlicher Rabe </span>
+        (как обыкновенный ворон)<span class="btext">, der sprechen gelernt hat </span>
+        (который научился говорить)<span class="btext">, sondern auch alles andere </span>
+        (но /умел каркать/ и все другое = /все,/ что угодно)<span class="btext">. Die kleine Hexe hielt große Stücke auf ihn </span>
+        (очень его ценила; 
+        <span class="f-coni">große Stücke auf jemanden halten; halten - hielt - gehalten – держать</span>)<span class="btext">, weil er ein ausnehmend weiser Rabe war </span>
+        (так как он был исключительно мудрым вороном; 
+        <span class="f-coni">ausnehmen – исключать</span>)<span class="btext">, der ihr in allen Dingen die Meinung sagte </span>
+        (который во всех делах высказывал ей свое мнение; 
+        <span class="f-coni">das Ding</span>)
+        <span class="btext"> und nie ein Blatt vor den Schnabel nahm </span>
+        (и всегда говорил начистоту, не лез за словом в карман: «никогда не прилагал листок к клюву»; 
+        <span class="f-coni">das Blatt; nehmen - nahm - genommen; сравните: ein Blatt vor den Mund nehmen – листок прилагать ко рту, закрывать рот листком = высказывать откровенно свое мнение</span>)<span class="btext">.</span>
+      </p>
+      <p><span class="btext">5 Etwa sechs Stunden am Tage </span>
+        (приблизительно шесть часов днем = в день)
+        <span class="btext"> verbrachte die kleine Hexe damit </span>
+        (проводила маленькая ведьма с тем, чтобы; 
+        <span class="f-coni">verbringen, bringen - brachte - gebracht – приносить</span>)<span class="btext">, sich im Hexen zu üben </span>
+        (упражняться в колдовстве; 
+        <span class="f-coni">das Hexen</span>)<span class="btext">. Das Hexen ist keine einfache Sache </span>
+        (колдовство – не простое дело)<span class="btext">. Wer es im Hexen zu etwas bringen will </span>
+        (кто хочет в колдовстве чего - то добиться)<span class="btext">, darf nicht faul sein </span>
+        (не имеет права быть ленивым)<span class="btext">. Er muss zuerst alle kleineren Hexenkunststücke lernen </span>
+        (он должен сперва все довольно мелкие = небольшие колдовские «штуки» освоить; 
+        <span class="f-coni">klein – мелкий; die Hexenkunst – колдовство, das Stück – кусок, часть</span>)
+        <span class="btext"> – und später die großen </span>
+        (а позже – крупные; 
+        <span class="f-coni">spät – поздний</span>)<span class="btext">. Seite für Seite muss er das Hexenbuch durchstudieren </span>
+        (страница за страницей должен он колдовскую книгу основательно изучить)
+        <span class="btext"> und keine einzige Aufgabe darf er dabei überspringen </span>
+        (и ни одного задания при этом не имеет права пропускать)<span class="btext">.</span>
+      </p>
+      <p><span class="btext">6 Die kleine Hexe war erst auf Seite zweihundertdreizehn des Hexenbuches </span>
+        (маленькая ведьма находилась только на странице двести тринадцать колдовской книги; 
+        <span class="f-coni">die Seite</span>)<span class="btext">. Sie übte gerade das Regenmachen </span>
+        (она как раз упражнялась в делании дождя = в том, как делать дождь; 
+        <span class="f-coni">der Regen – дождь, machen – делать</span>)<span class="btext">. Sie saß auf der Bank vor dem Backofen </span>
+        (она сидела на скамейке перед печкой; 
+        <span class="f-coni">sitzen - saß - gesessen</span>)<span class="btext">, hatte das Hexenbuch auf den Knien liegen </span>
+        (с лежащей на коленях колдовской книгой; 
+        <span class="f-coni">das Knie</span>)
+        <span class="btext"> und hexte </span>
+        (и колдовала)<span class="btext">. Der Rabe Abraxas saß neben ihr </span>
+        (сидел рядом с ней)
+        <span class="btext"> und war unzufrieden </span>
+        (и был недоволен)<span class="btext">.</span>
+      </p>
+      <p><span class="btext">7 „Du sollst einen Regen machen </span>
+        (ты должна сделать дождь)<span class="btext">", krächzte er vorwurfsvoll </span>
+        (каркал он укоризненно; 
+        <span class="f-coni">der Vorwurf – упрек</span>)<span class="btext">, „und was hext du </span>
+        (а что колдуешь = творишь ты)<span class="btext">? Beim ersten Mal lässt du es weiße Mäuse regnen </span>
+        (в первый раз ты заставляешь идти = вызвала дождь /из/ белых мышей;
+        <span class="f-coni">lassen; die Maus</span>)<span class="btext">, beim zweiten Mal Frösche </span>
+        (во второй раз – /из/ лягушек; 
+        <span class="f-coni">der Frosch</span>)<span class="btext">, beim dritten Mal Tannenzapfen </span>
+        (в третий раз – /из/ еловых шишек; 
+        <span class="f-coni">die Tanne, der Zapfen</span>)<span class="btext">! Ich bin ja gespannt </span>
+        (я просто с нетерпением ожидаю;
+        <span class="f-coni">auf etwas gespannt sein; spannen – напрягать, натягивать</span>)<span class="btext">, ob du wenigstens jetzt einen richtigen Regen zustande bringst </span>
+        (получится ли сейчас у тебя по меньшей мере настоящий дождь; 
+        <span class="f-coni">wenig – мало; zustande bringen – осуществлять: «приводить к состоянию»</span>)<span class="btext">!"</span>
+      </p>
+      <p><span class="btext"> </span></p>
+      <p><span class="btext">1 Es war einmal eine kleine Hexe, die war erst einhundertsiebenundzwanzig Jahre alt und das ist ja für eine Hexe noch gar kein Alter. </span></p>
+      <p><span class="btext">2 Sie wohnte in einem Hexenhaus, das stand einsam im tiefen Wald. Weil es nur einer kleinen Hexe gehörte, war auch das Hexenhaus nicht besonders groß. </span></p>
+      <p><span class="btext">3 Der kleinen Hexe genügte es aber, sie hätte sich gar kein schöneres Hexenhaus wünschen können. Es hatte ein wundervoll windschiefes Dach, einen krummen Schornstein und klapprige Fensterläden. Hinten hinaus war ein Backofen angebaut. Der durfte nun einmal nicht fehlen. Ein Hexenhaus ohne Backofen wäre kein richtiges Hexenhaus. </span></p>
+      <p><span class="btext">4 Die kleine Hexe besaß einen Raben, der sprechen konnte. Das war der Rabe Abraxas. Er konnte nicht nur „Guten Morgen!" und „Guten Abend!" krächzen wie ein gewöhnlicher Rabe, der sprechen gelernt hat, sondern auch alles andere. Die kleine Hexe hielt große Stücke auf ihn, weil er ein ausnehmend weiser Rabe war, der ihr in allen Dingen die Meinung sagte und nie ein Blatt vor den Schnabel nahm. </span></p>
+      <p><span class="btext">5 Etwa sechs Stunden am Tage verbrachte die kleine Hexe damit, sich im Hexen zu üben. Das Hexen ist keine einfache Sache. Wer es im Hexen zu etwas bringen will, darf nicht faul sein. Er muss zuerst alle kleineren Hexenkunststücke lernen – und später die großen. Seite für Seite muss er das Hexenbuch durchstudieren und keine einzige Aufgabe darf er dabei überspringen. </span></p>
+      <p><span class="btext">6 Die kleine Hexe war erst auf Seite zweihundertdreizehn des Hexenbuches. Sie übte gerade das Regenmachen. Sie saß auf der Bank vor dem Backofen, hatte das Hexenbuch auf den Knien liegen und hexte. Der Rabe Abraxas saß neben ihr und war unzufrieden. </span></p>
+      <p><span class="btext">7 „Du sollst einen Regen machen", krächzte er vorwurfsvoll, „und was hext du? Beim ersten Mal lässt du es weiße Mäuse regnen, beim zweiten Mal Frösche, beim dritten Mal Tannenzapfen! Ich bin ja gespannt, ob du wenigstens jetzt einen richtigen Regen zustande bringst!" </span></p>
+      <p><span class="btext"> </span></p>
+      <p><span class="btext">1 Da versuchte die kleine Hexe zum vierten Mal </span>
+        (тут попробовала маленькая ведьма в четвертый раз)<span class="btext">, einen Regen zu machen </span>
+        (сделать дождь)<span class="btext">. Sie ließ eine Wolke am Himmel aufsteigen </span>
+        (она повелела возникнуть туче в небе)<span class="btext">, winkte sie näher </span>
+        (знаком подозвала ее ближе; 
+        <span class="f-coni">winken – делать знак; nahe – близкий</span>)
+        <span class="btext"> und rief </span>
+        (и крикнула; 
+        <span class="f-coni">rufen - rief - gerufen</span>)<span class="btext">, als die Wolke genau über ihnen stand </span>
+        (когда туча находилась точно над ними; 
+        <span class="f-coni">stehen - stand - gestanden</span>)<span class="btext">: „Regne </span>
+        (дождь пойди)<span class="btext">!"</span>
+      </p>
+      <p><span class="btext">2 Die Wolke riss auf </span>
+        (туча разорвалась; 
+        <span class="f-coni">aufreißen, reißen - riss - gerissen</span>)
+        <span class="btext"> und es regnete </span>
+        (и пошел дождь)
+        <span class="btext"> – Buttermilch </span>
+        (пахта /кислое молоко/; 
+        <span class="f-coni">die Buttermilch, die Butter – сливочное масло, die Milch – молоко</span>)<span class="btext">.</span>
+      </p>
+      <p><span class="btext">3 „Buttermilch!", kreischte Abraxas </span>
+        (пронзительно закричал)<span class="btext">. „Mir scheint </span>
+        (мне кажется)<span class="btext">, du bist vollständig übergeschnappt </span>
+        (ты совершенно спятила; 
+        <span class="f-coni">schnappen – хватать/быстрым движкением/, защелкивать</span>)<span class="btext">! Was willst du denn noch alles regnen lassen </span>
+        (что же ты еще такое: «все» хочешь заставить пролиться дождем)<span class="btext">? Wäscheklammern vielleicht </span>
+        (может быть, прищепки; 
+        <span class="f-coni">die Wäscheklammer, die Wäsche – белье, die Klammer – зажим</span>)<span class="btext">? Oder Schusternägel </span>
+        (или сапожные гвозди; 
+        <span class="f-coni">der Schuster – сапожник, der Nagel – гвоздь</span>)<span class="btext">? Wenn es doch wenigstens Brotkrümel oder Rosinen wären </span>
+        (если бы это все же по меньшей мере были хлебные крошки или изюм; 
+        <span class="f-coni">das Brot – хлеб, das Krümel – крошка; die Rosine – изюминка</span>)<span class="btext">!"</span>
+      </p>
+      <p><span class="btext">4 „Ich muss mich beim Hexen versprochen haben </span>
+        (я, должно быть, при колдовстве оговорилась; 
+        <span class="f-coni">sich versprechen, sprechen - sprach - gesprochen</span>)<span class="btext">", sagte die kleine Hexe. Früher war ihr auch schon dann und wann etwas danebengegangen </span>
+        (раньше ей тоже уже время от времени кое - что не удавалось; 
+        <span class="f-coni">danebengehen, gehen - ging - gegangen; daneben – мимо: «тут возле»</span>)<span class="btext">. Aber gleich viermal hintereinander </span>
+        (но сейчас четыре раза один за другим)<span class="btext">?</span>
+      </p>
+      <p><span class="btext">5 „Versprochen haben!", krächzte der Rabe Abraxas. „Ich werde dir sagen </span>
+        (я скажу тебе)<span class="btext">, woran es liegt </span>
+        (в чем тут дело)<span class="btext">. Zerstreut bist du </span>
+        (ты рассеянна; 
+        <span class="f-coni">streuen – посыпать, сеять; zerstreuen – рассеивать</span>)<span class="btext">! Wenn man beim Hexen an alles Mögliche andere denkt </span>
+        (если при колдовстве думают обо всем возможном другом = 
+        <span class="f-coni">o постороннем</span>)<span class="btext">, muss man sich ja verhexen </span>
+        (обязательно ведь «околдуешься» /по аналогии с «оговоришься»/)<span class="btext">! Du solltest eben ein bisschen mehr bei der Sache sein </span>
+        (ты должна как раз быть повнимательнее: «немного больше быть внимательной»; 
+        <span class="f-coni">die Sache – дело, вопрос</span>)<span class="btext">!"</span>
+      </p>
+      <p><span class="btext">6 „Findest du </span>
+        (ты находишь)<span class="btext">?", meinte die kleine Hexe </span>
+        (сказала маленькая ведьма; 
+        <span class="f-coni">meinen – высказывать свое мнение</span>)<span class="btext">. Dann klappte sie plötzlich das Hexenbuch zu </span>
+        (потом она вдруг захлопнула колдовскую книгу; 
+        <span class="f-coni">zuklappen</span>)<span class="btext">. „Du hast Recht </span>
+        (ты прав; 
+        <span class="f-coni">das Recht – право</span>)<span class="btext">!", rief sie zornig </span>
+        (крикнула она гневно; 
+        <span class="f-coni">der Zorn – гнев</span>)<span class="btext">. „Es stimmt </span>
+        (/это/ верно)<span class="btext">, dass ich nicht bei der Sache bin </span>
+        (что я невнимательна)<span class="btext">. Und warum nicht </span>
+        (а почему нет)<span class="btext">?" Sie blitzte den Raben an </span>
+        (она сверкнула глазами на ворона; 
+        <span class="f-coni">anblitzen</span>)<span class="btext">. „Weil ich Wut habe </span>
+        (потому что я в бешенстве; 
+        <span class="f-coni">die Wut</span>)<span class="btext">!"</span>
+      </p>
+      <p><span class="btext">7 „Wut?", wiederholte der Rabe Abraxas </span>
+        (повторил ворон)<span class="btext">. „Auf wen denn </span>
+        (на кого же)<span class="btext">?"</span>
+      </p>
+      <p><span class="btext">8 „Es ärgert mich </span>
+        (меня злит)<span class="btext">", sagte die kleine Hexe, „dass heute Walpurgisnacht ist </span>
+        (что сегодня Вальпургиева ночь; 
+        <span class="f-coni">die Nacht</span>)<span class="btext">. Heute treffen sich alle Hexen zum Tanz auf dem Blocksberg </span>
+        (сегодня встречаются все ведьмы для танца на Блоксберге; 
+        <span class="f-coni">sich treffen; der Tanz; der Berg – гора</span>)<span class="btext">."</span>
+      </p>
+      <p><span class="btext">9 „Na – und </span>
+        (ну, и что)<span class="btext">?"</span>
+      </p>
+      <p><span class="btext">10 „Und ich bin noch zu klein für den Hexentanz </span>
+        (а я еще слишком мала для танца ведьм)<span class="btext">, sagen die großen Hexen </span>
+        (говорят взрослые ведьмы)<span class="btext">. Sie wollen nicht </span>
+        (они не хотят)<span class="btext">, dass ich auch auf den Blocksberg reite </span>
+        (чтобы я тоже на Блоксберг приехала верхом /на метле/ = прилетела)
+        <span class="btext"> und mittanze </span>
+        (и танцевала с ними)<span class="btext">!"</span>
+      </p>
+      <p><span class="btext">11 Der Rabe versuchte die kleine Hexe zu trösten </span>
+        (ворон попытался маленькую ведьму утешить)
+        <span class="btext"> und sagte: „Sieh mal </span>
+        (смотри - ка)
+        <span class="btext"> – mit einhundertsiebenundzwanzig Jahren kannst du noch nicht verlangen </span>
+        (в /твои/ сто двадцать семь лет ты еще не можешь требовать)<span class="btext">, dass dich die großen Hexen für voll nehmen </span>
+        (чтобы тебя взрослые ведьмы принимали всерьез: «брали за полную = полноценную»)<span class="btext">. Wenn du erst älter bist </span>
+        (когда ты будешь старше; 
+        <span class="f-coni">alt – старый</span>)<span class="btext">, wird sich das alles geben </span>
+        (все это сбудется, уладится; 
+        <span class="f-coni">sich geben</span>)<span class="btext">."</span>
+      </p>
+      <p><span class="btext">12 „Ach was </span>
+        (да брось ты)<span class="btext">!", rief die kleine Hexe. „Ich will aber diesmal schon mit dabei sein </span>
+        (я же хочу уже в этот раз присутствовать при этом)<span class="btext">! Verstehst du mich </span>
+        (ты меня понимаешь)<span class="btext">?"</span>
+      </p>
+      <p><span class="btext">13 „Was man nicht haben kann </span>
+        (/то,/ что не можешь иметь)<span class="btext">, soll man sich aus dem Kopf schlagen </span>
+        (нужно выбить = выбросить из головы; 
+        <span class="f-coni">jemandem etwas aus dem Kopf schlagen</span>)<span class="btext">", krächzte der Rabe. „Ändert sich etwas daran </span>
+        (изменится ли что - нибудь)<span class="btext">, wenn du zornig bist </span>
+        (если ты будешь гневной = злиться)<span class="btext">? Nimm doch Vernunft an </span>
+        (образумься же; 
+        <span class="f-coni">die Vernunft – здравый рассудок, Vernunft annehmen – образумиться, одуматься; annehmen – принять</span>)<span class="btext">! Was willst du denn machen </span>
+        (что же ты хочешь делать)<span class="btext">?"</span>
+      </p>
+      <p><span class="btext">14 Da sagte die kleine Hexe: „Ich weiß, was ich mache </span>
+        (я знаю, что я сделаю)<span class="btext">. Ich reite heut Nacht auf den Blocksberg!"</span>
+      </p>
+      <p><span class="btext">15 Der Rabe erschrak </span>
+        (ворон испугался; 
+        <span class="f-coni">erschreсken - erschrak - erschroсken</span>)<span class="btext">.</span>
+      </p>
+      <p><span class="btext">16 „Auf den Blocksberg?! – Das haben dir doch die großen Hexen verboten </span>
+        (это же тебе запретили взрослые ведьмы; 
+        <span class="f-coni">verbieten, bieten - bot - geboten – предлагать</span>)<span class="btext">! Sie wollen beim Hexentanz unter sich sein </span>
+        (они хотят при танце ведьм быть среди своих /без посторонних/)<span class="btext">."</span>
+      </p>
+      <p><span class="btext">17 „Pah </span>
+        (ба)<span class="btext">!", rief die kleine Hexe. „Verboten ist vieles </span>
+        (запрещено многое)<span class="btext">. Aber wenn man sich nicht erwischen lässt </span>
+        (но если не попадешься; 
+        <span class="f-coni">sich erwischen lassen – дать себя поймать, erwischen – поймать, схватить</span>)
+        <span class="btext"> ..."</span>
+      </p>
+      <p><span class="btext">18 „Sie erwischen dich </span>
+        (они поймают тебя)<span class="btext">!", prophezeite der Rabe </span>
+        (предсказал ворон)<span class="btext">.</span>
+      </p>
+      <p><span class="btext">19 „Ach, Unsinn </span>
+        (ах, вздор; 
+        <span class="f-coni">der Unsinn</span>)<span class="btext">!", erwiderte sie </span>
+        (возразила она)<span class="btext">. „Ich geselle mich erst zu den anderen Hexen </span>
+        (я присоединюсь к другим ведьмам только /тогда/)<span class="btext">, wenn sie schon mitten im Tanz sind </span>
+        (когда они уже будут в середине танца = когда танец будет в самом разгаре)
+        <span class="btext"> – und ehe sie Schluss machen </span>
+        (и прежде, чем они закончат; 
+        <span class="f-coni">Schluss machen, der Schluss – конец</span>)<span class="btext">, reite ich wieder heim </span>
+        (я снова улечу: «ускачу» домой)<span class="btext">. In dem Trubel </span>
+        (в суматохе; 
+        <span class="f-coni">der Trubel</span>)<span class="btext">, der heute Nacht auf dem Blocksberg herrscht </span>
+        (которая этой ночью будет господствовать на Блоксберге)<span class="btext">, wird das nicht weiter auffallen </span>
+        (это совершенно не бросится в глаза)<span class="btext">."</span>
+      </p>
+      <p><span class="btext"> </span></p>
+      <p><span class="btext">1 Da versuchte die kleine Hexe zum vierten Mal, einen Regen zu machen. Sie ließ eine Wolke am Himmel aufsteigen, winkte sie näher und rief, als die Wolke genau über ihnen stand: „Regne!" </span></p>
+      <p><span class="btext">2 Die Wolke riss auf und es regnete – Buttermilch. </span></p>
+      <p><span class="btext">3 „Buttermilch!", kreischte Abraxas. „Mir scheint, du bist vollständig übergeschnappt! Was willst du denn noch alles regnen lassen? Wäscheklammern vielleicht? Oder Schusternägel? Wenn es doch wenigstens Brotkrümel oder Rosinen wären!" </span></p>
+      <p><span class="btext">4 „Ich muss mich beim Hexen versprochen haben", sagte die kleine Hexe. Früher war ihr auch schon dann und wann etwas danebengegangen. Aber gleich viermal hintereinander? </span></p>
+      <p><span class="btext">5 „Versprochen haben!", krächzte der Rabe Abraxas. „Ich werde dir sagen, woran es liegt. Zerstreut bist du! Wenn man beim Hexen an alles Mögliche andere denkt, muss man sich ja verhexen! Du solltest eben ein bisschen mehr bei der Sache sein!" </span></p>
+      <p><span class="btext">6 „Findest du?", meinte die kleine Hexe. Dann klappte sie plötzlich das Hexenbuch zu. „Du hast Recht!", rief sie zornig. „Es stimmt, dass ich nicht bei der Sache bin. Und warum nicht?" Sie blitzte den Raben an. „Weil ich Wut habe!" </span></p>
+      <p><span class="btext">7 „Wut?", wiederholte der Rabe Abraxas. „Auf wen denn?" </span></p>
+      <p><span class="btext">8 „Es ärgert mich", sagte die kleine Hexe, „dass heute Walpurgisnacht ist. Heute treffen sich alle Hexen zum Tanz auf dem Blocksberg." </span></p>
+      <p><span class="btext">9 „Na – und?" </span></p>
+      <p><span class="btext">10 „Und ich bin noch zu klein für den Hexentanz, sagen die großen Hexen. Sie wollen nicht, dass ich auch auf den Blocksberg reite und mittanze!" </span></p>
+      <p><span class="btext">11 Der Rabe versuchte die kleine Hexe zu trösten und sagte: „Sieh mal – mit einhundertsiebenundzwanzig Jahren kannst du noch nicht verlangen, dass dich die großen Hexen für voll nehmen. Wenn du erst älter bist, wird sich das alles geben." </span></p>
+      <p><span class="btext">12 „Ach was!", rief die kleine Hexe. „Ich will aber diesmal schon mit dabei sein! Verstehst du mich?" </span></p>
+      <p><span class="btext">13 „Was man nicht haben kann, soll man sich aus dem Kopf schlagen", krächzte der Rabe. „Ändert sich etwas daran, wenn du zornig bist? Nimm doch Vernunft an! Was willst du denn machen?" </span></p>
+      <p><span class="btext">14 Da sagte die kleine Hexe: „Ich weiß, was ich mache. Ich reite heut Nacht auf den Blocksberg!" </span></p>
+      <p><span class="btext">15 Der Rabe erschrak. </span></p>
+      <p><span class="btext">16 „Auf den Blocksberg?! – Das haben dir doch die großen Hexen verboten! Sie wollen beim Hexentanz unter sich sein." </span></p>
+      <p><span class="btext">17 „Pah!", rief die kleine Hexe. „Verboten ist vieles. Aber wenn man sich nicht erwischen lässt ..." </span></p>
+      <p><span class="btext">18 „Sie erwischen dich!", prophezeite der Rabe. </span></p>
+      <p><span class="btext">19 „Ach, Unsinn!", erwiderte sie. „Ich geselle mich erst zu den anderen Hexen, wenn sie schon mitten im Tanz sind – und ehe sie Schluss machen, reite ich wieder heim. In dem Trubel, der heute Nacht auf dem Blocksberg herrscht, wird das nicht weiter auffallen."</span></p>
+      <p><span class="btext"> </span></p>
     </main>
   </body>
 </html>
