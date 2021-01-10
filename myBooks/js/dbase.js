@@ -104,6 +104,12 @@
       author : 'Stefan Zweig',
       name   : 'Schachnovelle',
       genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00017',
+      author : 'Форсайт Фредерик',
+      name   : 'День Шакала',
+      genre  : 'політичний детектив'
     }
   ];
 /* ↑↑↑ /DATA BASE ↑↑↑ */
