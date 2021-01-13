@@ -1,5 +1,6 @@
 "use strict";
 // parser.js
+// трохи підправити convert(): з неї треба прибрати пошук рядка, а викликат з аргумантом-рядком. Функція повинна вертати новий рядок, а не щось кудись вставляти.
 ////////////////////////////////////////////////////////////////////////////////
 /* ↓↓↓ VARIABLES DECLARATION ↓↓↓ */
   let testString = `Ich stellte also den Projektor (mein Projektor) (итак, я установила проектор (мой проектор)) auf die Fensterbank (das Fenster, die Bank – скамья, лавка), legte den Drakulafilm ein (вложила = поставила дракула-фильм; einlegen) und besorgte eine Verlängerungsschnur (и достала удлинитель; lang – длинный, verlängern – удлинять, die Schnur, besorgen – доставать, раздобыть), weil ich sonst nicht bis an die Steckdose kam (так как иначе я не доставала до розетки; kommen-kam-gekommen – доходить, stecken – вставлять, die Dose – розетка). Dann konnte ich mühelos (тогда я смогла легко (т.е. без усилий); die Mühe – усилие) Drakulas Gesicht (лицо дракулы; das Gesicht) auf die Fassade des Hochhauses (на фасад высотного здания) werfen (бросить = спроецировать). Drakula war dort (дракула был там) mindestens (по меньшей мере) dreimal so groß (втрое больше) wie in einem echten Kino (чем в настоящем кино; das Kíno). Nur war meine Lampe im Projektor nicht stark genug (только моя лампа в проекторе не была достаточно сильной). Sein Gesicht erschien also (его /дракулы/ лицо появлялось, таким образом; erscheinen-erschien-erschienen) wie im Nebel (как в тумане; der Nebel). Verschwommen (расплывчато; verschwimmen – расплываться, schwimmen-schwamm-geschwommen – плыть).
@@ -28,28 +29,20 @@ Sie musterte mich von oben bis unten (она осмотрела меня с го
     }
   }
 
-  function copy() {
-    document.querySelector('#pugText').select();
-    document.execCommand('copy');
-    document.querySelector('#pugText').blur();
-  }
+  function convert(str) {
 
-  function convert() {
-    let str = document.querySelector('#plainText').value;
-    if (str == '') return;
-
-    let resultArea = document.getElementById('pugText');
+    let resultStr = '';
     let aT  = 'span.btext';    // activeTag
     let oBA = 0;               // openedBracketsAmount
     let startItalicIndex = -1;
 
     // початок абзацу
-    resultArea.value = '    p\n      span.btext ';
+    resultStr = '    p\n      span.btext ';
 
     for (let i = 0; i < str.length; i++) {
       // наступний абзац
       if ( str[i].match(/\n/) ) {
-        resultArea.value += '\n    p\n      span.btext ';
+        resultStr += '\n    p\n      span.btext ';
         aT  = 'span.btext';
       }
 
@@ -58,7 +51,7 @@ Sie musterte mich von oben bis unten (она осмотрела меня с го
         oBA += 1;
         if (oBA > 1) {
           // відкриття внутрішньої дужки
-          resultArea.value += '(';
+          resultStr += '(';
         } else {
           // відкриття зовнішньої дужки
 
@@ -97,7 +90,7 @@ Sie musterte mich von oben bis unten (она осмотрела меня с го
           // що в дужках?
           if ( subStr.match(/[абвгґдеєжзіїйклмнопрстуфхцчшщьюяёэы]/iu) ) {
             // тут є переклад, значить дужка в адаптованому тексті
-            resultArea.value += '\n      |\n      |(';
+            resultStr += '\n      |\n      |(';
             aT = 'p';
 
             // у дужках крім перекладу є і слова
@@ -105,7 +98,7 @@ Sie musterte mich von oben bis unten (она осмотрела меня с го
               if ( subStr[0].match(/[abcdefghijklmnopqrstuvwxyzäüöß]/iu) ) {
                 // підрядок зі словами та їх перекладами
                 aT = 'span.f-coni';
-                resultArea.value += '\n      span.f-coni ';
+                resultStr += '\n      span.f-coni ';
               } else {
                 let startItalic = subStr.match(/[abcdefghijklmnopqrstuvwxyzäüöß]/iu).index;
                 startItalicIndex = str.indexOf(subStr) + startItalic;
@@ -113,7 +106,7 @@ Sie musterte mich von oben bis unten (она осмотрела меня с го
             }
           } else {
             // тут тільки латиниця, отже це оригінальна дужка в тексті
-            resultArea.value += '(';
+            resultStr += '(';
           }
         }
       }
@@ -122,7 +115,7 @@ Sie musterte mich von oben bis unten (она осмотрела меня с го
       if ( i == startItalicIndex ) {
         startItalicIndex = -1;
         aT = 'span.f-coni';
-        resultArea.value += '\n      |\n      span.f-coni ';
+        resultStr += '\n      |\n      span.f-coni ';
       }
 
       // закриття дужок
@@ -130,25 +123,25 @@ Sie musterte mich von oben bis unten (она осмотрела меня с го
         oBA -= 1;
         if (oBA > 0) {
           // закриття внутрішньої дужки
-          resultArea.value += ')';
+          resultStr += ')';
         } else {
           // закриття зовнішньої дужки
           if (aT == 'span.btext') {
-            resultArea.value += ')';
+            resultStr += ')';
           } else if (aT == 'p') {
             aT == 'span.btext';
             if ( str[i+1].match(/[\.,:;?!»'"]/iu) ) {
-              resultArea.value += ')\n      span.btext ';
+              resultStr += ')\n      span.btext ';
             } else {
-              resultArea.value += ')\n      |\n      span.btext ';
+              resultStr += ')\n      |\n      span.btext ';
             }
           } else if (aT == 'span.f-coni') {
             aT == 'span.btext';
-            resultArea.value += '\n      |)\n      ';
+            resultStr += '\n      |)\n      ';
             if ( str[i+1].match(/[\.,:;?!»'"]/iu) ) {
-              resultArea.value += 'span.btext ';
+              resultStr += 'span.btext ';
             } else {
-              resultArea.value += '|\n      span.btext ';
+              resultStr += '|\n      span.btext ';
             }
           }
         }
@@ -156,9 +149,51 @@ Sie musterte mich von oben bis unten (она осмотрела меня с го
 
       // додати символ, якщо це не перевід рядка та не дужки
       if ( !str[i].match(/[\n\)\(]/) ) {
-        resultArea.value += str[i];
+        resultStr += str[i];
       }
     }
+    return resultStr;
+  }
+
+  function convertAndCopy () {
+    let str = document.querySelector('#plainText').value;
+    if (str == '') return;
+
+    let resultStr = convert(str);
+    let resultContainer = document.querySelector('#pugText');
+    resultContainer.innerHTML = resultStr;
+    resultContainer.select();
+    document.execCommand('copy');
+    resultContainer.blur();
+    setTimeout( () => {resultContainer.scrollTop = 0}, 100 );
+  }
+
+  function convertAndCopyMyltiple() {
+    let str = document.querySelector('#plainText').value;
+    if (str == '') return;
+
+    let resultStr = multipleConvert(str);
+    let resultContainer = document.querySelector('#pugText');
+    resultContainer.innerHTML = resultStr;
+    resultContainer.select();
+    document.execCommand('copy');
+    resultContainer.blur();
+    setTimeout( () => {resultContainer.scrollTop = 0}, 100 );
+  }
+
+  function multipleConvert() {
+    // console.log("multipleConvert");
+    let str = document.querySelector('#plainText').value;
+    if (str == '') return;
+
+    let resultStr = str;
+    let strIterator = str.matchAll(/\s{4}p .*\n/gui);
+    for (let subStr of strIterator) {
+      resultStr = resultStr.replace( subStr[0], convert(subStr[0]) );
+    }
+    resultStr = resultStr.replace(/\s{4}p\n\s{6}span\.btext \n\s{4}br/g,'\n    br');
+    resultStr = resultStr.replace(/span.btext     p/g, 'span.btext');
+    return resultStr
   }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
 ////////////////////////////////////////////////////////////////////////////////

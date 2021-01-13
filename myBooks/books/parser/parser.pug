@@ -19,12 +19,13 @@ html(lang="ua" allow="clipboard-read; clipboard-write")
         //- .textarea-wrapper
         //-   label(for='resultText') result
         //-   textarea#resultText
-
+      b INFO
+      p Одноабзацний конвертер придуманий безпосередньо для конвертації одного масиву адаптованого по методу Франка тексту (один або кілька абзаців), скопійованього безпосередньо з Word'а. Багатоабзацний конверер приймає відформатований текст з pug-файлів. Він шукає в рядку фрагменти від '    p ' до '\n' і конвертує тільки їх.
       .buttons-wrapper
-        button(type='button' disabled) вставити з буфера
-        button(type='button' onclick='convert()') конвертувати
-        button(type='button' onclick='copy()') скопіювати в буфер
         button(type='button' onclick='cleanAllTextArea()') очистити все
+        button(type='button' onclick='convertAndCopy()') одноабзацний конвертер
+        button(type='button' onclick='convertAndCopyMyltiple()') багатоабзацний конвертер
+        button(type='button' disabled) вставити з буфера
 
       .test(style='display:flex')
         .example(style='margin-right:20px')
@@ -437,698 +438,303 @@ html(lang="ua" allow="clipboard-read; clipboard-write")
 
 
       p
-        span.btext 1 Es war einmal eine kleine Hexe 
+        span.btext 1.Auf dem großen Passagierdampfer 
         |
-        |(жила - была маленькая ведьма)
-        span.btext , die war erst einhundertsiebenundzwanzig Jahre alt 
+        |(на большом пассажирском пароходе; 
         |
-        |(которой было всего сто двадцать семь лет; 
-        |
-        span.f-coni das Jahr – год; alt – старый
+        span.f-coni der Dampfer – пароход
         |)
+        span.btext , der um Mitternacht von New York nach Buenos Aires abgehen sollte 
         |
-        span.btext  und das ist ja für eine Hexe noch gar kein Alter 
+        |(который в полночь должен был отплыть из Нью-Йорка в Буэнос-Айрес; 
         |
-        |(а ведь это для ведьмы еще совсем не возраст /маленький возраст/; 
-        |
-        span.f-coni das Alter
+        span.f-coni die Mitternacht; abgehen – отходить, отправляться
         |)
-        span.btext .
-      p
-        span.btext 2 Sie wohnte in einem Hexenhaus 
+        span.btext , herrschte die übliche Geschäftigkeit und Bewegung der letzten Stunde 
         |
-        |(она жила в ведьмином доме)
-        span.btext , das stand einsam im tiefen Wald 
+        |(царили обычные для последнего часа /перед отплытием/ суета и волнение /движение/; 
         |
-        |(который стоял одиноко в глубине леса; 
-        |
-        span.f-coni stehen - stand - gestanden; tief – глубокий; der Wald
+        span.f-coni geschäftig – деятельный, хлопотливый; die Bewegung; bewegen – двигать, приводить в движение; sich bewegen – двигаться, передвигаться
         |)
-        span.btext . Weil es nur einer kleinen Hexe gehörte 
+        span.btext . Gäste vom Land drängten durcheinander 
         |
-        |(так как он /дом/ принадлежал только одной маленькой ведьме)
-        span.btext , war auch das Hexenhaus nicht besonders groß 
+        |(гости с суши /провожающие/ проталкивались между друг другом /сквозь толпу/; 
         |
-        |(был также /этот/ ведьмин дом не особенно большим; 
-        |
-        span.f-coni sein - war - gewesen
+        span.f-coni der Gast, das Land; drängen – напирать, теснить; sich drängen – проталкиваться, протискиваться
         |)
-        span.btext .
-      p
-        span.btext 3 Der kleinen Hexe genügte es aber 
+        span.btext , um ihren Freunden das Geleit zu geben 
         |
-        |(маленькой ведьме его /домика/, однако, хватало)
-        span.btext , sie hätte sich gar kein schöneres Hexenhaus wünschen können 
+        |(чтобы проводить своих друзей; 
         |
-        |(она не могла бы пожелать себе никакого более хорошего ведьминого дома; 
-        |
-        span.f-coni schön – красивый, хороший
+        span.f-coni das Geleit – проводы; j-m das Geleit geben – провожать, сопровождать
         |)
-        span.btext . Es hatte ein wundervoll windschiefes Dach 
+        span.btext , Telegraphenboys mit schiefen Mützen schossen Namen ausrufend durch die Gesellschaftsräume 
         |
-        |(у него была чудесная перекошенная крыша; 
+        |(мальчики-телеграфисты с покосившимися фуражками объявляли имена, выкрикивая их по салонам = мальчики-телеграфисты в сдвинутых набок фуражках выкрикивали в толпу имена /пассажиров/; 
         |
-        span.f-coni das Wunder – чудо, voll – наполненный; der Wind – ветер, schief – кривой
+        span.f-coni schief – косой, покосившийся; dieMütze; schießen – стрелять, ausrufen – выкрикивать, объявлять; der Gesellschaftsraum; die Gesellschaft – общество
         |)
-        span.btext , einen krummen Schornstein 
+        span.btext , Koffer und Blumen wurden geschleppt 
         |
-        |(кривая дымовая труба)
+        |(волочили чемоданы и цветы; 
         |
-        span.btext  und klapprige Fensterläden 
-        |
-        |(и громыхающие ставни; 
-        |
-        span.f-coni der Fensterladen, das Fenster – окно, der Laden – ставень; klappen – хлопать, стучать
+        span.f-coni der Koffer; schleppen – тащить, волочить
         |)
-        span.btext . Hinten hinaus war ein Backofen angebaut 
+        span.btext , Kinder liefen neugierig treppauf und treppab 
         |
-        |(сзади снаружи = со двора была пристроена печка; 
+        |(дети с любопытством бегали по лестнице вверх и вниз; 
         |
-        span.f-coni backen – печь/хлеб/, der Ofen – печка
+        span.f-coni die Treppe – лестница; auf und ab – вверх и вниз
         |)
-        span.btext . Der durfte nun einmal nicht fehlen 
+        span.btext , während das Orchester unerschütterlich zur Deckshow spielte 
         |
-        |(она /печка/ уж никак не могла отсутствовать = а как же без нее)
-        span.btext . Ein Hexenhaus ohne Backofen wäre kein richtiges Hexenhaus 
+        |(в то время как оркестр непоколебимо играл для палубного шоу = для создания на палубе праздничной атмосферы; 
         |
-        |(ведьмин дом без печки не был бы настоящим ведьминым домом)
-        span.btext .
-      p
-        span.btext 4 Die kleine Hexe besaß einen Raben 
-        |
-        |(у маленькой ведьмы был ворон; 
-        |
-        span.f-coni besitzen - besaß - besessen – владеть, иметь
-        |)
-        span.btext , der sprechen konnte 
-        |
-        |(который умел говорить)
-        span.btext . Das war der Rabe Abraxas. Er konnte nicht nur „Guten Morgen!" und „Guten Abend!" krächzen 
-        |
-        |(он мог каркать не только...)
-        |
-        span.btext  wie ein gewöhnlicher Rabe 
-        |
-        |(как обыкновенный ворон)
-        span.btext , der sprechen gelernt hat 
-        |
-        |(который научился говорить)
-        span.btext , sondern auch alles andere 
-        |
-        |(но /умел каркать/ и все другое = /все,/ что угодно)
-        span.btext . Die kleine Hexe hielt große Stücke auf ihn 
-        |
-        |(очень его ценила; 
-        |
-        span.f-coni große Stücke auf jemanden halten; halten - hielt - gehalten – держать
-        |)
-        span.btext , weil er ein ausnehmend weiser Rabe war 
-        |
-        |(так как он был исключительно мудрым вороном; 
-        |
-        span.f-coni ausnehmen – исключать
-        |)
-        span.btext , der ihr in allen Dingen die Meinung sagte 
-        |
-        |(который во всех делах высказывал ей свое мнение; 
-        |
-        span.f-coni das Ding
-        |)
-        |
-        span.btext  und nie ein Blatt vor den Schnabel nahm 
-        |
-        |(и всегда говорил начистоту, не лез за словом в карман: «никогда не прилагал листок к клюву»; 
-        |
-        span.f-coni das Blatt; nehmen - nahm - genommen; сравните: ein Blatt vor den Mund nehmen – листок прилагать ко рту, закрывать рот листком = высказывать откровенно свое мнение
+        span.f-coni erschüttern – потрясать, колебать; die Deckshow; das Deck – палуба
         |)
         span.btext .
+
+      br
+      p.btext 1.Auf dem großen Passagierdampfer, der um Mitternacht von New York nach Buenos Aires abgehen sollte, herrschte die übliche Geschäftigkeit und Bewegung der letzten Stunde. Gäste vom Land drängten durcheinander, um ihren Freunden das Geleit zu geben, Telegraphenboys mit schiefen Mützen schossen Namen ausrufend durch die Gesellschaftsräume, Koffer und Blumen wurden geschleppt, Kinder liefen neugierig treppauf und treppab, während das Orchester unerschütterlich zur Deckshow spielte. 
+      br
+
       p
-        span.btext 5 Etwa sechs Stunden am Tage 
+        span.btext 2.Ich stand im Gespräch mit einem Bekannten etwas abseits von diesem Getümmel auf dem Promenadendeck 
         |
-        |(приблизительно шесть часов днем = в день)
+        |(я стоял, разговаривая с одним знакомым, немного в стороне от этой суматохи на прогулочной палубе; 
         |
-        span.btext  verbrachte die kleine Hexe damit 
-        |
-        |(проводила маленькая ведьма с тем, чтобы; 
-        |
-        span.f-coni verbringen, bringen - brachte - gebracht – приносить
+        span.f-coni das Gespräch; das Getümmel; der Bekannte
         |)
-        span.btext , sich im Hexen zu üben 
+        span.btext , als neben uns zwei- oder dreimal Blitzlicht scharf aufsprühte 
         |
-        |(упражняться в колдовстве; 
+        |(как вдруг рядом с нами два или три раза ярко вспыхнула фотовспышка; 
         |
-        span.f-coni das Hexen
-        |)
-        span.btext . Das Hexen ist keine einfache Sache 
-        |
-        |(колдовство – не простое дело)
-        span.btext . Wer es im Hexen zu etwas bringen will 
-        |
-        |(кто хочет в колдовстве чего - то добиться)
-        span.btext , darf nicht faul sein 
-        |
-        |(не имеет права быть ленивым)
-        span.btext . Er muss zuerst alle kleineren Hexenkunststücke lernen 
-        |
-        |(он должен сперва все довольно мелкие = небольшие колдовские «штуки» освоить; 
-        |
-        span.f-coni klein – мелкий; die Hexenkunst – колдовство, das Stück – кусок, часть
+        span.f-coni der Blitz – молния; das Licht – свет; scharf – острый, резкий; aufsprühen – брызнуть, разлететься
         |)
         |
-        span.btext  – und später die großen 
+        span.btext  – anscheinend war irgendein Prominenter knapp vor der Abfahrt noch rasch von Reportern interviewt und photographiert worden 
         |
-        |(а позже – крупные; 
+        |(по-видимому, в последние минуты перед отправлением проворные репортеры брали: «репортеры проворно брали» у какой-то знаменитости /из числа пассажиров/ интервью и делали фотоснимки; 
         |
-        span.f-coni spät – поздний
+        span.f-coni prominént – видный, значительный; knapp – едва, в обрез; die Abfahrt; abfahren – отъезжать, отплывать
         |)
-        span.btext . Seite für Seite muss er das Hexenbuch durchstudieren 
+        span.btext . Mein Freund blickte hin und lächelte 
         |
-        |(страница за страницей должен он колдовскую книгу основательно изучить)
+        |(мой друг взглянул в ту сторону: «туда» и усмехнулся)
+        span.btext . «Sie haben da einen raren Vogel an Bord, den Czentovic 
         |
-        span.btext  und keine einzige Aufgabe darf er dabei überspringen 
+        |(с Вами на борту редкая птица – Чентович; 
         |
-        |(и ни одного задания при этом не имеет права пропускать)
-        span.btext .
+        span.f-coni der Vogel
+        |)
+        span.btext .» Und da ich offenbar ein ziemlich verständnisloses Gesicht zu dieser Mitteilung machte 
+        |
+        |(и так как после этого сообщения я очевидно сделал довольно непонятливое лицо; 
+        |
+        span.f-coni das Verständnis – понимание; das Gesicht; die Mitteilung
+        |)
+        span.btext , fügte er erklärend bei 
+        |
+        |(он пояснил: «добавил, поясняя /вышесказанное/»; 
+        |
+        span.f-coni erklären – объяснять, разъяснять; beifügen – добавлять
+        |)
+        span.btext : «Mirko Czentovic, der Weltschachmeister 
+        |
+        |(Мирко Чентович, чемпион мира по шахматам)
+        span.btext . Er hat ganz Amerika von Ost nach West mit Turnierspielen abgeklappert 
+        |
+        |(он изъездил с турнирными играми всю Америку с востока на запад; 
+        |
+        span.f-coni das Turnier; das Spiel; der Ost; der West; abklappern – исходить, избегать /в поисках чего-либо/
+        |)
+        |
+        span.btext  und fährt jetzt zu neuen Triumphen nach Argentinien 
+        |
+        |(и теперь едет за новыми триумфами в Аргентину; 
+        |
+        span.f-coni der Triumph
+        |)
+        span.btext .»
+
+      br
+      p.btext 2.Ich stand im Gespräch mit einem Bekannten etwas abseits von diesem Getümmel auf dem Promenadendeck, als neben uns zwei- oder dreimal Blitzlicht scharf aufsprühte – anscheinend war irgendein Prominenter knapp vor der Abfahrt noch rasch von Reportern interviewt und photographiert worden. Mein Freund blickte hin und lächelte. «Sie haben da einen raren Vogel an Bord, den Czentovic.» Und da ich offenbar ein ziemlich verständnisloses Gesicht zu dieser Mitteilung machte, fügte er erklärend bei: «Mirko Czentovic, der Weltschachmeister. Er hat ganz Amerika von Ost nach West mit Turnierspielen abgeklappert und fährt jetzt zu neuen Triumphen nach Argentinien.» 
+      br
+
       p
-        span.btext 6 Die kleine Hexe war erst auf Seite zweihundertdreizehn des Hexenbuches 
+        span.btext 3.In der Tat erinnerte ich mich nun dieses jungen Weltmeisters 
         |
-        |(маленькая ведьма находилась только на странице двести тринадцать колдовской книги; 
+        |(на самом деле теперь я вспомнил этого молодого чемпиона мира; 
         |
-        span.f-coni die Seite
-        |)
-        span.btext . Sie übte gerade das Regenmachen 
-        |
-        |(она как раз упражнялась в делании дождя = в том, как делать дождь; 
-        |
-        span.f-coni der Regen – дождь, machen – делать
-        |)
-        span.btext . Sie saß auf der Bank vor dem Backofen 
-        |
-        |(она сидела на скамейке перед печкой; 
-        |
-        span.f-coni sitzen - saß - gesessen
-        |)
-        span.btext , hatte das Hexenbuch auf den Knien liegen 
-        |
-        |(с лежащей на коленях колдовской книгой; 
-        |
-        span.f-coni das Knie
+        span.f-coni die Tat – дело, действие; die Welt – мир, вселенная
         |)
         |
-        span.btext  und hexte 
+        span.btext  und sogar einiger Einzelheiten im Zusammenhang mit seiner raketenhaften Karriere 
         |
-        |(и колдовала)
-        span.btext . Der Rabe Abraxas saß neben ihr 
+        |(и даже некоторые подробности, связанные с его молниеносной карьерой: «ракетоподобной /по скорости/ карьерой»; 
         |
-        |(сидел рядом с ней)
-        |
-        span.btext  und war unzufrieden 
-        |
-        |(и был недоволен)
-        span.btext .
-      p
-        span.btext 7 „Du sollst einen Regen machen 
-        |
-        |(ты должна сделать дождь)
-        span.btext ", krächzte er vorwurfsvoll 
-        |
-        |(каркал он укоризненно; 
-        |
-        span.f-coni der Vorwurf – упрек
+        span.f-coni die Einzelheit; der Zusammenhang – связь, связность; die Karriere
         |)
-        span.btext , „und was hext du 
+        span.btext ; mein Freund, ein aufmerksamerer Zeitungsleser als ich, konnte sie mit einer ganzen Reihe von Anekdoten ergänzen 
         |
-        |(а что колдуешь = творишь ты)
-        span.btext ? Beim ersten Mal lässt du es weiße Mäuse regnen 
+        |(мой друг, более внимательный, читатель газет, чем я, мог дополнить их /сведения/ целым рядом анекдотов; 
         |
-        |(в первый раз ты заставляешь идти = вызвала дождь /из/ белых мышей;
-        |
-        span.f-coni lassen; die Maus
+        span.f-coni aufmerksam; die Zeitung; der Zeitungsleser; die Reihe; die Anekdote
         |)
-        span.btext , beim zweiten Mal Frösche 
+        span.btext . Czentovic hatte sich vor etwa einem Jahr mit einem Schlage neben die bewährtesten Altmeister der Schachkunst, wie Aljechin, Capablanca; Tartakower, Lasker, Bogoljubow, gestellt 
         |
-        |(во второй раз – /из/ лягушек; 
+        |(где-то около года назад Чентовичу удалось сразу стать в ряды таких опытнейших корифеев шахматного искусства, как Алехин, Капабланка, Тартаковер, Ласкер, Боголюбов; 
         |
-        span.f-coni der Frosch
-        |)
-        span.btext , beim dritten Mal Tannenzapfen 
-        |
-        |(в третий раз – /из/ еловых шишек; 
-        |
-        span.f-coni die Tanne, der Zapfen
-        |)
-        span.btext ! Ich bin ja gespannt 
-        |
-        |(я просто с нетерпением ожидаю;
-        |
-        span.f-coni auf etwas gespannt sein; spannen – напрягать, натягивать
-        |)
-        span.btext , ob du wenigstens jetzt einen richtigen Regen zustande bringst 
-        |
-        |(получится ли сейчас у тебя по меньшей мере настоящий дождь; 
-        |
-        span.f-coni wenig – мало; zustande bringen – осуществлять: «приводить к состоянию»
-        |)
-        span.btext !"
-      p
-        span.btext 
-      p
-        span.btext 1 Es war einmal eine kleine Hexe, die war erst einhundertsiebenundzwanzig Jahre alt und das ist ja für eine Hexe noch gar kein Alter. 
-      p
-        span.btext 2 Sie wohnte in einem Hexenhaus, das stand einsam im tiefen Wald. Weil es nur einer kleinen Hexe gehörte, war auch das Hexenhaus nicht besonders groß. 
-      p
-        span.btext 3 Der kleinen Hexe genügte es aber, sie hätte sich gar kein schöneres Hexenhaus wünschen können. Es hatte ein wundervoll windschiefes Dach, einen krummen Schornstein und klapprige Fensterläden. Hinten hinaus war ein Backofen angebaut. Der durfte nun einmal nicht fehlen. Ein Hexenhaus ohne Backofen wäre kein richtiges Hexenhaus. 
-      p
-        span.btext 4 Die kleine Hexe besaß einen Raben, der sprechen konnte. Das war der Rabe Abraxas. Er konnte nicht nur „Guten Morgen!" und „Guten Abend!" krächzen wie ein gewöhnlicher Rabe, der sprechen gelernt hat, sondern auch alles andere. Die kleine Hexe hielt große Stücke auf ihn, weil er ein ausnehmend weiser Rabe war, der ihr in allen Dingen die Meinung sagte und nie ein Blatt vor den Schnabel nahm. 
-      p
-        span.btext 5 Etwa sechs Stunden am Tage verbrachte die kleine Hexe damit, sich im Hexen zu üben. Das Hexen ist keine einfache Sache. Wer es im Hexen zu etwas bringen will, darf nicht faul sein. Er muss zuerst alle kleineren Hexenkunststücke lernen – und später die großen. Seite für Seite muss er das Hexenbuch durchstudieren und keine einzige Aufgabe darf er dabei überspringen. 
-      p
-        span.btext 6 Die kleine Hexe war erst auf Seite zweihundertdreizehn des Hexenbuches. Sie übte gerade das Regenmachen. Sie saß auf der Bank vor dem Backofen, hatte das Hexenbuch auf den Knien liegen und hexte. Der Rabe Abraxas saß neben ihr und war unzufrieden. 
-      p
-        span.btext 7 „Du sollst einen Regen machen", krächzte er vorwurfsvoll, „und was hext du? Beim ersten Mal lässt du es weiße Mäuse regnen, beim zweiten Mal Frösche, beim dritten Mal Tannenzapfen! Ich bin ja gespannt, ob du wenigstens jetzt einen richtigen Regen zustande bringst!" 
-      p
-        span.btext 
-      p
-        span.btext 1 Da versuchte die kleine Hexe zum vierten Mal 
-        |
-        |(тут попробовала маленькая ведьма в четвертый раз)
-        span.btext , einen Regen zu machen 
-        |
-        |(сделать дождь)
-        span.btext . Sie ließ eine Wolke am Himmel aufsteigen 
-        |
-        |(она повелела возникнуть туче в небе)
-        span.btext , winkte sie näher 
-        |
-        |(знаком подозвала ее ближе; 
-        |
-        span.f-coni winken – делать знак; nahe – близкий
-        |)
-        |
-        span.btext  und rief 
-        |
-        |(и крикнула; 
-        |
-        span.f-coni rufen - rief - gerufen
-        |)
-        span.btext , als die Wolke genau über ihnen stand 
-        |
-        |(когда туча находилась точно над ними; 
-        |
-        span.f-coni stehen - stand - gestanden
-        |)
-        span.btext : „Regne 
-        |
-        |(дождь пойди)
-        span.btext !"
-      p
-        span.btext 2 Die Wolke riss auf 
-        |
-        |(туча разорвалась; 
-        |
-        span.f-coni aufreißen, reißen - riss - gerissen
-        |)
-        |
-        span.btext  und es regnete 
-        |
-        |(и пошел дождь)
-        |
-        span.btext  – Buttermilch 
-        |
-        |(пахта /кислое молоко/; 
-        |
-        span.f-coni die Buttermilch, die Butter – сливочное масло, die Milch – молоко
+        span.f-coni der Schlag – удар; mit einem Schlage – однимударом, сразу; bewährt – опытный; die Schachkunst
         |)
         span.btext .
+
+      br
+      p.btext 3.In der Tat erinnerte ich mich nun dieses jungen Weltmeisters und sogar einiger Einzelheiten im Zusammenhang mit seiner raketenhaften Karriere; mein Freund, ein aufmerksamerer Zeitungsleser als ich, konnte sie mit einer ganzen Reihe von Anekdoten ergänzen. Czentovic hatte sich vor etwa einem Jahr mit einem Schlage neben die bewährtesten Altmeister der Schachkunst, wie Aljechin, Capablanca; Tartakower, Lasker, Bogoljubow, gestellt. 
+      br
+
       p
-        span.btext 3 „Buttermilch!", kreischte Abraxas 
+        span.btext 4.Seit dem Auftreten des siebenjährigen Wunderkindes Rzecewski bei dem Schachturnier 1922 in New York 
         |
-        |(пронзительно закричал)
-        span.btext . „Mir scheint 
+        |(с момента появления семилетнего вундеркинда Ржецевского на шахматном турнире 1922 года в Нью-Йорке; 
         |
-        |(мне кажется)
-        span.btext , du bist vollständig übergeschnappt 
-        |
-        |(ты совершенно спятила; 
-        |
-        span.f-coni schnappen – хватать/быстрым движкением/, защелкивать
+        span.f-coni auftreten – возникать, появляться; das Auftreten; das Wunderkind; das Schachturnier
         |)
-        span.btext ! Was willst du denn noch alles regnen lassen 
         |
-        |(что же ты еще такое: «все» хочешь заставить пролиться дождем)
-        span.btext ? Wäscheklammern vielleicht 
+        span.btext  hatte noch nie der Einbruch eines völlig Unbekannten in die ruhmreiche Gilde derart allgemeines Aufsehen erregt 
         |
-        |(может быть, прищепки; 
+        |(ещё ни одно вторжение незнакомца /новичка/ в прославленную /шахматную/ гильдию не привлекало такого всеобщего внимания; 
         |
-        span.f-coni die Wäscheklammer, die Wäsche – белье, die Klammer – зажим
+        span.f-coni einbrechen – врываться, вторгаться; völlig – полный, совершенный; der Ruhm – слава; reich – богатый; das Aufsehen; Aufsehen erregen – привлекать внимание, производить сенсацию
         |)
-        span.btext ? Oder Schusternägel 
+        span.btext . Denn Czentovics intellektuelle Eigenschaften schienen ihm keineswegs solch eine blendende Karriere von vornherein zu weissagen 
         |
-        |(или сапожные гвозди; 
+        |(хотя интеллектуальные способности: «качества, свойства» Чентовича с самого начала, казалось, ни в коей мере не предвещали ему такой блистательной карьеры; 
         |
-        span.f-coni der Schuster – сапожник, der Nagel – гвоздь
+        span.f-coni blenden – слепить, ослеплять; scheinen
         |)
-        span.btext ? Wenn es doch wenigstens Brotkrümel oder Rosinen wären 
+        span.btext . Bald sickerte das Geheimnis durch 
         |
-        |(если бы это все же по меньшей мере были хлебные крошки или изюм; 
+        |(вскоре обнаружилась тайна; 
         |
-        span.f-coni das Brot – хлеб, das Krümel – крошка; die Rosine – изюминка
+        span.f-coni durchsickern – просачиваться, распространяться
         |)
-        span.btext !"
+        span.btext , dass dieser Schachmeister in seinem Privatleben außerstande war, in irgendeiner Sprache einen Satz ohne orthographischen Fehler zu schreiben 
+        |
+        |(что этот чемпион мира по шахматам в своей частной жизни не мог написать без орфографических ошибок ни единого предложения ни на одном из языков; 
+        |
+        span.f-coni das Privatleben; privat – частный, личный; außerstande sein – быть не в силах, невсостоянии; der Satz; die Sprache; der Fehler
+        |)
+        span.btext ,und wie einer seiner verärgerten Kollegen ingrimmig spottete 
+        |
+        |(и как один из его недовольных коллег злобно заметил; 
+        |
+        span.f-coni verärgern – рассердить, раздосадовать; spotten – насмехаться, издеваться
+        |)
+        span.btext , «seine Unbildung war auf allen Gebieten gleich universell 
+        |
+        |(его необразованность во всех отраслях /науки/ одинаково универсальна; 
+        |
+        span.f-coni die Unbildung; sich bilden – просвещаться, развиваться; das Gebiet – область, зона; der Kollege
+        |)
+        span.btext ».
+
+      br
+      p.btext 4.Seit dem Auftreten des siebenjährigen Wunderkindes Rzecewski bei dem Schachturnier 1922 in New York hatte noch nie der Einbruch eines völlig Unbekannten in die ruhmreiche Gilde derart allgemeines Aufsehen erregt. Denn Czentovics intellektuelle Eigenschaften schienen ihm keineswegs solch eine blendende Karriere von vornherein zu weissagen. Bald sickerte das Geheimnis durch, dass dieser Schachmeister in seinem Privatleben außerstande war, in irgendeiner Sprache einen Satz ohne orthographischen Fehler zu schreiben, und wie einer seiner verärgerten Kollegen ingrimmig spottete, «seine Unbildung war auf allen Gebieten gleich universell». 
+      br
+
       p
-        span.btext 4 „Ich muss mich beim Hexen versprochen haben 
+        span.btext 5.Sohn eines blutarmen südslawischen Donauschiffers 
         |
-        |(я, должно быть, при колдовстве оговорилась; 
+        |(сын одного нищего югославского лодочника с Дуная; 
         |
-        span.f-coni sich versprechen, sprechen - sprach - gesprochen
+        span.f-coni der Sohn; blutarm – /разг./ оченьбедный, der Schiffer – шкипер, капитан, мотористлодки
         |)
-        span.btext ", sagte die kleine Hexe. Früher war ihr auch schon dann und wann etwas danebengegangen 
+        span.btext , dessen winzige Barke eines Nachts von einem Getreidedampfer überrannt wurde 
         |
-        |(раньше ей тоже уже время от времени кое - что не удавалось; 
+        |(чьё крохотное суденышко однажды ночью было потоплено грузовым пароходом; 
         |
-        span.f-coni danebengehen, gehen - ging - gegangen; daneben – мимо: «тут возле»
+        span.f-coni das Getreide – злаки, зерно; die Barke – барка /небольшое судно без мачты и мотора/; überrennen – сбитьсног, смять, опрокинуть
         |)
-        span.btext . Aber gleich viermal hintereinander 
+        span.btext , war der damals Zwölfjährige nach dem Tode seines Vaters vom Pfarrer des abgelegenen Ortes aus Mitleid aufgenommen worden 
         |
-        |(но сейчас четыре раза один за другим)
-        span.btext ?
-      p
-        span.btext 5 „Versprochen haben!", krächzte der Rabe Abraxas. „Ich werde dir sagen 
+        |(в то время двенадцатилетний /мальчишка/ после смерти своего отца из сострадания был принят священником из глухой деревушки; 
         |
-        |(я скажу тебе)
-        span.btext , woran es liegt 
-        |
-        |(в чем тут дело)
-        span.btext . Zerstreut bist du 
-        |
-        |(ты рассеянна; 
-        |
-        span.f-coni streuen – посыпать, сеять; zerstreuen – рассеивать
+        span.f-coni der Tod; der Pfarrer; mitleiden – cочувствовать, разделять чьи-то страдания; der Ort; das Mitleid; aufnehmen; abgelegen – отдаленный, уединенный
         |)
-        span.btext ! Wenn man beim Hexen an alles Mögliche andere denkt 
+        span.btext , und der gute Pater bemühte sich redlich, durch häusliche Nachhilfe wettzumachen
         |
-        |(если при колдовстве думают обо всем возможном другом = 
+        |(и добрый пастор добросовестно старался компенсировать домашней помощью в занятиях /репетиторством/; 
         |
-        span.f-coni o постороннем
+        span.f-coni der Pater – отец, патер; die Nachhilfe
         |)
-        span.btext , muss man sich ja verhexen 
+        span.btext , was das maulfaule, dumpfe, breitstirnige Kind in der Dorfschule nicht zu erlernen vermochte 
         |
-        |(обязательно ведь «околдуешься» /по аналогии с «оговоришься»/)
-        span.btext ! Du solltest eben ein bisschen mehr bei der Sache sein 
+        |(то, что молчаливый, туповатый, широколобый ребенок не мог освоить в деревенской школе; 
         |
-        |(ты должна как раз быть повнимательнее: «немного больше быть внимательной»; 
-        |
-        span.f-coni die Sache – дело, вопрос
-        |)
-        span.btext !"
-      p
-        span.btext 6 „Findest du 
-        |
-        |(ты находишь)
-        span.btext ?", meinte die kleine Hexe 
-        |
-        |(сказала маленькая ведьма; 
-        |
-        span.f-coni meinen – высказывать свое мнение
-        |)
-        span.btext . Dann klappte sie plötzlich das Hexenbuch zu 
-        |
-        |(потом она вдруг захлопнула колдовскую книгу; 
-        |
-        span.f-coni zuklappen
-        |)
-        span.btext . „Du hast Recht 
-        |
-        |(ты прав; 
-        |
-        span.f-coni das Recht – право
-        |)
-        span.btext !", rief sie zornig 
-        |
-        |(крикнула она гневно; 
-        |
-        span.f-coni der Zorn – гнев
-        |)
-        span.btext . „Es stimmt 
-        |
-        |(/это/ верно)
-        span.btext , dass ich nicht bei der Sache bin 
-        |
-        |(что я невнимательна)
-        span.btext . Und warum nicht 
-        |
-        |(а почему нет)
-        span.btext ?" Sie blitzte den Raben an 
-        |
-        |(она сверкнула глазами на ворона; 
-        |
-        span.f-coni anblitzen
-        |)
-        span.btext . „Weil ich Wut habe 
-        |
-        |(потому что я в бешенстве; 
-        |
-        span.f-coni die Wut
-        |)
-        span.btext !"
-      p
-        span.btext 7 „Wut?", wiederholte der Rabe Abraxas 
-        |
-        |(повторил ворон)
-        span.btext . „Auf wen denn 
-        |
-        |(на кого же)
-        span.btext ?"
-      p
-        span.btext 8 „Es ärgert mich 
-        |
-        |(меня злит)
-        span.btext ", sagte die kleine Hexe, „dass heute Walpurgisnacht ist 
-        |
-        |(что сегодня Вальпургиева ночь; 
-        |
-        span.f-coni die Nacht
-        |)
-        span.btext . Heute treffen sich alle Hexen zum Tanz auf dem Blocksberg 
-        |
-        |(сегодня встречаются все ведьмы для танца на Блоксберге; 
-        |
-        span.f-coni sich treffen; der Tanz; der Berg – гора
-        |)
-        span.btext ."
-      p
-        span.btext 9 „Na – und 
-        |
-        |(ну, и что)
-        span.btext ?"
-      p
-        span.btext 10 „Und ich bin noch zu klein für den Hexentanz 
-        |
-        |(а я еще слишком мала для танца ведьм)
-        span.btext , sagen die großen Hexen 
-        |
-        |(говорят взрослые ведьмы)
-        span.btext . Sie wollen nicht 
-        |
-        |(они не хотят)
-        span.btext , dass ich auch auf den Blocksberg reite 
-        |
-        |(чтобы я тоже на Блоксберг приехала верхом /на метле/ = прилетела)
-        |
-        span.btext  und mittanze 
-        |
-        |(и танцевала с ними)
-        span.btext !"
-      p
-        span.btext 11 Der Rabe versuchte die kleine Hexe zu trösten 
-        |
-        |(ворон попытался маленькую ведьму утешить)
-        |
-        span.btext  und sagte: „Sieh mal 
-        |
-        |(смотри - ка)
-        |
-        span.btext  – mit einhundertsiebenundzwanzig Jahren kannst du noch nicht verlangen 
-        |
-        |(в /твои/ сто двадцать семь лет ты еще не можешь требовать)
-        span.btext , dass dich die großen Hexen für voll nehmen 
-        |
-        |(чтобы тебя взрослые ведьмы принимали всерьез: «брали за полную = полноценную»)
-        span.btext . Wenn du erst älter bist 
-        |
-        |(когда ты будешь старше; 
-        |
-        span.f-coni alt – старый
-        |)
-        span.btext , wird sich das alles geben 
-        |
-        |(все это сбудется, уладится; 
-        |
-        span.f-coni sich geben
-        |)
-        span.btext ."
-      p
-        span.btext 12 „Ach was 
-        |
-        |(да брось ты)
-        span.btext !", rief die kleine Hexe. „Ich will aber diesmal schon mit dabei sein 
-        |
-        |(я же хочу уже в этот раз присутствовать при этом)
-        span.btext ! Verstehst du mich 
-        |
-        |(ты меня понимаешь)
-        span.btext ?"
-      p
-        span.btext 13 „Was man nicht haben kann 
-        |
-        |(/то,/ что не можешь иметь)
-        span.btext , soll man sich aus dem Kopf schlagen 
-        |
-        |(нужно выбить = выбросить из головы; 
-        |
-        span.f-coni jemandem etwas aus dem Kopf schlagen
-        |)
-        span.btext ", krächzte der Rabe. „Ändert sich etwas daran 
-        |
-        |(изменится ли что - нибудь)
-        span.btext , wenn du zornig bist 
-        |
-        |(если ты будешь гневной = злиться)
-        span.btext ? Nimm doch Vernunft an 
-        |
-        |(образумься же; 
-        |
-        span.f-coni die Vernunft – здравый рассудок, Vernunft annehmen – образумиться, одуматься; annehmen – принять
-        |)
-        span.btext ! Was willst du denn machen 
-        |
-        |(что же ты хочешь делать)
-        span.btext ?"
-      p
-        span.btext 14 Da sagte die kleine Hexe: „Ich weiß, was ich mache 
-        |
-        |(я знаю, что я сделаю)
-        span.btext . Ich reite heut Nacht auf den Blocksberg!"
-      p
-        span.btext 15 Der Rabe erschrak 
-        |
-        |(ворон испугался; 
-        |
-        span.f-coni erschreсken - erschrak - erschroсken
+        span.f-coni vermögen – быть в состоянии, мочь
         |)
         span.btext .
+
+      br
+      p.btext 5.Sohn eines blutarmen südslawischen Donauschiffers, dessen winzige Barke eines Nachts von einem Getreidedampfer überrannt wurde, war der damals Zwölfjährige nach dem Tode seines Vaters vom Pfarrer des abgelegenen Ortes aus Mitleid aufgenommen worden, und der gute Pater bemühte sich redlich, durch häusliche Nachhilfe wettzumachen, was das maulfaule, dumpfe, breitstirnige Kind in der Dorfschule nicht zu erlernen vermochte. 
+      br
+
       p
-        span.btext 16 „Auf den Blocksberg?! – Das haben dir doch die großen Hexen verboten 
+        span.btext 6.Aber die Anstrengungen blieben vergeblich 
         |
-        |(это же тебе запретили взрослые ведьмы; 
+        |(но усилия оказались напрасны; 
         |
-        span.f-coni verbieten, bieten - bot - geboten – предлагать
+        span.f-coni die Anstrengung; bleiben – оставаться
         |)
-        span.btext ! Sie wollen beim Hexentanz unter sich sein 
+        span.btext . Mirko starrte die ihm schon hundertmal erklärten Schriftzeichen immer wieder fremd an 
         |
-        |(они хотят при танце ведьм быть среди своих /без посторонних/)
-        span.btext ."
-      p
-        span.btext 17 „Pah 
+        |(Мирко снова и снова бессмысленно всматривался в буквы, объясненные ему уже раз сто; 
         |
-        |(ба)
-        span.btext !", rief die kleine Hexe. „Verboten ist vieles 
+        span.f-coni anstarren – уставиться, пристально смотреть; das Schriftzeichen; die Schrift – письмо, письменность; fremd – посторонний, чуждый
+        |)
+        span.btext ; auch für die simpelsten Unterrichtsgegenstände fehlte seinem schwerfällig arbeitenden Gehirn jede festhaltende Kraft 
         |
-        |(запрещено многое)
-        span.btext . Aber wenn man sich nicht erwischen lässt 
+        |(но и для /запоминания/ простейших учебных понятий не хватало его неповоротливому: «медлительно, неповоротливо работающему» мозгу удерживающей силы; 
         |
-        |(но если не попадешься; 
+        span.f-coni simpel; der Unterricht – преподавание, обучение; der Gegenstand; der Gehirn; festhalten – держать, удерживать
+        |)
+        span.btext . Wenn er rechnen sollte, musste er noch mit vierzehn Jahren jedesmal die Finger zu Hilfe nehmen 
         |
-        span.f-coni sich erwischen lassen – дать себя поймать, erwischen – поймать, схватить
+        |(когда ему надо было сосчитать что-либо, в свои четырнадцать лет он вынужден был каждый раз прибегать к помощи пальцев = считать на пальцах; 
+        |
+        span.f-coni der Finger; die Hilfe
+        |)
+        span.btext , und ein Buch oder eine Zeitung zu lesen bedeutete für den schon halbwüchsigen Jungen noch besondere Anstrengung 
+        |
+        |(а чтение книги или газеты требовало от подростка особого напряжения; 
+        |
+        span.f-coni das Buch; die Zeitung; bedeuten – значить, означать; halbwüchsig – невзрослый; ein halbwüchsiger Junge – подросток /мальчик/; die Anstrengung; sich anstrengen – напрягаться, прилагатьусилия
+        |)
+        span.btext . Dabei konnte man Mirko keineswegs unwillig oder widerspenstig nennen 
+        |
+        |(при этом Мирко никак нельзя было назвать нерадивым или непослушным)
+        span.btext . Er tat gehorsam, was man ihm gebot 
+        |
+        |(он послушно исполнял все, что ему велели; 
+        |
+        span.f-coni gebieten – приказывать, повелевать
+        |)
+        span.btext , holte Wasser, spaltete Holz, arbeitete mit auf dem Felde, räumte die Küche auf 
+        |
+        |(носил воду, колол дрова, работал в поле, убирал кухню; 
+        |
+        span.f-coni das Holz; das Feld; aufräumen
         |)
         |
-        span.btext  ..."
-      p
-        span.btext 18 „Sie erwischen dich 
+        span.btext  und erledigte verläßlich, wenn auch mit verärgernder Langsamkeit, jeden geforderten Dienst 
         |
-        |(они поймают тебя)
-        span.btext !", prophezeite der Rabe 
+        |(и в любом случае выполнял каждое данное ему поручение, хотя и с раздражающей медлительностью; 
         |
-        |(предсказал ворон)
+        span.f-coni verläßlich – надежно; langsam – медленно; die Langsamkeit; fordern – требовать, просить; der Dienst – работа, обязанности; verärgern – злить, сердить
+        |)
         span.btext .
-      p
-        span.btext 19 „Ach, Unsinn 
-        |
-        |(ах, вздор; 
-        |
-        span.f-coni der Unsinn
-        |)
-        span.btext !", erwiderte sie 
-        |
-        |(возразила она)
-        span.btext . „Ich geselle mich erst zu den anderen Hexen 
-        |
-        |(я присоединюсь к другим ведьмам только /тогда/)
-        span.btext , wenn sie schon mitten im Tanz sind 
-        |
-        |(когда они уже будут в середине танца = когда танец будет в самом разгаре)
-        |
-        span.btext  – und ehe sie Schluss machen 
-        |
-        |(и прежде, чем они закончат; 
-        |
-        span.f-coni Schluss machen, der Schluss – конец
-        |)
-        span.btext , reite ich wieder heim 
-        |
-        |(я снова улечу: «ускачу» домой)
-        span.btext . In dem Trubel 
-        |
-        |(в суматохе; 
-        |
-        span.f-coni der Trubel
-        |)
-        span.btext , der heute Nacht auf dem Blocksberg herrscht 
-        |
-        |(которая этой ночью будет господствовать на Блоксберге)
-        span.btext , wird das nicht weiter auffallen 
-        |
-        |(это совершенно не бросится в глаза)
-        span.btext ."
-      p
-        span.btext 
-      p
-        span.btext 1 Da versuchte die kleine Hexe zum vierten Mal, einen Regen zu machen. Sie ließ eine Wolke am Himmel aufsteigen, winkte sie näher und rief, als die Wolke genau über ihnen stand: „Regne!" 
-      p
-        span.btext 2 Die Wolke riss auf und es regnete – Buttermilch. 
-      p
-        span.btext 3 „Buttermilch!", kreischte Abraxas. „Mir scheint, du bist vollständig übergeschnappt! Was willst du denn noch alles regnen lassen? Wäscheklammern vielleicht? Oder Schusternägel? Wenn es doch wenigstens Brotkrümel oder Rosinen wären!" 
-      p
-        span.btext 4 „Ich muss mich beim Hexen versprochen haben", sagte die kleine Hexe. Früher war ihr auch schon dann und wann etwas danebengegangen. Aber gleich viermal hintereinander? 
-      p
-        span.btext 5 „Versprochen haben!", krächzte der Rabe Abraxas. „Ich werde dir sagen, woran es liegt. Zerstreut bist du! Wenn man beim Hexen an alles Mögliche andere denkt, muss man sich ja verhexen! Du solltest eben ein bisschen mehr bei der Sache sein!" 
-      p
-        span.btext 6 „Findest du?", meinte die kleine Hexe. Dann klappte sie plötzlich das Hexenbuch zu. „Du hast Recht!", rief sie zornig. „Es stimmt, dass ich nicht bei der Sache bin. Und warum nicht?" Sie blitzte den Raben an. „Weil ich Wut habe!" 
-      p
-        span.btext 7 „Wut?", wiederholte der Rabe Abraxas. „Auf wen denn?" 
-      p
-        span.btext 8 „Es ärgert mich", sagte die kleine Hexe, „dass heute Walpurgisnacht ist. Heute treffen sich alle Hexen zum Tanz auf dem Blocksberg." 
-      p
-        span.btext 9 „Na – und?" 
-      p
-        span.btext 10 „Und ich bin noch zu klein für den Hexentanz, sagen die großen Hexen. Sie wollen nicht, dass ich auch auf den Blocksberg reite und mittanze!" 
-      p
-        span.btext 11 Der Rabe versuchte die kleine Hexe zu trösten und sagte: „Sieh mal – mit einhundertsiebenundzwanzig Jahren kannst du noch nicht verlangen, dass dich die großen Hexen für voll nehmen. Wenn du erst älter bist, wird sich das alles geben." 
-      p
-        span.btext 12 „Ach was!", rief die kleine Hexe. „Ich will aber diesmal schon mit dabei sein! Verstehst du mich?" 
-      p
-        span.btext 13 „Was man nicht haben kann, soll man sich aus dem Kopf schlagen", krächzte der Rabe. „Ändert sich etwas daran, wenn du zornig bist? Nimm doch Vernunft an! Was willst du denn machen?" 
-      p
-        span.btext 14 Da sagte die kleine Hexe: „Ich weiß, was ich mache. Ich reite heut Nacht auf den Blocksberg!" 
-      p
-        span.btext 15 Der Rabe erschrak. 
-      p
-        span.btext 16 „Auf den Blocksberg?! – Das haben dir doch die großen Hexen verboten! Sie wollen beim Hexentanz unter sich sein." 
-      p
-        span.btext 17 „Pah!", rief die kleine Hexe. „Verboten ist vieles. Aber wenn man sich nicht erwischen lässt ..." 
-      p
-        span.btext 18 „Sie erwischen dich!", prophezeite der Rabe. 
-      p
-        span.btext 19 „Ach, Unsinn!", erwiderte sie. „Ich geselle mich erst zu den anderen Hexen, wenn sie schon mitten im Tanz sind – und ehe sie Schluss machen, reite ich wieder heim. In dem Trubel, der heute Nacht auf dem Blocksberg herrscht, wird das nicht weiter auffallen."
-      p
-        span.btext 
+
+      br
+      p.btext 6.Aber die Anstrengungen blieben vergeblich. Mirko starrte die ihm schon hundertmal erklärten Schriftzeichen immer wieder fremd an; auch für die simpelsten Unterrichtsgegenstände fehlte seinem schwerfällig arbeitenden Gehirn jede festhaltende Kraft. Wenn er rechnen sollte, musste er noch mit vierzehn Jahren jedesmal die Finger zu Hilfe nehmen, und ein Buch oder eine Zeitung zu lesen bedeutete für den schon halbwüchsigen Jungen noch besondere Anstrengung. Dabei konnte man Mirko keineswegs unwillig oder widerspenstig nennen. Er tat gehorsam, was man ihm gebot, holte Wasser, spaltete Holz, arbeitete mit auf dem Felde, räumte die Küche auf und erledigte verläßlich, wenn auch mit verärgernder Langsamkeit, jeden geforderten Dienst. 
+      br
