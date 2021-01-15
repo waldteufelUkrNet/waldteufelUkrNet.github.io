@@ -122,6 +122,12 @@
       author : 'Friedrich Durrenmatt',
       name   : 'Der Richter und sein Henker',
       genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00020',
+      author : 'Erich Kästner',
+      name   : 'Das doppelte Lottchen',
+      genre  : 'метод Франка: нім.мова'
     }
   ];
 /* ↑↑↑ /DATA BASE ↑↑↑ */

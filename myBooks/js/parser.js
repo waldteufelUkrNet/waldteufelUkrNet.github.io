@@ -193,6 +193,8 @@ Sie musterte mich von oben bis unten (она осмотрела меня с го
     }
     resultStr = resultStr.replace(/\s{4}p\n\s{6}span\.btext \n\s{4}br/g,'\n    br');
     resultStr = resultStr.replace(/span.btext     p/g, 'span.btext');
+    resultStr = resultStr.replace(/    p\n      span\.btext     br/g, '    br');
+    resultStr = resultStr.replace(/    p\n      span\.btext\n      span\.btext /g, '      span\.btext ');
     return resultStr
   }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */
