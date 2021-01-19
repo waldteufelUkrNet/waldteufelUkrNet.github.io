@@ -176,6 +176,24 @@
       author : 'Franz Kafka',
       name   : 'Die Verwandlung',
       genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00029',
+      author : 'Theodor Storm',
+      name   : 'Die Regentrude',
+      genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00030',
+      author : 'Theodor Storm',
+      name   : 'Immensee',
+      genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00031',
+      author : 'Hans Fallada',
+      name   : 'Zwei zarte Lämmchen weiß wie Schnee',
+      genre  : 'метод Франка: нім.мова'
     }
   ];
 /* ↑↑↑ /DATA BASE ↑↑↑ */
