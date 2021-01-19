@@ -152,6 +152,30 @@
       author : 'E. M. Remarque',
       name   : 'Drei Kameraden',
       genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00025',
+      author : 'Hanns Heinz Ewers',
+      name   : 'Die Spinne',
+      genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00026',
+      author : 'Joseph Roth',
+      name   : 'Die Legende vom heiligen Trinker',
+      genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00027',
+      author : 'Wilhelm Hauff',
+      name   : 'Das kalte Herz',
+      genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00028',
+      author : 'Franz Kafka',
+      name   : 'Die Verwandlung',
+      genre  : 'метод Франка: нім.мова'
     }
   ];
 /* ↑↑↑ /DATA BASE ↑↑↑ */
