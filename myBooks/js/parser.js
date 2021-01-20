@@ -168,7 +168,7 @@
     for (let subStr of subStrArray) {
 
       // пропускаємо заголовки
-      if ( !subStr.match(/^\s{4}h[1-6] /) ) {
+      if ( !subStr.match(/^\s{4}h[1-6]/) ) {
 
         if ( !subStr.match(/[абвгґдеєжзіїйклмнопрстуфхцчшщьюяёэы]/iu) ) {
           // шматок оригінального тексту - усі абзаци починаються з p.btext
@@ -186,6 +186,7 @@
       resultStr = resultStr + subStr + '\n\n    br\n\n';
     }
     resultStr = resultStr.slice(0, -10);
+    resultStr = resultStr.replace(/ \n/g, '\n');
     copy(resultStr);
   }
 /* ↑↑↑ /FUNCTIONS DECLARATION ↑↑↑ */

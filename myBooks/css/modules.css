@@ -510,70 +510,6 @@
 /* ↑↑↑ consol module ↑↑↑ */
 @charset "UTF-8";
 
-/* ↓↓↓ loader module ↓↓↓ */
-
-.loader {
-  background-color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  z-index: 5555;
-}
-
-.loader__img-wrapper {
-  height: 80px;
-  width: 150px;
-  position: relative;
-  overflow: hidden;
-}
-
-.loader__img {
-  max-height: 400px;
-  max-width: 400px;
-  height: auto;
-  width: 400px;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -53%);
-  -ms-transform: translate(-50%, -53%);
-  transform: translate(-50%, -53%);
-}
-
-.loader__text {
-  text-align: center;
-  font: 1.2em gost;
-  color: black;
-  letter-spacing: 3px;
-}
-
-.loader_active {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-/* ↑↑↑ loader module ↑↑↑ */
-@charset "UTF-8";
-
 /* ↓↓↓ top-book-panel module ↓↓↓ */
 
 .top-book-panel {
@@ -704,3 +640,67 @@
 }
 
 /* ↑↑↑ top-book-panel module ↑↑↑ */
+@charset "UTF-8";
+
+/* ↓↓↓ loader module ↓↓↓ */
+
+.loader {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 5555;
+}
+
+.loader__img-wrapper {
+  height: 80px;
+  width: 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loader__img {
+  max-height: 400px;
+  max-width: 400px;
+  height: auto;
+  width: 400px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -53%);
+  -ms-transform: translate(-50%, -53%);
+  transform: translate(-50%, -53%);
+}
+
+.loader__text {
+  text-align: center;
+  font: 1.2em gost;
+  color: black;
+  letter-spacing: 3px;
+}
+
+.loader_active {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* ↑↑↑ loader module ↑↑↑ */

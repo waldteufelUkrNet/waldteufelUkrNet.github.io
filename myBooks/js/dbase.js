@@ -194,6 +194,18 @@
       author : 'Hans Fallada',
       name   : 'Zwei zarte Lämmchen weiß wie Schnee',
       genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00032',
+      author : 'Stefan Zweig',
+      name   : 'Brief einer Unbekannten',
+      genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00033',
+      author : 'Ludwig Thoma',
+      name   : 'Lausbubengeschichten',
+      genre  : 'метод Франка: нім.мова'
     }
   ];
 /* ↑↑↑ /DATA BASE ↑↑↑ */
