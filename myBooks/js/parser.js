@@ -117,7 +117,7 @@
           } else if (aT == 'p') {
             aT == 'span.btext';
             if (str[i+1]) {
-              if ( str[i+1].match(/[\.,:;?!»'"]/iu) ) {
+              if ( str[i+1].match(/[\.,:;?!«»'"]/iu) ) {
                 resultStr += ')\n      span.btext ';
               } else {
                 resultStr += ')\n      |\n      span.btext ';

@@ -206,6 +206,42 @@
       author : 'Ludwig Thoma',
       name   : 'Lausbubengeschichten',
       genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00034',
+      author : 'Erich Kästner',
+      name   : 'Emil und die Detektive',
+      genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00035',
+      author : 'Otfried Preußler',
+      name   : 'Krabat',
+      genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00036',
+      author : 'E.T.A. Hoffmann',
+      name   : 'Der Sandmann',
+      genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00037',
+      author : 'Jacob und Wilhelm Grimm',
+      name   : 'Irische Elfenmärchen',
+      genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00038',
+      author : 'Ludwig Thoma',
+      name   : 'Tante Frieda',
+      genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00039',
+      author : 'Adelbert von Chamisso',
+      name   : 'Peter Schlemihls wundersame Geschichte',
+      genre  : 'метод Франка: нім.мова'
     }
   ];
 /* ↑↑↑ /DATA BASE ↑↑↑ */
