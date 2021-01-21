@@ -126,11 +126,12 @@
           } else if (aT == 'span.f-coni') {
             aT == 'span.btext';
             resultStr += '\n      |)\n      ';
-
-            if ( str[i+1].match(/[\.,:;?!»'"]/iu) ) {
-              resultStr += 'span.btext ';
-            } else {
-              resultStr += '|\n      span.btext ';
+            if (str[i+1]) {
+              if ( str[i+1].match(/[\.,:;?!»'"]/iu) ) {
+                resultStr += 'span.btext ';
+              } else {
+                resultStr += '|\n      span.btext ';
+              }
             }
           }
         }

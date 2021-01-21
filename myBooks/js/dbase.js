@@ -242,6 +242,12 @@
       author : 'Adelbert von Chamisso',
       name   : 'Peter Schlemihls wundersame Geschichte',
       genre  : 'метод Франка: нім.мова'
+    },
+    {
+      id     : '00040',
+      author : 'Irmgard Keun',
+      name   : 'Das Mädchen, mit dem die Kinder nicht verkehren durften',
+      genre  : 'метод Франка: нім.мова'
     }
   ];
 /* ↑↑↑ /DATA BASE ↑↑↑ */
