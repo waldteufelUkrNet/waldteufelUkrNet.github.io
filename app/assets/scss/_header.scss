@@ -1,0 +1,60 @@
+header#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .wt-whatsapp {
+  background-color: #fff !important;
+  background-image: url('../img/whatsapp.jpg') !important;
+  background-repeat:no-repeat !important;
+  background-size: contain !important;
+  border: 1px solid transparent;
+  transition: border-color .3s;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-left: auto;
+}
+
+header .wt-viber {
+  background-color: #fff !important;
+  background-image: url('../img/viber.jpg') !important;
+  background-repeat:no-repeat !important;
+  background-size: contain !important;
+  border: 1px solid transparent;
+  transition: border-color .3s;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+header .wt-telegram {
+  background-color: #fff !important;
+  background-image: url('../img/telegram.jpg') !important;
+  background-repeat:no-repeat !important;
+  background-size: contain !important;
+  border: 1px solid transparent;
+  transition: border-color .3s;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+@media (min-width: 1680px) {
+  header .wt-whatsapp {
+    height: 41px;
+    width: 41px;
+  }
+  header .wt-viber {
+    height: 41px;
+    width: 41px;
+  }
+  header .wt-telegram {
+    height: 41px;
+    width: 41px;
+  }
+}

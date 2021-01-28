@@ -1,0 +1,51 @@
+////////////////////////////////////////////////////////////////////////////////
+/* ↓↓↓ registration form module ↓↓↓ */
+.form-registration {
+  min-width            : 300px;
+  max-width            : 600px;
+  padding              : 15px;
+  margin               : 0 auto;
+  &__form-group {
+    margin-bottom      : 10px;
+    display            : flex;
+    flex-direction     : column;
+    position           : relative;
+    &_with-check {
+      min-height       : 30px;
+      position         : relative;
+    }
+    &_errors-list {
+      display          : none;
+    }
+  }
+  &__label {
+    color              : white;
+  }
+  &__input {
+    display            : block;
+    height             : 30px;
+    padding            : 0 6px;
+    border             : none;
+    background-color   : #fff;
+  }
+  &__form-error {
+    display            : none;
+    border             : 1px solid maroon;
+    border-radius      : 6px;
+    background-color   : maroon;
+    padding            : 6px;
+    color              : white;
+    margin-bottom      : 6px;
+  }
+  &__btn {
+    cursor             : pointer;
+    display            : flex;
+    justify-content    : center;
+    align-items        : center;
+  }
+  &__check-yes {
+    display            : none;
+  }
+}
+/* ↑↑↑ registration form module ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////

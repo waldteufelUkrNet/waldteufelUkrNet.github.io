@@ -1,0 +1,25 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description' content=".")
+
+    title Верификация пользователя
+    link(rel='icon', href='assets/img/logo.png')
+    include ../modules/version-control/version-control.pug
+
+  body
+    include ../modules/header/header.pug
+    include ../modules/nav/nav.pug
+
+    section.docs-section
+      .inner
+        h2 Верификация пользователя
+
+        p Для получения доступа к торговле Вам необходимо пройти обязательную верификацию счета, предоставив следующую информацию:
+        p 1. Скан/фото паспорта.
+        p 2. Ваше фото с раскрытым на странице фото паспортом.
+        p 3. Скан/фото карты с двух сторон, которую Вы использовали для пополнения счета на платформе. Средние цифры счета закройте, оставив видимыми только первые и последние четыре цифры счета.
+
+    include ../modules/footer/footer.pug

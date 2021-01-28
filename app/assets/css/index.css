@@ -1,0 +1,158 @@
+header#header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .wt-whatsapp {
+  background-color: #fff !important;
+  background-image: url("../img/whatsapp.jpg") !important;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: contain !important;
+          background-size: contain !important;
+  border: 1px solid transparent;
+  -webkit-transition: border-color .3s;
+  -o-transition: border-color .3s;
+  transition: border-color .3s;
+  height: 36px;
+  width: 36px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  margin-right: 5px;
+  margin-left: auto;
+}
+
+header .wt-viber {
+  background-color: #fff !important;
+  background-image: url("../img/viber.jpg") !important;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: contain !important;
+          background-size: contain !important;
+  border: 1px solid transparent;
+  -webkit-transition: border-color .3s;
+  -o-transition: border-color .3s;
+  transition: border-color .3s;
+  height: 36px;
+  width: 36px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  margin-right: 5px;
+}
+
+header .wt-telegram {
+  background-color: #fff !important;
+  background-image: url("../img/telegram.jpg") !important;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: contain !important;
+          background-size: contain !important;
+  border: 1px solid transparent;
+  -webkit-transition: border-color .3s;
+  -o-transition: border-color .3s;
+  transition: border-color .3s;
+  height: 36px;
+  width: 36px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  margin-right: 10px;
+}
+
+@media (min-width: 1680px) {
+  header .wt-whatsapp {
+    height: 41px;
+    width: 41px;
+  }
+  header .wt-viber {
+    height: 41px;
+    width: 41px;
+  }
+  header .wt-telegram {
+    height: 41px;
+    width: 41px;
+  }
+}
+
+footer .wt-whatsapp {
+  background-color: #fff !important;
+  background-image: url("../img/whatsapp.jpg") !important;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: contain !important;
+          background-size: contain !important;
+  border: 2px solid transparent;
+  -webkit-transition: border-color .3s;
+  -o-transition: border-color .3s;
+  transition: border-color .3s;
+}
+
+footer .wt-whatsapp:hover {
+  border-color: #f75555;
+}
+
+footer .wt-viber {
+  background-color: #fff !important;
+  background-image: url("../img/viber.jpg") !important;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: contain !important;
+          background-size: contain !important;
+  border: 2px solid transparent;
+  -webkit-transition: border-color .3s;
+  -o-transition: border-color .3s;
+  transition: border-color .3s;
+}
+
+footer .wt-viber:hover {
+  border-color: #f75555;
+}
+
+footer .wt-telegram {
+  background-color: #fff !important;
+  background-image: url("../img/telegram.jpg") !important;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: contain !important;
+          background-size: contain !important;
+  border: 2px solid transparent;
+  -webkit-transition: border-color .3s;
+  -o-transition: border-color .3s;
+  transition: border-color .3s;
+}
+
+footer .wt-telegram:hover {
+  border-color: #f75555;
+}
+
+footer#footer textarea#message {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+}
+
+.footer__info {
+  text-align: justify;
+}
+
+footer#footer ul.icons {
+  margin-bottom: 30px !important;
+}
+
+section.docs-section .inner {
+  max-width: 1040px;
+  text-align: justify;
+  margin: 100px auto 0;
+  min-height: calc(100vh - 60px);
+}
+
+.offers__item {
+  margin-bottom: 50px;
+  border: 1px dotted lightgrey;
+  padding: 12px;
+  -webkit-border-radius: 6px;
+          border-radius: 6px;
+}

@@ -1,0 +1,76 @@
+@charset "UTF-8";
+/* ↓↓↓ registration form module ↓↓↓ */
+.form-registration {
+  min-width: 300px;
+  max-width: 600px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-registration__form-group {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.form-registration__form-group_with-check {
+  min-height: 30px;
+  position: relative;
+}
+
+.form-registration__form-group_errors-list {
+  display: none;
+}
+
+.form-registration__label {
+  color: white;
+}
+
+.form-registration__input {
+  display: block;
+  height: 30px;
+  padding: 0 6px;
+  border: none;
+  background-color: #fff;
+}
+
+.form-registration__form-error {
+  display: none;
+  border: 1px solid maroon;
+  -webkit-border-radius: 6px;
+          border-radius: 6px;
+  background-color: maroon;
+  padding: 6px;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.form-registration__btn {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-registration__check-yes {
+  display: none;
+}
+
+/* ↑↑↑ registration form module ↑↑↑ */

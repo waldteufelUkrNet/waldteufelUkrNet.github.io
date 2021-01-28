@@ -1,0 +1,82 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description' content=".")
+
+    title Главная страница
+    link(rel='icon', href='assets/img/logo.png')
+    include ../modules/version-control/version-control.pug
+
+  body
+    include ../modules/header/header.pug
+    include ../modules/nav/nav.pug
+
+    section#banner.bg-img(data-bg='banner.jpg')
+      .inner
+        header
+          h1 Инвестиции - это величайший бизнес мира
+      a.more(href='#s1') Learn More
+
+    section#s1.wrapper.post.bg-img(data-bg='banner2.jpg')
+      .inner
+        article.box
+          header
+            h2 Торгуйте в удовольствие
+          .content
+            p
+              | Мы предлагаем удобный способ приумножить свой капитал. Зарабатывайте, не отрываясь от учебы, работы или отдыха. Торговля на бирже станет для Вас источником дополнительной прибыли и приятного настроения.
+          footer
+            a.button.alt(href='form_registration.html') узнать подробнее
+      a.more(href='#s2')
+
+    section#s2.wrapper.post.bg-img(data-bg='banner5.jpg')
+      .inner
+        article.box
+          header
+            h2 Исключительная надежность
+          .content
+            p
+              | Главным кредо компании является финансовая надежность и прозрачность деятельности. Вы всегда будете в курсе, на каком этапе находятся Ваши сделки.
+          footer
+            a.button.alt(href='form_registration.html') узнать подробнее
+      a.more(href='#s3')
+
+    section#s3.wrapper.post.bg-img(data-bg='banner4.jpg')
+      .inner
+        article.box
+          header
+            h2 Большой выбор
+          .content
+            p
+              | Мы предоставляем Вам огромный выбор торговых пар на любой вкус - валютные пары, акции, товары, криптовалюта. Выбирайте и выигрывайте!
+          footer
+            a.button.alt(href='form_registration.html') узнать подробнее
+      a.more(href='#s4')
+
+    section#s4.wrapper.post.bg-img(data-bg='banner3.jpg')
+      .inner
+        article.box
+          header
+            h2 Квалифицированная поддержка
+          .content
+            p
+              | У нас только лучшие трейдеры, имеющие огромный опыт в торговых операциях и являющиеся высококлассными менторами. Они всегда готовы откликнуться на Вашу просьбу помочь. А хороший совет - на вес золота.
+          footer
+            a.button.alt(href='form_registration.html') узнать подробнее
+      a.more(href='#s5')
+
+    section#s5.wrapper.post.bg-img(data-bg='banner7.jpg')
+      .inner
+        article.box
+          header
+            h2 Инновационная платформа
+          .content
+            p
+              | Windows? Linux? MacOs? Android? Наша эргономичная платформа одинаково комфортна на любом устройстве, поскольку использует удобный для вас браузер.
+          footer
+            a.button.alt(href='form_registration.html') узнать подробнее
+      a.more(href='#footer')
+
+    include ../modules/footer/footer.pug

@@ -1,0 +1,44 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description' content=".")
+
+    title Сброс пароля
+    link(rel='icon', href='assets/img/logo.png')
+    include ../modules/version-control/version-control.pug
+
+  body
+    include ../modules/header/header.pug
+    include ../modules/nav/nav.pug
+
+    section.docs-section
+      .inner
+
+        link(rel="stylesheet" type="text/css" href="assets/css/form-reset-pass.css")
+        script(src='assets/js/main.js' defer)
+        script(src='assets/js/form-reset-pass.js' defer)
+
+        h2(style='text-align:center') Сбросить пароль
+
+        form.form-reset-pass#resetForm(name='reset-pass-form' action='#' method='post')
+
+          .form-reset-pass__form-group
+            label.form-reset-pass__label(for='email-reset') Email:
+            input.form-reset-pass__input#email-reset(name='email' placeholder='Ваш email' type='text')
+
+          .form-reset-pass__form-group.form-reset-pass__form-group_with-check
+            input(type='checkbox' id='agree')
+            label(for='agree') Я согласен с тем, что мой аккаунт может быть не доступен на протяжении 24 часов.
+
+          .form-reset-pass__form-group.form-reset-pass__form-group_errors-list.errors-list
+
+            p.form-reset-pass__form-error.form-error Email обязателен
+            p.form-reset-pass__form-error.form-error Не правильный email
+            p.form-reset-pass__form-error.form-error Подтвердите согласие с условиями
+
+          .form-reset-pass__form-group
+            button(type='button').form-reset-pass__btn#submitPasswordReset Сбросить пароль
+
+    include ../modules/footer/footer.pug

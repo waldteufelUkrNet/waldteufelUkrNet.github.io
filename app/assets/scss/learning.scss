@@ -1,0 +1,194 @@
+.learning {
+  &__container {}
+  &__headers-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: -1px;
+  }
+  &__header {
+    border: 1px solid #f64747;
+    border-radius: 6px;
+    color: #f64747;
+    margin-right: 6px;
+    cursor: pointer;
+    &:last-of-type {
+      margin-right: 0px;
+    }
+    &:hover,
+    &_active {
+      .learning__header-name {
+        background-color: #f64747;
+        color: white;
+      }
+    }
+  }
+  &__header-name {
+    display: block;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 4px 12px;
+    margin: 1px;
+    // margin-bottom: -1px;
+    letter-spacing: 2px;
+    transition: background-color .3s;
+  }
+  &__bodies-wrapper {}
+  &__body {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    // border: 1px solid #5d8ea5;
+    padding: 6px 0;
+    min-height: calc(100vh - 300px);
+    &_active {
+      display: flex;
+    }
+  }
+  &__book {
+    border: 1px solid lightgrey;
+    width: 200px !important;
+    height: 315px;
+    overflow: hidden;
+    margin: 10px 3px;
+    padding: 4px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+    &_blocked {
+      .learning__book-cover {
+        display: block;
+      }
+    }
+  }
+  &__book-logo {
+    display: block;
+    max-width: 180px;
+    max-height: 230px;
+  }
+  &__book-author {
+    // font-family: mainheader;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+  }
+  &__book-name {
+    max-width: 100%;
+    // font-family: infoital;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+  }
+  &__book-cover {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(224, 255, 255, 0.5);
+    svg {
+      height: 20px;
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      fill: #191970;
+    }
+  }
+  &__video {
+    border: 1px solid lightgrey;
+    width: 300px;
+    height: auto;
+    overflow: hidden;
+    margin: 10px 3px;
+    padding: 4px;
+    cursor: pointer;
+    position: relative;
+    &_blocked {
+      .learning__video-cover {
+        display: block;
+      }
+    }
+  }
+  &__video-logo {
+    display: block;
+    max-width: 290px;
+    // max-height: 230px;
+  }
+  &__video-name {
+    max-width: 100%;
+    font-family: mainheader;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__time {
+    background-color: black;
+    color: lightgrey;
+    padding: 6px;
+    line-height: 1em;
+    position: absolute;
+    right: 4px;
+    top: 135px;
+  }
+  &__video-cover {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(224, 255, 255, 0.5);
+    svg {
+      height: 20px;
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      fill: #191970;
+    }
+  }
+  &__download {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    height: 35px;
+    // width: 27px;
+    background-color: #23cd45;
+    border: 0px solid transparent;
+    border-radius: 4px;
+    // font-family: mainheader;
+    color: white;
+    cursor: pointer;
+    padding-right: 30px;
+    letter-spacing: 2px;
+    svg {
+      height: 20px;
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      fill: white;
+    }
+  }
+  &__webinars-info {
+    font-size: 22px;
+    // font-family: mainheader;
+    margin: 40px;
+    margin-bottom: 0;
+  }
+  &__webinars-btn-wrapper {
+    height: 40px;
+    display: flex;
+    margin: 0 auto;
+  }
+  &__webinars-input {
+    width: 150px;
+    display: block;
+    height: 40px;
+  }
+  &__webinars-btn {
+    cursor: pointer;
+    height: 40px;
+    margin-left: 20px;
+  }
+}

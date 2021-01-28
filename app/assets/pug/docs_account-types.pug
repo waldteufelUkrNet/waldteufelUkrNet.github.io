@@ -1,0 +1,163 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description' content=".")
+
+    title Лицензионное соглашение с конечным пользователем
+    link(rel='icon', href='assets/img/logo.png')
+    include ../modules/version-control/version-control.pug
+
+  body
+    include ../modules/header/header.pug
+    include ../modules/nav/nav.pug
+
+    section.docs-section
+      .inner
+
+        h2 Типы торговых счетов
+
+        .offers__container
+
+          .offers__item
+            h2.offers__header
+              i.offers__img.ifont-mdi-toggle-star-outline
+              span.offers__name STANDART
+            .offers__price
+              i.ifont-mdi-editor-attach-money
+              span 250 - 999 $
+            ul.offers__list
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Знакомство с платформой
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Аккаунт менеджер
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Видео уроки (полный доступ)
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Маржинальные требования 100%
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Профессиональная аналитика
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Индивидуальный план обучения
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Круглосуточная поддержка
+            button.offers__btn(type='button'): a.offers__link(href="forms_registration_ru.html") открыть счет
+
+          .offers__item
+            h2.offers__header
+              i.offers__img.ifont-mdi-toggle-star
+              span.offers__name BUSINESS
+            .offers__price
+              i.ifont-mdi-editor-attach-money
+              span 1000 - 4999 $
+            ul.offers__list
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Знакомство с платформой
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Персональный аккаунт менеджер
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span PLUS
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Доходность 60%
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Маржинальные требования 100%
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Бонус на депозит 100%
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Профессиональная аналитика
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Участие в семинарах и вебинарах
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Индивидуальный план обучения
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Ускоренный вывод
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Круглосуточная поддержка
+
+            button.offers__btn(type='button'): a.offers__link(href="forms_registration_ru.html") открыть счет
+
+          .offers__item
+            h2.offers__header
+              i.offers__img.ifont-mdi-toggle-star
+              i.offers__img.ifont-mdi-toggle-star
+              span.offers__name PREMIUM
+            .offers__price
+              i.ifont-mdi-editor-attach-money
+              span 5000+ $
+            ul.offers__list
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Знакомство с платформой
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Персональный аккаунт менеджер
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span PLUS
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Доходность 72%
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Маржинальные требования 100%
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Рефинансирование банком-партнером
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Профессиональная аналитика
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Участие в семинарах и вебинарах
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Участие в мероприятиях компании
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Экспресс переводы
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Реферальные программы возврата финансов
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Ускоренный вывод
+              li.offers__list-item
+                i.ifont-mdi-action-done
+                span Круглосуточная поддержка
+
+            button.offers__btn(type='button'): a.offers__link(href="forms_registration_ru.html") открыть счет
+
+          .offers__item
+            h2.offers__header
+              i.offers__img.ifont-mdi-toggle-star
+              i.offers__img.ifont-mdi-toggle-star
+              i.offers__img.ifont-mdi-toggle-star
+              span.offers__name VIP
+            .offers__price
+              i.ifont-mdi-editor-attach-money
+              span 25000+ $
+            p(style='padding:0px') ТОЛЬКО ДЛЯ ЭКСКЛЮЗИВНЫХ КЛИЕНТОВ
+            p(style='padding:0px') За дополнительной информацией обращайтесь к своему менеджеру по работе с клиентами.
+            br
+            button.offers__btn(type='button'): a.offers__link(href="forms_registration_ru.html") открыть счет
+
+    include ../modules/footer/footer.pug

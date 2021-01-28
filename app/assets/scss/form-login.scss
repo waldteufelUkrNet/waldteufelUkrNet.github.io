@@ -1,0 +1,52 @@
+////////////////////////////////////////////////////////////////////////////////
+/* ↓↓↓ login form module ↓↓↓ */
+.form-login {
+  min-width            : 300px;
+  max-width            : 600px;
+  padding              : 15px;
+  margin               : 0 auto;
+  &__form-group {
+    margin-bottom      : 10px;
+    display            : flex;
+    flex-direction     : column;
+    position           : relative;
+    &_errors-list {
+      display          : none;
+    }
+  }
+  &__label {
+    color              : white;
+  }
+  &__input {
+    display            : block;
+    height             : 30px;
+    padding            : 0 6px;
+    border             : none;
+    background-color   : #fff;
+  }
+  &__form-error {
+    display            : none;
+    margin-bottom      : 6px;
+    border             : 1px solid maroon;
+    background-color   : maroon;
+    color              : white;
+    border-radius      : 4px;
+    padding            : 6px;
+  }
+  &__btn {
+    cursor             : pointer;
+    display            : flex;
+    justify-content    : center;
+    align-items        : center;
+    i {
+      margin-right     : 6px;
+      font-size        : 20px;
+      color            : #1c2e3d;
+    }
+  }
+  &__check-yes {
+    display            : none;
+  }
+}
+/* ↑↑↑ login form module ↑↑↑ */
+////////////////////////////////////////////////////////////////////////////////

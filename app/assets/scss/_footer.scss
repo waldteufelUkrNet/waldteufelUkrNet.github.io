@@ -1,0 +1,49 @@
+footer .wt-whatsapp {
+  background-color: #fff !important;
+  background-image: url('../img/whatsapp.jpg') !important;
+  background-repeat:no-repeat !important;
+  background-size: contain !important;
+  border: 2px solid transparent;
+  transition: border-color .3s;
+  &:hover {
+    border-color: #f75555;
+  }
+}
+
+footer .wt-viber {
+  background-color: #fff !important;
+  background-image: url('../img/viber.jpg') !important;
+  background-repeat:no-repeat !important;
+  background-size: contain !important;
+  border: 2px solid transparent;
+  transition: border-color .3s;
+  &:hover {
+    border-color: #f75555;
+  }
+}
+
+footer .wt-telegram {
+  background-color: #fff !important;
+  background-image: url('../img/telegram.jpg') !important;
+  background-repeat:no-repeat !important;
+  background-size: contain !important;
+  border: 2px solid transparent;
+  transition: border-color .3s;
+  &:hover {
+    border-color: #f75555;
+  }
+}
+
+footer#footer textarea#message {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+}
+
+.footer__info {
+  text-align: justify;
+}
+
+footer#footer ul.icons {
+  margin-bottom: 30px !important;
+}

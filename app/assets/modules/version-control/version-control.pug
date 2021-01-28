@@ -1,0 +1,28 @@
+// ↓↓↓ modules: version-control (start) ↓↓↓
+
+script.
+  // js із версіями файлів js/css щоразу завантажується новий
+  document.write('\
+    <script src="assets/js/version-control.js?version=' + Date.now() + '"><\/script>\
+  ');
+
+script.
+  // ці файли завантажуються з кешу, або (якщо були зміни) - з нету
+  document.write('\
+  <!-- css-libs -->\
+  <link rel="stylesheet" type="text/css" href="assets/libs-css/template-main.css?version=' + v.templateMain + '">\
+  <!-- own stylesheet -->\
+  <link rel="stylesheet" type="text/css" href="assets/css/index.css?version=' + v.indexCss + '">\
+  <!-- js-libs -->\
+  <script defer src="assets/libs-js/jquery.min.js?version=' + v.jqueryMinJs + '"><\/script>\
+  <script defer src="assets/libs-js/jquery.scrolly.min.js?version=' + v.jqueryScrollyMinJs + '"><\/script>\
+  <script defer src="assets/libs-js/jquery.scrollex.min.js?version=' + v.jqueryScrollexMinJs + '"><\/script>\
+  <script defer src="assets/libs-js/skel.min.js?version=' + v.skelMinJs + '"><\/script>\
+  <script defer src="assets/libs-js/util.js?version=' + v.utilJs + '"><\/script>\
+  <script defer src="assets/libs-js/template-main.js?version=' + v.templateMainJs + '"><\/script>\
+  <!-- own js -->\
+  <script defer src="assets/js/main.js?version=' + v.mainJs + '"><\/script>\
+  <script defer src="assets/js/company-info.js?version=' + v.companyInfoJs + '"><\/script>\
+  ');
+
+// ↑↑↑ modules: version-control (end) ↑↑↑

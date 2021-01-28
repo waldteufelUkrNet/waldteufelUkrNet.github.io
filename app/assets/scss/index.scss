@@ -1,0 +1,16 @@
+@import "header";
+@import "footer";
+
+section.docs-section .inner {
+  max-width: 1040px;
+  text-align: justify;
+  margin: 100px auto 0;
+  min-height: calc(100vh - 60px);
+}
+
+.offers__item {
+  margin-bottom: 50px;
+  border: 1px dotted lightgrey;
+  padding: 12px;
+  border-radius: 6px;
+}
