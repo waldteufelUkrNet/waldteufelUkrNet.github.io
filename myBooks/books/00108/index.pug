@@ -1,0 +1,31 @@
+extends ../../templates/template_en.pug
+
+block first-screen
+  .first-screen
+    img(src="img/title.jpg", alt="title image")
+
+block name
+  .name-section
+    .name-section__author
+    .name-section__book
+    p.tac автор
+    p.tac назва
+    p.tac адаптував
+    p.tac Метод чтения Ильи Франка
+
+block content
+  section.content-section
+    .content-section__name Сontents
+    .content
+      a(href="#id1").content__main-link 
+
+block text
+  section
+
+block marginalias
+  h3(id='Сноски') Сноски
+  br
+  p.marginalias-definition(id='m-definition1')
+    a(href="#marginalias1") [1]
+    span lorem
+//- a.marginalias(id='marginalias1' href="#m-definition1") [1]

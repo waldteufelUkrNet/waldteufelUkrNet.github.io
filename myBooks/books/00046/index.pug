@@ -1,0 +1,1143 @@
+extends ../../templates/template_en.pug
+
+//- block first–screen
+//-   .first–screen
+//-     img(src="img/title.jpg", alt="title image")
+
+block name
+  .name-section
+    .name-section__author
+    .name-section__book
+
+block text
+  section
+    style.
+      .multi-columns {
+        column-gap: 6px;
+        column-count: 1;
+        column-rule: 1px dotted lightgrey;
+        padding: 10px 15px;
+      }
+      @media (min-width: 600px) {
+        .multi-columns {
+          column-count: 2;
+        }
+      }
+      @media (min-width: 700px) {
+        .multi-columns {
+          column-count: 3;
+        }
+      }
+      @media (min-width: 800px) {
+        .multi-columns {
+          column-count: 4;
+        }
+      }
+      .multi-columns p {
+        padding: 0;
+        text-indent: 0;
+      }
+      .table-wrapper {
+        overflow-y: auto;
+      }
+      table {
+        margin: 0 auto;
+      }
+      .custom-header {
+        padding: 2px 2px 2px 15px;
+        margin-bottom: 6px;
+        font-weight: 900;
+        background-color: steelblue;//springgreen;
+        color: white;
+      }
+
+    h4 Голосні звуки:
+    .table-wrapper
+      table
+        thead
+          tr
+            th Позначення
+            th Вимова
+            th Приклад
+        tbody
+          tr
+            td [a:]
+            td Відповідає довгому звуку а
+            td last [la:st]
+          tr
+            td [æ]
+            td Середній звук між а та е
+            td ally ['ælai]
+          tr
+            td [i:]
+            td Нагадує протяжний звук і
+            td key [ki:]
+          tr
+            td [i]
+            td Нагадує короткий звук і
+            td bullet ['bulit]
+          tr
+            td [e]
+            td Нагадує звук е
+            td blame [bleim]
+          tr
+            td [ɔ]
+            td Короткий звук о
+            td pot [pɔt]
+          tr
+            td [ɔ:]
+            td Нагадує протяжний звук о
+            td torment ['tɔ:ment]
+          tr
+            td [ə:]
+            td Середній звук між о та е, Нагадує йо
+            td -
+          tr
+            td [ə]
+            td Неясний, ненаголошений звук, схожий на е
+            td pole [pəul]
+          tr
+            td [ʌ]
+            td Нагадує звук а
+            td funny ['fʌni]
+          tr
+            td [з]
+            td Нагадує звук йо
+            td girl [gз:l]
+          tr
+            td [u]
+            td Короткий звук у
+            td cook [kuk]
+          tr
+            td [u:]
+            td Нагадує протяжний звук у
+            td school [sku:l]
+          tr
+            td [ai]
+            td Нагадує звук ай
+            td slide [slaid]
+          tr
+            td [ei]
+            td Нагадує звук ей
+            td sale [seil]
+          tr
+            td [ɔi]
+            td Нагадує звук ой
+            td toy [tɔi]
+          tr
+            td [au]
+            td Нагадує звук ау
+            td now [nau]
+          tr
+            td [əu]
+            td Нагадує звук оу
+            td so [səu]
+          tr
+            td [iə]
+            td Нагадує звук іе
+            td wire ['waiə]
+          tr
+            td [uə]
+            td Нагадує звук уе
+            td tower ['tauə]
+          tr
+            td [ɛə]
+            td Віддалено нагадує звук еа
+            td dare [dɛə]
+
+    br
+
+    h4 Приголосні звуки:
+    .table-wrapper
+      table
+        thead
+          tr
+            th Позначення
+            th Вимова
+            th Приклад
+        tbody
+          tr
+            td [l]
+            td Відповідає звуку л
+            td lab [læb]
+          tr
+            td [p]
+            td Відповідає звуку п
+            td sleep [sli:p]
+          tr
+            td [b]
+            td Відповідає звуку б
+            td bush [buʃ]
+          tr
+            td [t]
+            td Відповідає звуку т
+            td point [pɔint]
+          tr
+            td [d]
+            td Відповідає звуку д
+            td drama ['dra:mə]
+          tr
+            td [m]
+            td Відповідає звуку м
+            td time [taim]
+          tr
+            td [k]
+            td Відповідає звуку к
+            td kiss [kis]
+          tr
+            td [g]
+            td Відповідає звуку г
+            td goal [gəul]
+          tr
+            td [n]
+            td Відповідає звуку н
+            td snake [sneik]
+          tr
+            td [ʃ]
+            td Відповідає звуку ш
+            td motion ['məuʃ(ə)n]
+          tr
+            td [f]
+            td Відповідає звуку ф
+            td office ['ɔfis]
+          tr
+            td [v]
+            td Відповідає звуку в
+            td nerve [nз:v]
+          tr
+            td [s]
+            td Відповідає звуку с
+            td peace [pi:s]
+          tr
+            td [z]
+            td Відповідає звуку з
+            td museum [mju:'zi:əm]
+          tr
+            td [ʒ]
+            td Відповідає звуку ж
+            td joy [dʒɔi]
+          tr
+            td [tʃ]
+            td Відповідає звуку ч
+            td inch [intʃ]
+          tr
+            td [dʒ]
+            td Відповідає звуку дж
+            td joke [dʒəuk]
+          tr
+            td [r]
+            td Нагадує звук р
+            td red [red]
+          tr
+            td [h]
+            td Нагадує звук х
+            td hammer ['hæmə]
+          tr
+            td [j]
+            td Нагадує звук й
+            td -
+          tr
+            td [ju:]
+            td Нагадує звук ю
+            td view ['vju:]
+          tr
+            td [je]
+            td Нагадує звук е
+            td yellow ['jeləu]
+          tr
+            td [jз]
+            td Нагадує звук йо
+            td year [jз:]
+          tr
+            td [jʌ]
+            td Нагадує звук я
+            td young [jʌŋ]
+          tr
+            td [w]
+            td Звук у або в
+            td water ['wɔ:tə]
+          tr
+            td [ŋ]
+            td Віддалено нагадує звук н
+            td king [kiŋ]
+          tr
+            td [θ]
+            td Середній звук між с та ф
+            td thin [θin]
+          tr
+            td [ð]
+            td Середній звук між з та в
+            td brother [brʌðə]
+
+    br
+    .custom-header е [i:]
+    .btext – одна голосна в слові, і вона стоїть в кінці:
+
+    .multi-columns
+      p be [bi:] – бути
+      p he [hi:] – він
+
+    .btext – е знаходиться перед приголосною, а після неї іде голосна:
+
+    .multi-columns
+      p Eve [i:v] – Ева
+
+    br
+    .custom-header е [i]
+    .btext – перед наголошеним складом:
+
+    .multi-columns
+      p effect [i'fekt] – результат, ефект
+      p elect [i'lekt] – обирати голосуванням
+      p essential [i'senʃ(ə)l] - обов'язковий
+
+    br
+    .custom-header е [e]
+    .btext – е знаходиться перед приголосною, після якої нема голосної:
+
+    .multi-columns
+      p debt [det] – борг
+      p bend [bend] – згибати, гнути
+      p vend [vend] – торгувати (на вулиці)
+      p tempt [tempt] - спокушати
+      p mell [mel] - кувалда
+      p pell [pel] - пергамент
+      p fend [fend] – відбивати, відганяти
+      p left [left] – лівий
+      p sell [sel] – продавати
+      p tell [tel] - казати
+      p send [send] - посилати
+      p nest [nest] – гніздо
+      p spell [spel] - писати/вимовляти по буквах
+      p spend [spend] - витрачати
+      p lend [lend] - позичати
+      p bet [bet] – парі
+      p help [help] - допомагати
+
+    br
+    .custom-header е [-]
+    .btext – в кінці слова:
+
+    .multi-columns
+      p Eve [i:v] – Ева
+      p lie [lai] - брехня
+
+    br
+    .custom-header еe [i:]
+
+    .multi-columns
+      p deed [di:d] – дія, діяння
+      p deep [di:p] – глибокий
+      p bee [bi:] – бджола
+      p meed [mi:d] – нагорода
+      p meet [mi:t] – зустрічати
+      p lee [li:] – захист, прихисток
+      p feel [fi:l] – відчувати
+      p seem [si:m] - здаватися
+      p see [si:] – бачити
+      p sleep [sli:p] - спати
+
+    br
+    .custom-header еa [i:]
+
+    .multi-columns
+      p lead [li:d] – керівництво, ініціатива
+      p pea [pi:] – горох
+      p tea [ti:] – чай
+      p eat [i:t] - їсти
+      p beat [bi:t] – удар, бити
+      p bead [bi:d] – бусина, бісерина
+      p mean [mi:n] – мати на увазі
+      p meal [mi:l] – приймання їжі, їжа
+      p deal [di:l] – угода, контракт
+      p meat [mi:t] – м’ясо
+      p steal [sti:l] - красти
+      p sea [si:] - море
+      p east [i:st] – схід
+      p zeal [zi:l] – завзятість, ентузіазм
+      p heal [hi:l] - лікувати
+      p heat [hi:t] – спека
+      p speak [spi:k] - говорити
+
+    br
+    .custom-header еa [e]
+
+    .multi-columns
+      p lead [led] – свинець
+      p dead [ded] – мертвий
+      p heaven ['hev(ə)n] – небеса
+      p bread [bred] – хліб
+      p deaf [def] – глухий
+      p head [hed] – голова
+      p ahead [ə'hed] – попереду
+      p spread [spred] – розповсюдження
+      p instead [in'sted] – замість
+      p heavy ['hevi] - важкий
+
+    br
+    .custom-header ew [ju:]
+
+    .multi-columns
+      p dew [dju:] – роса
+      p few [fju:] – мало
+      p new [nju:] - новий
+
+    br
+    .custom-header y [j]
+    .btext – на початку слова перед голосною:
+
+    .multi-columns
+      p yet [jet] - все ще
+      p Yemen ['jemən] - Ємен
+      p you [ju:] – ви, ти
+      p yes [jes] - так
+
+    br
+    .custom-header y [ai]
+    .btext – у відкритому складі:
+
+    .multi-columns
+      p sky [skai] - небо
+      p my [mai] - мій, моя, моє, мої
+      p type [taip] - друкувати
+
+    br
+    .custom-header i [ai]
+    .btext – у відкритому складі:
+
+    .multi-columns
+      p dive [daiv] – займатися дайвінгом
+      p side [said] – сторона
+      p lie [lai] - брехня
+      p mile [mail] – миля
+      p like [laik] - подобатися
+      p smile [smail] – посмішка
+      p size [saiz] – розмір
+
+    .btext – односкладові слова + nd:
+
+    .multi-columns
+      p kind [kaind] – 1. добрий 2. вид
+
+    br
+    .custom-header i [i]
+    .btext – у закритому складі:
+
+    .multi-columns
+      p it [it] – він, вона, воно
+      p lift [lift] – підйом
+      p in [in] - в
+      p slim [slim] - стрункий, худий
+      p mill [mil] – млин
+      p bit [bit] – шматок, частинка
+      p sit [sit] – сидіти, сідати
+      p till [til] - до
+      p hit [hit] - ударяти
+
+    .btext – у ненаголошеному складі:
+
+    .multi-columns
+      p limit ['limit] - межа
+
+    br
+    .custom-header ie, ey, y [i]
+    .btext – в кінці дво- і більше складових слів у ненаголошеному складі:
+
+    .multi-columns
+      p ninety ['nainti] – дев’яносто
+      p milky ['milki] – молочний
+      p Teddy ['tedi] – Тедді
+      p kidney ['kidni] - нирка
+      p donkey ['dAŋki] – віслюк
+      p hippie ['hipi] – хіппі
+
+    br
+    .custom-header ie [i:]
+
+    .multi-columns
+      p shield [ʃi:ld] – захищати
+
+    br
+    .custom-header о [ʌ]
+
+    .multi-columns
+      p dove [dʌv] – голуб
+      p front [frʌnt] – передня сторона
+      p love [lʌv] – кохання
+      p son [sʌn] - син
+      p some [sʌm] – певна кількість
+
+    br
+    .custom-header о [ɔ]
+    .btext – у закритому складі:
+
+    .multi-columns
+      p font [fɔnt] – шрифт
+      p doll [dɔl] – лялька
+      p stop [stɔp] – зупинятися
+      p on [ɔn] – на
+      p top [tɔp] - верхівка, вершина
+      p hot [hɔt] – гарячий
+
+    br
+    .custom-header о [əu]
+    .btext – у відкритому складі:
+
+    .multi-columns
+      p no [nəu] – ні
+      p vote [vəut] – голосування
+      p bone [bəun] – кістка
+      p lone [ləun] – одинокий
+      p dome [dəum] – баня
+      p so [səu] – так, отже
+      p hope [həup] – сподіватися
+      p zero ['ziərəu] – нуль
+
+    .btext – перед ld:
+
+    .multi-columns
+      p gold [gəuld] – золото
+      p old [əuld] – старий
+      p hold [həuld] – тримати
+
+    br
+    .custom-header oa [əu]
+
+    .multi-columns
+      p float [fləut] – плавати
+      p oat [əut] – вівсянка
+      p foam [fəum] – піна
+      p boat [bəut] – човен
+      p soap [səup] - мило
+
+    br
+    .custom-header oi, oy [ɔi]
+    .btext – в кінці слова або в іменниках:
+
+    .multi-columns
+      p destroy [di'strɔi] – руйнувати
+      p spoil [spɔil] – псувати
+      p poison ['pɔiz(ə)n] - отрута
+      p coin [kɔin] – монета
+      p toy [tɔi] - іграшка
+      p boy [bɔi] - хлопчик
+
+    br
+    .custom-header оо [u:]
+
+    .multi-columns
+      p noon [nu:n] – полудень
+      p boot [bu:t] – чобіт
+      p mood [mu:d] – настрій
+      p doom [du:m] – загибель
+      p loop [lu:p] – петля
+      p soon [su:n] - незабаром
+      p too [tu:] – 1 той же 2 надміру
+
+    br
+    .custom-header ou, ow [au]
+    .btext – у наголошених складах:
+
+    .multi-columns
+      p crown [kraun] – корона
+      p towel ['tauəl] – рушник
+      p flower ['flauə] – квітка
+      p about [ə'baut] – про, стосовно
+      p account [ə'kaunt] – сет
+      p house [haus] – дім
+      p bounty ['baunti] – щедрість
+      p cloud [klaud] – хмара
+      p mountain ['mauntin] – гора
+      p down ['daun] – низ
+
+    br
+    .custom-header а [a:]
+    .btext – перед кількома приголосними:
+
+    .multi-columns
+      p task [ta:sk] – завдання
+      p vast [va:st] – широкий
+      p master ['ma:stə] - хозяїн, вчитель
+      p fasten ['fa:s(ə)n] – застібати
+      p calf [ka:f] – теля
+      p pass [pa:s] - проходити
+
+    br
+    .custom-header а [æ]
+    .btext – у закритому складі:
+
+    .multi-columns
+      p lamp [læmp] – лампа
+      p bat [bæt] - кажан
+      p sad [sæd] – сумний
+      p stand [stænd] – стояти
+      p land [lænd] – земля
+      p man [mæn] - чоловік
+      p fantasy ['fæntəsi] – фантазія
+
+    br
+    .custom-header а [ei]
+    .btext – у відкритому складі:
+
+    .multi-columns
+      p fame [feim] – слава
+      p name [neim] – ім’я
+      p late [leit] – пізній
+      p blame [bleim] – засуджувати
+      p pale [peil] – блідий
+      p take [teik] - брати
+      p make [meik] - робити
+      p sane [sein] – розумний (про погляди)
+      p tale [teil] – розповідь, оповідання
+
+    br
+    .custom-header аi [ei]
+    .btext – в середині або на початку слова:
+
+    .multi-columns
+      p tail [teil] – хвіст
+      p mail [meil] – пошта
+      p saint [seint] – святий
+      p vain [vein] – марнославний
+      p aim [eim] – мета
+      p fail [feil] – зазнати невдачі
+
+    br
+    .custom-header ay [ei]
+    .btext – в кінці слова:
+
+    .multi-columns
+      p play [plei] – грати
+      p may [mei] – травень
+      p day [dei] – день
+      p pay [pei] - платити
+
+    br
+    .custom-header au [ɔ:]
+
+    .multi-columns
+      p autumn ['ɔ:təm] – осінь
+      p astronaut ['æstrənɔ:t] – космонавт
+      p author ['ɔ:θə] – автор
+      p cause [kɔ:z] – причина
+      p fault [fɔ:lt] - провина
+      p sauce [sɔ:s] – соус
+
+    br
+    .custom-header u, e, o, a [ə]
+
+    .multi-columns
+      p demon ['di:mən] – демон
+      p seldom ['seldəm] – рідко
+      p plenum ['pli:nəm] – збори
+      p bottom ['bɔtəm] – дно
+      p element ['elimənt] – елемент
+      p payment ['peimənt] – платіж
+      p ballad ['bæləd] - балада
+
+    br
+    .custom-header u [ʌ]
+    .btext – у закритому складі:
+
+    .multi-columns
+      p dust [dʌst] – пилюка
+      p stun [stʌn] – приголомшити
+      p pub [pʌb] – пивна
+      p lucky ['lʌki] – успішний, щасливий
+      p numb [nʌm] – занімілий
+      p hush [hʌʃ] – вщухати
+      p duck [dʌk] – качка
+      p butter ['bʌtə] - масло
+
+    br
+    .custom-header u [ju:]
+    .btext – у відкритому складі:
+
+    .multi-columns
+      p museum [mju:'zi:əm] – музей
+      p huge [hju:dʒ] – величезний
+      p duty ['dju:ti] – обов’язок
+      p tutor ['tju:tə] – репетитор
+
+    br
+    .custom-header u [u:]
+    .btext – після букв j та l у відкритих складах:
+
+    .multi-columns
+      p junior ['dʒu:niə] – молодший
+      p lunar ['lu:nə] – місячний
+
+    br
+    .custom-header u [-]
+    .btext – після букви g перед наступною голосною:
+
+    .multi-columns
+      p intrigue ['intri:g] – інтрига
+      p vogue [vəug] – мода
+      p disguise [dis'gaiz] – маскування
+      p guitar [gi'ta:] – гітара
+      p guess [ges] - здогадуватися
+      p guilt [gilt] - провина
+
+    br
+    .custom-header alk [ɔ:k]
+
+    .multi-columns
+      p walk [wɔ:k] – ходити пішки
+      p chalk [tʃɔ:k] – крейда
+      p talk [tɔ:k] - говорити
+
+    br
+    .custom-header al [ɔ:l]
+    .btext – перед приголосною буквою:
+
+    .multi-columns
+      p install [in'stɔ:l] – встановлювати
+      p fall [fɔ:l] – падати
+      p tall [tɔ:l] – високий
+      p ball [bɔ:l] – шар
+      p wall [wɔ:l] – стіна
+      p alternate [ɔ:l'tə:nət] - альтернатива
+      p almost ['ɔ:lməust] – майже
+      p call [kɔ:l] - дзвонити
+
+    br
+    .custom-header qu [kw]
+
+    .multi-columns
+      p question ['kwestʃən] – питання
+      p quiet ['kwaiət] – тихий
+      p quick [kwik] – швидкий
+      p queen [kwi:n] – королева
+      p quarrel ['kwɔr(ə)l] – сварка
+      p liquid ['likwid] – рідина
+      p request [ri'kwest] – вимога
+      p frequent ['fri:kwənt] – частий
+      p quantity ['kwɔntəti] – кількість
+
+    br
+    .custom-header ph [f]
+
+    .multi-columns
+      p elephant ['elifənt] – слон
+      p sphere [sfiə] – сфера
+      p phone [fəun] - телефон
+      p photo ['fəutəu] - фотографія
+
+    br
+    .custom-header sh [ʃ]
+
+    .multi-columns
+      p she [ʃi:] – вона
+      p leash [li:ʃ] – повідок
+      p shot [ʃɔt] – постріл
+      p shield [ʃi:ld] – захищати
+      p shop [ʃɔp] - магазин
+      p fish [fiʃ] – риба
+      p shame [ʃeim] - сором
+
+    br
+    .custom-header s [ʒ]
+    .btext – між голосними буквами перед u,i:
+
+    .multi-columns
+      p vision ['viʒ(ə)n] – зір
+      p decision [di'siʒn] – рішення
+      p division [di'viʒ(ə)n] – ділення
+      p casual ['kæʒwəl] – випадковий
+      p measure ['meʒə] – міра
+      p pleasure ['pleʒə] – задоволення
+      p closure ['kləuʒə] – закриття
+      p usually ['ju:ʒ(ə)li] - зазвичай
+
+    br
+    .custom-header k [k]
+
+    .multi-columns
+      p naked ['neikid] – голий
+      p snake [sneik] – змія
+      p bike [baik] – мотоцикл
+      p mask [ma:sk] – маска
+      p folk [fəuk] – народний
+      p talk [tɔ:k] - казати
+
+    br
+    .custom-header сk [k]
+
+    .multi-columns
+      p lucky ['lʌki] – успішний, щасливий
+      p pack [pæk] – пачка
+      p lack [læk] – нестача
+      p sick [sik] – хворий
+      p stick [stik] – палиця
+      p clock [klɔk] – годинник
+
+    br
+    .custom-header с [k]
+    .btext – в усіх випадках, крім як перед буквами е, i, y:
+
+    .multi-columns
+      p can [kæn] – бути спроможним
+      p cost [kɔst] – коштувати
+      p active ['æktiv] – активний
+      p coal [kəul] – вугілля
+      p coin [kɔin] – монета
+      p insect ['insekt] – комаха
+      p clean [kli:n] – чистий
+      p custom ['kʌstəm] – звичай
+      p scar [ska:] – шрам
+      p camp [kæmp] – табір
+      p candle ['kændl] – свічка
+
+    br
+    .custom-header с [s]
+    .btext – перед буквами е, i, y:
+
+    .multi-columns
+      p space [speis] - простір, космос
+      p face [feis] - обличчя
+      p distance ['dist(ə)n(t)s] – відстань
+      p fence [fen(t)s] – паркан
+      p office ['ɔfis] - офіс
+      p officer ['ɔfisə] - чиновник, офіцер
+      p police [pə'li:s] – поліція
+      p acid ['æsid] – кислотний
+      p civil ['siv(ə)l] – громадянський
+      p cinema ['sinəmə] – кінотеатр
+      p diplomacy [di'pləuməsi] – дипломатія
+      p mercy ['mə:si] – милосердя
+      p city ['siti] - місто
+
+    br
+    .custom-header ch [tʃ]
+
+    .multi-columns
+      p such [sʌtʃ] – такий
+      p beach [bi:tʃ] – пляж
+      p channel ['tʃæn(ə)l] - канал, пролив
+      p cheap [tʃi:p] – дешевий
+      p rich [ritʃ] – багатий
+      p inch [intʃ] – дюйм
+      p teach [ti:tʃ] - навчати
+
+    br
+    .custom-header tch [tʃ]
+
+    .multi-columns
+      p sketch [sketʃ] - ескіз
+      p catch [kætʃ] – ловити
+      p match [mætʃ] - сірник
+
+    .custom-header j [dʒ]
+
+    .multi-columns
+      p joke [dʒəuk] – жарт
+      p jealous ['dʒeləs] – ревнивий
+      p joy [dʒɔi] – радість
+      p juice [dʒu:s] – сік
+      p job [dʒɔb] - робота
+
+    br
+    .custom-header g [dʒ]
+    .btext – в деяких словах перед буквами e, i, y:
+
+    .multi-columns
+      p digit ['didʒit] – цифра
+      p gem [dʒem] – коштовний камінь
+      p gym [dʒim] – гімнастичний зал
+      p oxygen ['ɔksidʒən] – кисень
+
+    .btext – завжди в кінці слова перед німою буквою е:
+
+    .multi-columns
+      p stage [steidʒ] – сцена
+      p age [eidʒ] – вік
+      p luggage ['lʌgidʒ] – багаж
+      p damage ['dæmidʒ] – шкода, збиток
+      p image ['imidʒ] – малюнок
+      p manage ['mænidʒ] - управляти
+      p cage [keidʒ] – клітка
+      p village ['vilidʒ] - село
+
+    br
+    .custom-header g [g]
+
+    .multi-columns
+      p gossip ['gɔsip] – плітки
+      p flag [flæg] - прапор
+      p god [gɔd] - бог
+      p good [gud] – хороший
+      p beg [beg] – просити
+      p glad [glæd] – радісний
+      p give [giv] – дати
+      p gift [gift] - подарунок
+
+    br
+    .custom-header gh [-]
+    .btext – перед буквою t:
+
+    .multi-columns
+      p sight [sait] – зір
+      p daughter ['dɔ:tə] – донька
+      p delight [di'lait] – задоволення
+      p tight [tait] – тугий
+      p eight [eit] - вісім
+
+    br
+    .custom-header х [gz]
+    .btext – перед наголошеним звуком у наголошеному складі:
+
+    .multi-columns
+      p exalt [ig'zɔ:lt] – звеличувати
+      p examine [ig'zæmin] – оглядати
+      p exam [ig'zæm] - екзамен
+      p exotic [ig'zɔtik] – екзотичний
+
+    br
+    .custom-header х [ks]
+    .btext – у всіх випадках, крім як перед наголошеним звуком у наголошеному складі:
+
+    .multi-columns
+      p fox [fɔks] – лисиця
+      p pixel ['piks(ə)l] – піксель
+      p tax [tæks] – податок
+      p oxygen ['ɔksidʒən] – кисень
+      p exchange [iks'tʃeindʒ] – обмін
+      p ox [ɔks] – бик
+      p explain [ik'splein] - пояснювати
+      p exhibition [eksi'biʃ(ə)n] - виставка
+
+    br
+    .custom-header th [ð]
+
+    .multi-columns
+      p there [ðɛə] – там
+      p then [ðen] - потім
+      p than [ðæn] – ніж
+      p they [ðei] – вони
+      p that [ðæt] - той
+      p this [ðis] – цей
+      p these [ði:z] - ці
+      p those [ðəuz] - ті
+      p smooth [smu:ð] - гладкий, рівний
+
+    br
+    .custom-header th [θ]
+
+    .multi-columns
+      p thought [θɔ:t] – думка
+      p thorn [θɔ:n] – шип
+      p threat [θret] – загроза
+      p cloth [klɔθ] – тканина
+      p both [bəuθ] - обидва
+      p math [mæθ] – математика
+      p south [sauθ] – південь
+      p youth [ju:θ] - юність, молодість
+      p couth [ku:θ] – вишуканість
+      p thin [θin] - тонкий, худий
+
+    br
+    .custom-header ng [ŋ]
+
+    .multi-columns
+      p along [ə'lɔŋ] - вздовж
+      p among [ə'mʌŋ] - посеред
+      p amazing [ə'meiziŋ] – дивовижний
+      p ceiling ['si:liŋ] – стеля
+      p annoying [ə'nɔiiŋ] – набридливий
+      p falling ['fɔ:liŋ] – падіння
+      p meeting ['mi:tiŋ] – збори
+      p thing [θiŋ] - річ, предмет
+
+    br
+    .custom-header ng [ŋg]
+    .btext – перед голосними та r, l, w:
+
+    .multi-columns
+      p mango ['mæŋgəu] – манго
+      p finger ['fiŋgə] – палець
+      p linger ['liŋgə] – зволікати
+      p jingle ['dʒiŋgl] – дзвін
+      p congress ['kɔŋgres] – конгрес
+      p anger ['æŋgə] – злість
+      p hungry ['hʌŋgri] - голодний
+
+    br
+    .custom-header nk [ŋk]
+
+    .multi-columns
+      p drink [driŋk] – пити
+      p rink [riŋk] – каток
+      p donkey ['dɔŋki] – віслюк
+      p blink [bliŋk] – мить
+      p ink [iŋk] – чорнила
+      p sink [siŋk] – раковина
+      p rank [ræŋk] – ряд
+      p think [θiŋk] - думати
+      p thank [θæŋk] – дякувати
+      p pink [piŋk] - рожевий
+
+    br
+    .custom-header w [w]
+
+    .multi-columns
+      p wave [weiv] – хвиля
+      p wall [wɔ:l] – стіна
+
+    br
+    .custom-header wh [w]
+
+    .multi-columns
+      p what [(h)wɔt] – що
+      p white [(h)wait] – білий
+
+    br
+    .custom-header wh [h]
+    .btext – перед буквою о:
+
+    .multi-columns
+      p whole [həul] - увесь
+      p who [hu:] – хто
+      p whose [hu:z] - чий
+
+    br
+    .custom-header wa, wha [wɔ]
+    .btext – у наголошеному складі перед приголосною в кінці слова або перед двома (крім g, r, ck та х):
+
+    .multi-columns
+      p wasp [wɔsp] – оса
+      p want [wɔnt] – хотіти
+      p what [(h)wɔt] - що, який
+      p wash [wɔʃ] - мити
+
+    br
+    .custom-header wr [r]
+
+    .multi-columns
+      p wrist [rist] – зап’ястя
+      p wrong [rɔŋ] – неправильний
+      p write [rait] - писати
+
+    br
+    .custom-header r [r]
+
+    .multi-columns
+      p rabbit ['ræbit] – кролик
+      p radio ['reidiəu] – радіо
+      p rain [rein] – дощ
+      p restaurant ['restərɔnt] – ресторан
+      p random ['rændəm] - випадковий
+      p raise [reiz] – піднімати
+      p rare [rɛə] – рідкісний
+      p ray [rei] – промінь
+      p rest [rest] – відпочинок
+
+    br
+    .custom-header er, ur [ə]
+    .btext – у ненаголошеному складі:
+
+    .multi-columns
+      p better ['betə] – кращий
+      p bitter ['bitə] – гіркий
+      p ladder ['lædə] – сходи
+      p later ['leitə] – пізніше
+      p saturday ['sætədei] – субота
+      p sister ['sistə] – сестра
+      p dinner ['dinə] - обід
+
+    br
+    .custom-header ar [a:]
+
+    .multi-columns
+      p spark [spa:k] – іскра
+      p dark [da:k] – темний
+      p alarm [ə'la:m] – тривога
+      p scarf [ska:f] - шарф
+
+    br
+    .custom-header or [ɔ:]
+
+    .multi-columns
+      p short [ʃɔ:t] – короткий
+      p adore [ə'dɔ:] – обожнювати
+      p perform [pə'fɔ:m] – виконувати
+      p storm [stɔ:m] - буря, гроза
+      p afford [ə'fɔ:d] – дозволити собі щось
+      p force [fɔ:s] – сила
+
+    br
+    .custom-header ur, er, ir (yr), в деяких випадках ear [ə:]
+
+    .multi-columns
+      p suburb ['sʌbə:b] – передмістя
+      p burn [bə:n] – горіти
+      p church [tʃə:tʃ] – церква
+      p curtain ['kə:t(ə)n] – занавіска
+      p advertisement [əd'və:tismənt] – реклама
+      p alert [ə'lə:t] – тривога
+      p berg [bə:g] – айсберг
+      p Berlin [bə:'lin] - Берлин
+      p term [tə:m] – термін
+      p nervous ['nə:vəs] – нервовий
+      p bird [bə:d] – птах
+      p birth [bə:θ] – народження
+      p circle ['sə:kl] – коло
+      p earn [ə:n] – заробляти
+      p rehearsal [ri'hə:s(ə)l] – репетиція
+
+    br
+    .custom-header ure, our, oor [uə]
+
+    .multi-columns
+      p ensure [in'ʃuə] – гарантувати, забезпечувати
+      p sure [ʃuə] - впевнений
+      p flour ['flauə] – борошно
+      p boor [buə] – невихована людина
+      p poor [puə] – бідний
+
+    br
+    .custom-header ure [juə]
+    .btext – у наголошеній позиції:
+
+    .multi-columns
+      p impure [im'pjuə] – нечистий
+      p pure [pjuə] - чистий
+      p secure [si'kjuə] – безпечний
+      p cure [kjuə] - лікувати
+
+    br
+    .custom-header ear, eer, ere [iə]
+
+    .multi-columns
+      p gear [giə] – механізм
+      p appear [ə'piə] – з’являтися
+      p career [kə'riə] – кар’єра
+      p deer [diə] – олень
+      p sneer [sniə] – висміювання
+      p here [hiə] - тут
+
+    br
+    .custom-header our [auə]
+
+    .multi-columns
+      p sour ['sauə] – кислий
+      p flour ['flauə] – борошно
+
+    br
+    .custom-header wa+r, wha+r [wɔ:]
+    .btext – у наголошеному складі, якщо після них нема голосної:
+
+    .multi-columns
+      p wart [wɔ:t] – бородавка
+      p wharf [(h)wɔ:f] – пристань
+      p warm [wɔ:m] – теплий
+      p war [wɔ:] - війна
+
+    br
+    .custom-header wor [wə:]
+    .btext – перед приголосною:
+
+    .multi-columns
+      p worm [wə:m] – черв’як
+      p world [wə:ld] – світ
+      p word [wə:d] - слово

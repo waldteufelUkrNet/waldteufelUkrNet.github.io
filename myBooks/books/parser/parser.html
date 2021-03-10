@@ -1,1 +1,31 @@
-<!DOCTYPE html><html lang="ua" allow="clipboard-read; clipboard-write"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="../../css/parser.css"><link rel="stylesheet" href="../../css/books.css"><script defer src="../../js/parser.js"></script><title>Парсер</title></head><body><main class="main"><div class="textareas-wrapper"><div class="textarea-wrapper"><label for="plainText">plain text</label><textarea id="plainText"></textarea></div><div class="textarea-wrapper"><label for="pugText">pug-formatted text</label><textarea id="pugText"></textarea></div></div><b style="font-weight:900; padding: 20px 0">INFO</b><p>Суть роботи конвертера: ділення рядка на підрядки по '\n\n' з наступним аналізом. Якщо рядок пустий або починається з /\s{4}h[1-6]/ - пропустити, якщо ні, тоді, якщо в рядку нема перекладу - додавати p.btext, інакше проводити парсинг. Текст повинен бути підготований: перед главами поставлені 4 пробіли з h1-h6, між адаптованими і не адаптованими фрагментами - рівно один абзацний відступ (для вставки br парсером).</p><div class="buttons-wrapper"><button type="button" onclick="cleanAllTextArea()">очистити все</button><button type="button" onclick="convertAndCopy()">сконвертувати та скопіювати у буфер</button><button type="button" disabled>вставити з буфера</button></div></main></body></html>
+<!DOCTYPE html>
+<html lang="ua" allow="clipboard-read; clipboard-write">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/parser.css">
+    <link rel="stylesheet" href="../../css/books.css">
+    <script defer src="../../js/parser.js"></script>
+    <title>Парсер</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="textareas-wrapper">
+        <div class="textarea-wrapper">
+          <label for="plainText">plain text</label>
+          <textarea id="plainText"></textarea>
+        </div>
+        <div class="textarea-wrapper">
+          <label for="pugText">pug-formatted text</label>
+          <textarea id="pugText"></textarea>
+        </div>
+      </div><b style="font-weight:900; padding: 20px 0">INFO</b>
+      <p>Суть роботи конвертера: ділення рядка на підрядки по '\n\n' з наступним аналізом. Якщо рядок пустий або починається з /\s{4}h[1-6]/ - пропустити, якщо ні, тоді, якщо в рядку нема перекладу - додавати p.btext, інакше проводити парсинг. Текст повинен бути підготований: перед главами поставлені 4 пробіли з h1-h6, між адаптованими і не адаптованими фрагментами - рівно один абзацний відступ (для вставки br парсером).</p>
+      <div class="buttons-wrapper">
+        <button type="button" onclick="cleanAllTextArea()">очистити все</button>
+        <button type="button" onclick="convertAndCopy()">сконвертувати та скопіювати у буфер</button>
+        <button type="button" disabled>вставити з буфера</button>
+      </div>
+    </main>
+  </body>
+</html>

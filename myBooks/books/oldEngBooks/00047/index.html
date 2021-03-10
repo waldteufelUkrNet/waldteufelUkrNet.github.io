@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="">
+    <meta name="book-name" content="">
+    <meta name="book-id" content="">
+    <link rel="icon" href="../../img/book.png">
+    <link rel="stylesheet" href="../../css/w.css">
+    <link rel="stylesheet" href="../../css/books.css">
+    <link rel="stylesheet" href="../../css/modules.css">
+    <script defer src="../../js/w.js"></script>
+    <script defer src="../../js/dbase.js"></script>
+    <script defer src="../../js/books.js"></script>
+    <script defer src="../../js/modules.js"></script>
+  </head>
+  <body>
+    <main class="main">
+      <!-- ↓↓↓ modules: top-book-panel (start) ↓↓↓-->
+      <div class="top-book-panel">
+        <div class="top-book-panel__inner">
+          <div class="top-book-panel__info">
+            <div class="top-book-panel__tags">
+              <div class="top-book-panel__author"></div>
+              <div class="top-book-panel__book-name"></div>
+            </div>
+            <button class="top-book-panel__btn" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448.1 512">
+                <path d="M448.1 344v112c0 13.3-10.7 24-24 24h-112c-21.4 0-32.1-25.9-17-41l36.2-36.2L224 295.6 116.8 402.9 153 439c15.1 15.1 4.4 41-17 41H24c-13.3 0-24-10.7-24-24V344c0-21.4 25.9-32.1 41-17l36.2 36.2L184.5 256 77.2 148.7 41 185c-15.1 15.1-41 4.4-41-17V56c0-13.3 10.7-24 24-24h112c21.4 0 32.1 25.9 17 41l-36.2 36.2L224 216.4l107.3-107.3L295.1 73c-15.1-15.1-4.4-41 17-41h112c13.3 0 24 10.7 24 24v112c0 21.4-25.9 32.1-41 17l-36.2-36.2L263.6 256l107.3 107.3 36.2-36.2c15.1-15.2 41-4.5 41 16.9z"></path>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M200 288H88c-21.4 0-32.1 25.8-17 41l32.9 31-99.2 99.3c-6.2 6.2-6.2 16.4 0 22.6l25.4 25.4c6.2 6.2 16.4 6.2 22.6 0L152 408l31.1 33c15.1 15.1 40.9 4.4 40.9-17V312c0-13.3-10.7-24-24-24zm112-64h112c21.4 0 32.1-25.9 17-41l-33-31 99.3-99.3c6.2-6.2 6.2-16.4 0-22.6L481.9 4.7c-6.2-6.2-16.4-6.2-22.6 0L360 104l-31.1-33C313.8 55.9 288 66.6 288 88v112c0 13.3 10.7 24 24 24zm96 136l33-31.1c15.1-15.1 4.4-40.9-17-40.9H312c-13.3 0-24 10.7-24 24v112c0 21.4 25.9 32.1 41 17l31-32.9 99.3 99.3c6.2 6.2 16.4 6.2 22.6 0l25.4-25.4c6.2-6.2 6.2-16.4 0-22.6L408 360zM183 71.1L152 104 52.7 4.7c-6.2-6.2-16.4-6.2-22.6 0L4.7 30.1c-6.2 6.2-6.2 16.4 0 22.6L104 152l-33 31.1C55.9 198.2 66.6 224 88 224h112c13.3 0 24-10.7 24-24V88c0-21.3-25.9-32-41-16.9z"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="top-book-panel__read-line-wrapper">
+            <div class="top-book-panel__read-line"></div>
+          </div>
+          <div class="top-book-panel__pages">
+            <div class="top-book-panel__read">0</div>
+            <div class="top-book-panel__symbol">стр. з</div>
+            <div class="top-book-panel__not-read">0</div>
+            <div class="top-book-panel__symbol">сторінок</div>
+          </div>
+        </div>
+      </div>
+      <!-- ↑↑↑ modules: top-book-panel (end) ↑↑↑-->
+      <div id="book">
+        <!-- ↓↓↓ modules: loader (start) ↓↓↓-->
+        <div class="loader loader_active">
+          <div class="loader__img-wrapper"><img class="loader__img" src="../../img/loader.gif"></div>
+          <p class="loader__text">завантаження...</p>
+        </div>
+        <!-- ↑↑↑ modules: loader (end) ↑↑↑-->
+        <div class="first-screen"><img src="img/title.jpg" alt="title image"></div>
+        <div class="name-section">
+          <div class="name-section__author"></div>
+          <div class="name-section__book"></div>
+        </div>
+        <section>
+          <p><span class="btext">The door of Henry’s lunch-room opened</span>
+            (дверь закусочной Генри отворилась)
+            
+            <span class="btext">and two men came in</span>
+            (и двое мужчин вошли /внутрь/;
+            
+            <span class="f-coni">to come in — входить</span>).
+            
+            <span class="btext">They sat down at the counter</span>
+            (они сели у стойки;
+            
+            <span class="f-coni">to sit down — садиться</span>).
+          </p>
+          <p><span class="btext">“What’s yours</span>
+            (что для вас/что будете брать: «что ваше»)?”
+            
+            <span class="btext">George asked them</span>
+            (спросил их Джордж).
+          </p>
+          <p><span class="btext">“I don’t know</span>
+            (я не знаю),”
+            
+            <span class="btext">one of the men said</span>
+            (сказал один из мужчин;
+            
+            <span class="f-coni">to say</span>).
+            
+            <span class="btext">“What do you want to eat, Al</span>
+            (что ты хочешь съесть, Эл)?”
+          </p>
+          <p><span class="btext">“I don’t know,” said All. “I don’t know what I want to eat.”</span></p>
+          <p><span class="btext">Outside it was getting dark</span>
+            (на улице темнело: «снаружи становилось темно»).
+            
+            <span class="btext">The street-light came on outside the window</span>
+            (уличный фонарь зажегся за окном;
+            
+            <span class="f-coni">light — свет; to come on — появиться /на сцене/, возникнуть</span>).
+            
+            <span class="btext">The two men at the counter read the menu</span>
+            (двое мужчин у стойки читали меню;
+            
+            <span class="f-coni">to read</span>).
+            
+            <span class="btext">From the other end of the counter</span>
+            (с другого конца стойки)
+            
+            <span class="btext">Nick Adams watched them</span>
+            (Ник Адамс глядел на них).
+            
+            <span class="btext">He had been talking to George</span>
+            (он разговаривал с Джорджем)
+            
+            <span class="btext">when they came in</span>
+            (когда они вошли).
+          </p><br>
+          <p class="tac">counter [`kaunt∂] menu [`menju:]</p><br>
+          <p class="btext">The door of Henry’s lunch-room opened and two men came in. They sat down at the counter.</p>
+          <p class="btext">“What’s yours?” George asked them.</p>
+          <p class="btext">“I don’t know,” one of the men said. “What do you want to eat, Al?”</p>
+          <p class="btext">“I don’t know,” said All. “I don’t know what I want to eat.”</p>
+          <p class="btext">Outside it was getting dark. The street-light came on outside the window. The two men at the counter read the menu. From the other end of the counter Nick Adams watched them. He had been talking to George when they came in.</p><br>
+          <p><span class="btext">“I’ll have a roast pork tenderloin</span>
+            (я возьму жареное свиное филе;
+            
+            <span class="f-coni">tenderloin — филе, вырезка: tender — нежный, мягкий + loin — поясница; филейная часть</span>)
+            
+            <span class="btext">with apple sauce</span>
+            (с яблочным соусом)
+            
+            <span class="btext">and mashed potatoes</span>
+            (и картофельным пюре;
+            
+            <span class="f-coni">to mash — раздавливать, разминать</span>),”
+            
+            <span class="btext">the first man said</span>
+            (сказал первый мужчина).
+          </p>
+          <p><span class="btext">“It isn’t ready yet</span>
+            (оно еще не готово).”
+          </p>
+          <p><span class="btext">“What the hell</span>
+            (какого черта: «ада»)
+            
+            <span class="btext">do you put it on the card for</span>
+            (ты помещаешь, ставишь это в меню;
+            
+            <span class="f-coni">what for — для чего</span>)?”
+          </p>
+          <p><span class="btext">“That’s the dinner</span>
+            (это обед;
+            
+            <span class="f-coni">dinner — обед /главный прием пищи в течение дня, часто вечером/</span>),”
+            
+            <span class="btext">George explained</span>
+            (объяснил Джордж).
+            
+            <span class="btext">“You can get that at six o’clock</span>
+            (ты можешь получить это в шесть часов).”
+          </p>
+          <p><span class="btext">George looked at the clock on the wall behind the counter</span>
+            (Джордж посмотрел на часы на стене за стойкой).
+          </p>
+          <p><span class="btext">“It’s five o’clock</span>
+            (/сейчас/ пять часов).”
+          </p>
+          <p><span class="btext">“The clock says twenty minutes past five</span>
+            (часы показывают: «говорят» двадцать минут после пяти = двадцать минут шестого),”
+            
+            <span class="btext">the second man said</span>
+            (сказал второй мужчина).
+          </p>
+          <p><span class="btext">“It’s twenty minutes fast</span>
+            (они спешат на двадцать минут;
+            
+            <span class="f-coni">fast — быстрый</span>).”
+          </p>
+          <p><span class="btext">“Oh, to hell with the clock</span>
+            (к черту часы),”
+            
+            <span class="btext">the first man said</span>
+            (сказал первый мужчина).
+            
+            <span class="btext">“What have you got to eat</span>
+            (что у тебя есть поесть)?”
+          </p>
+          <p><span class="btext">“I can give you any kind of sandwiches</span>
+            (могу дать вам разные сандвичи: «любой вид сандвича»),”
+            
+            <span class="btext">George said. “You can have ham and eggs</span>
+            (вы можете взять: «иметь» яичницу с с ветчиной;
+            
+            <span class="f-coni">egg — яйцо</span>),
+            
+            <span class="btext">bacon and eggs</span>
+            (яичницу с бэконом),
+            
+            <span class="btext">liver and bacon</span>
+            (печенку с бэконом),
+            
+            <span class="btext">or a steak</span>
+            (или бифштекс).”
+          </p><br>
+          <p class="tac">sauce [so:s] potato [p∂`teıt∂u] liver [`lıv∂]</p><br>
+          <p class="btext">“I’ll have a roast pork tenderloin with apple sauce and mashed potatoes,” the first man said.</p>
+          <p class="btext">“It isn’t ready yet.”</p>
+          <p class="btext">“What the hell do you put it on the card for?”</p>
+          <p class="btext">“That’s the dinner,” George explained. “You can get that at six o’clock.”</p>
+          <p class="btext">George looked at the clock on the wall behind the counter.</p>
+          <p class="btext">“It’s five o’clock.”</p>
+          <p class="btext">“The clock says twenty minutes past five,” the second man said.</p>
+          <p class="btext">“It’s twenty minutes fast.”</p>
+          <p class="btext">“Oh, to hell with the clock,” the first man said. “What have you got to eat?”</p>
+          <p class="btext">“I can give you any kind of sandwiches,” George said. “You can have ham and eggs, bacon and eggs, liver and bacon, or a steak.”</p><br>
+          <p><span class="btext">“Give me chicken croquettes</span>
+            (дай мне куриные крокеты)
+            
+            <span class="btext">with green peas</span>
+            (с зеленым горошком)
+            
+            <span class="btext">and cream sauce</span>
+            (под белым: «сливочным» соусом)
+            
+            <span class="btext">and mashed potatoes</span>
+            (и /с/ картофельным пюре).”
+          </p>
+          <p><span class="btext">“That’s the dinner</span>
+            (это обед).”
+          </p>
+          <p><span class="btext">“Everything we want’s the dinner, eh</span>
+            (все, что мы хотим — обед, ясно;
+            
+            <span class="f-coni">eh — а?, как?, так ведь?)?</span>
+            <span class="btext">That’s the way you work it</span>
+            (так: «таким путем» ты это делаешь: «срабатываешь/устраиваешь» = ну и порядки).”
+          </p>
+          <p><span class="btext">“I can give you ham and eggs, bacon and eggs, liver</span>
+            (я могу дать вам яичницe с ветчиной, и яичницу с с бэконом, /сандвич/ с печенью = печеночным паштетом) — ”
+          </p>
+          <p><span class="btext">“I’ll take ham and eggs</span>
+            (я возьму яичницу с ветчиной),”
+            
+            <span class="btext">the man called Al said</span>
+            (сказал мужчина, которого звали Эл).
+            
+            <span class="btext">He wore a derby hat</span>
+            (на нем был: «он носил» котелок;
+            
+            <span class="f-coni">to wear — носить</span>)
+            
+            <span class="btext">and a black overcoat</span>
+            (и черное пальто)
+            
+            <span class="btext">buttoned across the chest</span>
+            (застегнутое наглухо: «через грудь»;
+            
+            <span class="f-coni">button — пуговица</span>).
+            
+            <span class="btext">His face was small and white</span>
+            (его лицо было маленьким и белым)
+            
+            <span class="btext">and he had tight lips</span>
+            (и у него были сжатые губы;
+            
+            <span class="f-coni">tight — плотный, тугой</span>).
+            
+            <span class="btext">He wore a silk muffler</span>
+            (на нем было шелковое кашне;
+            
+            <span class="f-coni">to muffle — закутывать, укутывать; глушить /звук/</span>)
+            
+            <span class="btext">and gloves</span>
+            (и перчатки).
+          </p>
+          <p><span class="btext">“Give me bacon and eggs</span>
+            (дай мне яичницу с бэконом),”
+            
+            <span class="btext">said the other man</span>
+            (сказал другой мужчина).
+            
+            <span class="btext">He was about the same size as Al</span>
+            (он был примерно того же роста: «размера», что и Эл).
+            
+            <span class="btext">Their faces were different</span>
+            (лица были различны),
+            
+            <span class="btext">but they were dressed like twins</span>
+            (но они были одеты, как близнецы).
+            
+            <span class="btext">Both wore overcoats too tight for them</span>
+            (на обоих были пальто, слишком узкие для них).
+            
+            <span class="btext">They sat leaning forward</span>
+            (они сидели наклонившись вперед),
+            
+            <span class="btext">their elbows on the counter</span>
+            (их локти на стойке = поставив локти на стойку).
+          </p><br>
+          <p class="tac">eh [eı] croquette [kro`ket] button [btn] glove [glv]</p><br>
+          <p class="btext">“Give me chicken croquettes with green peas and cream sauce and mashed potatoes.”</p>
+          <p class="btext">“That’s the dinner.”</p>
+          <p class="btext">“Everything we want’s the dinner, eh? That’s the way you work it.”</p>
+          <p class="btext">“I can give you ham and eggs, bacon and eggs, liver — ”</p>
+          <p class="btext">“I’ll take ham and eggs,” the man called Al said. He wore a derby hat and a black overcoat buttoned across the chest. His face was small and white and he had tight lips. He wore a silk muffler and gloves.</p>
+          <p class="btext">“Give me bacon and eggs,” said the other man. He was about the same size as Al. Their faces were different, but they were dressed like twins. Both wore overcoats too tight for them. They sat leaning forward, their elbows on the counter.</p><br>
+          <p><span class="btext">“Got anything to drink</span>
+            (есть что-нибудь выпить)?”
+            
+            <span class="btext">Al asked</span>
+            (спросил Эл).
+          </p>
+          <p><span class="btext">“Silver beer</span>
+            (серебряное пиво /сорт пива/),
+            
+            <span class="btext">bevo</span>
+            (морс/напиток /итальянское слово/),
+            
+            <span class="btext">ginger-ale</span>
+            (имбирное пиво),”
+            
+            <span class="btext">George said.</span>
+          </p>
+          <p><span class="btext">“I mean</span>
+            (я имею в виду)
+            
+            <span class="btext">you got anything to drink?”</span>
+          </p>
+          <p><span class="btext">“Just those I said</span>
+            (только то: «те», что я сказал).”
+          </p>
+          <p><span class="btext">“This is a hot town</span>
+            (веселый городок, ну и городок: «это жаркий городок»),”
+            
+            <span class="btext">said the other</span>
+            (сказал другой).
+            
+            <span class="btext">“What do they call it</span>
+            (как он там называется: «как они его называют»)?”
+          </p>
+          <p><span class="btext">“Summit</span>
+            (Саммит /поселок к юго-западу от Чикаго/).”
+          </p>
+          <p><span class="btext">“Ever hear of it</span>
+            (когда-нибудь слышал о нем)?”
+            
+            <span class="btext">Al asked his friend</span>
+            (спросил Эл своего друга).
+          </p>
+          <p><span class="btext">“No,” said the friend.</span></p>
+          <p><span class="btext">“What do you do here nights</span>
+            (что вы здесь делаете по вечерам)?”
+            
+            <span class="btext">Al asked.</span>
+          </p>
+          <p><span class="btext">“They eat the dinner</span>
+            (они обедают: «едят обед»),”
+            
+            <span class="btext">his friend said</span>
+            (сказал его друг).
+            
+            <span class="btext">“They all come here and eat the big dinner</span>
+            (они все приходят сюда и едят большой обед).”
+          </p>
+          <p><span class="btext">“That’s right</span>
+            (это так/верно),”
+            
+            <span class="btext">George said.</span>
+          </p>
+          <p><span class="btext">“So you think that’s right</span>
+            (так ты думаешь/считаешь, что это правильно)?”
+            
+            <span class="btext">Al asked George.</span>
+          </p>
+          <p><span class="btext">“Sure</span>
+            (конечно).”
+          </p>
+          <p><span class="btext">“You’re a pretty bright boy</span>
+            (ты очень умный: «светлый» парень;
+            
+            <span class="f-coni">pretty — красивый, симпатичный; довольно, весьма</span>),
+            
+            <span class="btext">aren’t you</span>
+            (не правда ли: «не есть ли ты»)?”
+          </p>
+          <p><span class="btext">“Sure,” said George.</span></p>
+          <p><span class="btext">“Well, you’re not</span>
+            (ну, так вот, ты вовсе не умный парень),”
+            
+            <span class="btext">said the other little man</span>
+            (другой маленький = низенький человек).
+            
+            <span class="btext">“Is he, Al</span>
+            (умный ли он, Эл)?”
+          </p>
+          <p><span class="btext">“He’s dumb</span>
+            (он тупой: «немой»),”
+            
+            <span class="btext">said Al. He turned to Nick</span>
+            (повернулся к Нику).
+            
+            <span class="btext">“What’s your name</span>
+            (как тебя зовут: «каково твое имя»)?”
+          </p>
+          <p><span class="btext">“Adams.”</span></p>
+          <p><span class="btext">“Another bright boy</span>
+            (другой = еще один умник),”
+            
+            <span class="btext">Al said. “Ain’t he a bright boy, Max</span>
+            (/ну/ не умник ли он; ain't = isn't; aren't)?”
+          </p>
+          <p><span class="btext">“The town’s full of bright boys</span>
+            (город полон умников),”
+            
+            <span class="btext">Max said.</span>
+          </p><br>
+          <p class="tac">dumb [dm] pretty [`prıtı]</p><br>
+          <p class="btext">“Got anything to drink?” Al asked.</p>
+          <p class="btext">“Silver beer, bevo, ginger-ale,” George said.</p>
+          <p class="btext">“I mean you got anything to drink?”</p>
+          <p class="btext">“Just those I said.”</p>
+          <p class="btext">“This is a hot town,” said the other. “What do they call it?”</p>
+          <p class="btext">“Summit.”</p>
+          <p class="btext">“Ever hear of it?” Al asked his friend.</p>
+          <p class="btext">“No,” said the friend.</p>
+          <p class="btext">“What do you do here nights?” Al asked.</p>
+          <p class="btext">“They eat the dinner,” his friend said. “They all come here and eat the big dinner.”</p>
+          <p class="btext">“That’s right,” George said.</p>
+          <p class="btext">“So you think that’s right?” Al asked George.</p>
+          <p class="btext">“Sure.”</p>
+          <p class="btext">“You’re a pretty bright boy, aren’t you?”</p>
+          <p class="btext">“Sure,” said George.</p>
+          <p class="btext">“Well, you’re not,” said the other little man. “Is he, Al?”</p>
+          <p class="btext">“He’s dumb,” said Al. He turned to Nick. “What’s your name?”</p>
+          <p class="btext">“Adams.”</p>
+          <p class="btext">“Another bright boy,” Al said. “Ain’t he a bright boy, Max?”</p>
+          <p class="btext">“The town’s full of bright boys,” Max said.</p><br>
+          <p><span class="btext">George put the two platters</span>
+            (Джордж поставил две тарелки),
+            
+            <span class="btext">one of ham and eggs</span>
+            (одну с яичницей и ветчиной),
+            
+            <span class="btext">the other of bacon and eggs</span>
+            (другую с яичницей и бэконом),
+            
+            <span class="btext">on the counter</span>
+            (на стойку).
+            
+            <span class="btext">He set down two side-dishes of fried potatoes</span>
+            (он поставил две порции жареного картофеля;
+            
+            <span class="f-coni">siede-dish — боковое = сопровождающее блюдо — блюдо с гарниром</span>)
+            
+            <span class="btext">and closed the wicket into the kitchen</span>
+            (и закрыл окошечко в кухню;
+            
+            <span class="f-coni">wicket — калитка; задвижное окошко</span>).
+          </p>
+          <p><span class="btext">“Which is yours</span>
+            (которая ваша)?”
+            
+            <span class="btext">he asked Al</span>
+            (спросил он Эла).
+          </p>
+          <p><span class="btext">“Don’t you remember</span>
+            (ты не помнишь)?”
+          </p>
+          <p><span class="btext">“Ham and eggs.”</span></p>
+          <p><span class="btext">“Just a bright boy</span>
+            (просто умница/ну разве не умник),”
+            
+            <span class="btext">Max said. He leaned forward and took the ham and eggs</span>
+            (он наклонился вперед и взял яичницу с ветчиной).
+            
+            <span class="btext">Both men ate with their gloves on</span>
+            (оба ели с надетыми перчатками).
+            
+            <span class="btext">George watched them eat</span>
+            (Джордж смотрел/наблюдал, как они едят).
+          </p>
+          <p><span class="btext">“What are you looking at</span>
+            (на что ты /так/ смотришь)?”
+            
+            <span class="btext">Max looked at George</span>
+            (Макс посмотрел на Джорджа).
+          </p>
+          <p><span class="btext">“Nothing</span>
+            (ни на что: «/на/ ничто»).”
+          </p>
+          <p><span class="btext">“The hell you were</span>
+            (как же, рассказывай/черта-с-два ты не смотрел).
+            
+            <span class="btext">You were looking at me</span>
+            (ты смотрел на меня).”
+          </p>
+          <p><span class="btext">“Maybe the boy meant it for a joke, Max</span>
+            (может быть, парень пошутил: «имел в виду это/высказал это мнение для шутки = как шутку», Макс),”
+            
+            <span class="btext">Al said.</span>
+          </p>
+          <p><span class="btext">George laughed</span>
+            (Джордж засмеялся).
+          </p>
+          <p><span class="btext">“You don’t have to laugh</span>
+            (тебе-то нечего смеяться: «тебе не надо смеяться»),”
+            
+            <span class="btext">Max said to him. “You don’t have to laugh at all, see</span>
+            (тебе-то вовсе нечего смеяться, понял: «видишь»)?”
+          </p>
+          <p><span class="btext">“All right</span>
+            (хорошо/ладно),”
+            
+            <span class="btext">said George.</span>
+          </p>
+          <p><span class="btext">“So he thinks it’s all right</span>
+            (итак, он полагает, что это в порядке, правильно).”
+            
+            <span class="btext">Max turned to Al</span>
+            (Макс повернулся к Элу).
+            
+            <span class="btext">He thinks it’s all right. That’s a good one</span>
+            (хорош он).”
+          </p>
+          <p><span class="btext">“Oh, he’s a thinker</span>
+            (о, он мыслитель),”
+            
+            <span class="btext">Al said. They went on eating</span>
+            (они продолжали есть).
+          </p><br>
+          <p class="tac">meant [ment] laugh [lα:f]</p><br>
+          <p class="btext">George put the two platters, one of ham and eggs, the other of bacon and eggs, on the counter. He set down two side-dishes of fried potatoes and closed the wicket into the kitchen.</p>
+          <p class="btext">“Which is yours?” he asked Al.</p>
+          <p class="btext">“Don’t you remember?”</p>
+          <p class="btext">“Ham and eggs.”</p>
+          <p class="btext">“Just a bright boy,” Max said. He leaned forward and took the ham and eggs. Both men ate with their gloves on. George watched them eat.</p>
+          <p class="btext">“What are you looking at?” Max looked at George.</p>
+          <p class="btext">“Nothing.”</p>
+          <p class="btext">“The hell you were. You were looking at me.”</p>
+          <p class="btext">“Maybe the boy meant it for a joke, Max,” Al said.</p>
+          <p class="btext">George laughed.</p>
+          <p class="btext">“You don’t have to laugh,” Max said to him. “You don’t have to laugh at all, see?”</p>
+          <p class="btext">“All right,” said George.</p>
+          <p class="btext">“So he thinks it’s all right.” Max turned to Al. He thinks it’s all right. That’s a good one.”</p>
+          <p class="btext">“Oh, he’s a thinker,” Al said. They went on eating.</p><br>
+          <p><span class="btext">“What’s the bright boy’s name down the counter</span>
+            (как зовут того умника, что с другой стороны стойки;
+            
+            <span class="f-coni">down — внизу; ниже по /расположенный внизу или в более отдаленном месте/</span>)?”
+            
+            <span class="btext">Al asked Max.</span>
+          </p>
+          <p><span class="btext">“Hey, bright boy</span>
+            (эй, умник),”
+            
+            <span class="btext">Max said to Nick. “You go around on the other side of the counter</span>
+            (зайди за стойку: «иди вокруг на другую сторону стойки»)
+            
+            <span class="btext">with your boy friend</span>
+            (с твоим дружком = туда, где твой дружок).”
+          </p>
+          <p><span class="btext">“What’s the idea</span>
+            (а в чем дело, зачем это: «что за идея/в чем идея»)?”
+            
+            <span class="btext">Nick asked</span>
+            (спросил Ник).
+          </p>
+          <p><span class="btext">“There isn’t any idea</span>
+            (тут нет никакой идеи = просто так/да ни в чем).”
+          </p>
+          <p><span class="btext">“You better go around, bright boy</span>
+            (лучше зайди, умник),”
+            
+            <span class="btext">Al said.</span>
+          </p>
+          <p><span class="btext">Nick went around behind the counter</span>
+            (Ник зашел за стойку).
+          </p>
+          <p><span class="btext">“What’s the idea?” George asked.</span></p>
+          <p><span class="btext">“None of your damn business</span>
+            (не твое чертово: «проклятое» дело;
+            
+            <span class="f-coni">none — ничто, ни один, никакой</span>),”
+            
+            <span class="btext">Al said. “Who’s out in the kitchen</span>
+            <span class="btext">(кто там: «снаружи» на кухне)?”</span>
+          </p>
+          <p><span class="btext">“The nigger</span>
+            (негр).”
+          </p>
+          <p><span class="btext">“What do you mean the nigger</span>
+            (что ты хочешь сказать: «имеешь в виду», негр = какой такой негр)?”
+          </p>
+          <p><span class="btext">“The nigger that cooks</span>
+            (негр, который готовит/стряпает).”
+          </p>
+          <p><span class="btext">“Tell him to come in</span>
+            (скажи ему, чтобы зашел).”
+          </p>
+          <p><span class="btext">“What’s the idea?”</span></p>
+          <p><span class="btext">“Tell him to come in.”</span></p>
+          <p><span class="btext">“Where do you think you are</span>
+            (где, вы думаете, вы находитесь)?”
+          </p>
+          <p><span class="btext">“We know damn well where we are</span>
+            (мы знаем чертовски хорошо, где мы находимся),”
+            
+            <span class="btext">the man called Max said</span>
+            (сказал человек, которого звали Макс).
+            
+            <span class="btext">“Do we look silly</span>
+            (мы выглядим дурачками/глупо)?”
+          </p>
+          <p><span class="btext">“You talk silly</span>
+            (ты разговариваешь глупо),”
+            
+            <span class="btext">Al said to him. “What the hell do you argue with this kid for</span>
+            (какого черта ты споришь с этим ребенком)?
+            
+            <span class="btext">Listen</span>
+            (послушай),”
+            
+            <span class="btext">he said to George, “tell the nigger to come out here</span>
+            (скажи негру выйти сюда = чтобы вышел сюда).”
+          </p>
+          <p><span class="btext">“What are you going to do to him</span>
+            (что вы собираетесь с ним: «ему» сделать)?”
+          </p>
+          <p><span class="btext">“Nothing</span>
+            (ничего).
+            
+            <span class="btext">Use your head, bright boy</span>
+            (пошевели мозгами: «используй свою голову», умник).
+            
+            <span class="btext">What would we do to a nigger</span>
+            (что бы мы сделали негру)?”
+          </p>
+          <p><span class="btext">George opened the slit</span>
+            (открыл окошечко;
+            
+            <span class="f-coni">slit — длинный разрез, щель; to slit — разрезать в длину</span>)
+            
+            <span class="btext">that opened back into the kitchen</span>
+            (которое открывалось назад = вовнутрь в кухню).
+            
+            <span class="btext">“Sam,” he called</span>
+            (позвал он).
+            
+            <span class="btext">“Come in here a minute</span>
+            (зайди-ка сюда на минутку).”
+          </p><br>
+          <p class="tac">idea [aı`dı∂] argue [`α:gju:] minute [`mınıt]</p><br>
+          <p class="btext">“What’s the bright boy’s name down the counter?” Al asked Max.</p>
+          <p class="btext">“Hey, bright boy,” Max said to Nick. “You go around on the other side of the counter with your boy friend.”</p>
+          <p class="btext">“What’s the idea?” Nick asked.</p>
+          <p class="btext">“There isn’t any idea.”</p>
+          <p class="btext">“You better go around, bright boy,” Al said. Nick went around behind the counter.</p>
+          <p class="btext">“What’s the idea?” George asked.</p>
+          <p class="btext">“None of your damn business,” Al said. “Who’s out in the kitchen?”</p>
+          <p class="btext">“The nigger.”</p>
+          <p class="btext">“What do you mean the nigger?”</p>
+          <p class="btext">“The nigger that cooks.”</p>
+          <p class="btext">“Tell him to come in.”</p>
+          <p class="btext">“What’s the idea?”</p>
+          <p class="btext">“Tell him to come in.”</p>
+          <p class="btext">“Where do you think you are?”</p>
+          <p class="btext">“We know damn well where we are,” the man called Max said. “Do we look silly?”</p>
+          <p class="btext">“You talk silly,” Al said to him. “What the hell do you argue with this kid for? Listen,” he said to George, “tell the nigger to come out here.”</p>
+          <p class="btext">“What are you going to do to him?”</p>
+          <p class="btext">“Nothing. Use your head, bright boy. What would we do to a nigger?”</p>
+          <p class="btext">George opened the slit that opened back into the kitchen. “Sam,” he called. “Come in here a minute.”</p><br>
+          <p><span class="btext">The door to the kitchen opened and the nigger came in</span>
+            (дверь на кухню открылась и негр зашел).
+            
+            <span class="btext">“What was it</span>
+            (в чем дело: «что это было»)?”
+            
+            <span class="btext">he asked. The two men at the counter took a look at him</span>
+            (двое мужчин у стойки оглядели его;
+            
+            <span class="f-coni">to take a look — посмотреть: «взять взгляд»</span>).
+          </p>
+          <p><span class="btext">“All right, nigger</span>
+            (все в порядке/нормально, негр).
+            
+            <span class="btext">You stand right there</span>
+            (стой тут: «прямо здесь»),”
+            
+            <span class="btext">Al said.</span>
+          </p>
+          <p><span class="btext">Sam, the nigger, standing in his apron</span>
+            (Сэм, негр, стоя в своем фартуке),
+            
+            <span class="btext">looked at the two men sitting at the counter</span>
+            (посмотрел на двоих мужчин, сидящих у стойки).
+            
+            <span class="btext">“Yes, sir</span>
+            (да = хорошо, сэр),”
+            
+            <span class="btext">he said. Al got down from his stool</span>
+            (Эл слез со своего стула/табурета).
+          </p>
+          <p><span class="btext">“I’m going back to the kitchen</span>
+            (я пойду назад = туда на кухню)
+            
+            <span class="btext">with the nigger and bright boy</span>
+            (с негром и умником),”
+            
+            <span class="btext">he said. “Go on back to the kitchen, nigger</span>
+            (иди обратно = возвращайся на кухню, негр).
+            
+            <span class="btext">You go with him, bright boy</span>
+            (ты иди с ним, умник).”
+            
+            <span class="btext">The little man walked after Nick and Sam, the cook</span>
+            (маленький человек прошел вслед за Ником и Сэмом, поваром),
+            
+            <span class="btext">back into the kitchen</span>
+            (обратно на кухню).
+            
+            <span class="btext">The door shut after them</span>
+            (дверь за ними закрылась;
+            
+            <span class="f-coni">to shut — закрывать, запирать, затворять; закрываться).</span>
+            The man called Max sat at the counter opposite George
+            
+            (мужчина, которого звали Максом, сел за стойку напротив Джорджа).
+            
+            <span class="btext">He didn’t look at George</span>
+            (он не смотрел на Джорджа)
+            
+            <span class="btext">but looked in the mirror</span>
+            (а смотрел в зеркало)
+            
+            <span class="btext">that ran along back of the counter</span>
+            (которое тянулось: «бежало» вдоль за стойкой;
+            
+            <span class="f-coni">to run</span>).
+            
+            <span class="btext">Henry’s had been made over</span>
+            (заведение Генри было переделано;
+            
+            <span class="f-coni">to make over</span>)
+            
+            <span class="btext">from a saloon into a lunch-counter</span>
+            (из салуна/бара в закусочную).
+          </p><br>
+          <p class="tac">apron [`eıpr∂n] opposite [`op∂zıt]</p><br>
+          <p class="btext">The door to the kitchen opened and the nigger came in. “What was it?” he asked. The two men at the counter took a look at him.</p>
+          <p class="btext">“All right, nigger. You stand right there,” Al said.</p>
+          <p class="btext">Sam, the nigger, standing in his apron, looked at the two men sitting at the counter. “Yes, sir,” he said. Al got down from his stool.</p>
+          <p class="btext">“I’m going back to the kitchen with the nigger and bright boy,” he said. “Go on back to the kitchen, nigger. You go with him, bright boy.” The little man walked after Nick and Sam, the cook, back into the kitchen. The door shut after them. The man called Max sat at the counter opposite George. He didn’t look at George but looked in the mirror that ran along back of the counter. Henry’s had been made over from a saloon into a lunch-counter.</p><br>
+          <p><span class="btext">“Well, bright boy</span>
+            (ну, умник),”
+            
+            <span class="btext">Max said, looking into the mirror</span>
+            (глядя в зеркало),
+            
+            <span class="btext">“why don’t you say something</span>
+            (почему ты не скажешь что-нибудь)?”
+          </p>
+          <p><span class="btext">“What’s it all about</span>
+            (что все это значит: «о чем все это»)?”
+          </p>
+          <p><span class="btext">“Hey, Al,” Max called</span>
+            (позвал Макс),
+            
+            <span class="btext">“bright boy wants to know what’s all about</span>
+            (умник хочет знать, что все это значит).”
+          </p>
+          <p><span class="btext">“Why don’t you tell him</span>
+            (что же ты ему не скажешь)?”
+            
+            <span class="btext">Al’s voice came from the kitchen</span>
+            (отозвался голос Эла из кухни).
+          </p>
+          <p><span class="btext">“What do you think it’s all about</span>
+            (а ты как думаешь, что все это значит)?”
+          </p>
+          <p><span class="btext">“I don’t know</span>
+            (я не знаю).”
+          </p>
+          <p><span class="btext">“What do you think</span>
+            (как ты думаешь)?”
+          </p>
+          <p><span class="btext">Max looked into the mirror all the time he was talking</span>
+            (Макс все время смотрел в зеркало, пока говорил).
+          </p>
+          <p><span class="btext">“I wouldn’t say</span>
+            (я бы не сказал/не скажу, пожалуй/не знаю).”
+          </p>
+          <p><span class="btext">“Hey, Al, bright boy says he wouldn’t what he thinks it’s all about</span>
+            (эй, Эл, умник говорит, что он, пожалуй, не скажет, что он думает, что это значит).”
+          </p>
+          <p><span class="btext">“I can hear you, all right</span>
+            (я могу слышать тебя, в порядке, хорошо = не кричи, я и так слышу),”
+            
+            <span class="btext">Al said from the kitchen</span>
+            (сказал Эл из кухни).
+            
+            <span class="btext">He had propped open the slit</span>
+            (он подпер, чтобы оставалось открытым, окошечко/отверстие: «щель»)
+            
+            <span class="btext">that dishes passed through into the kitchen</span>
+            (через которое передавались блюда на кухню)
+            
+            <span class="btext">with a catsup bottle</span>
+            (бутылкой кетчупа).
+            
+            <span class="btext">“Listen, bright boy</span>
+            (послушай, умник),”
+            
+            <span class="btext">he said from the kitchen to George</span>
+            (сказал он Джорджу из кухни).
+            
+            <span class="btext">“Stand a little further</span>
+            (стань немного дальше)
+            
+            <span class="btext">along the bar</span>
+            (вдоль бара).
+            
+            <span class="btext">You move a little to the left, Max</span>
+            (подвинься немного влево, Макс).”
+            
+            <span class="btext">He was like a photographer arranging for a group picture</span>
+            (он был точно фотограф, расставляющий /людей/ для групповой фотографии;
+            
+            <span class="f-coni">to arrange — приводить в порядок; расставлять</span>).
+          </p><br>
+          <p class="tac">move [mu:v] arrange [∂`reınʤ] picture [`pıkt∫∂]</p><br>
+          <p class="btext">“Well, bright boy,” Max said, looking into the mirror, “why don’t you say something?”</p>
+          <p class="btext">“What’s it all about?”</p>
+          <p class="btext">“Hey, Al,” Max called, “bright boy wants to know what’s all about.”</p>
+          <p class="btext">“Why don’t you tell him?” Al’s voice came from the kitchen.</p>
+          <p class="btext">“What do you think it’s all about?”</p>
+          <p class="btext">“I don’t know.”</p>
+          <p class="btext">“What do you think?”</p>
+          <p class="btext">Max looked into the mirror all the time he was talking.</p>
+          <p class="btext">“I wouldn’t say.”</p>
+          <p class="btext">“Hey, Al, bright boy says he wouldn’t what he thinks it’s all about.”</p>
+          <p class="btext">“I can hear you, all right,” Al said from the kitchen. He had propped open the slit that dishes passed through into the kitchen with a catsup bottle. “Listen, bright boy,” he said from the kitchen to George. “Stand a little further along the bar. You move a little to the left, Max.” He was like a photographer arranging for a group picture.</p><br>
+          <p><span class="btext">“Talk to me, bright boy</span>
+            (поговори со мной = побеседуем, умник),”
+            
+            <span class="btext">Max said. “What do you think’s going to happen</span>
+            (что, как ты думаешь, сейчас произойдет)?”
+          </p>
+          <p><span class="btext">George did not say anything</span>
+            (Джордж ничего не сказал).
+          </p>
+          <p><span class="btext">“I’ll tell you</span>
+            (я скажу тебе),”
+            
+            <span class="btext">Max said. “We’re going to kill a Swede</span>
+            (мы сейчас убьем шведа/мы собираемся убить шведа).
+            
+            <span class="btext">Do you know a big Swede named Ole Andreson</span>
+            (ты знаешь большого = здорового/длинного шведа по имени Оле Андресон)?”
+          </p>
+          <p><span class="btext">“Yes.”</span></p>
+          <p><span class="btext">“He comes here to eat every night, don’t he</span>
+            (он приходит сюда поесть каждый вечер, не так ли)?”
+          </p>
+          <p><span class="btext">“Sometimes he comes here</span>
+            (иногда он сюда приходит).”
+          </p>
+          <p><span class="btext">“He comes here at six o’clock, don’t he</span>
+            (он приходит сюда в шесть часов, не так ли)?”
+          </p>
+          <p><span class="btext">“If he comes</span>
+            (если приходит).”
+          </p>
+          <p><span class="btext">“We know all that, bright boy</span>
+            (мы все это знаем, умник),”
+            
+            <span class="btext">Max said.</span>
+          </p>
+          <p><span class="btext">“Talk about something else</span>
+            (поговорим о чем-нибудь другом).
+            
+            <span class="btext">Ever go to the movies</span>
+            (когда-нибудь ходишь в кино)?”
+          </p>
+          <p><span class="btext">“Once in a while</span>
+            (изредка: «иногда в промежуток времени»;
+            
+            <span class="f-coni">once — однажды; когда-нибудь; while — время; промежуток времени</span>).”
+          </p>
+          <p><span class="btext">“You ought to go to the movies more</span>
+            (ты должен бы ходить в кино больше = чаще).
+            
+            <span class="btext">The movies are fine</span>
+            (кино — это прекрасно/отлично)
+            
+            <span class="btext">for a bright boy like you (для умника, как ты).”</span>
+          </p>
+          <p><span class="btext">“What are you going to kill Ole Andreson for</span>
+            (за что, для чего вы хотите убить Оле Андресона)?
+            
+            <span class="btext">What did he ever do to you</span>
+            (что он вам такого: «когда-либо» сделал)?”
+          </p>
+          <p><span class="btext">“He never had a chance to do anything to us</span>
+            (у него никогда не было возможности сделать что-нибудь нам).
+            
+            <span class="btext">He never even seen us</span>
+            (он даже никогда не видел нас).”
+          </p>
+          <p><span class="btext">“And he’s only going to see us once</span>
+            (и он увидит нас только однажды),”
+            
+            <span class="btext">Al said from the kitchen</span>
+            (сказал Эл из кухни).
+          </p>
+          <p><span class="btext">“What are you going to kill him for, then</span>
+            (за что же вы его тогда хотите убить)?”
+            
+            <span class="btext">George asked.</span>
+          </p>
+          <p><span class="btext">“We’re killing him for a friend</span>
+            (мы убиваем его для друга).
+            
+            <span class="btext">Just to oblige a friend, bright boy</span>
+            (просто/всего лишь чтобы услужить/сделать приятное другу, умник;
+            
+            <span class="f-coni">to oblige — обязывать; делать одолжение, угождать; оказывать услугу</span>).”
+          </p>
+          <p><span class="btext">“Shut up</span>
+            (заткнись),”
+            
+            <span class="btext">said Al from the kitchen. You talk too goddam much</span>
+            (ты говоришь слишком чертовски много;
+            
+            <span class="f-coni">goddam = goddamn — чертовский: «Бог /пусть/ проклянет»</span>).”
+          </p>
+          <p><span class="btext">“Well, I got to keep bright boy amused</span>
+            (ну, мне же надо/я же должен развлекать умника: «сохранять, держать его развлекаемым»;
+            
+            <span class="f-coni">to amuse — развлекать</span>).
+            
+            <span class="btext">Don’t I, bright boy</span>
+            (не так ли, умник)?”
+          </p>
+          <p><span class="btext">“You talk too damn much,” Al said. “The nigger and my bright boy are amused by themselves</span>
+            (негр и мой умник сами развлекаются).
+            
+            <span class="btext">I got them tied up</span>
+            (я их связал)
+            
+            <span class="btext">like a couple of girl friends in the convent</span>
+            (как парочку подружек в монастыре/в монастырской школе).”
+          </p>
+          <p><span class="btext">“I suppose you were in a convent</span>
+            (значит, ты был в монастыре: «я предполагаю, ты был в монастыре»)?”
+          </p>
+          <p><span class="btext">“You never know</span>
+            (может, и был: «никогда не знаешь»).”
+          </p>
+          <p><span class="btext">“You were in a kosher convent</span>
+            (ты был в кошерном монастыре = в хедере /в школе при синагоге/).
+            
+            <span class="btext">That’s where you were</span>
+            (вот где ты был).”
+          </p><br>
+          <p class="tac">Swede [swi:d] oblige [∂`blaıʤ] convent [`konv∂nt]</p><br>
+          <p class="btext">“Talk to me, bright boy,” Max said. “What do you think’s going to happen?”</p>
+          <p class="btext">George did not say anything.</p>
+          <p class="btext">“I’ll tell you,” Max said. “We’re going to kill a Swede. Do you know a big Swede named Ole Andreson?”</p>
+          <p class="btext">“Yes.”</p>
+          <p class="btext">“He comes here to eat every night, don’t he?”</p>
+          <p class="btext">“Sometimes he comes here.”</p>
+          <p class="btext">“He comes here at six o’clock, don’t he?”</p>
+          <p class="btext">“If he comes.”</p>
+          <p class="btext">“We know all that, bright boy,” Max said.</p>
+          <p class="btext">“Talk about something else. Ever go to the movies?”</p>
+          <p class="btext">“Once in a while.”</p>
+          <p class="btext">“You ought to go to the movies more. The movies are fine for a bright boy like you.”</p>
+          <p class="btext">“What are you going to kill Ole Andreson for? What did he ever do to you?”</p>
+          <p class="btext">“He never had a chance to do anything to us. He never even seen us.”</p>
+          <p class="btext">“And he’s only going to see us once,” Al said from the kitchen.</p>
+          <p class="btext">“What are you going to kill him for, then?” George asked.</p>
+          <p class="btext">“We’re killing him for a friend. Just to oblige a friend, bright boy.”</p>
+          <p class="btext">“Shut up,” said Al from the kitchen. You talk too goddam much.”</p>
+          <p class="btext">“Well, I got to keep bright boy amused. Don’t I, bright boy?”</p>
+          <p class="btext">“You talk too damn much,” Al said. “The nigger and my bright boy are amused by themselves. I got them tied up like a couple of girl friends in the convent.”</p>
+          <p class="btext">“I suppose you were in a convent?”</p>
+          <p class="btext">“You never know.”</p>
+          <p class="btext">“You were in a kosher convent. That’s where you were.”</p><br>
+          <p><span class="btext">George looked up at the clock</span>
+            (Джордж посмотрел на часы).
+          </p>
+          <p><span class="btext">“If anybody comes in you tell them the cook is off</span>
+            (если кто-нибудь придет, ты им скажешь, что повар ушел: «свободен /от работы/, на перерыве»;
+            
+            <span class="f-coni">off — указывает на удаление или прекращение чего-либо),</span>
+            <span class="btext">and if they keep after it</span>
+            (а если они будут настаивать),
+            
+            <span class="btext">you tell them you’ll go back</span>
+            (что ты пойдешь на кухню: «в заднюю комнату»)
+            
+            <span class="btext">and cook yourself</span>
+            (и приготовишь сам).
+            
+            <span class="btext">Do you get that, bright boy</span>
+            (ты понял: «получил» это, умник)?”
+          </p>
+          <p><span class="btext">“All right,” George said. “What you going to do with us afterward</span>
+            (что вы сделаете с нами после)?”
+          </p>
+          <p><span class="btext">“That’s depend</span>
+            (это зависит = смотря по обстоятельствам),”
+            
+            <span class="btext">Max said. “That’s one of those things you never know at the time</span>
+            (это одна из вещей, которые никогда не знаешь в данное время = заранее)."
+          </p>
+          <p><span class="btext">George looked up at the clock</span>
+            (Джордж посмотрел на часы).
+            
+            <span class="btext">It was a quarter past six</span>
+            (была четверть после шести = четверть седьмого).
+            
+            <span class="btext">The door from the street opened</span>
+            (дверь с улицы открылась).
+            
+            <span class="btext">A street-car motorman came in</span>
+            (вошел трамвайный вожатый).
+          </p>
+          <p><span class="btext">“Hello, George,” he said. “Can I get supper</span>
+            (поужинать можно: «могу я получить ужин»)?”
+          </p>
+          <p><span class="btext">“Sam’s gone out</span>
+            (Сэм вышел),”
+            
+            <span class="btext">George said. “He’ll be back in about half an hour</span>
+            (он вернется примерно через полчаса).”
+          </p>
+          <p><span class="btext">“I’d better go up the street</span>
+            (я, пожалуй, лучше пойду вверх по улице = пойду еще куда-нибудь),”
+            
+            <span class="btext">the motorman said. George looked at the clock. It was twenty minutes past six</span>
+            (было двадцать минут после шести = двадцать минут седьмого).
+          </p>
+          <p><span class="btext">“That was nice, bright boy</span>
+            (это было славно /проделано/, умник),”
+            
+            <span class="btext">Max said. “You’re a regular little gentleman</span>
+            (ты настоящий маленький джентельмен).”
+          </p>
+          <p><span class="btext">“He knew I’d blow his head off</span>
+            (он знал, что я ему голову снесу = прострелю;
+            
+            <span class="f-coni">to blow — дуть</span>),”
+            
+            <span class="btext">Al said from the kitchen.</span>
+          </p>
+          <p><span class="btext">“No,” said Max. “It ain’t that</span>
+            (не поэтому, не в этом дело).
+            
+            <span class="btext">Bright boy is nice. He’s a nice boy. I like him</span>
+            (он мне нравится).”
+          </p><br>
+          <p class="tac">depend [dı`pend] regular [`regjul∂]</p><br>
+          <p class="btext">George looked up at the clock.</p>
+          <p class="btext">“If anybody comes in you tell them the cook is off, and if they keep after it, you tell them you’ll go back and cook yourself. Do you get that, bright boy?”</p>
+          <p class="btext">“All right,” George said. “What you going to do with us afterward?”</p>
+          <p class="btext">“That’s depend,” Max said. “That’s one of those things you never know at the time."</p>
+          <p class="btext">George looked up at the clock. It was a quarter past six. The door from the street opened. A street-car motorman came in.</p>
+          <p class="btext">“Hello, George,” he said. “Can I get supper?”</p>
+          <p class="btext">“Sam’s gone out,” George said. “He’ll be back in about half an hour.”</p>
+          <p class="btext">“I’d better go up the street,” the motorman said. George looked at the clock. It was twenty minutes past six.</p>
+          <p class="btext">“That was nice, bright boy,” Max said. “You’re a regular little gentleman.”</p>
+          <p class="btext">“He knew I’d blow his head off,” Al said from the kitchen.</p>
+          <p class="btext">“No,” said Max. “It ain’t that. Bright boy is nice. He’s a nice boy. I like him.”</p><br>
+          <p><span class="btext">At six-fifty-five</span>
+            (в шесть /часов/ пятьдесят пять)
+            
+            <span class="btext">George said: “He’s not coming</span>
+            (он не придет).”
+          </p>
+          <p><span class="btext">Two other people had been in the lunch-room</span>
+            (двое других людей побывали в закусочной).
+            
+            <span class="btext">Once George had gone out to the kitchen</span>
+            (один раз Джордж вышел на кухню)
+            
+            <span class="btext">and made a ham-and-egg sandwich “to go”</span>
+            (и сделал сандвич с ветчиной и яичницей на вынос)
+            
+            <span class="btext">that a man wanted to take with him</span>
+            (который человек хотел взять с собой).
+            
+            <span class="btext">Inside the kitchen he saw Al</span>
+            (внутри кухни он увидел Эла),
+            
+            <span class="btext">his derby hat tipped back</span>
+            (его котелок /был/ сдвинут назад;
+            
+            <span class="f-coni">to tip — наклонять/ся/; запрокидываться</span>),
+            
+            <span class="btext">sitting on a stool beside the wicket</span>
+            (сидящим на табурете возле окошечка)
+            
+            <span class="btext">with the muzzle of of a sawed-off shotgun</span>
+            (с дулом отпиленного ружья = обреза;
+            
+            <span class="f-coni">muzzle — морда; дуло</span>)
+            
+            <span class="btext">resting on the ledge</span>
+            (лежащим/покоящимся на планке/краю /окошечка/).
+            
+            <span class="btext">Nick and the cook were back in the corner</span>
+            (Ник с поваром были в дальнем углу),
+            
+            <span class="btext">a towel tied in each of their mouths</span>
+            (полотенце, завязанное = заткнутое в каждом из их ртов = во рту у каждого было заткнуто полотенце).
+            
+            <span class="btext">George had cooked the sandwich, wrapped it up in oiled paper</span>
+            (Джордж приготовил сандвич, завернул его в пергаментную бумагу;
+            
+            <span class="f-coni">oil — растительное или минеральное масло; oiled — пропитанный маслом, промасленный</span>),
+            
+            <span class="btext">put it in a bag</span>
+            (положил его в пакет),
+            
+            <span class="btext">brought it in</span>
+            (вынес из кухни: «занес в комнату»;
+            
+            <span class="f-coni">to bring — приносить</span>),
+            
+            <span class="btext">and the man had paid for it and gone out</span>
+            (мужчина заплатил за него и ушел).
+          </p>
+          <p><span class="btext">“Bright boy can do everything</span>
+            (умник все умеет: «может делать все»),”
+            
+            <span class="btext">Max said. “He can cook and everything</span>
+            (он умеет готовить и все такое).
+            
+            <span class="btext">You’d make some girl a nice wife, bright boy</span>
+            (ты бы сделал какую-нибудь девушку славной женой = повезло твоей будущей жене, умник).”
+          </p>
+          <p><span class="btext">“Yes?” George said. “Your friend, Ole Andreson, isn’t going to come</span>
+            (ваш друг, Оле Андресон, не придет).”
+          </p>
+          <p><span class="btext">“We’ll give him ten minutes</span>
+            (мы дадим ему десять минут),”
+            
+            <span class="btext">Max said.</span>
+          </p>
+          <p><span class="btext">Max watched the mirror and the clock</span>
+            (Макс посмотрел на зеркало и на часы).
+            
+            <span class="btext">The hands of the clock marked seven o’clock</span>
+            (стрелки часов показали семь;
+            
+            <span class="f-coni">to mark — отмечать</span>),
+            
+            <span class="btext">and then five minutes past seven</span>
+            (а затем пять минут после семи = пять минут восьмого).
+          </p><br>
+          <p class="tac">wicket [`wıkıt], mouth [mauθ]</p><br>
+          <p class="btext">At six-fifty-five George said: “He’s not coming.”</p>
+          <p class="btext">Two other people had been in the lunch-room. Once George had gone out to the kitchen and made a ham-and-egg sandwich “to go” that a man wanted to take with him. Inside the kitchen he saw Al, his derby hat tipped back, sitting on a stool beside the wicket with the muzzle of of a sawed-off shotgun resting on the ledge. Nick and the cook were back in the corner, a towel tied in each of their mouths. George had cooked the sandwich, wrapped it up in oiled paper, put it in a bag, brought it in, and the man had paid for it and gone out.</p>
+          <p class="btext">“Bright boy can do everything,” Max said. “He can cook and everything. You’d make some girl a nice wife, bright boy.”</p>
+          <p class="btext">“Yes?” George said. “Your friend, Ole Andreson, isn’t going to come.”</p>
+          <p class="btext">“We’ll give him ten minutes,” Max said.</p>
+          <p class="btext">Max watched the mirror and the clock. The hands of the clock marked seven o’clock, and then five minutes past seven.</p><br>
+          <p><span class="btext">“Come on</span>
+            (да ладно, давай),
+            
+            <span class="btext">Al,” said Max. “We better go</span>
+            (лучше пойдем).
+            
+            <span class="btext">He’s not coming</span>
+            (он не придет).”
+          </p>
+          <p><span class="btext">“Better give him five minutes</span>
+            (лучше дай ему /еще/ пять минут),”
+            
+            <span class="btext">Al said from the kitchen.</span>
+          </p>
+          <p><span class="btext">In the five minutes a man came in</span>
+            (через пять минут зашел /еще один/ мужчина),
+            
+            <span class="btext">and George explained that the cook was sick</span>
+            (и Джордж объяснил, что повар болен).
+          </p>
+          <p><span class="btext">“Why don’t you get another cook</span>
+            (почему же вы не возьмете другого повара)?”
+            
+            <span class="btext">the man asked. “Aren’t you running a lunch-counter</span>
+            (разве вы не держите закусочную)?”
+            
+            <span class="btext">He went out</span>
+            (он вышел).
+          </p>
+          <p><span class="btext">“Come on, Al</span>
+            (давай, Эл),”
+            
+            <span class="btext">Max said.</span>
+          </p>
+          <p><span class="btext">“What about the two bright boys and the nigger</span>
+            (а как быть с двумя умниками и негром: «а что насчет…»)?”
+          </p>
+          <p><span class="btext">“The’re all right</span>
+            (пусть их: «они в порядке/нормально»; the’re = they’re).”
+          </p>
+          <p><span class="btext">“You think so</span>
+            (ты так полагаешь)?”
+          </p>
+          <p><span class="btext">“Sure. We’re through with it</span>
+            (здесь уже все /закончено/: «мы /уже/ сквозь/через это»).”
+          </p>
+          <p><span class="btext">“I don’t like it</span>
+            (мне это не нравится),”
+            
+            <span class="btext">said Al. It’s sloppy</span>
+            (нечистая работа;
+            
+            <span class="f-coni">slop — жидкая грязь; sloppy — покрытый лужами; неряшливый, небрежный).</span>
+            <span class="btext">You talk too much</span>
+            (ты слишком много болтаешь).”
+          </p>
+          <p><span class="btext">“Oh, what the hell</span>
+            (какого черта),”
+            
+            <span class="btext">said Max. “We got to keep amused, haven’t we</span>
+            (мы должны развлекать, не так ли;
+            
+            <span class="f-coni">to keep — держать; удерживать, сохранять</span>)?”
+          </p>
+          <p><span class="btext">“You talk too much, all the same</span>
+            (все равно, ты слишком много болтаешь),”
+            
+            <span class="btext">Al said. He came out from the kitchen</span>
+            (он вышел из кухни).
+            
+            <span class="btext">The cut-off barrels of the shotgun</span>
+            (обрезанные стволы ружья;
+            
+            <span class="f-coni">barrel — бочка, бочонок; ствол, дуло /оружия/</span>)
+            
+            <span class="btext">made a slight bulge</span>
+            (делали легкую выпуклость)
+            
+            <span class="btext">under the waist of his too tight-fitting overcoat</span>
+            (под талией = на боку его слишком узкого/облегающего пальто;
+            
+            <span class="f-coni">to fit — быть в пору/в самый раз; tight — тугой, туго натянутый, туго завязанный; плотно прилегающий, тесный /о платье, обуви/</span>).
+            
+            <span class="btext">He straightened his coat</span>
+            (он одернул свое пальто;
+            
+            <span class="f-coni">to straighten — выпрямлять</span>)
+            
+            <span class="btext">with his gloved hands</span>
+            (руками в перчатках).
+          </p>
+          <p><span class="btext">“So long, bright boy</span>
+            (пока, умник),”
+            
+            <span class="btext">he said to George. “You got a lot of luck</span>
+            (везет тебе: «имеешь много удачи = большую удачу»).”
+          </p>
+          <p><span class="btext">“That’s the truth</span>
+            (это правда),”
+            
+            <span class="btext">Max said. You ought to play the races, bright boy</span>
+            (тебе надо бы играть на скачках, умник).”
+          </p>
+          <p><span class="btext">The two of them went out the door</span>
+            (и они: «оба они» вышли на улицу: «из двери»).
+            
+            <span class="btext">George watched them, through the window</span>
+            (Джордж наблюдал за ними в окно: «через окно»),
+            
+            <span class="btext">pass under the arc-light</span>
+            (как они прошли под /дуговым/ фонарем;
+            
+            <span class="f-coni">arc — /электрическая/ дуга</span>)
+            
+            <span class="btext">and cross the street</span>
+            (и пересекли улицу).
+            
+            <span class="btext">In their tight overcoats and derby hats they looked like a vaudeville team</span>
+            (в своих облегающих/узких плащах и котелках они выглядели, как водевильная команда = эстрадная пара).
+            
+            <span class="btext">George went back through the swinging-door</span>
+            (Джордж вернулся через вращающуюся /двустворчатую, открывающуюся в обе стороны/ дверь;
+            
+            <span class="f-coni">to swing — качаться; вертеться, поворачиваться</span>)
+            
+            <span class="btext">into the kitchen and untied Nick and the cook</span>
+            (на кухню и развязал Ника с поваром).
+          </p><br>
+          <p class="tac">vaudeville [`v∂ud∂vıl]</p><br>
+          <p class="btext">“Come on, Al,” said Max. “We better go. He’s not coming.”</p>
+          <p class="btext">“Better give him five minutes,” Al said from the kitchen.</p>
+          <p class="btext">In the five minutes a man came in, and George explained that the cook was sick.</p>
+          <p class="btext">“Why don’t you get another cook?” the man asked. “Aren’t you running a lunch-counter?” He went out.</p>
+          <p class="btext">“Come on, Al,” Max said.</p>
+          <p class="btext">“What about the two bright boys and the nigger?”</p>
+          <p class="btext">“The’re all right.”</p>
+          <p class="btext">“You think so?”</p>
+          <p class="btext">“Sure. We’re through with it.”</p>
+          <p class="btext">“I don’t like it,” said Al. It’s sloppy. You talk too much.”</p>
+          <p class="btext">“Oh, what the hell,” said Max. “We got to keep amused, haven’t we?”</p>
+          <p class="btext">“You talk too much, all the same,” Al said. He came out from the kitchen. The cut-off barrels of the shotgun made a slight bulge under the waist of his too tight-fitting overcoat. He straightened his coat with his gloved hands.</p>
+          <p class="btext">“So long, bright boy,” he said to George. “You got a lot of luck.”</p>
+          <p class="btext">“That’s the truth,” Max said. You ought to play the races, bright boy.”</p>
+          <p class="btext">The two of them went out the door. George watched them, through the window, pass under the arc-light and cross the street. In their tight overcoats and derby hats they looked like a vaudeville team. George went back through the swinging-door into the kitchen and untied Nick and the cook.</p><br>
+          <p><span class="btext">“I don’t want any more of that</span>
+            (я не хочу больше ничего подобного = с меня довольно),”
+            
+            <span class="btext">said Sam, the cook</span>
+            (сказал Сэм, повар).
+            
+            <span class="btext">“I don’t want any more of that.”</span>
+          </p>
+          <p><span class="btext">Nick stood up</span>
+            (Ник встал;
+            
+            <span class="f-coni">to stand up</span>).
+            
+            <span class="btext">He had never had a towel in his mouth before</span>
+            (у него никогда раньше не было полотенца во рту).
+          </p>
+          <p><span class="btext">“Say</span>
+            (послушай: «скажи»),”
+            
+            <span class="btext">he said. “What the hell</span>
+            (какого черта)?”
+            
+            <span class="btext">He was trying to swagger it off</span>
+            (он пытался отмахнуться от этого /от происшедшего/ = сделать вид, что ему все нипочем;
+            
+            <span class="f-coni">to swagger — расхаживать с важным видом; чваниться; хвастать</span>).
+          </p>
+          <p><span class="btext">“They were going to kill Ole Andreson</span>
+            (они собираются убить Оле Андресона),”
+            
+            <span class="btext">George said. “They were going to shoot him</span>
+            (они собирались застрелить его)
+            
+            <span class="btext">when he came in to eat</span>
+            (когда он придет обедать).”
+          </p>
+          <p><span class="btext">“Ole Andreson?”</span></p>
+          <p><span class="btext">“Sure</span>
+            (да: «конечно»).”
+          </p>
+          <p><span class="btext">The cook felt the corners of his mouth with his thumbs</span>
+            (повар потрогал углы своего рта большими пальцами;
+            
+            <span class="f-coni">to feel — чувствовать; ощупывать; thumb — большой палец /руки/</span>).
+          </p>
+          <p><span class="btext">“They all gone</span>
+            (они ушли)?”
+            
+            <span class="btext">he asked.</span>
+          </p>
+          <p><span class="btext">“Yeah</span>
+            (да),”
+            
+            <span class="btext">said George. “They’re gone now</span>
+            (они теперь все ушли).”
+          </p>
+          <p><span class="btext">“I don’t like it</span>
+            (мне это не нравится),”
+            
+            <span class="btext">said the cook. “I don’t like any of it at all</span>
+            (мне это совсем не нравится: «ничего из этого совсем не нравится»).”
+          </p>
+          <p><span class="btext">“Listen</span>
+            (послушай),”
+            
+            <span class="btext">George said to Nick. “You better go see Ole Andreson</span>
+            (тебе лучше повидать Оле Андресона/сходить к Оле Андресону).”
+          </p>
+          <p><span class="btext">“All right</span>
+            (хорошо/ладно).”
+          </p>
+          <p><span class="btext">“You better not have anything to do with it at all</span>
+            (лучше не связывайся: «не имей никакого дела с этим всем»),”
+            
+            <span class="btext">Sam, the cook, said. “You better stay way out of it</span>
+            (лучше держись подальше от этого: «оставайся вне этого»).”
+          </p>
+          <p><span class="btext">“Don’t go if you don’t want to</span>
+            (не ходи, если не хочешь),”
+            
+            <span class="btext">George said.</span>
+          </p>
+          <p><span class="btext">“Mixing up in this</span>
+            (вмешательство в это)
+            
+            <span class="btext">ain’t going to get you anywhere</span>
+            (никуда тебя не приведет = ни к чему хорошему не приведет),”
+            
+            <span class="btext">the cook said. “You stay out of it.”</span>
+          </p>
+          <p><span class="btext">“I’ll go see him</span>
+            (я схожу к нему),”
+            
+            <span class="btext">Nick said to George. “Where does he live</span>
+            (где он живет)?”
+          </p>
+          <p><span class="btext">The cook turned away</span>
+            (повар отвернулся).
+          </p>
+          <p><span class="btext">“Little boys always know what they want to do</span>
+            (маленькие мальчики всегда знают, что они хотят делать),”
+            
+            <span class="btext">he said.</span>
+          </p>
+          <p><span class="btext">“He lives up</span>
+            (он живет вверх по улице)
+            
+            <span class="btext">at Hirsch’s rooming-house</span>
+            (в доходном доме Хирш/в меблированных комнатах /госпожи/ Хирш),”
+            
+            <span class="btext">George said to Nick.</span>
+          </p>
+          <p><span class="btext">“I’ll go up there</span>
+            (я схожу туда).”
+          </p><br>
+          <p class="tac">thumb [θm]</p><br>
+          <p class="btext">“I don’t want any more of that,” said Sam, the cook. “I don’t want any more of that.”</p>
+          <p class="btext">Nick stood up. He had never had a towel in his mouth before.</p>
+          <p class="btext">“Say,” he said. “What the hell?” He was trying to swagger it off.</p>
+          <p class="btext">“They were going to kill Ole Andreson,” George said. “They were going to shoot him when he came in to eat.”</p>
+          <p class="btext">“Ole Andreson?”</p>
+          <p class="btext">“Sure.”</p>
+          <p class="btext">The cook felt the corners of his mouth with his thumbs.</p>
+          <p class="btext">“They all gone?” he asked.</p>
+          <p class="btext">“Yeah,” said George. “They’re gone now.”</p>
+          <p class="btext">“I don’t like it,” said the cook. “I don’t like any of it at all.”</p>
+          <p class="btext">“Listen,” George said to Nick. “You better go see Ole Andreson.”</p>
+          <p class="btext">“All right.”</p>
+          <p class="btext">“You better not have anything to do with it at all,” Sam, the cook, said. “You better stay way out of it.”</p>
+          <p class="btext">“Don’t go if you don’t want to,” George said.</p>
+          <p class="btext">“Mixing up in this ain’t going to get you anywhere,” the cook said. “You stay out of it.”</p>
+          <p class="btext">“I’ll go see him,” Nick said to George. “Where does he live?”</p>
+          <p class="btext">The cook turned away.</p>
+          <p class="btext">“Little boys always know what they want to do,” he said.</p>
+          <p class="btext">“He lives up at Hirsch’s rooming-house,” George said to Nick.</p>
+          <p class="btext">“I’ll go up there.”</p><br>
+          <p><span class="btext">Outside the arc-light shone through the bare branches of a tree</span>
+            (на улице дуговой фонарь светил сквозь голые ветки дерева).
+            
+            <span class="btext">Nick walked up the street beside the car-tracks</span>
+            (Ник пошел по улице возле = вдоль трамвайных путей)
+            
+            <span class="btext">and turned at the next arc-light down a side-street</span>
+            (и свернул у ближайшего фонаря в боковую улицу/в переулок).
+            
+            <span class="btext">Three houses up the street was Hirsch’s rooming-house</span>
+            (через три дома был доходный дом Хирш).
+            
+            <span class="btext">Nick walked up the two steps</span>
+            (Ник поднялся на две ступеньки)
+            
+            <span class="btext">and pushed the bell</span>
+            (и надавил кнопку звонка).
+            
+            <span class="btext">A woman came to the door</span>
+            (к двери подошла женщина = открыла женщина).
+          </p>
+          <p><span class="btext">“Is Ole Andreson here</span>
+            (Оле Андресон здесь = у себя)?”
+          </p>
+          <p><span class="btext">“Do you want to see him</span>
+            (вы хотите его видеть)?”
+          </p>
+          <p><span class="btext">“Yes, if he’s in</span>
+            (да, если он дома).”
+          </p>
+          <p><span class="btext">Nick followed the woman up a flight of stairs</span>
+            (Ник последовал за женщиной вверх по пролету лестницы)
+            
+            <span class="btext">and back to the end of a corridor</span>
+            (и назад в конец коридора = и вглубь коридора/в конец длинного коридора).
+            
+            <span class="btext">She knocked on the door</span>
+            (она постучала в дверь).
+          </p>
+          <p><span class="btext">“Who is it</span>
+            (кто там: «кто это»)?”
+          </p>
+          <p><span class="btext">“It’s somebody to see you, Mr. Andreson</span>
+            (тут вас спрашивают: «кто-то, чтобы повидать вас», господин Андресон),”
+            
+            <span class="btext">the woman said.</span>
+          </p>
+          <p><span class="btext">“It’s Nick Adams</span>
+            (я Ник Адамс: «это Ник Адамс»).”
+          </p>
+          <p><span class="btext">“Come in</span>
+            (заходи).”
+          </p>
+          <p><span class="btext">Nick opened the door and went into the room</span>
+            (Ник открыл дверь и прошел в комнату).
+            
+            <span class="btext">Ole Andreson was lying on the bed</span>
+            (Оле Андресон лежал на кровати)
+            
+            <span class="btext">with all his clothes on</span>
+            (одетый: «с одеждой на нем»).
+            
+            <span class="btext">He had been a heavyweight prize-fighter</span>
+            (он был /когда-то/ боксером-тяжеловесом;
+            
+            <span class="f-coni">heavy — тяжелый; weight — вес; prize — награда, премия; to fight — драться, биться</span>)
+            
+            <span class="btext">and he was too long for the bed</span>
+            (и он был слишком длинным для кровати).
+            
+            <span class="btext">He lay with his head on two pillows</span>
+            (он лежал головой на двух подушках;
+            
+            <span class="f-coni">to lie — лежать</span>).
+            
+            <span class="btext">He did not look at Nick</span>
+            (он не посмотрел/не взглянул на Ника).
+          </p><br>
+          <p class="tac">heavy [`hevı] weight [weıt]</p><br>
+          <p class="btext">Outside the arc-light shone through the bare branches of a tree. Nick walked up the street beside the car-tracks and turned at the next arc-light down a side-street. Three houses up the street was Hirsch’s rooming-house. Nick walked up the two steps and pushed the bell. A woman came to the door.</p>
+          <p class="btext">“Is Ole Andreson here?”</p>
+          <p class="btext">“Do you want to see him?”</p>
+          <p class="btext">“Yes, if he’s in.”</p>
+          <p class="btext">Nick followed the woman up a flight of stairs and back to the end of a corridor. She knocked on the door.</p>
+          <p class="btext">“Who is it?”</p>
+          <p class="btext">“It’s somebody to see you, Mr. Andreson,” the woman said.</p>
+          <p class="btext">“It’s Nick Adams.”</p>
+          <p class="btext">“Come in.”</p>
+          <p class="btext">Nick opened the door and went into the room. Ole Andreson was lying on the bed with all his clothes on. He had been a heavyweight prize-fighter and he was too long for the bed. He lay with his head on two pillows. He did not look at Nick.</p><br>
+          <p><span class="btext">“What was it</span>
+            (в чем дело: «что это было»)?”
+            
+            <span class="btext">he asked.</span>
+          </p>
+          <p><span class="btext">“I was up at Henry’s</span>
+            (я был в закусочной Генри),”
+            
+            <span class="btext">Nick said, “and two fellows came in</span>
+            (пришли два парня/типа)
+            
+            <span class="btext">and tied me and the cook</span>
+            (и связали меня и повара),
+            
+            <span class="btext">and they said they were going to kill you</span>
+            (и они сказали, что собираются убить вас).”
+          </p>
+          <p><span class="btext">It sounded silly when he said it</span>
+            (прозвучало глупо, когда он это сказал).
+            
+            <span class="btext">Ole Andreson said nothing</span>
+            (Оле Андресон ничего не сказал).
+          </p>
+          <p><span class="btext">“George thought I better come and tell you about it</span>
+            (Джордж подумал, что мне лучше придти и рассказать вам об этом).”
+          </p>
+          <p><span class="btext">“There isn’t anything I can do about it</span>
+            (я ничего не могу поделать с этим),”
+            
+            <span class="btext">Ole Andreson said.</span>
+          </p>
+          <p><span class="btext">“I’ll tell you what they were like</span>
+            (я расскажу вам, как они выглядели: «на что они были похожи»).”
+          </p>
+          <p><span class="btext">“I don’t want to know what they were like</span>
+            (я не хочу знать, как они выглядели),”
+            
+            <span class="btext">Ole Andreson said. He looked at the wall</span>
+            (он смотрел на стену).
+            
+            <span class="btext">“Thanks for coming to tell me about it</span>
+            (спасибо, что пришел рассказать мне об этом).”
+          </p>
+          <p><span class="btext">“That’s all right</span>
+            (не стоит /благодарности/: «это в порядке»).”
+          </p>
+          <p><span class="btext">Nick looked at the big man lying on the bed</span>
+            (Ник посмотрел на большого/крупного мужчину, лежащего на постели).
+          </p>
+          <p><span class="btext">“Don’t you want me to go and see the police</span>
+            (не хотите, чтобы я сходил и заявил в полицию)?”
+          </p>
+          <p><span class="btext">“No,” Ole Andreson said. “That wouldn’t do any good</span>
+            (это бесполезно: «это не сделало бы ничего хорошего»).”
+          </p>
+          <p><span class="btext">“Isn’t there something I could do</span>
+            (есть тут что-нибудь, что бы я мог сделать = могу я чем-нибудь помочь)?”
+          </p>
+          <p><span class="btext">“No. There ain’t anything to do</span>
+            (тут нечего делать = нет смысла что-либо делать/ничего не поделаешь).”
+          </p>
+          <p><span class="btext">“Maybe it was just a bluff</span>
+            (может быть, это был просто блеф).”
+          </p>
+          <p><span class="btext">“No. It ain’t just a bluff.”</span></p>
+          <p><span class="btext">Ole Andreson rolled over</span>
+            (Оле Андресон перевернулся: «перекатился»)
+            
+            <span class="btext">toward the wall</span>
+            (к стене),
+            
+            <span class="btext">“I just can’t make up my mind</span>
+            (я просто не могу решиться/собраться с духом;
+            
+            <span class="f-coni">mind — разум; дух, душа</span>)
+            
+            <span class="btext">to go out</span>
+            (выйти /на улицу/).
+            
+            <span class="btext">I been in here all day (я был здесь внутри = в доме целый день).”</span>
+          </p>
+          <p><span class="btext">“Couldn’t you get out of town</span>
+            (не могли бы вы уехать из города)?”
+          </p>
+          <p><span class="btext">“No,” Ole Andreson said. “I’m through with all that running around</span>
+            (я покончил со всей этой беготней: «беганьем вокруг/повсюду»).”
+          </p>
+          <p><span class="btext">He looked at the wall</span>
+            (он смотрел на стену).
+          </p>
+          <p><span class="btext">“There ain’t anything to do now</span>
+            (тут теперь ничего не поделаешь).”
+          </p>
+          <p><span class="btext">“Couldn’t you fix it up some way</span>
+            (не могли бы вы это уладить как-нибудь;
+            
+            <span class="f-coni">to fix — укрепить; починить</span>)?”
+          </p>
+          <p><span class="btext">“No. I got in wrong</span>
+            (я сделал ошибку/влип = теперь уже поздно;
+            
+            <span class="f-coni">to get — попасть /например, в какую-либо ситуацию/; wrong — неверный, неправильный</span>).”
+            
+            <span class="btext">He talked in the same flat voice</span>
+            (он говорил тем же плоским = ровным/унылым голосом).
+            
+            <span class="btext">“There ain’t anything to do. After a while</span>
+            (через некоторое время)
+            
+            <span class="btext">I’ll make up my mind to go out</span>
+            (я возьму себя в руки и выйду: «чтобы выйти»).”
+          </p>
+          <p><span class="btext">“I better go back and see George</span>
+            (я лучше пойду обратно = вернусь и повидаю Джорджа = я, пожалуй, вернусь к Джорджу),”
+            
+            <span class="btext">Nick said.</span>
+          </p>
+          <p><span class="btext">“So long</span>
+            (пока),”
+            
+            <span class="btext">said Ole Andreson. He did not look toward Nick</span>
+            (он не смотрел к Нику = в сторону Ника).
+            
+            <span class="btext">“Thanks for coming around</span>
+            (спасибо, что зашел).”
+          </p><br>
+          <p class="tac">police [p∂`li:s]</p><br>
+          <p class="btext">“What was it?” he asked.</p>
+          <p class="btext">“I was up at Henry’s,” Nick said, “and two fellows came in and tied me and the cook, and they said they were going to kill you.”</p>
+          <p class="btext">It sounded silly when he said it. Ole Andreson said nothing.</p>
+          <p class="btext">“George thought I better come and tell you about it.”</p>
+          <p class="btext">“There isn’t anything I can do about it,” Ole Andreson said.</p>
+          <p class="btext">“I’ll tell you what they were like.”</p>
+          <p class="btext">“I don’t want to know what they were like,” Ole Andreson said. He looked at the wall. “Thanks for coming to tell me about it.”</p>
+          <p class="btext">“That’s all right.”</p>
+          <p class="btext">Nick looked at the big man lying on the bed.</p>
+          <p class="btext">“Don’t you want me to go and see the police?”</p>
+          <p class="btext">“No,” Ole Andreson said. “That wouldn’t do any good.”</p>
+          <p class="btext">“Isn’t there something I could do?”</p>
+          <p class="btext">“No. There ain’t anything to do.”</p>
+          <p class="btext">“Maybe it was just a bluff.”</p>
+          <p class="btext">“No. It ain’t just a bluff.”</p>
+          <p class="btext">Ole Andreson rolled over toward the wall, “I just can’t make up my mind to go out. I been in here all day.”</p>
+          <p class="btext">“Couldn’t you get out of town?”</p>
+          <p class="btext">“No,” Ole Andreson said. “I’m through with all that running around.”</p>
+          <p class="btext">He looked at the wall.</p>
+          <p class="btext">“There ain’t anything to do now.”</p>
+          <p class="btext">“Couldn’t you fix it up some way?”</p>
+          <p class="btext">“No. I got in wrong.” He talked in the same flat voice. “There ain’t anything to do. After a while I’ll make up my mind to go out.”</p>
+          <p class="btext">“I better go back and see George,” Nick said.</p>
+          <p class="btext">“So long,” said Ole Andreson. He did not look toward Nick. “Thanks for coming around.”</p><br>
+          <p><span class="btext">Nick went out</span>
+            (Ник вышел).
+            
+            
+            <div class="btext">As he shut the door he saw Ole Andreson with all his clothes on, lying on the bed looking at the wall</div>
+            (когда он закрывал дверь = закрывая дверь, он увидел Оле Андресона в полной одежде: «со всей его одеждой на нем», лежащим на постели и смотрещим на стену).
+          </p>
+          <p><span class="btext">“He’s been in his room all day</span>
+            (он пробыл в своей комнате весь день),”
+            
+            <span class="btext">the landlady said downstairs</span>
+            (сказала хозяка комнат внизу /лестницы/).
+            
+            <span class="btext">“I guess he don’t feel well</span>
+            (я думаю, уж не заболел ли: «он не чувствует себя хорошо»;
+            
+            <span class="f-coni">to guess — угадывать; предполагать</span>).
+            
+            <span class="btext">I said to him: ‘Mr. Andreson, you ought to go out and take a walk</span>
+            (господин Андресон, вам надо бы выйти и прогуляться: «взять = сделать прогулку»)
+            
+            <span class="btext">on a nice fall day like this</span>
+            (в такой прекрасный осенний день;
+            
+            <span class="f-coni">fall — осень</span>),’
+            
+            <span class="btext">but he didn’t feel like it</span>
+            (ему не захотелось;
+            
+            <span class="f-coni">to feel — чувствовать; to feel like — быть склонным; хотеть</span>).”
+          </p>
+          <p><span class="btext">“He doesn’t want to go out</span>
+            (он не хочет выходить из дому).”
+          </p>
+          <p><span class="btext">“I’m sorry he don’t feel well</span>
+            (мне жаль, что он чувствует себя неважно),”
+            
+            <span class="btext">the woman said</span>
+            (сказала женщина).
+            
+            <span class="btext">“He’s an awfully nice man</span>
+            (он ужасно славный человек).
+            
+            <span class="btext">He was in the ring, you know</span>
+            (он был на ринге = был боксером, знаете ли).”
+          </p>
+          <p><span class="btext">“I know it</span>
+            (я знаю это).”
+          </p>
+          <p><span class="btext">“You’d never know it</span>
+            (никогда бы не догадаться: «вы бы никогда этого не узнали»)
+            
+            <span class="btext">except from the way his face is</span>
+            (за исключением/кроме как по тому, каково его лицо = разве что по его лицу),”
+            
+            <span class="btext">the woman said. They stood talking just inside the street door</span>
+            (они стояли, разговаривая, прямо в двери на улицу).
+            
+            <span class="btext">“He’s just as gentle</span>
+            (настолько он мягкий/кроткий).”
+          </p>
+          <p><span class="btext">“Well, good-night, Mrs. Hirsch</span>
+            (ну, прощайте: «доброго вечера, ночи», госпожа Хирш),”
+            
+            <span class="btext">Nick said.</span>
+          </p>
+          <p><span class="btext">“I’m not Mrs. Hirsch</span>
+            (я не госпожа Хирш),”
+            
+            <span class="btext">the woman said. “She owns the place</span>
+            (она владеет этим местом).
+            
+            <span class="btext">I just look after it for her</span>
+            (я просто присматриваю за ним для нее).
+            
+            <span class="btext">I’m Mrs. Bell.”</span>
+          </p>
+          <p><span class="btext">“Well, good-night, Mrs. Bell,” Nick said.</span></p>
+          <p><span class="btext">“Good-night,” the woman said.</span></p><br>
+          <p class="tac">guess [ges]</p><br>
+          <p class="btext">Nick went out. As he shut the door he saw Ole Andreson with all his clothes on, lying on the bed looking at the wall.</p>
+          <p class="btext">“He’s been in his room all day,” the landlady said downstairs. “I guess he don’t feel well. I said to him: ‘Mr. Andreson, you ought to go out and take a walk on a nice fall day like this,’ but he didn’t feel like it.”</p>
+          <p class="btext">“He doesn’t want to go out.”</p>
+          <p class="btext">“I’m sorry he don’t feel well,” the woman said. “He’s an awfully nice man. He was in the ring, you know.”</p>
+          <p class="btext">“I know it.”</p>
+          <p class="btext">“You’d never know it except from the way his face is,” the woman said. They stood talking just inside the street door. “He’s just as gentle.”</p>
+          <p class="btext">“Well, good-night, Mrs. Hirsch,” Nick said.</p>
+          <p class="btext">“I’m not Mrs. Hirsch,” the woman said. “She owns the place. I just look after it for her. I’m Mrs. Bell.”</p>
+          <p class="btext">“Well, good-night, Mrs. Bell,” Nick said.</p>
+          <p class="btext">“Good-night,” the woman said.</p><br>
+          <p><span class="btext">Nick walked up the dark street to the corner under the arc-light</span>
+            (Ник прошел по темной улице до угла под фонарем),
+            
+            <span class="btext">and then along the car-tracks to Henry’s eating house</span>
+            (а затем вдоль трамвайных путей к закусочной Генри).
+            
+            <span class="btext">George was inside, back of the counter</span>
+            (Джордж был там: «внутри», за стойкой).
+          </p>
+          <p><span class="btext">“Did you see Ole</span>
+            (ты видел = застал Оле)?”
+          </p>
+          <p><span class="btext">“Yes,” said Nick. “He’s in his room and he won’t go out</span>
+            (он в своей комнате и не хочет выходить).”
+          </p>
+          <p><span class="btext">The cook opened the door from the kitchen when he heard Nick’s voice</span>
+            (повар открыл дверь кухни, когда он услышал голос Ника;
+            
+            <span class="f-coni">to hear — слышать</span>).
+          </p>
+          <p><span class="btext">“I don’t even listen to it</span>
+            (я даже не слушаю это),”
+            
+            <span class="btext">he said and shut the door</span>
+            (сказал он и закрыл дверь).
+          </p>
+          <p><span class="btext">“Did you tell him about it</span>
+            (ты ему рассказал об этом)?”
+            
+            <span class="btext">George asked.</span>
+          </p>
+          <p><span class="btext">“Sure</span>
+            (конечно).
+            
+            <span class="btext">I told him but he knows what it’s all about</span>
+            (я рассказал ему, но он в курсе дела: «знает, о чем все это»).”
+          </p>
+          <p><span class="btext">“What’s he going to do</span>
+            (что он собирается делать)?”
+          </p>
+          <p><span class="btext">“Nothing</span>
+            (ничего).”
+          </p>
+          <p><span class="btext">“They’ll kill him</span>
+            (они его убьют).”
+          </p>
+          <p><span class="btext">“I guess they will</span>
+            (думаю, да).”
+          </p>
+          <p><span class="btext">“He must have not mixed up in something in Chicago</span>
+            (ему не надо было впутываться во что-то там в Чикаго).”
+          </p>
+          <p><span class="btext">“I guess so</span>
+            (полагаю, что так),”
+            
+            <span class="btext">said Nick.</span>
+          </p>
+          <p><span class="btext">“It’s a hell of a thing</span>
+            (скверное: «адское» дело;
+            
+            <span class="f-coni">hell — ад</span>).”
+          </p>
+          <p><span class="btext">“It’s an awful thing</span>
+            (ужасное дело),”
+            
+            <span class="btext">Nick said.</span>
+          </p>
+          <p><span class="btext">They did not say anything</span>
+            (/больше/ они ничего не говорили).
+            
+            <span class="btext">George reached down for a towel</span>
+            (Джордж достал полотенце: «потянулся вниз за полотенцем»)
+            
+            <span class="btext">and wiped the counter</span>
+            (и вытер стойку).
+          </p>
+          <p><span class="btext">“I wonder what he did</span>
+            (интересно, что же он такое сделал;
+            
+            <span class="f-coni">to wonder — удивляться; задаваться вопросом</span>)?”
+            
+            <span class="btext">Nick said.</span>
+          </p>
+          <p><span class="btext">“Double-crossed somebody</span>
+            (обошел кого-то/перебежал кому-то дорогу;
+            
+            <span class="f-coni">to double-cross — надуть, перехитрить, обмануть</span>).
+            
+            <span class="btext">That’s what they kill them for</span>
+            (вот за что они их убивают = именно за это обычно убивают).”
+          </p>
+          <p><span class="btext">“I’m going to get out of this town</span>
+            (я уеду из этого города),”
+            
+            <span class="btext">Nick said.</span>
+          </p>
+          <p><span class="btext">“Yes,” said George. “That’s a good thing to do</span>
+            (это хорошо бы: «это хорошая штука, чтобы сделать = хорошо бы так сделать»).”
+          </p>
+          <p><span class="btext">“I can’t stand</span>
+            (я не могу вынести/терпеть)
+            
+            <span class="btext">to think about him waiting in the room</span>
+            (когда подумаю, как он ждет в комнате)
+            
+            <span class="btext">and knowing he’s going to get it</span>
+            (и знает, что получит/поймает это = что до него доберутся).
+            
+            <span class="btext">It’s too damned awful</span>
+            (это ужасно: «это слишком проклято = чертовски ужасно»).”
+          </p>
+          <p><span class="btext">“Well,” said George, “you better not think about it</span>
+            (а ты лучше не думай об этом).”
+          </p><br>
+          <p class="tac">awful [`ɔf(ə)l], double [dʌbl]</p><br>
+          <p class="btext">Nick walked up the dark street to the corner under the arc-light, and then along the car-tracks to Henry’s eating house. George was inside, back of the counter.</p>
+          <p class="btext">“Did you see Ole?”</p>
+          <p class="btext">“Yes,” said Nick. “He’s in his room and he won’t go out.”</p>
+          <p class="btext">The cook opened the door from the kitchen when he heard Nick’s voice.</p>
+          <p class="btext">“I don’t even listen to it,” he said and shut the door.</p>
+          <p class="btext">“Did you tell him about it?” George asked.</p>
+          <p class="btext">“Sure. I told him but he knows what it’s all about.”</p>
+          <p class="btext">“What’s he going to do?”</p>
+          <p class="btext">“Nothing.”</p>
+          <p class="btext">“They’ll kill him.”</p>
+          <p class="btext">“I guess they will.”</p>
+          <p class="btext">“He must have not mixed up in something in Chicago.”</p>
+          <p class="btext">“I guess so,” said Nick.</p>
+          <p class="btext">“It’s a hell of a thing.”</p>
+          <p class="btext">“It’s an awful thing,” Nick said.</p>
+          <p class="btext">They did not say anything. George reached down for a towel and wiped the counter.</p>
+          <p class="btext">“I wonder what he did?” Nick said.</p>
+          <p class="btext">“Double-crossed somebody. That’s what they kill them for.”</p>
+          <p class="btext">“I’m going to get out of this town,” Nick said.</p>
+          <p class="btext">“Yes,” said George. “That’s a good thing to do.”</p>
+          <p class="btext">“I can’t stand to think about him waiting in the room and knowing he’s going to get it. It’s too damned awful.”</p>
+          <p class="btext">“Well,” said George, “you better not think about it.”</p>
+        </section>
+      </div>
+      <!-- ↓↓↓ modules: bbp (start) ↓↓↓-->
+      <div class="bbp">
+        <div class="bbp__btns-wrapper">
+          <div class="bbp__btn" id="bookmark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+              <path d="M336 0H48C21.49 0 0 21.49 0 48v464l192-112 192 112V48c0-26.51-21.49-48-48-48zm0 428.43l-144-84-144 84V54a6 6 0 0 1 6-6h276c3.314 0 6 2.683 6 5.996V428.43z"></path>
+            </svg>
+          </div>
+          <div class="bbp__btn" id="selectText">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path>
+            </svg>
+          </div>
+          <div class="bbp__btn" id="options">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+              <path d="M512.1 191l-8.2 14.3c-3 5.3-9.4 7.5-15.1 5.4-11.8-4.4-22.6-10.7-32.1-18.6-4.6-3.8-5.8-10.5-2.8-15.7l8.2-14.3c-6.9-8-12.3-17.3-15.9-27.4h-16.5c-6 0-11.2-4.3-12.2-10.3-2-12-2.1-24.6 0-37.1 1-6 6.2-10.4 12.2-10.4h16.5c3.6-10.1 9-19.4 15.9-27.4l-8.2-14.3c-3-5.2-1.9-11.9 2.8-15.7 9.5-7.9 20.4-14.2 32.1-18.6 5.7-2.1 12.1.1 15.1 5.4l8.2 14.3c10.5-1.9 21.2-1.9 31.7 0L552 6.3c3-5.3 9.4-7.5 15.1-5.4 11.8 4.4 22.6 10.7 32.1 18.6 4.6 3.8 5.8 10.5 2.8 15.7l-8.2 14.3c6.9 8 12.3 17.3 15.9 27.4h16.5c6 0 11.2 4.3 12.2 10.3 2 12 2.1 24.6 0 37.1-1 6-6.2 10.4-12.2 10.4h-16.5c-3.6 10.1-9 19.4-15.9 27.4l8.2 14.3c3 5.2 1.9 11.9-2.8 15.7-9.5 7.9-20.4 14.2-32.1 18.6-5.7 2.1-12.1-.1-15.1-5.4l-8.2-14.3c-10.4 1.9-21.2 1.9-31.7 0zm-10.5-58.8c38.5 29.6 82.4-14.3 52.8-52.8-38.5-29.7-82.4 14.3-52.8 52.8zM386.3 286.1l33.7 16.8c10.1 5.8 14.5 18.1 10.5 29.1-8.9 24.2-26.4 46.4-42.6 65.8-7.4 8.9-20.2 11.1-30.3 5.3l-29.1-16.8c-16 13.7-34.6 24.6-54.9 31.7v33.6c0 11.6-8.3 21.6-19.7 23.6-24.6 4.2-50.4 4.4-75.9 0-11.5-2-20-11.9-20-23.6V418c-20.3-7.2-38.9-18-54.9-31.7L74 403c-10 5.8-22.9 3.6-30.3-5.3-16.2-19.4-33.3-41.6-42.2-65.7-4-10.9.4-23.2 10.5-29.1l33.3-16.8c-3.9-20.9-3.9-42.4 0-63.4L12 205.8c-10.1-5.8-14.6-18.1-10.5-29 8.9-24.2 26-46.4 42.2-65.8 7.4-8.9 20.2-11.1 30.3-5.3l29.1 16.8c16-13.7 34.6-24.6 54.9-31.7V57.1c0-11.5 8.2-21.5 19.6-23.5 24.6-4.2 50.5-4.4 76-.1 11.5 2 20 11.9 20 23.6v33.6c20.3 7.2 38.9 18 54.9 31.7l29.1-16.8c10-5.8 22.9-3.6 30.3 5.3 16.2 19.4 33.2 41.6 42.1 65.8 4 10.9.1 23.2-10 29.1l-33.7 16.8c3.9 21 2.9 42.5 0 63.5zm-117.6 21.1c59.2-77-28.7-164.9-105.7-105.7-59.2 77 28.7 164.9 105.7 105.7zm243.4 182.7l-8.2 14.3c-3 5.3-9.4 7.5-15.1 5.4-11.8-4.4-22.6-10.7-32.1-18.6-4.6-3.8-5.8-10.5-2.8-15.7l8.2-14.3c-6.9-8-12.3-17.3-15.9-27.4h-16.5c-6 0-11.2-4.3-12.2-10.3-2-12-2.1-24.6 0-37.1 1-6 6.2-10.4 12.2-10.4h16.5c3.6-10.1 9-19.4 15.9-27.4l-8.2-14.3c-3-5.2-1.9-11.9 2.8-15.7 9.5-7.9 20.4-14.2 32.1-18.6 5.7-2.1 12.1.1 15.1 5.4l8.2 14.3c10.5-1.9 21.2-1.9 31.7 0l8.2-14.3c3-5.3 9.4-7.5 15.1-5.4 11.8 4.4 22.6 10.7 32.1 18.6 4.6 3.8 5.8 10.5 2.8 15.7l-8.2 14.3c6.9 8 12.3 17.3 15.9 27.4h16.5c6 0 11.2 4.3 12.2 10.3 2 12 2.1 24.6 0 37.1-1 6-6.2 10.4-12.2 10.4h-16.5c-3.6 10.1-9 19.4-15.9 27.4l8.2 14.3c3 5.2 1.9 11.9-2.8 15.7-9.5 7.9-20.4 14.2-32.1 18.6-5.7 2.1-12.1-.1-15.1-5.4l-8.2-14.3c-10.4 1.9-21.2 1.9-31.7 0zM501.6 431c38.5 29.6 82.4-14.3 52.8-52.8-38.5-29.6-82.4 14.3-52.8 52.8z"></path>
+            </svg>
+          </div>
+          <div class="bbp__btn" id="goHome">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"></path>
+            </svg>
+          </div>
+          <div class="bbp__btn" id="scrollUp">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
+            </svg>
+          </div>
+          <div class="bbp__btn" id="scrollDown">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+            </svg>
+          </div>
+          <div class="bbp__btn" id="scrollTop">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+              <path d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="bbp__oa bbp__oa_colors">
+          <div class="bbp__oa-header">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path>
+            </svg><span>Виділення тексту</span>
+          </div>
+          <div class="bbp__oa-body">
+            <div class="bbp__color-field">
+              <div class="selected selected_red" data-select="red">Абв</div>
+              <div class="selected selected_tomato" data-select="tomato">Абв</div>
+              <div class="selected selected_springgreen" data-select="springgreen">Абв</div>
+              <div class="selected selected_yellowgreen" data-select="yellowgreen">Абв</div>
+              <div class="selected selected_black" data-select="black">Абв</div>
+              <div class="selected selected_black-corrector" data-select="black-corrector">Абв</div>
+              <div class="selected selected_yellow" data-select="yellow">Абв</div>
+              <div class="selected selected_turquoise" data-select="turquoise">Абв</div>
+              <div class="selected selected_steelblue" data-select="steelblue">Абв</div>
+              <div class="selected selected_rebeccapurple" data-select="rebeccapurple">Абв</div>
+              <div class="selected selected_white" data-select="white">Абв</div>
+              <div class="selected selected_white-corrector" data-select="white-corrector">Абв</div>
+              <div class="selected selected_overscored" data-select="overscored">Абв</div>
+              <div class="selected selected_underscored" data-select="underscored">Абв</div>
+              <div class="selected selected_double-underscored" data-select="double-underscored">Абв</div>
+              <div class="selected selected_dotted-underscored" data-select="dotted-underscored">Абв</div>
+              <div class="selected selected_dashed-underscored" data-select="dashed-underscored">Абв</div>
+              <div class="selected selected_wavy-underscored" data-select="wavy-underscored">Абв</div>
+            </div>
+          </div>
+        </div>
+        <div class="bbp__oa bbp__oa_options">
+          <div class="bbp__oa-header">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+              <path d="M512.1 191l-8.2 14.3c-3 5.3-9.4 7.5-15.1 5.4-11.8-4.4-22.6-10.7-32.1-18.6-4.6-3.8-5.8-10.5-2.8-15.7l8.2-14.3c-6.9-8-12.3-17.3-15.9-27.4h-16.5c-6 0-11.2-4.3-12.2-10.3-2-12-2.1-24.6 0-37.1 1-6 6.2-10.4 12.2-10.4h16.5c3.6-10.1 9-19.4 15.9-27.4l-8.2-14.3c-3-5.2-1.9-11.9 2.8-15.7 9.5-7.9 20.4-14.2 32.1-18.6 5.7-2.1 12.1.1 15.1 5.4l8.2 14.3c10.5-1.9 21.2-1.9 31.7 0L552 6.3c3-5.3 9.4-7.5 15.1-5.4 11.8 4.4 22.6 10.7 32.1 18.6 4.6 3.8 5.8 10.5 2.8 15.7l-8.2 14.3c6.9 8 12.3 17.3 15.9 27.4h16.5c6 0 11.2 4.3 12.2 10.3 2 12 2.1 24.6 0 37.1-1 6-6.2 10.4-12.2 10.4h-16.5c-3.6 10.1-9 19.4-15.9 27.4l8.2 14.3c3 5.2 1.9 11.9-2.8 15.7-9.5 7.9-20.4 14.2-32.1 18.6-5.7 2.1-12.1-.1-15.1-5.4l-8.2-14.3c-10.4 1.9-21.2 1.9-31.7 0zm-10.5-58.8c38.5 29.6 82.4-14.3 52.8-52.8-38.5-29.7-82.4 14.3-52.8 52.8zM386.3 286.1l33.7 16.8c10.1 5.8 14.5 18.1 10.5 29.1-8.9 24.2-26.4 46.4-42.6 65.8-7.4 8.9-20.2 11.1-30.3 5.3l-29.1-16.8c-16 13.7-34.6 24.6-54.9 31.7v33.6c0 11.6-8.3 21.6-19.7 23.6-24.6 4.2-50.4 4.4-75.9 0-11.5-2-20-11.9-20-23.6V418c-20.3-7.2-38.9-18-54.9-31.7L74 403c-10 5.8-22.9 3.6-30.3-5.3-16.2-19.4-33.3-41.6-42.2-65.7-4-10.9.4-23.2 10.5-29.1l33.3-16.8c-3.9-20.9-3.9-42.4 0-63.4L12 205.8c-10.1-5.8-14.6-18.1-10.5-29 8.9-24.2 26-46.4 42.2-65.8 7.4-8.9 20.2-11.1 30.3-5.3l29.1 16.8c16-13.7 34.6-24.6 54.9-31.7V57.1c0-11.5 8.2-21.5 19.6-23.5 24.6-4.2 50.5-4.4 76-.1 11.5 2 20 11.9 20 23.6v33.6c20.3 7.2 38.9 18 54.9 31.7l29.1-16.8c10-5.8 22.9-3.6 30.3 5.3 16.2 19.4 33.2 41.6 42.1 65.8 4 10.9.1 23.2-10 29.1l-33.7 16.8c3.9 21 3.9 42.5 0 63.5zm-117.6 21.1c59.2-77-28.7-164.9-105.7-105.7-59.2 77 28.7 164.9 105.7 105.7zm243.4 182.7l-8.2 14.3c-3 5.3-9.4 7.5-15.1 5.4-11.8-4.4-22.6-10.7-32.1-18.6-4.6-3.8-5.8-10.5-2.8-15.7l8.2-14.3c-6.9-8-12.3-17.3-15.9-27.4h-16.5c-6 0-11.2-4.3-12.2-10.3-2-12-2.1-24.6 0-37.1 1-6 6.2-10.4 12.2-10.4h16.5c3.6-10.1 9-19.4 15.9-27.4l-8.2-14.3c-3-5.2-1.9-11.9 2.8-15.7 9.5-7.9 20.4-14.2 32.1-18.6 5.7-2.1 12.1.1 15.1 5.4l8.2 14.3c10.5-1.9 21.2-1.9 31.7 0l8.2-14.3c3-5.3 9.4-7.5 15.1-5.4 11.8 4.4 22.6 10.7 32.1 18.6 4.6 3.8 5.8 10.5 2.8 15.7l-8.2 14.3c6.9 8 12.3 17.3 15.9 27.4h16.5c6 0 11.2 4.3 12.2 10.3 2 12 2.1 24.6 0 37.1-1 6-6.2 10.4-12.2 10.4h-16.5c-3.6 10.1-9 19.4-15.9 27.4l8.2 14.3c3 5.2 1.9 11.9-2.8 15.7-9.5 7.9-20.4 14.2-32.1 18.6-5.7 2.1-12.1-.1-15.1-5.4l-8.2-14.3c-10.4 1.9-21.2 1.9-31.7 0zM501.6 431c38.5 29.6 82.4-14.3 52.8-52.8-38.5-29.6-82.4 14.3-52.8 52.8z"></path>
+            </svg><span>Налаштування</span>
+          </div>
+          <div class="bbp__oa-body">
+            <div class="bbp__oa-subheader">Шрифт</div>
+            <div class="bbp__oa-block">
+              <div class="bbp__oa-options-name">розмір:</div>
+              <div class="bbp__oa-options-param">
+                <div class="bbp__oa-btns-wrapper"></div>
+                <button class="bbp__oa-param-btn fontSize" type="button" data-behavior="+"><span>+</span></button>
+                <button class="bbp__oa-param-btn fontSize" type="button" data-behavior="-"><span>-</span></button>
+              </div>
+              <div class="bbp__oa-options-result fontSizeIndicator">20</div>
+            </div>
+            <div class="bbp__oa-block">
+              <div class="bbp__oa-options-name">тип:</div>
+              <div class="bbp__oa-options-param">
+                <div class="bbp__oa-options-font-wrapper">
+                  <div class="bbp__oa-options-font-current-name">gost</div>
+                  <div class="bbp__oa-options-font-list">
+                    <div class="bbp__oa-options-font-item">arial</div>
+                    <div class="bbp__oa-options-font-item">consola</div>
+                    <div class="bbp__oa-options-font-item">gost</div>
+                    <div class="bbp__oa-options-font-item">roboto</div>
+                    <div class="bbp__oa-options-font-item">segoe</div>
+                    <div class="bbp__oa-options-font-item">times new roman</div>
+                    <div class="bbp__oa-options-font-item">bulgaria</div>
+                  </div>
+                </div>
+              </div>
+              <div class="bbp__oa-options-result fontNameIndicator">gost</div>
+            </div>
+            <div class="bbp__oa-block">
+              <div class="bbp__oa-options-name">колір:</div>
+              <div class="bbp__oa-options-param">
+                <input class="textColorInput" type="color">
+              </div>
+              <div class="bbp__oa-options-result fontColorIndicator">#123456</div>
+            </div>
+            <div class="bbp__oa-subheader">Тло</div>
+            <div class="bbp__oa-block">
+              <div class="bbp__oa-options-name">колір:</div>
+              <div class="bbp__oa-options-param">
+                <input class="pageColorInput" type="color">
+              </div>
+              <div class="bbp__oa-options-result pageColorIndicator">#123456</div>
+            </div>
+            <div class="bbp__oa-block_display">А ба ба га ла ма га</div>
+          </div>
+        </div>
+      </div>
+      <!-- ↑↑↑ modules: bbp (end) ↑↑↑-->
+    </main>
+    <div id="lightning-conductor" style="display:none"></div>
+  </body>
+</html>
